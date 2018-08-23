@@ -1,0 +1,93 @@
+\documentclass[pdftex,a4paper,halfparskip]{scrartcl}
+% Andere Dokumentklassen: article, report, book, beamer, scrartcl, scrreprt, scrbook, beamer
+% Prefix scr bedeuted aus dem KOMA-Script Paket, welches europäische Formatierungsstandards enthält
+% Gebräuchliche Optionen sind: 11pt, 12pt, twoside, twocolumn, a4paper,...
+\usepackage{ngerman} %Titel z.B. für Tabellen- und Inhaltsverzeichnis werden ins Deutsche übersetzt. Ausserdem Aktivierung der korrekten Silbentrennung
+
+\usepackage[latin1, utf8]{inputenc} %Für das Erkennen von Umlauten
+
+\usepackage[T1]{fontenc} %Font-Encodierung wird auf das T1-Format mit bis zu 256 (anstelle 128 im Default Fontencoder) umgeschaltet
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{color}
+
+\title{Rapid Frontend Prototyping with Deep Learning} %Definition des Titels
+\author{Simon Deussen}	%Definition des Autors
+% \date{7.Nov.2010}
+
+\begin{document}
+
+\maketitle	
+
+\begin{abstract}
+Generierung von HTML/CSS Code anhand von pixelbasierten Screenshots und -designs. Aufbauend auf dem Pix2Code Paper \cite{Beltramelli17}, wird diese Arbeit eine eigene Implementation mit einem anderen Framework sowie einer ausführlichereren DSL erstellen. Durch automatisches Erstellen von Frontend-Code kann diese Anwendung rapide Entwicklungszyklen realisieren.
+\end{abstract}
+
+
+\tableofcontents	% Erstellung des Inhaltsverzeichnisses
+%\listoffigures   % Abbildungsverzeichnis
+%\listoftables    % Tabellenverzeichnis
+\section{Einleitung} 
+
+Viele client-basierte Anwendungen brauchen ein Frontend. Um dieses zu realisieren benötigt man ein enge Kooperation von Designern und Entwicklern. Im der klassichen Entwicklung sieht diese Zusammenarbeit folgendermaßen aus: \\
+Ein Designer macht einen grafischen Entwurf, dieser wird vom Kunde abgenommen, dann geht er zu dem Entwickler, der nun zu aller erst Markup für den Content und anschließend das Design und die richtige Darstellung nach bauen muss. Für jede grafische Veränderung muss dieser Prozess wieder ausgeführt werden. Für die meisten Entwickler, ist die Markup und CSS erstellung der widrigste Part der ganzen Arbeit, da er recht zeit-aufwendig, repetetiv und langweilig ist. Es gab bisher viele Ansätze diese Arbeit zu automatisieren, zB durch Tools in dem man gleichzeitig Designen und den Markup exportieren kann. Leider sind diese Tools entweder nicht besonders gut die Designs zu erstellen oder darin den Markup zu exportieren.
+
+Eine Abhilfe soll diese Arbeit liefern: Sie ermöglich das der Designer mit seinem Bevorzugten Tools das Design erstellt und der Entwickler den fertigen Markup bekommt und sich vollends auf die Realisierung des Verhaltens und der Logik der Anwendung konzentrieren kann. 
+
+\section{Ähnliche Arbeiten}
+
+Diese Arbeit basiert auf dem Pix2Code Paper von Tony Beltramelli \cite{Beltramelli17} . Er war der erste der Code anhand von visuellen Input generieren kann. 
+Anderen Ansätze wie DeepCoder \cite{DeepCoder16} benötigen komplizierte DSL als Input und schränken so die Benutzbarkeit stark ein. Visuelle Versuche mit Android-GUIs von Nguyen \cite{Nguyen15} benötigt ebenfalls unpraktische von Experten erstellte Heuristiken. Pix2Code ist so das erste Paper das einen allgemeinen Input hat, und daraus momentan drei verschiedene Targetsprachen hat. Zum einen kann es HTMl/CSS Code erstellen, zum anderen aber auch Android- und iOS-Markup. Siehe Orginal Code auf Github \cite{Beltramelli17Github}
+
+
+\section{Motivation}
+Computergenierte Programme werden die Zukunft der Software Entwicklung sein und diesen Bereich auch grundsätzlich verändern. 
+
+Ich denke das sich die Webtechnologien auch in der Desktop Umgebung durchsetzen.  Da Plattform unabhängig und sehr stark optimiert. Sehr einfach zu lernen, weit verbreitet. Zum Beispiel Electron \cite{electron} ermöglich den einfachen Einsatz durch einen eingebetten Browser.
+
+
+
+\section{Benutzte Technologien}
+\subsection{Neuronale Netzwerke}
+Neuronale Netzwerke sind einfach zu benutzende Modelle, welche nicht-lineare Abhängikeiten mit vielen latenten Variablen stochastisch abbilden können. Im einfachen Sinne, sind sie gerichtete Graphen, deren Knoten oder Nodes aus ihren Inputs Werte errechnen und die an die folgenden Nodes weitergeben. Hierbei werden zwischen 3 verschiedenen Arten von Nodes unterschieden:
+
+\begin{description}
+	\item[Input Nodes] Über diese Nodes bekommt das Netzwerke die Input Parameter.
+	\item[Hidden Nodes] Nodes, welche das netzwerke-interne Modell repräsentieren.
+	\item[Output Nodes] Diese Nodes bilden die Repräsentation des Ergebisses ab.
+\end{description}
+
+Jede der Nodes hat eine bestimmte Anzahl an Verbindungen, diese hängt von der Art der Nodes und deren Zweck ab. Wichtig ist jedoch, das jede Node mit mehreren anderen Nodes verbunden ist, dies soll heißen, den Output mehrerer Nodes als Input zu bekommen und den eigenen Output als Input für die folgenden Nodes weiterzuleiten. Die Stärke der Abhängigkeit zwischen zwei Nodes wird als Gewicht ausgedrückt. Jede Verbindung in einem Neuronalen Netzwerk hat ein Gewicht, welches mit dem Output der vorangegangen Node multipliziert wird bevor es als Input weiter verwendet wird. 
+
+Nachdem die Node aus den Inputs einen Wert errechnet hat, geht dieser durch eine Aktivierungsfunktion. Diese Funktion gibt das Aktivitätslevel der Node wieder. 
+
+Das netzwerk-interne Modell wird in diesen Gewichten abgespeichert. Es repräsentiert also das Wissen, dass durch das Training entstanden ist.
+
+Das Training eines Netzwerkes, ist das schrittweiße Anpassen der Gewichte bis es ein gutes Modell des Problems gelernt hat. 
+\subsection{CNN}
+\subsection{RNN}
+\subsection{Image Captioning Techniken}
+\subsubsection{CNN-Part}
+\subsubsection{RNN-Part}
+\subsection{DSL}
+\subsection{Training}
+\subsection{Sampling}
+\subsection{Keras}
+\subsection{Colab}
+\section{Überblick}
+\section{Vision Model}
+\section{Language Model}
+\section{Decoder}
+\section{Daten Synthese}
+\section{Vergleich zu dem Original}
+\section{Experimente}
+\section{Zusammenfassung}
+\section{Fazit}
+
+\bibliographystyle{plain}
+\bibliography{sources} 
+
+\end{document}
+
+

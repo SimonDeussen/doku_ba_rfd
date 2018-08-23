@@ -1,0 +1,24 @@
+\contentsline {section}{\numberline {1}Einleitung}{2}{section.1}
+\contentsline {section}{\numberline {2}\IeC {\"A}hnliche Arbeiten}{2}{section.2}
+\contentsline {section}{\numberline {3}Motivation}{3}{section.3}
+\contentsline {section}{\numberline {4}Benutzte Technologien}{3}{section.4}
+\contentsline {subsection}{\numberline {4.1}Neuronale Netzwerke}{3}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}CNN}{5}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}RNN}{5}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Image Captioning Techniken}{5}{subsection.4.4}
+\contentsline {subsubsection}{\numberline {4.4.1}CNN-Part}{5}{subsubsection.4.4.1}
+\contentsline {subsubsection}{\numberline {4.4.2}RNN-Part}{5}{subsubsection.4.4.2}
+\contentsline {subsection}{\numberline {4.5}DSL}{5}{subsection.4.5}
+\contentsline {subsection}{\numberline {4.6}Training}{5}{subsection.4.6}
+\contentsline {subsection}{\numberline {4.7}Sampling}{5}{subsection.4.7}
+\contentsline {subsection}{\numberline {4.8}Keras}{5}{subsection.4.8}
+\contentsline {subsection}{\numberline {4.9}Colab}{5}{subsection.4.9}
+\contentsline {section}{\numberline {5}\IeC {\"U}berblick}{5}{section.5}
+\contentsline {section}{\numberline {6}Vision Model}{5}{section.6}
+\contentsline {section}{\numberline {7}Language Model}{5}{section.7}
+\contentsline {section}{\numberline {8}Decoder}{5}{section.8}
+\contentsline {section}{\numberline {9}Daten Synthese}{5}{section.9}
+\contentsline {section}{\numberline {10}Vergleich zu dem Original}{5}{section.10}
+\contentsline {section}{\numberline {11}Experimente}{5}{section.11}
+\contentsline {section}{\numberline {12}Zusammenfassung}{5}{section.12}
+\contentsline {section}{\numberline {13}Fazit}{5}{section.13}

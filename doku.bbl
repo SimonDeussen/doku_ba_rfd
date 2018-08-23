@@ -1,0 +1,29 @@
+\begin{thebibliography}{1}
+
+\bibitem{electron}
+Electron.
+\newblock \url{https://www.electronjs.org/}.
+
+\bibitem{Beltramelli17Github}
+pix2code.
+\newblock \url{https://www.github.com/tonybeltramelli/pix2code}.
+
+\bibitem{DeepCoder16}
+Matej Balog, Alexander~L. Gaunt, Marc Brockschmidt, Sebastian Nowozin, and
+  Daniel Tarlow.
+\newblock Deepcoder: Learning to write programs.
+\newblock {\em CoRR}, abs/1611.01989, 2016.
+
+\bibitem{Beltramelli17}
+Tony Beltramelli.
+\newblock pix2code: Generating code from a graphical user interface screenshot.
+\newblock {\em CoRR}, abs/1705.07962, 2017.
+
+\bibitem{Nguyen15}
+Tuan~Anh Nguyen and Christoph Csallner.
+\newblock Reverse engineering mobile application user interfaces with remaui
+  (t).
+\newblock {\em 2015 30th IEEE/ACM International Conference on Automated
+  Software Engineering (ASE)}, pages 248--259, 2015.
+
+\end{thebibliography}

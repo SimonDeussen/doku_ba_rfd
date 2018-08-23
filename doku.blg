@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: doku.aux
+The style file: plain.bst
+Database file #1: sources.bib
+Warning--to sort, need author or key in Beltramelli17Github
+Warning--to sort, need author or key in electron
+You've used 5 entries,
+            2118 wiz_defined-function locations,
+            524 strings with 4659 characters,
+and the built_in function-call counts, 1293 in all, are:
+= -- 123
+> -- 50
+< -- 1
++ -- 21
+- -- 16
+* -- 69
+:= -- 205
+add.period$ -- 13
+call.type$ -- 5
+change.case$ -- 23
+chr.to.int$ -- 0
+cite$ -- 7
+duplicate$ -- 54
+empty$ -- 113
+format.name$ -- 16
+if$ -- 282
+int.to.chr$ -- 0
+int.to.str$ -- 5
+missing$ -- 3
+newline$ -- 26
+num.names$ -- 6
+pop$ -- 35
+preamble$ -- 1
+purify$ -- 18
+quote$ -- 0
+skip$ -- 48
+stack$ -- 0
+substring$ -- 53
+swap$ -- 14
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 20
+warning$ -- 2
+while$ -- 8
+width$ -- 6
+write$ -- 49
+(There were 2 warnings)
