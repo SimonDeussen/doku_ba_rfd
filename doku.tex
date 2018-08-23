@@ -50,7 +50,7 @@ Ich denke das sich die Webtechnologien auch in der Desktop Umgebung durchsetzen.
 
 \section{Benutzte Technologien}
 \subsection{Neuronale Netzwerke}
-Neuronale Netzwerke sind einfach zu benutzende Modelle, welche nicht-lineare Abhängikeiten mit vielen latenten Variablen stochastisch abbilden können. Im einfachen Sinne, sind sie gerichtete Graphen, deren Knoten oder Nodes aus ihren Inputs Werte errechnen und die an die folgenden Nodes weitergeben. Hierbei werden zwischen 3 verschiedenen Arten von Nodes unterschieden:
+Neuronale Netzwerke sind einfach zu benutzende Modelle, welche nicht-lineare Abhängikeiten mit vielen latenten Variablen stochastisch abbilden können \cite{nnWebsite}. Im einfachen Sinne, sind sie gerichtete Graphen, deren Knoten oder Nodes aus ihren Inputs Werte errechnen und die an die folgenden Nodes weitergeben. Hierbei werden zwischen 3 verschiedenen Arten von Nodes unterschieden:
 
 \begin{description}
 	\item[Input Nodes] Über diese Nodes bekommt das Netzwerke die Input Parameter.
@@ -58,13 +58,29 @@ Neuronale Netzwerke sind einfach zu benutzende Modelle, welche nicht-lineare Abh
 	\item[Output Nodes] Diese Nodes bilden die Repräsentation des Ergebisses ab.
 \end{description}
 
-Jede der Nodes hat eine bestimmte Anzahl an Verbindungen, diese hängt von der Art der Nodes und deren Zweck ab. Wichtig ist jedoch, das jede Node mit mehreren anderen Nodes verbunden ist, dies soll heißen, den Output mehrerer Nodes als Input zu bekommen und den eigenen Output als Input für die folgenden Nodes weiterzuleiten. Die Stärke der Abhängigkeit zwischen zwei Nodes wird als Gewicht ausgedrückt. Jede Verbindung in einem Neuronalen Netzwerk hat ein Gewicht, welches mit dem Output der vorangegangen Node multipliziert wird bevor es als Input weiter verwendet wird. 
+Nachdem die Node aus den Inputs einen Wert errechnet hat, geht dieser durch eine Aktivierungsfunktion. Diese Funktion stellt den Zusammenhang zwischen dem Input und dem Aktivitätslevel der Node her. Man unterscheidet zwischen folgenden Aktivitätsfunktionen
 
-Nachdem die Node aus den Inputs einen Wert errechnet hat, geht dieser durch eine Aktivierungsfunktion. Diese Funktion gibt das Aktivitätslevel der Node wieder. 
+\begin{description}
+	\item[Lineare Aktivitätsfunktion] Der einfachste Fall, linearer Zusammenhang zwischen Inputs und Output.
+	\item[Lineare Aktivitätsfunktion mit Schwelle] Linearer Zusammenhang ab einem Schwellwert. Sehr nützlich um Rauschen herauszufiltern. Ein häufig genutzte Abhandlung davon:
+	\begin{description}
+		\item[ReLU] Hier werden nur der positive Werte weitergeleitet: \(f_x = x^+ = max(0,x) \)
+	\end{description}
+	\item[Binäre Schwellenfunktion] Nur zwei Zustände möglich: 0 oder 1 (oder auch -1 oder 1)
+	\item[Sigmoide Aktivitätsfunktion] Benutzung entweder einer logistischen oder Tangens-Hyperbolicus Funktion. Diese Funktionen gehen bei sehr großen Werten gegen 1 und bei sehr negativen Werten gegen 0 (logistische Funktion) oder -1 (Tangens-Hyperbolicus Funktion). Diese Funktion bietet den Vorteil das sie das Aktivitätlevel begrenzt.
+\end{description} 
+
+Jede der Nodes hat eine bestimmte Anzahl an Verbindungen, diese hängt von der Art der Nodes und deren Zweck ab. Wichtig ist jedoch, das jede Node mit mehreren anderen Nodes verbunden ist, dies soll heißen, den Output mehrerer Nodes als Input zu bekommen und den eigenen Output als Input für die folgenden Nodes weiterzuleiten. Die Stärke der Abhängigkeit zwischen zwei Nodes wird als Gewicht ausgedrückt. Jede Verbindung in einem Neuronalen Netzwerk hat ein Gewicht, welches mit dem Output der vorangegangen Node multipliziert wird bevor es als Input weiter verwendet wird. 
 
 Das netzwerk-interne Modell wird in diesen Gewichten abgespeichert. Es repräsentiert also das Wissen, dass durch das Training entstanden ist.
 
-Das Training eines Netzwerkes, ist das schrittweiße Anpassen der Gewichte bis es ein gutes Modell des Problems gelernt hat. 
+Das Training eines Netzwerkes, ist das schrittweiße Anpassen der Gewichte bis es ein gutes Modell des Problems gelernt hat. Die Stärke von Neoronalen Netzen liegt darin, aus großen Mengen von Daten Gesetzmäßigkeiten oder Patterns zu erkennen. Ein einfaches Beispiel ist die Objekterkennung. Wenn ein Netzwerk Alltagsgegenstände erkennen soll, lernt es die Pixelgruppen welche ein Tisch von einem Bett unterscheiden. Damit dies funktioniert braucht man eine große Menge an Daten. Zunächst diwr das Training in zwei verschieden Arten unterteilt: 
+
+\begin{description}
+	\item[Supervised learning] Innerhalb des Trainingsdatensets, hat jeder Datensatz einen vorgegeben Output Label. Zum Beispiel ein Bild von einem Auto ist auch so gekennzeichent. Nun werden so lange die Gewichte des Netzwerkes optimiert, bis ein jeweiliger Input auch den richtigen Output erzeugt.
+	\item[Unupervised learning] Hier hat das Trainingsdatenset keine Label. Die Gewichtsveränderungen erfolgen im Bezug zur der Ähnlichkeit von Inputs. Das soll heisen, wenn es viele verschiedene Bilder bekommt, werden Bilder mit ähnlichen Inhalten eine hohe Nähe aufweißen, ein Bild von einem PKW wird näher an dem Bild von einem LKW sein als an dem Bild von einem Apfel.
+\end{description}
+
 \subsection{CNN}
 \subsection{RNN}
 \subsection{Image Captioning Techniken}

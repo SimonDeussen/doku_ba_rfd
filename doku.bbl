@@ -26,4 +26,9 @@ Tuan~Anh Nguyen and Christoph Csallner.
 \newblock {\em 2015 30th IEEE/ACM International Conference on Automated
   Software Engineering (ASE)}, pages 248--259, 2015.
 
+\bibitem{nnWebsite}
+Günter~Daniel Rey and Fabian Beck.
+\newblock Neuronale netze - eine einführung.
+\newblock \url{http://www.neuronalesnetz.de/downloads/neuronalesnetz_de.pdf}.
+
 \end{thebibliography}
