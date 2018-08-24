@@ -30,10 +30,10 @@ Generierung von HTML/CSS Code anhand von pixelbasierten Screenshots und -designs
 %\listoftables    % Tabellenverzeichnis
 \section{Einleitung} 
 
-Viele client-basierte Anwendungen brauchen ein Frontend. Um dieses zu realisieren benötigt man ein enge Kooperation von Designern und Entwicklern. Im der klassichen Entwicklung sieht diese Zusammenarbeit folgendermaßen aus: \\
+Viele client-basierte Anwendungen brauchen ein schönes Frontend. Dieses soll gleichzeitig funktional und übersichtlich sein, sowie die Firma durch gutes Design repräsentieren. Seit Apple \& Co ist es unglaublich wichtig gutes Design im Frontend zu haben, da sich die Kunden sonst schnell eine Alternative suchen. Um nun ein großartiges Frontend zu realisieren benötigt man ein enge Kooperation von Designern und Entwicklern, da hier zwei, sich kaum überschneidende, Skillsets gebraucht werden. Im der klassichen Entwicklung sieht diese Zusammenarbeit folgendermaßen aus: \\
 Ein Designer macht einen grafischen Entwurf, dieser wird vom Kunde abgenommen, dann geht er zu dem Entwickler, der nun zu aller erst Markup für den Content und anschließend das Design und die richtige Darstellung nach bauen muss. Für jede grafische Veränderung muss dieser Prozess wieder ausgeführt werden. Für die meisten Entwickler, ist die Markup und CSS erstellung der widrigste Part der ganzen Arbeit, da er recht zeit-aufwendig, repetetiv und langweilig ist. Es gab bisher viele Ansätze diese Arbeit zu automatisieren, zB durch Tools in dem man gleichzeitig Designen und den Markup exportieren kann. Leider sind diese Tools entweder nicht besonders gut die Designs zu erstellen oder darin den Markup zu exportieren.
 
-Eine Abhilfe soll diese Arbeit liefern: Sie ermöglich das der Designer mit seinem Bevorzugten Tools das Design erstellt und der Entwickler den fertigen Markup bekommt und sich vollends auf die Realisierung des Verhaltens und der Logik der Anwendung konzentrieren kann. 
+Eine Abhilfe soll diese Arbeit liefern: Sie ermöglicht, dass der Designer mit seinem bevorzugten Tools das Design baut und der Entwickler mit einem Mausklick das fertige Markup bekommt. So kann sich der Entwickler vollends auf die Realisierung des Verhaltens und der Logik der Anwendung konzentrieren. 
 
 \section{Ähnliche Arbeiten}
 
@@ -70,7 +70,7 @@ Nachdem die Node aus den Inputs einen Wert errechnet hat, geht dieser durch eine
 	\item[Sigmoide Aktivitätsfunktion] Benutzung entweder einer logistischen oder Tangens-Hyperbolicus Funktion. Diese Funktionen gehen bei sehr großen Werten gegen 1 und bei sehr negativen Werten gegen 0 (logistische Funktion) oder -1 (Tangens-Hyperbolicus Funktion). Diese Funktion bietet den Vorteil das sie das Aktivitätlevel begrenzt.
 \end{description} 
 
-Jede der Nodes hat eine bestimmte Anzahl an Verbindungen, diese hängt von der Art der Nodes und deren Zweck ab. Wichtig ist jedoch, das jede Node mit mehreren anderen Nodes verbunden ist, dies soll heißen, den Output mehrerer Nodes als Input zu bekommen und den eigenen Output als Input für die folgenden Nodes weiterzuleiten. Die Stärke der Abhängigkeit zwischen zwei Nodes wird als Gewicht ausgedrückt. Jede Verbindung in einem Neuronalen Netzwerk hat ein Gewicht, welches mit dem Output der vorangegangen Node multipliziert wird bevor es als Input weiter verwendet wird. 
+Jede der Nodes hat eine bestimmte Anzahl an Verbindungen, diese hängt von der Art der Nodes und deren Zweck ab. Wichtig ist jedoch, das jede Node mit mehreren anderen Nodes verbunden ist, dies soll heißen, den Output mehrerer Nodes als Input zu bekommen und den eigenen Output als Input für die folgenden Nodes weiterzuleiten. Die Stärke der Abhängigkeit zwischen zwei Nodes wird als Gewicht ausgedrückt. Jede Verbindung in einem Neuronalen Netzwerk hat ein Gewicht, welches mit dem Output der vorangegangen Node multipliziert wird bevor es als Input weiter verwendet wird. TODO BIAS
 
 Das netzwerk-interne Modell wird in diesen Gewichten abgespeichert. Es repräsentiert also das Wissen, dass durch das Training entstanden ist.
 
@@ -81,7 +81,8 @@ Das Training eines Netzwerkes, ist das schrittweiße Anpassen der Gewichte bis e
 	\item[Unupervised learning] Hier hat das Trainingsdatenset keine Label. Die Gewichtsveränderungen erfolgen im Bezug zur der Ähnlichkeit von Inputs. Das soll heisen, wenn es viele verschiedene Bilder bekommt, werden Bilder mit ähnlichen Inhalten eine hohe Nähe aufweißen, ein Bild von einem PKW wird näher an dem Bild von einem LKW sein als an dem Bild von einem Apfel.
 \end{description}
 
-\subsection{CNN}
+\subsection{Convolutional Neural Network - CNN}
+
 \subsection{RNN}
 \subsection{Image Captioning Techniken}
 \subsubsection{CNN-Part}
