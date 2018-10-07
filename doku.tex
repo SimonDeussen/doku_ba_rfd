@@ -4,6 +4,8 @@
 % Gebräuchliche Optionen sind: 11pt, 12pt, twoside, twocolumn, a4paper,...
 \usepackage{ngerman} %Titel z.B. für Tabellen- und Inhaltsverzeichnis werden ins Deutsche übersetzt. Ausserdem Aktivierung der korrekten Silbentrennung
 
+\usepackage{spverbatim}
+
 \usepackage[latin1, utf8]{inputenc} %Für das Erkennen von Umlauten
 
 \usepackage[T1]{fontenc} %Font-Encodierung wird auf das T1-Format mit bis zu 256 (anstelle 128 im Default Fontencoder) umgeschaltet
@@ -49,6 +51,9 @@ Ich denke das sich die Webtechnologien auch in der Desktop Umgebung durchsetzen.
 
 
 \section{Benutzte Technologien}
+
+In dem folgenden Abschnitt werden die benutzten Technologien beschrieben. Diese Erklärungen sind recht generell und gehen zunächst nicht auf die Verwendung der Technolgien in dem Projekt ein, dies wird aber im Abschnitt Überblick genauer beleuchtet.
+
 \subsection{Neuronale Netzwerke}
 Neuronale Netzwerke sind einfach zu benutzende Modelle, welche nicht-lineare Abhängikeiten mit vielen latenten Variablen stochastisch abbilden können \cite{nnWebsite}. Im einfachen Sinne, sind sie gerichtete Graphen, deren Knoten oder Nodes aus ihren Inputs Werte errechnen und die an die folgenden Nodes weitergeben. Hierbei werden zwischen 3 verschiedenen Arten von Nodes unterschieden:
 
@@ -83,20 +88,153 @@ Das Training eines Netzwerkes, ist das schrittweiße Anpassen der Gewichte bis e
 
 \subsection{Convolutional Neural Network - CNN}
 
-\subsection{RNN}
+CNN sind Tiefe Neuronale Netzwerke mit einer bestimmten Architektur und spezialisiert auf die Verarbeitung von Bildern. Da man die Anwendungsdomäne eingeschränkt hat, kann man bestimmte Annahmen treffen, welche die Anzahl der Verbindungen und damit Rechenoperationen verringert und somit das Netz effektiver macht. Um aus Bildern, Informationen zu gewinnen, müssen die Ebenen des Netzwerkes nicht vollständig verbunden sein. Stattdessen werden Filter (Convolutions) und Sub-Sambling genutzt. Filter sind kleine Matrixen, die bestimmte Features entdecken, zum Beispiel Kanten mit bestimmter Ausrichtung. Durch das Erlernen der Filter im Training kann das Netzwerk aus den Pixel Werten, schrittweiße Abstaktere Feaures errechnen. Diese gehen von einfachen Kanten, zu komplexeren Umrissen, und schließlich zu vollständigen Teil-Objekten. Zum Beispiel werden aus vielen Kanten ein Kreis, dann kommen noch mehr dazu bis eine Feautere Map ein Auge abbildet. 
+Aus dem Auge und der biologischen Signal Verarbeitung ist diese Architektur inspiriert \cite(Hubel68). Einzelne Neuronen des celebralen Kortex reagieren auf Reize nur in einem beschränkten Bereich. Da diese Bereiche leicht überlappen können so diese Neuronen den gesamten Sichtbereich erkennen.
+
+\subsection{Recurrent Neural Network - RNN}
+
+Als RNN bezeichnet man neuronale Netze, welches Verbindungen, im Gegensatz zu FeedForward-Netzen, zu Neuronen der selben oder vorhergehenden Schichten besitzt. Dadurch kann es zeitliche Abhängigkeiten in den Input Daten detektieren. Diese Art von Netzen wird in der Spracherkennung, Maschineller Übersetzung und auch Handschrifterkennung eingesetzt. 
+
+
+\subsubsection{Long short-term Memory - LSTM}
+
+Ein LSTM ist eine bestimmte Form der RNNs. Ein RNN kann durch dessen starre Sturktur immer nur eine bestimmte Anzahl von Schritten abspeichern. Zum Beispiel bei Videoanalysen jeweils die letzten 5 Frames. Das LSTM kann sich dynamisch Daten speichern, wodurch es irrelevante Daten aus vorherigen Schritten verwirft, relevantere jedoch länger abspeichert. Während des Trainings eines LSTMs, erlernt dieses auch das Speichern und Löschen. Dadurch kann es sehr viel effizienter als reine RNNs Daten mit temporaler Dimension auswerten. 
+
 \subsection{Image Captioning Techniken}
 \subsubsection{CNN-Part}
 \subsubsection{RNN-Part}
-\subsection{DSL}
+
 \subsection{Training}
+
+Als Training wird der Prozess bezeichnet, während dem ein Neurales Netzwerk Wissen aus vorliegenden Daten extrahiert. Genau dieser Vorgang sorgt für den großen Erfolg von Neuralen Netzen. Anders als bei herkömlischen Statistischen Methoden können NNs aus riesigen Datenmengen Patterns und Sachverhältnisse lernen. Damit dies funktioniert, muss eine Kostenfunktion gebildet werden können, anhand bestimmt wird, wie weit das genutzte Modell von der Optimalen Lösung entfernt ist. Anhand diesem Abstand können die Parameter des gewählten Modells angepasst werden um dem Optimum näher zu kommen.
+
 \subsection{Sampling}
+Während dem Sampling, wird ein fertig trainiertes Neurales Netzwerk genutzt um aus Daten schlussfolgrungen abzuleiten. In dem Fall dieser Arbeit, wird probiert aus einem Screenshot, also einem Array von Pixeln ein deutungsvolle DSL-Sequenz zu erstellen.
+
 \subsection{Keras}
-\subsection{Colab}
+Um die in dieser Arbeit genutzen Tiefen Neuronalen Netzwerke zu definieren wir das Framework Keras genutzt.
+
+\subsection{Domain-specific language - DSL}
+
+Eine Programmiersprache, die auf ein einzelne Problem-Domäne spezialisiert ist, wird DSL genannt. Im Gegensatz zur DSL steht die General Purpose Language, welches ein Programmiersprache ist, die sehr breit, für viele verschiedene Anwendungen, benutzt werden kann. Die Trennung zwischen DSL und GPL ist nicht immer klar, es kann zum Beispiel Teile einer Sprache geben die hoch spezialisiert für eine bestimmte Aufgabe sind, aber andere Teile von ihr können allgemeinere Aufgaben lösen. Auch historisch bedingt kann sich die Einordnung einer Sprache ändern. JavaScript wurde ursprünglich für ganz einfache Steuerung von Websites eingeführt, kann aber inzwischen für alles mögliche eingesetzt werden - vom Traininieren von CNNs im Browser, zu klassischen Backend-Jobs. 
+In dieser Arbeit, wird eine hochspezialisierte, eigens erstellte Sprache aus Token, die eine Kombination aus HTML und CSS sind, benutzt.
+
+\subsubsection{Hypertext Markup Language - HTML}
+HTML ist die Standart Programmiersprache um Websites zu erstellen. Mit einzelnen HTML Elementen beschreibt es den semantischen Zusammenhang des Contents von Websites.
+
+\subsubsection{Cascading Style Sheets - CSS}
+CSS beschreibt die Präsentation, also das Aussehen, des Content einer Markup-Language (zum Beispiel HTML). Klassische Inhalte, sind Farben, Positionen und Effekte von User Interface Elementen.
+ 
+
 \section{Überblick}
+
 \section{Vision Model}
 \section{Language Model}
 \section{Decoder}
 \section{Daten Synthese}
+
+Da im Zuge dieser Arbeit eine Erweiterung der DSL des Original Papers implementiert wurde, ist es erforderlich, neue Trainingsdaten zu synthetisieren. Das DataCreationTool ist ein Programm, welches nach vorgegebenen Regeln einen Token-Baum erzeugt und diesen anschließend abspeichert. Dieser Token-Baum hat immer einen body-Token als Wurzel und der gesamten Inhalt liegt als dessen Kinder vor. Dafür wurde eine Helfer Klasse geschrieben, die ein Element in dem Token Baum abbildet. Diese kann zum einen Parameter wie den Token-Name, Inhalt und Kinder speichern, zum anderen enthält sie Funktionen zum Konvertieren des Baumes zu einer String-Representation sowie zum Rendering nach HTML/CSS. 
+
+\subsection{Generieren der Token-Bäume}
+Die Token-Bäume werden in der Datei \texttt{createAllTokens.py} generiert. Diese Datei erzeugt alle möglichen Token-Kombination anhand der folgenden Regeln:
+
+\subsubsection{Gramatik}
+
+\begin{equation}
+start \rightarrow [H,C]
+\end{equation}
+
+\begin{equation}
+H \rightarrow [Ml | Mr | S]
+\end{equation}
+\begin{equation}
+Ml \rightarrow  [ logoLeft, buttonWhite | logoLeft, buttonWhite, buttonWhite | ...]
+\end{equation}
+\begin{equation}
+Mr \rightarrow [buttonWhite, logoRight | buttonWhite, buttonWhite, logoRight | ...]
+\end{equation}
+\begin{equation}
+S \rightarrow [sidebarHeader, sidebarItem| sidebarHeader, sidebarItem, sidebarItem | ...]
+\end{equation}
+
+\begin{equation}
+C \rightarrow [R | R, R | R, R, R ]
+\end{equation}
+\begin{equation}
+R \rightarrow [S | D, D, | Q, Q, D | Q, D, Q | D, Q, Q | Q, Q, Q, Q]
+\end{equation}
+\begin{equation}
+S, D, Q \rightarrow [smallTitle, text, contentButton]
+\end{equation}
+\begin{equation}
+contentButton \rightarrow [buttonBlue, buttonGrey, buttonBlack]
+\end{equation}
+
+Regeln 3 - 5 sind gekürzt. Es können bis zu 5 Buttons auftreten.
+
+\subsubsection{Zeichenerklärung}
+
+\begin{description}
+	\item[H] Header der Website, enthält eins der folgenden Elemente: 
+	\begin{description}
+		\item[Ml] Menue mit Logo auf der linken Seite
+		\item[Mr] Menue mit Logo auf der rechten Seite
+		\item[S] Sidebar	
+	\end{description}
+	\item[C] Content der Website, besteht aus ein bis drei Wiederholungen dieses Elements:
+	\begin{description}
+		\item[R] Row, die aus einem oder mehreren Row Elementen bestehen kann:
+		\begin{description}
+			\item[S] Single Row Element, die ganze Row ist mit diesem ausgefüllt.
+			\item[D] Double Row Element, ist so breit wie eine Hälfte der Row
+			\item[Q] Quadruble Row Element, ist so breit wie ein Viertel der Row
+		\end{description}
+		Jedes dieser Elemente enthält den gleichen Inhalt:
+		\item[smallTitle] Überschrift
+		\item[text] Text-Inhalt
+		\item[contentButton] Ein Button der entweder Blau, Grau oder Schwarz ist 
+	\end{description}
+\end{description}
+
+\subsubsection{Token Generierung}
+
+Die Generierung erfolgt mit einfachen, verschachtelten Loops und einem Kartesischen Produkt, um alle möglichen Kombinationen abdecken. Dadurch werden 4128 verschiedene Layout Kombinationen möglich. 
+\begin{verbatim}
+
+\end{verbatim}
+\subsubsection{DSL Mapping}
+
+Zu jedem dieser Token, existiert ein Mapping nach HTML/CSS. In einer extra Datei, \texttt{dsl-mapping.json} ist dies abgebildet:
+
+\begin{spverbatim}
+  {
+    "opening-tag": "{",
+    "closing-tag": "}",
+    "body": "<!DOCTYPE html>\n <head>\n <meta charset=\"utf-8\">\n ...
+    "header": "<nav class=\"menue\">\n    <ul class=\"nav nav-pills...
+    "btn-active": "<li class=\"active\"><a href=\"#\">[]</a></li>\n...
+    "btn-inactive-blue": "<button type=\"button\" class=\"btn btn-p...
+    "btn-inactive-black": "<button type=\"button\" class=\"btn btn-...
+    "btn-inactive-white": "<button type=\"button\" class=\"btn btn-...
+    "btn-inactive-grey": "<button type=\"button\" class=\"btn btn-p...
+    "row": "<div class=\"container\"><div class=\"row\">{}</div></d...
+    "single": "<div class=\"col-lg-12\">\n{}\n</div>\n"
+    "double": "<div class=\"col-lg-6\">\n{}\n</div>\n",
+    "quadruple": "<div class=\"col-lg-3\">\n{}\n</div>\n",
+    "big-title": "<h2>[]</h2>",
+    "small-title": "<h4>[]</h4>",
+    "text": "<p>[]</p>\n",
+    "logo-left": "<a class=\"logo-left\">RFP</a>\n",
+    "logo-right": "<a class=\"logo-right\">RFP</a>\n",
+    "sidebar": "<div class=\"wrapper\">\n    <div id=\"sidebar\">\...
+    "sidebar-element": "<li><a href=\"#\">[]</a><li>"  
+  }
+  
+\end{spverbatim}
+
+Um somit aus einem Token-Baum HTML/CSS Markup zu erzeugen, startet der Wurzelknoten eine rekursive Rendering-Funktion. Diese nutzt den zu den Knoten gehörigen Code und traversiert den gesamten Baum. Jeder Mapping String eines Tokens, der auch Kinderknoten haben kann, enthält einen Platzhalter, hier \texttt{\{\}}, mit dem signalisiert wird, wo der Code der Kinderknoten hingehört. Ähnlich gibt es ebenso einen Platzhalter für Text-Content, nämlich die Zeichen: \texttt{[]}. 
+
+
 \section{Vergleich zu dem Original}
 \section{Experimente}
 \section{Zusammenfassung}

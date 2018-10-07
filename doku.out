@@ -3,22 +3,28 @@
 \BOOKMARK [1][-]{section.3}{Motivation}{}% 3
 \BOOKMARK [1][-]{section.4}{Benutzte Technologien}{}% 4
 \BOOKMARK [2][-]{subsection.4.1}{Neuronale Netzwerke}{section.4}% 5
-\BOOKMARK [2][-]{subsection.4.2}{CNN}{section.4}% 6
-\BOOKMARK [2][-]{subsection.4.3}{RNN}{section.4}% 7
-\BOOKMARK [2][-]{subsection.4.4}{Image Captioning Techniken}{section.4}% 8
-\BOOKMARK [3][-]{subsubsection.4.4.1}{CNN-Part}{subsection.4.4}% 9
-\BOOKMARK [3][-]{subsubsection.4.4.2}{RNN-Part}{subsection.4.4}% 10
-\BOOKMARK [2][-]{subsection.4.5}{DSL}{section.4}% 11
-\BOOKMARK [2][-]{subsection.4.6}{Training}{section.4}% 12
-\BOOKMARK [2][-]{subsection.4.7}{Sampling}{section.4}% 13
-\BOOKMARK [2][-]{subsection.4.8}{Keras}{section.4}% 14
-\BOOKMARK [2][-]{subsection.4.9}{Colab}{section.4}% 15
-\BOOKMARK [1][-]{section.5}{\334berblick}{}% 16
-\BOOKMARK [1][-]{section.6}{Vision Model}{}% 17
-\BOOKMARK [1][-]{section.7}{Language Model}{}% 18
-\BOOKMARK [1][-]{section.8}{Decoder}{}% 19
-\BOOKMARK [1][-]{section.9}{Daten Synthese}{}% 20
-\BOOKMARK [1][-]{section.10}{Vergleich zu dem Original}{}% 21
-\BOOKMARK [1][-]{section.11}{Experimente}{}% 22
-\BOOKMARK [1][-]{section.12}{Zusammenfassung}{}% 23
-\BOOKMARK [1][-]{section.13}{Fazit}{}% 24
+\BOOKMARK [2][-]{subsection.4.2}{Convolutional Neural Network - CNN}{section.4}% 6
+\BOOKMARK [2][-]{subsection.4.3}{Recurrent Neural Network - RNN}{section.4}% 7
+\BOOKMARK [3][-]{subsubsection.4.3.1}{Long short-term Memory - LSTM}{subsection.4.3}% 8
+\BOOKMARK [2][-]{subsection.4.4}{Image Captioning Techniken}{section.4}% 9
+\BOOKMARK [3][-]{subsubsection.4.4.1}{CNN-Part}{subsection.4.4}% 10
+\BOOKMARK [3][-]{subsubsection.4.4.2}{RNN-Part}{subsection.4.4}% 11
+\BOOKMARK [2][-]{subsection.4.5}{Training}{section.4}% 12
+\BOOKMARK [2][-]{subsection.4.6}{Sampling}{section.4}% 13
+\BOOKMARK [2][-]{subsection.4.7}{Keras}{section.4}% 14
+\BOOKMARK [2][-]{subsection.4.8}{Domain-specific language - DSL}{section.4}% 15
+\BOOKMARK [3][-]{subsubsection.4.8.1}{Hypertext Markup Language - HTML}{subsection.4.8}% 16
+\BOOKMARK [3][-]{subsubsection.4.8.2}{Cascading Style Sheets - CSS}{subsection.4.8}% 17
+\BOOKMARK [1][-]{section.5}{\334berblick}{}% 18
+\BOOKMARK [1][-]{section.6}{Vision Model}{}% 19
+\BOOKMARK [1][-]{section.7}{Language Model}{}% 20
+\BOOKMARK [1][-]{section.8}{Decoder}{}% 21
+\BOOKMARK [1][-]{section.9}{Daten Synthese}{}% 22
+\BOOKMARK [2][-]{subsection.9.1}{Generieren der Token-B\344ume}{section.9}% 23
+\BOOKMARK [3][-]{subsubsection.9.1.1}{Gramatik}{subsection.9.1}% 24
+\BOOKMARK [3][-]{subsubsection.9.1.2}{Zeichenerkl\344rung}{subsection.9.1}% 25
+\BOOKMARK [3][-]{subsubsection.9.1.3}{DSL Mapping}{subsection.9.1}% 26
+\BOOKMARK [1][-]{section.10}{Vergleich zu dem Original}{}% 27
+\BOOKMARK [1][-]{section.11}{Experimente}{}% 28
+\BOOKMARK [1][-]{section.12}{Zusammenfassung}{}% 29
+\BOOKMARK [1][-]{section.13}{Fazit}{}% 30
