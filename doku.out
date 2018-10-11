@@ -6,25 +6,31 @@
 \BOOKMARK [2][-]{subsection.4.2}{Convolutional Neural Network - CNN}{section.4}% 6
 \BOOKMARK [2][-]{subsection.4.3}{Recurrent Neural Network - RNN}{section.4}% 7
 \BOOKMARK [3][-]{subsubsection.4.3.1}{Long short-term Memory - LSTM}{subsection.4.3}% 8
-\BOOKMARK [2][-]{subsection.4.4}{Image Captioning Techniken}{section.4}% 9
-\BOOKMARK [3][-]{subsubsection.4.4.1}{CNN-Part}{subsection.4.4}% 10
-\BOOKMARK [3][-]{subsubsection.4.4.2}{RNN-Part}{subsection.4.4}% 11
-\BOOKMARK [2][-]{subsection.4.5}{Training}{section.4}% 12
-\BOOKMARK [2][-]{subsection.4.6}{Sampling}{section.4}% 13
-\BOOKMARK [2][-]{subsection.4.7}{Keras}{section.4}% 14
-\BOOKMARK [2][-]{subsection.4.8}{Domain-specific language - DSL}{section.4}% 15
-\BOOKMARK [3][-]{subsubsection.4.8.1}{Hypertext Markup Language - HTML}{subsection.4.8}% 16
-\BOOKMARK [3][-]{subsubsection.4.8.2}{Cascading Style Sheets - CSS}{subsection.4.8}% 17
-\BOOKMARK [1][-]{section.5}{\334berblick}{}% 18
-\BOOKMARK [1][-]{section.6}{Vision Model}{}% 19
-\BOOKMARK [1][-]{section.7}{Language Model}{}% 20
-\BOOKMARK [1][-]{section.8}{Decoder}{}% 21
-\BOOKMARK [1][-]{section.9}{Daten Synthese}{}% 22
-\BOOKMARK [2][-]{subsection.9.1}{Generieren der Token-B\344ume}{section.9}% 23
-\BOOKMARK [3][-]{subsubsection.9.1.1}{Gramatik}{subsection.9.1}% 24
-\BOOKMARK [3][-]{subsubsection.9.1.2}{Zeichenerkl\344rung}{subsection.9.1}% 25
-\BOOKMARK [3][-]{subsubsection.9.1.3}{DSL Mapping}{subsection.9.1}% 26
-\BOOKMARK [1][-]{section.10}{Vergleich zu dem Original}{}% 27
-\BOOKMARK [1][-]{section.11}{Experimente}{}% 28
-\BOOKMARK [1][-]{section.12}{Zusammenfassung}{}% 29
-\BOOKMARK [1][-]{section.13}{Fazit}{}% 30
+\BOOKMARK [2][-]{subsection.4.4}{Training}{section.4}% 9
+\BOOKMARK [2][-]{subsection.4.5}{Sampling}{section.4}% 10
+\BOOKMARK [2][-]{subsection.4.6}{Keras}{section.4}% 11
+\BOOKMARK [2][-]{subsection.4.7}{Domain-specific language - DSL}{section.4}% 12
+\BOOKMARK [3][-]{subsubsection.4.7.1}{Hypertext Markup Language - HTML}{subsection.4.7}% 13
+\BOOKMARK [3][-]{subsubsection.4.7.2}{Cascading Style Sheets - CSS}{subsection.4.7}% 14
+\BOOKMARK [1][-]{section.5}{Rapid Frontend Prototyping - \334berblick}{}% 15
+\BOOKMARK [1][-]{section.6}{Daten Synthese}{}% 16
+\BOOKMARK [2][-]{subsection.6.1}{Generieren der Token-B\344ume}{section.6}% 17
+\BOOKMARK [3][-]{subsubsection.6.1.1}{Gramatik}{subsection.6.1}% 18
+\BOOKMARK [3][-]{subsubsection.6.1.2}{Zeichenerkl\344rung}{subsection.6.1}% 19
+\BOOKMARK [3][-]{subsubsection.6.1.3}{Token Generierung}{subsection.6.1}% 20
+\BOOKMARK [2][-]{subsection.6.2}{DSL Mapping}{section.6}% 21
+\BOOKMARK [2][-]{subsection.6.3}{Screenshot Erstellung}{section.6}% 22
+\BOOKMARK [2][-]{subsection.6.4}{Teilen der Trainingsdaten}{section.6}% 23
+\BOOKMARK [1][-]{section.7}{Validierung der Ergebnisse}{}% 24
+\BOOKMARK [1][-]{section.8}{Vergleich zu dem Original}{}% 25
+\BOOKMARK [1][-]{section.9}{Experimente}{}% 26
+\BOOKMARK [2][-]{subsubsection.9.0.1}{1. Trainingsversuch}{section.9}% 27
+\BOOKMARK [2][-]{subsection.9.1}{2. Trainingsversuch}{section.9}% 28
+\BOOKMARK [2][-]{subsection.9.2}{3. Trainingsversuch}{section.9}% 29
+\BOOKMARK [2][-]{subsection.9.3}{4. Trainingsversuch}{section.9}% 30
+\BOOKMARK [2][-]{subsection.9.4}{5. Trainingsversuch}{section.9}% 31
+\BOOKMARK [2][-]{subsection.9.5}{6. Trainingsversuch}{section.9}% 32
+\BOOKMARK [2][-]{subsection.9.6}{7. Trainingsversuch}{section.9}% 33
+\BOOKMARK [2][-]{subsection.9.7}{8. Trainingsversuch}{section.9}% 34
+\BOOKMARK [1][-]{section.10}{Zusammenfassung}{}% 35
+\BOOKMARK [1][-]{section.11}{Fazit}{}% 36

@@ -6,45 +6,45 @@ Database file #1: sources.bib
 Warning--I didn't find a database entry for "("
 Warning--to sort, need author or key in Beltramelli17Github
 Warning--to sort, need author or key in electron
-You've used 6 entries,
+You've used 7 entries,
             2118 wiz_defined-function locations,
-            529 strings with 4811 characters,
-and the built_in function-call counts, 1531 in all, are:
-= -- 144
-> -- 63
+            535 strings with 4971 characters,
+and the built_in function-call counts, 1796 in all, are:
+= -- 170
+> -- 81
 < -- 1
-+ -- 26
-- -- 20
-* -- 78
-:= -- 244
-add.period$ -- 16
-call.type$ -- 6
-change.case$ -- 28
++ -- 33
+- -- 26
+* -- 96
+:= -- 296
+add.period$ -- 19
+call.type$ -- 7
+change.case$ -- 35
 chr.to.int$ -- 0
-cite$ -- 8
-duplicate$ -- 61
-empty$ -- 135
-format.name$ -- 20
-if$ -- 333
+cite$ -- 9
+duplicate$ -- 69
+empty$ -- 150
+format.name$ -- 26
+if$ -- 384
 int.to.chr$ -- 0
-int.to.str$ -- 6
+int.to.str$ -- 7
 missing$ -- 3
-newline$ -- 31
-num.names$ -- 8
-pop$ -- 47
+newline$ -- 36
+num.names$ -- 10
+pop$ -- 52
 preamble$ -- 1
-purify$ -- 22
+purify$ -- 27
 quote$ -- 0
-skip$ -- 55
+skip$ -- 60
 stack$ -- 0
-substring$ -- 58
+substring$ -- 63
 swap$ -- 15
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 24
+type$ -- 28
 warning$ -- 2
-while$ -- 10
-width$ -- 7
-write$ -- 58
+while$ -- 12
+width$ -- 8
+write$ -- 69
 (There were 3 warnings)

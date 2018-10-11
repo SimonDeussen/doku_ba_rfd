@@ -19,6 +19,11 @@ Tony Beltramelli.
 \newblock pix2code: Generating code from a graphical user interface screenshot.
 \newblock {\em CoRR}, abs/1705.07962, 2017.
 
+\bibitem{GRUvsLSTM}
+Shubham Khandelwal, Benjamin Lecouteux, and Laurent Besacier.
+\newblock {COMPARING GRU AND LSTM FOR AUTOMATIC SPEECH RECOGNITION}.
+\newblock Research report, {LIG}, January 2016.
+
 \bibitem{Nguyen15}
 Tuan~Anh Nguyen and Christoph Csallner.
 \newblock Reverse engineering mobile application user interfaces with remaui

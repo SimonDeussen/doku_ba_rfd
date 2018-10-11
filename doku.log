@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.8.14)  7 OCT 2018 15:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.8.14)  11 OCT 2018 18:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -677,44 +677,323 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \openout4 = `doku.toc'.
 
  [2] [3]
-Overfull \hbox (35.02327pt too wide) in paragraph at lines 75--76
+Overfull \hbox (35.02327pt too wide) in paragraph at lines 73--74
 []\T1/cmr/m/n/10.95 Benutzung ent-we-der ei-ner lo-gis-ti-schen oder Tangens-Hy
 perbolicus
  []
 
 [4]
 
-LaTeX Warning: Citation `(' on page 5 undefined on input line 92.
+LaTeX Warning: Citation `(' on page 5 undefined on input line 90.
 
-[5] [6]
+[5] [6] [7]
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 139.
 
  (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-) [7] [8]
-(./doku.bbl [9])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 241.
- [10]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 241.
- (./doku.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 241.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 241.
-Package rerunfilecheck Info: File `doku.out' has not changed.
-(rerunfilecheck)             Checksum: 1243DCCA82E91873098E1FA47740BFC3;1901.
+) [8]
+Overfull \hbox (141.92317pt too wide) in paragraph at lines 240--240
+[]        \T1/cmtt/m/n/10.95 row_count_layout_combinations.extend( list(itertoo
+ls.product(possible_row_type, repeat=i)))[] 
+ []
 
+
+Overfull \hbox (40.0725pt too wide) in paragraph at lines 240--240
+[]        \T1/cmtt/m/n/10.95 row_count_layout_combinations[i] = list(row_count_
+layout_combinations[i])[] 
+ []
+
+[9]
+Overfull \hbox (90.99783pt too wide) in paragraph at lines 240--240
+[]                            \T1/cmtt/m/n/10.95 menu = tokenBuilder.createMenu
+(logo_flag, num_of_menue_button)[] 
+ []
+
+
+Overfull \hbox (62.70598pt too wide) in paragraph at lines 240--240
+[]                            \T1/cmtt/m/n/10.95 sidebar = tokenBuilder.createS
+idebar(num_of_menue_button)[] 
+ []
+
+
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 240--240
+[]                            \T1/cmtt/m/n/10.95 row = tokenBuilder.createRow(r
+ow_count_layout[i])[] 
+ []
+
+[10] [11]
+Overfull \hbox (119.28969pt too wide) in paragraph at lines 310--310
+[][] \T1/cmtt/m/n/10.95 'trueFileName':[] './generatedMarkup/SECOND_complete_ge
+neration_4_04.10.2018_1538655331945.gui',[] 
+ []
+
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 317.
+
+[12]
+Overfull \hbox (62.70598pt too wide) in paragraph at lines 359--359
+[]\T1/cmtt/m/n/10.95 __________________________________________________________
+___________________________[] 
+ []
+
+
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 359--359
+[]\T1/cmtt/m/n/10.95 Layer (type)                    Output Shape         Param
+ #     Connected to[] 
+ []
+
+
+Overfull \hbox (62.70598pt too wide) in paragraph at lines 359--359
+[]\T1/cmtt/m/n/10.95 ==========================================================
+===========================[] 
+ []
+
+
+Overfull \hbox (62.70598pt too wide) in paragraph at lines 359--359
+[]\T1/cmtt/m/n/10.95 __________________________________________________________
+___________________________[] 
+ []
+
+
+Overfull \hbox (62.70598pt too wide) in paragraph at lines 359--359
+[]\T1/cmtt/m/n/10.95 __________________________________________________________
+___________________________[] 
+ []
+
+
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 359--359
+[]\T1/cmtt/m/n/10.95 sequential_1 (Sequential)       (None, 48, 1024)     10409
+8080   input_1[0][0][] 
+ []
+
+
+Overfull \hbox (62.70598pt too wide) in paragraph at lines 359--359
+[]\T1/cmtt/m/n/10.95 __________________________________________________________
+___________________________[] 
+ []
+
+
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 359--359
+[]\T1/cmtt/m/n/10.95 sequential_2 (Sequential)       (None, 48, 128)      20992
+0      input_2[0][0][] 
+ []
+
+
+Overfull \hbox (62.70598pt too wide) in paragraph at lines 359--359
+[]\T1/cmtt/m/n/10.95 __________________________________________________________
+___________________________[] 
+ []
+
+
+Overfull \hbox (51.38924pt too wide) in paragraph at lines 359--359
+[]\T1/cmtt/m/n/10.95 concatenate_1 (Concatenate)     (None, 48, 1152)     0    
+       sequential_1[1][0][] 
+ []
+
+
+Overfull \hbox (51.38924pt too wide) in paragraph at lines 359--359
+[]                                                                 \T1/cmtt/m/n
+/10.95 sequential_2[1][0][] 
+ []
+
+
+Overfull \hbox (62.70598pt too wide) in paragraph at lines 359--359
+[]\T1/cmtt/m/n/10.95 __________________________________________________________
+___________________________[] 
+ []
+
+
+Overfull \hbox (57.0476pt too wide) in paragraph at lines 359--359
+[]\T1/cmtt/m/n/10.95 lstm_3 (LSTM)                   (None, 48, 512)      34099
+20     concatenate_1[0][0][] 
+ []
+
+
+Overfull \hbox (62.70598pt too wide) in paragraph at lines 359--359
+[]\T1/cmtt/m/n/10.95 __________________________________________________________
+___________________________[] 
+ []
+
+
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 359--359
+[]\T1/cmtt/m/n/10.95 lstm_4 (LSTM)                   (None, 512)          20992
+00     lstm_3[0][0][] 
+ []
+
+
+Overfull \hbox (62.70598pt too wide) in paragraph at lines 359--359
+[]\T1/cmtt/m/n/10.95 __________________________________________________________
+___________________________[] 
+ []
+
+
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 359--359
+[]\T1/cmtt/m/n/10.95 dense_3 (Dense)                 (None, 24)           12312
+       lstm_4[0][0][] 
+ []
+
+
+Overfull \hbox (62.70598pt too wide) in paragraph at lines 359--359
+[]\T1/cmtt/m/n/10.95 ==========================================================
+===========================[] 
+ []
+
+
+Overfull \hbox (62.70598pt too wide) in paragraph at lines 359--359
+[]\T1/cmtt/m/n/10.95 __________________________________________________________
+___________________________[] 
+ []
+
+[13] [14]
+Overfull \hbox (62.70598pt too wide) in paragraph at lines 459--459
+[]\T1/cmtt/m/n/10.95 __________________________________________________________
+___________________________[] 
+ []
+
+
+Overfull \hbox (0.4639pt too wide) in paragraph at lines 459--459
+[]\T1/cmtt/m/n/10.95 Layer[] (type)[] [] [] [] [] [] [] [] [] [] [] [] [] [] []
+ [] [] [] [] [] Output[] Shape[] [] [] [] [] [] [] [] [] Param[] #[] [] [] [] [
+] Connected[]
+ []
+
+
+Overfull \hbox (62.70598pt too wide) in paragraph at lines 459--459
+[]\T1/cmtt/m/n/10.95 ==========================================================
+===========================[] 
+ []
+
+[15]
+Overfull \hbox (62.70598pt too wide) in paragraph at lines 459--459
+[]\T1/cmtt/m/n/10.95 __________________________________________________________
+___________________________[] 
+ []
+
+
+Overfull \hbox (62.70598pt too wide) in paragraph at lines 459--459
+[]\T1/cmtt/m/n/10.95 __________________________________________________________
+___________________________[] 
+ []
+
+
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 459--459
+[]\T1/cmtt/m/n/10.95 sequential_3[] (Sequential)[] [] [] [] [] [] [] (None,[] 4
+8,[] 1024)[] [] [] [] [] 104098080[] [] [] input_1[0][0][] 
+ []
+
+
+Overfull \hbox (62.70598pt too wide) in paragraph at lines 459--459
+[]\T1/cmtt/m/n/10.95 __________________________________________________________
+___________________________[] 
+ []
+
+
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 459--459
+[]\T1/cmtt/m/n/10.95 sequential_4[] (Sequential)[] [] [] [] [] [] [] (None,[] 4
+8,[] 192)[] [] [] [] [] [] 462336[] [] [] [] [] [] input_2[0][0][] 
+ []
+
+
+Overfull \hbox (62.70598pt too wide) in paragraph at lines 459--459
+[]\T1/cmtt/m/n/10.95 __________________________________________________________
+___________________________[] 
+ []
+
+
+Overfull \hbox (51.38924pt too wide) in paragraph at lines 459--459
+[]\T1/cmtt/m/n/10.95 concatenate_1[] (Concatenate)[] [] [] [] [] (None,[] 48,[]
+ 1216)[] [] [] [] [] 0[] [] [] [] [] [] [] [] [] [] [] sequential_3[1][0][] 
+ []
+
+
+Overfull \hbox (51.38924pt too wide) in paragraph at lines 459--459
+[][] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] []
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+[] [] [] [] [] [] [] [] [] [] [] [] [] \T1/cmtt/m/n/10.95 sequential_4[1][0][] 
+
+ []
+
+
+Overfull \hbox (62.70598pt too wide) in paragraph at lines 459--459
+[]\T1/cmtt/m/n/10.95 __________________________________________________________
+___________________________[] 
+ []
+
+
+Overfull \hbox (57.0476pt too wide) in paragraph at lines 459--459
+[]\T1/cmtt/m/n/10.95 lstm_3[] (LSTM)[] [] [] [] [] [] [] [] [] [] [] [] [] [] [
+] [] [] [] [] (None,[] 48,[] 768)[] [] [] [] [] [] 6097920[] [] [] [] [] concat
+enate_1[0][0][] 
+ []
+
+
+Overfull \hbox (62.70598pt too wide) in paragraph at lines 459--459
+[]\T1/cmtt/m/n/10.95 __________________________________________________________
+___________________________[] 
+ []
+
+
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 459--459
+[]\T1/cmtt/m/n/10.95 lstm_4[] (LSTM)[] [] [] [] [] [] [] [] [] [] [] [] [] [] [
+] [] [] [] [] (None,[] 768)[] [] [] [] [] [] [] [] [] [] 4721664[] [] [] [] [] 
+lstm_3[0][0][] 
+ []
+
+
+Overfull \hbox (62.70598pt too wide) in paragraph at lines 459--459
+[]\T1/cmtt/m/n/10.95 __________________________________________________________
+___________________________[] 
+ []
+
+
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 459--459
+[]\T1/cmtt/m/n/10.95 dense_3[] (Dense)[] [] [] [] [] [] [] [] [] [] [] [] [] []
+ [] [] [] (None,[] 24)[] [] [] [] [] [] [] [] [] [] [] 18456[] [] [] [] [] [] [
+] lstm_4[0][0][] 
+ []
+
+
+Overfull \hbox (62.70598pt too wide) in paragraph at lines 459--459
+[]\T1/cmtt/m/n/10.95 ==========================================================
+===========================[] 
+ []
+
+
+Overfull \hbox (62.70598pt too wide) in paragraph at lines 459--459
+[]\T1/cmtt/m/n/10.95 __________________________________________________________
+___________________________[] 
+ []
+
+[16] [17] [18] (./doku.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 562.
+ [19]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 562.
+ (./doku.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 562.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 562.
+
+
+Package rerunfilecheck Warning: File `doku.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `doku.out':
+(rerunfilecheck)             Before: 51A3ABF79E0E80712BDC8CB11EF748E3;2338
+(rerunfilecheck)             After:  61B55C098D7651B6673E0579F75CAD47;2407.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 241.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 562.
  ) 
 Here is how much of TeX's memory you used:
- 7516 strings out of 494860
- 114060 string characters out of 6177602
- 253378 words of memory out of 5000000
- 10688 multiletter control sequences out of 15000+600000
+ 7538 strings out of 494860
+ 114318 string characters out of 6177602
+ 254409 words of memory out of 5000000
+ 10694 multiletter control sequences out of 15000+600000
  14480 words of font info for 36 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 43i,8n,56p,977b,433s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 43i,8n,56p,1119b,439s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/simon/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1095.600pk> </home/s
 imon/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1095.600pk> </home/simon/.texmf
 -var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk> </home/simon/.texmf-var/fonts/
@@ -728,10 +1007,10 @@ f-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmsy10.pfb>
-Output written on doku.pdf (10 pages, 178626 bytes).
+Output written on doku.pdf (19 pages, 202561 bytes).
 PDF statistics:
- 661 PDF objects out of 1000 (max. 8388607)
- 280 compressed objects within 3 object streams
- 58 named destinations out of 1000 (max. 500000)
- 241 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 758 PDF objects out of 1000 (max. 8388607)
+ 341 compressed objects within 4 object streams
+ 74 named destinations out of 1000 (max. 500000)
+ 281 words of extra memory for PDF output out of 10000 (max. 10000000)
 
