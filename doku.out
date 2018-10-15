@@ -24,13 +24,66 @@
 \BOOKMARK [1][-]{section.7}{Validierung der Ergebnisse}{}% 24
 \BOOKMARK [1][-]{section.8}{Vergleich zu dem Original}{}% 25
 \BOOKMARK [1][-]{section.9}{Experimente}{}% 26
-\BOOKMARK [2][-]{subsubsection.9.0.1}{1. Trainingsversuch}{section.9}% 27
-\BOOKMARK [2][-]{subsection.9.1}{2. Trainingsversuch}{section.9}% 28
-\BOOKMARK [2][-]{subsection.9.2}{3. Trainingsversuch}{section.9}% 29
-\BOOKMARK [2][-]{subsection.9.3}{4. Trainingsversuch}{section.9}% 30
-\BOOKMARK [2][-]{subsection.9.4}{5. Trainingsversuch}{section.9}% 31
-\BOOKMARK [2][-]{subsection.9.5}{6. Trainingsversuch}{section.9}% 32
-\BOOKMARK [2][-]{subsection.9.6}{7. Trainingsversuch}{section.9}% 33
-\BOOKMARK [2][-]{subsection.9.7}{8. Trainingsversuch}{section.9}% 34
-\BOOKMARK [1][-]{section.10}{Zusammenfassung}{}% 35
-\BOOKMARK [1][-]{section.11}{Fazit}{}% 36
+\BOOKMARK [2][-]{subsection.9.1}{1. Trainingsversuch}{section.9}% 27
+\BOOKMARK [3][-]{subsubsection.9.1.1}{Einf\374hrung}{subsection.9.1}% 28
+\BOOKMARK [3][-]{subsubsection.9.1.2}{Datenset}{subsection.9.1}% 29
+\BOOKMARK [3][-]{subsubsection.9.1.3}{Ver\344nderte Parameter}{subsection.9.1}% 30
+\BOOKMARK [3][-]{subsubsection.9.1.4}{Ergebnis}{subsection.9.1}% 31
+\BOOKMARK [3][-]{subsubsection.9.1.5}{Fazit}{subsection.9.1}% 32
+\BOOKMARK [2][-]{subsection.9.2}{2. Trainingsversuch}{section.9}% 33
+\BOOKMARK [3][-]{subsubsection.9.2.1}{Einf\374hrung}{subsection.9.2}% 34
+\BOOKMARK [3][-]{subsubsection.9.2.2}{Datenset}{subsection.9.2}% 35
+\BOOKMARK [3][-]{subsubsection.9.2.3}{Ver\344nderte Parameter}{subsection.9.2}% 36
+\BOOKMARK [3][-]{subsubsection.9.2.4}{Ergebnis}{subsection.9.2}% 37
+\BOOKMARK [3][-]{subsubsection.9.2.5}{Fazit}{subsection.9.2}% 38
+\BOOKMARK [2][-]{subsection.9.3}{3. Trainingsversuch}{section.9}% 39
+\BOOKMARK [3][-]{subsubsection.9.3.1}{Einf\374hrung}{subsection.9.3}% 40
+\BOOKMARK [3][-]{subsubsection.9.3.2}{Datenset}{subsection.9.3}% 41
+\BOOKMARK [3][-]{subsubsection.9.3.3}{Ver\344nderte Parameter}{subsection.9.3}% 42
+\BOOKMARK [3][-]{subsubsection.9.3.4}{Ergebnis}{subsection.9.3}% 43
+\BOOKMARK [3][-]{subsubsection.9.3.5}{Fazit}{subsection.9.3}% 44
+\BOOKMARK [2][-]{subsection.9.4}{4. Trainingsversuch}{section.9}% 45
+\BOOKMARK [3][-]{subsubsection.9.4.1}{Einf\374hrung}{subsection.9.4}% 46
+\BOOKMARK [3][-]{subsubsection.9.4.2}{Datenset}{subsection.9.4}% 47
+\BOOKMARK [3][-]{subsubsection.9.4.3}{Ver\344nderte Parameter}{subsection.9.4}% 48
+\BOOKMARK [3][-]{subsubsection.9.4.4}{Ergebnis}{subsection.9.4}% 49
+\BOOKMARK [3][-]{subsubsection.9.4.5}{Fazit}{subsection.9.4}% 50
+\BOOKMARK [2][-]{subsection.9.5}{5. Trainingsversuch}{section.9}% 51
+\BOOKMARK [3][-]{subsubsection.9.5.1}{Einf\374hrung}{subsection.9.5}% 52
+\BOOKMARK [3][-]{subsubsection.9.5.2}{Datenset}{subsection.9.5}% 53
+\BOOKMARK [3][-]{subsubsection.9.5.3}{Ver\344nderte Parameter}{subsection.9.5}% 54
+\BOOKMARK [3][-]{subsubsection.9.5.4}{Ergebnis}{subsection.9.5}% 55
+\BOOKMARK [3][-]{subsubsection.9.5.5}{Fazit}{subsection.9.5}% 56
+\BOOKMARK [2][-]{subsection.9.6}{6. Trainingsversuch}{section.9}% 57
+\BOOKMARK [3][-]{subsubsection.9.6.1}{Einf\374hrung}{subsection.9.6}% 58
+\BOOKMARK [3][-]{subsubsection.9.6.2}{Datenset}{subsection.9.6}% 59
+\BOOKMARK [3][-]{subsubsection.9.6.3}{Ver\344nderte Parameter}{subsection.9.6}% 60
+\BOOKMARK [3][-]{subsubsection.9.6.4}{Ergebnis}{subsection.9.6}% 61
+\BOOKMARK [3][-]{subsubsection.9.6.5}{Fazit}{subsection.9.6}% 62
+\BOOKMARK [2][-]{subsection.9.7}{7. Trainingsversuch}{section.9}% 63
+\BOOKMARK [3][-]{subsubsection.9.7.1}{Einf\374hrung}{subsection.9.7}% 64
+\BOOKMARK [3][-]{subsubsection.9.7.2}{Datenset}{subsection.9.7}% 65
+\BOOKMARK [3][-]{subsubsection.9.7.3}{Ver\344nderte Parameter}{subsection.9.7}% 66
+\BOOKMARK [3][-]{subsubsection.9.7.4}{Ergebnis}{subsection.9.7}% 67
+\BOOKMARK [3][-]{subsubsection.9.7.5}{Fazit}{subsection.9.7}% 68
+\BOOKMARK [2][-]{subsection.9.8}{8. Trainingsversuch}{section.9}% 69
+\BOOKMARK [3][-]{subsubsection.9.8.1}{Einf\374hrung}{subsection.9.8}% 70
+\BOOKMARK [3][-]{subsubsection.9.8.2}{Datenset}{subsection.9.8}% 71
+\BOOKMARK [3][-]{subsubsection.9.8.3}{Ver\344nderte Parameter}{subsection.9.8}% 72
+\BOOKMARK [3][-]{subsubsection.9.8.4}{Ergebnis}{subsection.9.8}% 73
+\BOOKMARK [3][-]{subsubsection.9.8.5}{Fazit}{subsection.9.8}% 74
+\BOOKMARK [2][-]{subsection.9.9}{9. Trainingsversuch}{section.9}% 75
+\BOOKMARK [3][-]{subsubsection.9.9.1}{Einf\374hrung}{subsection.9.9}% 76
+\BOOKMARK [3][-]{subsubsection.9.9.2}{Datenset}{subsection.9.9}% 77
+\BOOKMARK [3][-]{subsubsection.9.9.3}{Ver\344nderte Parameter}{subsection.9.9}% 78
+\BOOKMARK [3][-]{subsubsection.9.9.4}{Ergebnis}{subsection.9.9}% 79
+\BOOKMARK [3][-]{subsubsection.9.9.5}{Fazit}{subsection.9.9}% 80
+\BOOKMARK [2][-]{subsection.9.10}{10. Trainingsversuch}{section.9}% 81
+\BOOKMARK [3][-]{subsubsection.9.10.1}{Einf\374hrung}{subsection.9.10}% 82
+\BOOKMARK [3][-]{subsubsection.9.10.2}{Datenset}{subsection.9.10}% 83
+\BOOKMARK [3][-]{subsubsection.9.10.3}{Ver\344nderte Parameter}{subsection.9.10}% 84
+\BOOKMARK [3][-]{subsubsection.9.10.4}{Ergebnis}{subsection.9.10}% 85
+\BOOKMARK [3][-]{subsubsection.9.10.5}{Fazit}{subsection.9.10}% 86
+\BOOKMARK [2][-]{subsection.9.11}{Einschub - Funktioniert das original \374berhaupt?}{section.9}% 87
+\BOOKMARK [1][-]{section.10}{Zusammenfassung}{}% 88
+\BOOKMARK [1][-]{section.11}{Fazit}{}% 89

@@ -317,53 +317,72 @@ Hier hat das Modell insgesamt 16 Tokens zu viel generiert, diese kommen aus zu d
 \section{Vergleich zu dem Original}
 \section{Experimente}
 
-\subsubsection{1. Trainingsversuch}
+In diesem Abschnitt wird beschrieben welche Trainingsversuche durchgeführt wurden um ein bestmögliches Ergebnis zu erhalten. Die Beschreibungen für jeden Trainingsversuch sind jeweils in fünf Abschnitte unterteilt. Dazu gehört eine Einführung, das Datenset, eine Auflistung der veränderten Parameter, die Ergebnisse und ein Fazit.
 
-Um eine Baseline aller weiteren Ergebnisse zu erstellen, wird das Original Modell aus dem pix2code Paper mit meinen neuen Daten neu trainiert. Dazu wurden alle Einstellungen gelassen wie sie waren. Da in dem benutzten Datenset eine andere Anzahl von Token ist, musste dies in 2 Layern angepasst werden:
+Bevor die Beschreibung der jeweiligen Experimenten beginnt, hier eine Auflistung der Standard Parameter der Modelle. 
 
 \begin{verbatim}
-
-_____________________________________________________________________________________
+model.summary():
+________________________________________________________________________________
 Layer (type)                    Output Shape         Param #     Connected to
 
-=====================================================================================
+================================================================================
 input_1 (InputLayer)            (None, 256, 256, 3)  0
-_____________________________________________________________________________________
-input_2 (InputLayer)            (None, 48, 24)       0
-_____________________________________________________________________________________
+________________________________________________________________________________
+input_2 (InputLayer)            (None, 48, 20)       0
+________________________________________________________________________________
 sequential_1 (Sequential)       (None, 48, 1024)     104098080   input_1[0][0]
-_____________________________________________________________________________________
+________________________________________________________________________________
 sequential_2 (Sequential)       (None, 48, 128)      209920      input_2[0][0]
-_____________________________________________________________________________________
+________________________________________________________________________________
 concatenate_1 (Concatenate)     (None, 48, 1152)     0           sequential_1[1][0]
                                                                  sequential_2[1][0]
-_____________________________________________________________________________________
+________________________________________________________________________________
 lstm_3 (LSTM)                   (None, 48, 512)      3409920     concatenate_1[0][0]
-_____________________________________________________________________________________
+________________________________________________________________________________
 lstm_4 (LSTM)                   (None, 512)          2099200     lstm_3[0][0]
-_____________________________________________________________________________________
-dense_3 (Dense)                 (None, 24)           12312       lstm_4[0][0]
-=====================================================================================
-Total params: 109,829,432
-Trainable params: 109,829,432
-Non-trainable params: 0
-_____________________________________________________________________________________
-
-CONTEXT_LENGTH 48
-IMAGE_SIZE 256
-BATCH_SIZE 64
-EPOCHS 5
-STEPS_PER_EPOCH 72000
-
-input_shape (256, 256, 3)
-output_size 24
-input_images 377457
-
+________________________________________________________________________________
+dense_3 (Dense)                 (None, 20)           12312       lstm_4[0][0]
+================================================================================
 \end{verbatim}
 
-Diese Anpassung ist in in der Layer \texttt{input\_2} und \texttt{dense\_3} sichtbar. \texttt{input\_2} ist das Language Modell und \texttt{dense\_3} der Finale Output.
+Wichtig hierbei sind folgende drei Ebenen des Modells; \texttt{sequential\_1}, \texttt{sequential\_2} und \texttt{concatenate\_1}. 
 
-Leider resultierte das Training in keinen guten Ergebniss. Egal welcher Input dem Modell gegeben wurde, es erzeugt immer den gleichen Output. Nämlich diese Abfolge von Token:
+\begin{description}
+	\item[\texttt{sequential\_1}] Dieser Teil ist ein CNN, welches den Screenshot der Website als Input bekommen.
+	\item[\texttt{sequential\_2}] Das Sprach Modell, ein rekurrentes Netzwerk, dass die DSL erlernt.
+	\item[\texttt{concatenate\_1}] Hier wird der Output des CNN und des Sprach-Modells zusammen geführt und in ein weiteres rekurrentes Netzwerk gegeben welches aus der Sprache und dem Screenshot die Beschreibung dazu findet.
+\end{description}
+
+Weitere Parameter:
+\begin{description}
+	\item[Anzahl Netzwerk Paramerter] Insgesamt hat das Netzwerk 109.829.432 trainierbare Parameter und kommt damit auf knapp 420 Mega Byte.
+	\item[\texttt{CONTEXT\_LENGTH}] Die \texttt{CONTEXT\_LENGTH} auf 48 Tokens eingestellt. Die \texttt{CONTEXT\_LENGTH} bestimmt die Größe des Sliding-Windows, mit dem die Input Token Sequenzen abgearbeitet werden. 
+	\item[\texttt{IMAGE\_SIZE}] Die Größe der Input Bilder ist 256 mal 256 Pixel.
+	\item[\texttt{BATCH\_SIZE}] Trainiert wird in Batches mit jeweils 64 Bildern
+	\item[\texttt{EPOCHS}] Es werden 10 Epochen trainiert.
+	\item[\texttt{STEPS\_PER\_EPOCH}] In jeder Epoche weren 72.000 Schritte gemacht.
+	
+\end{description}
+
+
+\subsection{1. Trainingsversuch}
+
+\subsubsection{Einführung}
+
+Um eine Baseline aller weiteren Ergebnisse zu erstellen, wird das Original Modell aus dem pix2code Paper mit meinen neuen Daten neu trainiert. 
+
+\subsubsection{Datenset}
+
+Das verwendete Datenset enthält 4128 Bilder, von denen 2890 für das Training verwendet werden. Die, das Datenset beschreibende, DSL enthält 24 Token. Jedes Bild wird mit durchschnittlich 62,47 Token (Median: 65) beschrieben, die maximale Anzahl liegt bei 92 Token, die minimale Anzahl bei 16. 
+
+\subsubsection{Veränderte Parameter}
+
+Für diese Baseline wurden alle Parameter unverändert übernommen. Die einzige Anpassung die gemacht werden mussen, sind zwei Ebenen im Netzwerk, dessen Input und Output die Anzahl der Token reflektieren. Dies sind Ebene \texttt{input\_2} und \texttt{dense\_3}. Der Shape der beiden Ebenen wurde angepasst um mit 24 Token arbeiten zu können. Daher ist dieser in der Input-Ebene \texttt{(None, 48, 24)} anstatt \texttt{(None, 48, 20)}. Ebense bei der Dense-Ebene \texttt{(None, 24)} anstatt \texttt{(None, 20)}.
+
+\subsubsection{Ergebnis}
+
+Nach dem Training des Netzwerkes, wurden mehrere zufällige Bilder ($n=10$) aus dem Test Set ausgewertet. Bei jedem einzelnen der Bilder kommt das selbe Ergebnis:
 
 \begin{verbatim}
 body {
@@ -405,63 +424,86 @@ body {
 }
 \end{verbatim}
 
-Bei jedem Input, kommt mit ungefähr gleich hohen Wahrscheinlichkeiten immer diese Sequenz heraus. Deswegen wird angenommen, dass diese Abfolge von Token die allgemeingültigste ist. Bei diesem Output kommt der geringste Fehler heraus, obwohl sie nicht mal ein gültiges Dokument darstellt.
+\subsubsection{Fazit}
+
+Anhand des Ergebnisses kann man sagen, dass entweder die erhöhte Token Anzahl, oder die neuen Trainingsbilder, zu viel Entropie in die Trainingsdaten bringen. So kann das Modell leider zu keinem sinnvollen Optimum konvergieren. 
+
 
 \subsection{2. Trainingsversuch}
 
-In diesem Versuch wurde eine vergrößerte Context-Länge erprobt. Da im ersten Versuch eine das Training nicht funktioniert hat, vermute ich den Fehler in einem zu kleinen Sichtbereich des LSTMs. Da durch die Token-Länge die Sichtbarkeit der Long-Term-Dependencies geregelt wird, verdoppel ich diese um zu sehen ob dadurch ein verbessertes Ergebnis zustande kommt. 
+\subsubsection{Einführung}
+
+In diesem Versuch wurde eine vergrößerte Context-Länge erprobt. Da im ersten Versuch, das Training nicht funktioniert hat, vermute ich den Fehler in einem zu kleinen Sichtbereich des LSTMs. Da durch die Token-Länge die Sichtbarkeit der Long-Term-Dependencies geregelt wird, verdoppel ich diese um zu sehen ob dadurch ein verbessertes Ergebnis zustande kommt.
+
+\subsubsection{Datenset}
+
+Gleichbleibend zum ersten Versuch.
+
+\subsubsection{Veränderte Parameter}
 
 Das Modell ist genau gleich wie im ersten Versuch, lediglich die Context-Länge wurde von 48 auf 96 erhöht.
 
+\subsubsection{Ergebnis}
+
 Wie bei ersten Versuch ergibt dieses Training wieder der gleichen Output. Egal welches Bild als Input genommen wird. Um sicher zu gehen, dass diese Prediction nicht zufällig von dem gewählten Testbild abhängt, habe ich insgesamt 313 Bilder getestet, um festzustellen das alle diese Bilder zum gleichen Ergebnis führen. Alle dieser Bilder bekommen den exakt gleichen Output
+
+\subsubsection{Fazit}
+
+An einem zu geringen Kontext kann das nicht konvergierende Training nicht liegen. In den folgenden Versuchen werden andere Parameter verändert.
 
 \subsection{3. Trainingsversuch}
 
-Da im 1. und 2. Versuch, mit der Original Architektur kein brauchbares Ergebnis heraus kommt, und das Netz ein zu allgemeines Ergebnis liefert, wird nun versucht mit einer höheren Komplexität der LSTMs ein Modell zu finden das besser funktioniert.
+
+\subsubsection{Einführung}
+
+Da im ersten und zweiten Versuch, mit der Original Architektur kein brauchbares Ergebnis heraus gekommen ist, und das Netz ein zu falsches Ergebnis liefert, wird nun versucht mit einer höheren Komplexität der LSTMs ein Modell zu finden das besser funktioniert.
+
+\subsubsection{Datenset}
+
+Gleichbleibend zum ersten Versuch.
+
+\subsubsection{Veränderte Parameter}
 
 Hier hab ich die Anzahl der LSTM \texttt{units} von 128, im Language Modell, auf 192 erhöht. Außerdem erfolgte eine Veränderung der LSTM \texttt{units} von 512 auf 768 im Decoder Modell.
 
-\begin{spverbatim}
-
-_____________________________________________________________________________________
+\begin{verbatim}
+________________________________________________________________________________
 Layer (type)                    Output Shape         Param #     Connected to
-=====================================================================================
+================================================================================
 input_1 (InputLayer)            (None, 256, 256, 3)  0
-_____________________________________________________________________________________
+________________________________________________________________________________
 input_2 (InputLayer)            (None, 48, 24)       0
-_____________________________________________________________________________________
+________________________________________________________________________________
 sequential_3 (Sequential)       (None, 48, 1024)     104098080   input_1[0][0]
-_____________________________________________________________________________________
+________________________________________________________________________________
 sequential_4 (Sequential)       (None, 48, 192)      462336      input_2[0][0]
-_____________________________________________________________________________________
+________________________________________________________________________________
 concatenate_1 (Concatenate)     (None, 48, 1216)     0           sequential_3[1][0]
                                                                  sequential_4[1][0]
-_____________________________________________________________________________________
+________________________________________________________________________________
 lstm_3 (LSTM)                   (None, 48, 768)      6097920     concatenate_1[0][0]
-_____________________________________________________________________________________
+________________________________________________________________________________
 lstm_4 (LSTM)                   (None, 768)          4721664     lstm_3[0][0]
-_____________________________________________________________________________________
+________________________________________________________________________________
 dense_3 (Dense)                 (None, 24)           18456       lstm_4[0][0]
-=====================================================================================
+================================================================================
 Total params: 115,398,456
 Trainable params: 115,398,456
 Non-trainable params: 0
 
-_____________________________________________________________________________________
+________________________________________________________________________________
+\end{verbatim}
 
-CONTEXT_LENGTH 48
-IMAGE_SIZE 256
-BATCH_SIZE 64
-EPOCHS 5
-STEPS_PER_EPOCH 72000
+Durch diese Veränderung gibt es ca. 8 Millionen mehr Parameter.
+Die Länge des Kontextes wurde zurück auf 48 gestellt.
 
-input_shape (256, 256, 3)
-output_size 24
-input_images 377457
+\subsubsection{Ergebnis}
 
-\end{spverbatim}
+Exakt gleiches Ergebnis zu den beiden ersten Versuchen.
 
-Da inzwischen immer noch der gleiche Output generiert wird, probiere ich nun einen Fehler im Programm-Code zu finden. Folgene Ursachen könnte es geben:
+\subsubsection{Fazit}
+
+Da inzwischen immer noch der gleiche Output generiert wird, probiere ich nun einen Fehler im Programm-Code zu finden. Folgende Ursachen könnte es geben:
 
 \begin{description}
 	\item[Fehler im Sampler] Der Sampler generiert nach dem Training aus Screenshots die Token-Sequenz. Hier könnte zum einen, ein falsches Modell geladen werden, oder es wird fehlerhaft geladen.
@@ -474,91 +516,499 @@ Da inzwischen immer noch der gleiche Output generiert wird, probiere ich nun ein
 	\item[Fehler in den Daten] Während dem Preprocessing werden die Trainingsbilder in \texttt{numpy}-Arrays mit \texttt{shape(256,256,3} umgewandelt. Anschließend werden die Arrays und \texttt{gui}-Files zusammen abgespeichert.
 	
 	\begin{description}
-		\item[Array Konvertierung] Beweis Bild + Nach optischer Kontrolle von zufälligen $n=10$ Samples musste ich feststellen, dass diese korrekt sind.
-		\item[Zuordnung Files] Nach kontrolle zufälliger Samples sieht die Zuordnung ebenfalls gut aus.
+		\item[Array Konvertierung] Beweis Bild + Nach optischer Kontrolle von zufälligen Samples ($n=10$) musste ich feststellen, dass diese korrekt sind.
+		\item[Zuordnung Files] Nach Kontrolle zufälliger Samples sieht die Zuordnung ebenfalls gut aus.
 	\end{description}
 	
 	\item[Fehler in Vocabulary] Es könnte auch an der fehlerhaften Abspeicherung der einzelnen Tokens liegen. Vocabulary und One-Hot-Encoding sind ebenfalls richtig.
-	\item[Fehler im Datenset / -synthese] Hier wurde ein Fehler gefunden: Alle Screenshots, welche die Sidebar anstatt des Menues haben, sind doppelt enthalten. Der Grund hierfür, war die Positionierung des Menü-Logos, welches Einfluss auf die Erstellung des Menüs hatte, aber nicht auf die Sidebar. Ein Viertel der Trainingsdaten hat ein Menü mit Logo links, ein weiteres Viertel hat das Logo rechts. Die andere hälfte der Trainingsdaten hat die Sidebar, obwohl sich dort nichts mehr ändert. 
+	
+	\item[Fehler im Datenset / -synthese] Hier wurde ein Fehler gefunden: Alle Screenshots, welche die \texttt{sidebar} anstatt des \texttt{menue} haben, sind doppelt enthalten. Der Grund hierfür, ist die Positionierung des Menü-Logos. Da es in Falle des \texttt{menue} zwei Möglichkeiten für die Positionierung des Logos gibt, wurden diese durch iteriert in der Erstellung der Daten. Da es bei der \texttt{sidebar} diese beiden Möglichkeiten aber nicht gab, wurden so alle Bilder mit der \texttt{sidebar} doppelt erstellt. Ein Viertel der Trainingsdaten hat ein Menü mit Logo links, ein weiteres Viertel hat das Logo rechts. Die andere Hälfte der Trainingsdaten hat die \texttt{sidebar}, in denen aber nur halb so viele einmalige enthalten sind.
+	
 \end{description}
 
 \subsection{4. Trainingsversuch}
 
-Nach dem finden des Fehlers nach dem dritten Versuch in den synthetisierten Trainingsdaten, wurde dieser behoben und neue Trainingsdaten generiert. Nun sind es nur noch 3096 verschiedene Bilder. Ein Drittel hat das Feature \texttt{menu\_logo\_left}, ein Drittel \texttt{menu\_logo\_right}, und der Rest die \texttt{sidebar}. In diesem Versuch werden wieder die Standard Parameter benutzt. 
 
+\subsubsection{Einführung}
+
+Nach dem Finden des Fehlers im vorherigen Versuch, wurde ein neues Datenset erstellt.
+
+\subsubsection{Datenset}
+
+Ei neues Datenset mit 3096 Bildern wurde erstell. Ein Drittel hat das Feature \texttt{menue\_logo\_left}, ein Drittel \texttt{menue\_logo\_right}, und der Rest die \texttt{sidebar}. 
+
+\subsubsection{Veränderte Parameter}
+
+In diesem Versuch wurden die gleichen Parameter wie im ersten Versuch genutzt.
+
+\subsubsection{Ergebnis}
 
 Es erfolgte keine Verbesserung der Trainingsergebnisse. Die Token-Sequenz hat sich dahingehend geändert, dass nun anstatt der \texttt{sidebar} ein Menü in allen Ergebnissen ist.
 
-\begin{spverbatim}
-	body{
-	header{
-	logo-right,btn-inactive-white,btn-inactive-white
-	}
-row{
-quadruple{
-small-titletextbtn-inactive-black
-}
-quadruple{
-small-titletextbtn-inactive-black
-}
-double{
-small-titletextbtn-inactive-black
-}
-}
-row{
-quadruple{
-small-titletextbtn-inactive-black
-}
-quadruple{
-small-titletextbtn-inactive-black
-}
-double{
-small-titletextbtn-inactive-black
-}
-}
-}
-\end{spverbatim}
-
-
-bin7
-Nach dem Training wird das traininerte netz weiter trainiert 
-
 \begin{verbatim}
-Generating sparse vectors...Dataset size: 283613Vocabulary size: 24Input shape: (256, 256, 3)Output size: 24Parsing data...WARNING:tensorflow:From /home/sd092/.direnv/python-3.6.6/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:1264: calling reduce_prod (from tensorflow.python.ops.math_ops) with keep_dims is deprecated and will be removed in a future version.Instructions for updating:keep_dims is deprecated, use keepdims insteadWARNING:tensorflow:From /home/sd092/.direnv/python-3.6.6/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:1247: calling reduce_sum (from tensorflow.python.ops.math_ops) with keep_dims isdeprecated and will be removed in a future version.Instructions for updating:keep_dims is deprecated, use keepdims insteadWARNING:tensorflow:From /home/sd092/.direnv/python-3.6.6/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:1349: calling reduce_mean (from tensorflow.python.ops.math_ops) with keep_dims is deprecated and will be removed in a future version.Instructions for updating:keep_dims is deprecated, use keepdims instead2018-10-11 15:11:57.143470: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1484] Adding visible gpu devices: 02018-10-11 15:11:57.143516: I tensorflow/core/common_runtime/gpu/gpu_device.cc:965] Device interconnect StreamExecutor with strength 1 edge matrix:2018-10-11 15:11:57.143521: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971]      02018-10-11 15:11:57.143525: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] 0:   N2018-10-11 15:11:57.143764: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1097] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 11362 MB memory) -> physical GPU (device: 0, name: TITAN Xp, pci bus id: 0000:05:00.0, compute capability: 6.1)Epoch 1/104432/4431 [==============================] - 1848s 417ms/step - loss: 0.1798Epoch 2/104432/4431 [==============================] - 1843s 416ms/step - loss: 0.1798Epoch 3/104432/4431 [==============================] - 1844s 416ms/step - loss: 0.1801Epoch 4/104432/4431 [==============================] - 1845s 416ms/step - loss: 0.1796Epoch 5/10 647/4431 [===>..........................] - ETA: 26:27 - loss: 0.1814^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[4432/4431 [==============================] - 1883s 425ms/step - loss: 0.1810[B^[[B^[[B^[[B^[[B^[[B^[[Epoch 6/10[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B4432/4431 [==============================] - 1883s 425ms/step - loss: 0.1809Epoch 7/104432/4431 [==============================] - 1959s 442ms/step - loss: 0.1798Epoch 8/104432/4431 [==============================] - 1858s 419ms/step - loss: 0.1801Epoch 9/104432/4431 [==============================] - 1857s 419ms/step - loss: 0.1802Epoch 10/104432/4431 [==============================] - 1856s 419ms/step - loss: 0.1795
+body{
+header{
+logo-right,btn-inactive-white,btn-inactive-white
+}
+row{
+quadruple{
+small-titletextbtn-inactive-black
+}
+quadruple{
+small-titletextbtn-inactive-black
+}
+double{
+small-titletextbtn-inactive-black
+}
+}
+row{
+quadruple{
+small-titletextbtn-inactive-black
+}
+quadruple{
+small-titletextbtn-inactive-black
+}
+double{
+small-titletextbtn-inactive-black
+}
+}
+}
 \end{verbatim}
+
+\subsubsection{Fazit}
+
+Die gefundene Token Sequenz muss wohl die allgemeingültigste sein, da diese immer wieder gefunden wird. Da der Fehler nicht an einem Fehler im Programm liegt, muss er entweder in den Daten oder im Modell liegen. 
 
 \subsection{5. Trainingsversuch}
 
-Gleichzeitig zu dem 4. Versuch wurde noch ein Subset der Daten erstellt, das nur 70\% der Bilder aufweist. Dieses hat 2166 Bilder im Vergleich zu dem Set vom 4. Trainingsversuch. Der Gedanke hierbei ist, dass im Original Training vom pix2code Paper 1500 Trainingsbilder ausgereicht haben.
+\subsubsection{Einführung}
 
-Es erfolgte keine Verbesserung der Trainingsergebnisse.
+Gleichzeitig zu dem 4. Versuch wurde noch ein Subset der Daten erstellt, das nur 70\% der Bilder aufweist. Dieses hat 2166 Bilder im Vergleich zu dem Set vom 4. Trainingsversuch. Der Gedanke hierbei ist, dass im Original Training vom pix2code Paper 1500 Trainingsbilder ausgereicht haben. Unter Umständen konvergiert es mit weniger Daten zu einem anderen Durchschnittswert oder fängt an die richtigen Ergebnisse herauszufinden.
+
+\subsubsection{Datenset}
+Eine reduzierte Variante des Sets aus dem vierten Versuch.
+
+\subsubsection{Veränderte Parameter}
+
+Gleiche Parameter wie im ersten Versuch.
 bin8
 
+\subsubsection{Ergebnis}
+
+Es erfolgte keine Verbesserung der Trainingsergebnisse.
+
+\subsubsection{Fazit}
+
+Dieser Ansatz hat gezeigt, dass dieser Weg der falsche ist.
 
 \subsection{6. Trainingsversuch}
 
-Update Training mit Löschung des Body Tags
-bin9
+\subsubsection{Einführung}
+
+Nach Analyse der Daten des Original Papers, wurde festgestellt, dass dort ein Tag weggelassen wurde. Es wird kein \texttt{body}-Tag verwendet. Dieser ist bei jedem der Bild-beschreibenden Token-Sequenzen der root-Knoten. Da er jedes mal auftritt, hat er aber keine Relevanz zu dem Screenshot und kann daher weggelassen werden.
+
+\begin{verbatim}
+python train.py ../../data/rfp_data_no_body_3096_11.10.
+2018/train/ ../bin9/ 1
+
+\end{verbatim}
+
+\subsubsection{Datenset}
+
+Neues Datenset, ohne \texttt{body}-Tags. Dieses hat insgesamt 3096 Bilder und ist wieder 70-20-10 gesplittet in Trainings-, Test-, und Validierungsset. Durch das fehlen des \texttt{body}-Tags ergibt sich folgende Verteilungsmaße:
+\begin{verbatim}
+Token length analysis:
+     mean token length:    59.69
+     max token length:     89
+     min token length:     14
+     median token length:  62
+\end{verbatim}
+
+Die Median-Token-Länge ist um genau 3 Token geringer geworden. Dies liegt daran, dass zugehörig zum \texttt{body}-Tag zwei Klammern benötigt wurden (\texttt{\{} und \texttt{\}}), welche anzeigen dass der Rest der Token Kinds-Knoten des \texttt{body}-Tags sind.
+
+\subsubsection{Veränderte Parameter}
+
+Gleiche Parameter wie im ersten Versuch.
+
+\subsubsection{Ergebnis}
+
+Es kommt die gleiche Ergebnis-Sequenz wie bei den Versuchen davor heraus.
+
+\begin{verbatim}
+body{
+header{
+logo-right,btn-inactive-white,btn-inactive-white
+}
+row{
+quadruple{
+small-title,text,btn-inactive-black
+}
+quadruple{
+small-title,text,btn-inactive-black
+}
+double{
+small-title,text,btn-inactive-black
+}
+}
+row{
+quadruple{
+small-title,text,btn-inactive-black
+}
+quadruple{
+small-title,text,btn-inactive-black
+}
+double{
+small-title,text,btn-inactive-black
+}
+}
+}
+\end{verbatim}
+
+Diesmal jedoch ohne \texttt{body}-Tag.
+
+
+\subsubsection{Fazit}
+
+Das Scheitern des Trainings wurde nicht durch die Verkleinerung der DSL behoben. Als nächster Schritt sollte jeweils der Sprach- sowie das Bild-Teil des Modells näher in Betracht genommen werden. Ein Großteil der Parameter des Modells sind bereits im CNN (hier erfolgt die Analyse des Bildes), deswegen wird es die Gesamtperformance weniger stark verbessern wenn man die gleiche Zahl an neuen Parametern hier hinzufügt. Deswegen wird zunächst der Sprach- und der Decoder-Teil des Modell untersucht.
 
 \subsection{7. Trainingsversuch}
 
-Versuch mit GRUs \cite{GRUvsLSTM}
+Versuch mit GRUs \cite{GRUvsLSTM} \cite{lstmSearchSpace}
 bin10
 
-Using TensorFlow backend.
-Loading data...
-Generating sparse vectors...
-Dataset size: 256631
-Vocabulary size: 23
-Input shape: (256, 256, 3)
-Output size: 23
+\subsubsection{Einführung}
+
+Wie im Fazit des vorangegangen Versuchs, wird nun daran gearbeit, die LSTMs, welche der sprach analysierende und der decodierende Teil des Modells sind zu verbessern. Nach der Lektüre eines Posts von Colahs Blog, wurden testweise die klassischen LSTMs durch GRUs ersetzt.
+
+\subsubsection{Datenset}
+
+Hier wurde das Datenset aus dem sechsten Trainingsversuch verwendet.
+
+\subsubsection{Veränderte Parameter}
+
+\begin{verbatim}
+________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to
+================================================================================
+input_1 (InputLayer)            (None, 256, 256, 3)  0
+________________________________________________________________________________
+input_2 (InputLayer)            (None, 48, 23)       0
+________________________________________________________________________________
+sequential_1 (Sequential)       (None, 48, 1024)     104098080   input_1[0][0]
+________________________________________________________________________________
+sequential_2 (Sequential)       (None, 48, 128)      157056      input_2[0][0]
+________________________________________________________________________________
+concatenate_1 (Concatenate)     (None, 48, 1152)     0           sequential_1[1][0]
+                                                                 sequential_2[1][0]
+________________________________________________________________________________
+gru_3 (GRU)                     (None, 48, 512)      2557440     concatenate_1[0][0]
+________________________________________________________________________________
+gru_4 (GRU)                     (None, 512)          1574400     gru_3[0][0]
+________________________________________________________________________________
+dense_3 (Dense)                 (None, 23)           11799       gru_4[0][0]
+================================================================================
+
+Trainable params: 108,398,775
+
+\end{verbatim}
+
+Die LSTMs in \texttt{sequential\_2} sowie in Ebene 3 und 4 wurden durch GRUs ersetzt. Die Anzahl der \texttt{units} wurde beibehalten. (128 bzw. 512)
+
+
+\subsubsection{Ergebnis}
+\subsubsection{Fazit}
+
+\begin{verbatim}
+
+4010/4009 [==============================] - 1565s 390ms/step - loss: 0.3897
+Epoch 2/10
+4010/4009 [==============================] - 1555s 388ms/step - loss: 0.1842
+Epoch 3/10
+4010/4009 [==============================] - 1555s 388ms/step - loss: 0.1669
+Epoch 4/10
+4010/4009 [==============================] - 1546s 386ms/step - loss: 0.1543
+Epoch 5/10
+4010/4009 [==============================] - 1528s 381ms/step - loss: 0.1442
+Epoch 6/10
+4010/4009 [==============================] - 1528s 381ms/step - loss: 0.1331
+Epoch 7/10
+4010/4009 [==============================] - 1528s 381ms/step - loss: 0.1240
+Epoch 8/10
+4010/4009 [==============================] - 1530s 381ms/step - loss: 0.1191
+Epoch 9/10
+4010/4009 [==============================] - 1529s 381ms/step - loss: 0.1157
+Epoch 10/10
+4010/4009 [==============================] - 1528s 381ms/step - loss: 0.1135
+
+
+
+
+
+\end{verbatim}
 \subsection{8. Trainingsversuch}
 
-Teste irgendwie den image input... entweder traininire nen autoencoder oder validieren die ergebnisse irgendwie anders
+language modell: LSTM
+Decoder: GRU
+bin11
 
 
+\subsubsection{Einführung}
+\subsubsection{Datenset}
+\subsubsection{Veränderte Parameter}
+\subsubsection{Ergebnis}
+\subsubsection{Fazit}
+
+\begin{verbatim}
+4010/4009 [==============================] - 1603s 400ms/step - loss: 0.5653
+Epoch 2/10
+4010/4009 [==============================] - 1602s 399ms/step - loss: 0.1885
+Epoch 3/10
+4010/4009 [==============================] - 1601s 399ms/step - loss: 0.1806
+Epoch 4/10
+4010/4009 [==============================] - 1602s 399ms/step - loss: 0.1777
+Epoch 5/10
+4010/4009 [==============================] - 1601s 399ms/step - loss: 0.1751
+Epoch 6/10
+4010/4009 [==============================] - 1600s 399ms/step - loss: 0.1728
+Epoch 7/10
+4010/4009 [==============================] - 1593s 397ms/step - loss: 0.1722
+Epoch 8/10
+4010/4009 [==============================] - 1583s 395ms/step - loss: 0.1717
+Epoch 9/10
+4010/4009 [==============================] - 1583s 395ms/step - loss: 0.1718
+Epoch 10/10
+4010/4009 [==============================] - 1582s 395ms/step - loss: 0.1714
+
+Layer (type)                    Output Shape         Param #     Connected to
+==================================================================================================
+input_1 (InputLayer)            (None, 256, 256, 3)  0
+__________________________________________________________________________________________________
+input_2 (InputLayer)            (None, 48, 23)       0
+__________________________________________________________________________________________________
+sequential_1 (Sequential)       (None, 48, 1024)     104098080   input_1[0][0]
+__________________________________________________________________________________________________
+sequential_2 (Sequential)       (None, 48, 128)      209408      input_2[0][0]
+__________________________________________________________________________________________________
+concatenate_1 (Concatenate)     (None, 48, 1152)     0           sequential_1[1][0]
+                                                                 sequential_2[1][0]
+__________________________________________________________________________________________________
+gru_1 (GRU)                     (None, 48, 512)      2557440     concatenate_1[0][0]
+__________________________________________________________________________________________________
+gru_2 (GRU)                     (None, 512)          1574400     gru_1[0][0]
+__________________________________________________________________________________________________
+dense_3 (Dense)                 (None, 23)           11799       gru_2[0][0]
+==================================================================================================
+Total params: 108,451,127
+Trainable params: 108,451,127
+Non-trainable params: 0
+__________________________________________________________________________________________________
+
+CONTEXT_LENGTH 48
+IMAGE_SIZE 256
+BATCH_SIZE 64
+EPOCHS 10
+STEPS_PER_EPOCH 72000
+input_shape (256, 256, 3)
+output_size 23
+input_images 256631
+
+header{
+logo-rightbtn-inactive-whitebtn-inactive-white
+}
+row{
+quadruple{
+small-titletextbtn-inactive-black
+}
+quadruple{
+small-titletextbtn-inactive-black
+}
+double{
+small-titletextbtn-inactive-black
+}
+}
+row{
+quadruple{
+small-titletextbtn-inactive-grey
+}
+quadruple{
+small-titletextbtn-inactive-black
+}
+double{
+small-titletextbtn-inactive-black
+}
+}
+
+\end{verbatim}
+
+WIEDER der gleiche Output! Es liegt also allein am Language Modell!!!!!
 
 
+\subsection{9. Trainingsversuch}
+
+\subsubsection{Einführung}
+\subsubsection{Datenset}
+\subsubsection{Veränderte Parameter}
+\subsubsection{Ergebnis}
+\subsubsection{Fazit}
+
+language modell: GRU
+Decoder: LSTM
+
+\begin{verbatim}
+
+python train.py ../../data/rfp_data_no_body_3096_11.10.
+2018/train/ ../bin12/ 1
+
+4010/4009 [==============================] - 1646s 410ms/step - loss: 0.5490
+Epoch 2/10
+4010/4009 [==============================] - 1643s 410ms/step - loss: 0.1962
+Epoch 3/10
+4010/4009 [==============================] - 1642s 410ms/step - loss: 0.1932
+Epoch 4/10
+4010/4009 [==============================] - 1642s 410ms/step - loss: 0.1920
+Epoch 5/10
+4010/4009 [==============================] - 1632s 407ms/step - loss: 0.1916
+Epoch 6/10
+4010/4009 [==============================] - 1615s 403ms/step - loss: 0.1917
+Epoch 7/10
+4010/4009 [==============================] - 1616s 403ms/step - loss: 0.1940
+Epoch 8/10
+4010/4009 [==============================] - 1616s 403ms/step - loss: 0.1869
+Epoch 9/10
+4010/4009 [==============================] - 1616s 403ms/step - loss: 0.1854
+Epoch 10/10
+4010/4009 [==============================] - 1609s 401ms/step - loss: 0.1783
+
+____________
+Layer (type)                    Output Shape         Param #     Connected to
+==================================================================================================
+input_1 (InputLayer)            (None, 256, 256, 3)  0
+__________________________________________________________________________________________________
+input_2 (InputLayer)            (None, 48, 23)       0
+__________________________________________________________________________________________________
+sequential_1 (Sequential)       (None, 48, 1024)     104098080   input_1[0][0]
+__________________________________________________________________________________________________
+sequential_2 (Sequential)       (None, 48, 128)      157056      input_2[0][0]
+__________________________________________________________________________________________________
+concatenate_1 (Concatenate)     (None, 48, 1152)     0           sequential_1[1][0]
+                                                                 sequential_2[1][0]
+__________________________________________________________________________________________________
+lstm_1 (LSTM)                   (None, 48, 512)      3409920     concatenate_1[0][0]
+__________________________________________________________________________________________________
+lstm_2 (LSTM)                   (None, 512)          2099200     lstm_1[0][0]
+__________________________________________________________________________________________________
+dense_3 (Dense)                 (None, 23)           11799       lstm_2[0][0]
+==================================================================================================
+Total params: 109,776,055
+Trainable params: 109,776,055
+Non-trainable params: 0
+__________________________________________________________________________________________________
+
+CONTEXT_LENGTH 48
+IMAGE_SIZE 256
+BATCH_SIZE 64
+EPOCHS 10
+STEPS_PER_EPOCH 72000
+input_shape (256, 256, 3)
+output_size 23
+input_images 256631
+\end{verbatim}
+
+
+\subsection{10. Trainingsversuch}
+Language: LSTM 256 units
+Decoder 512 units
+
+
+\subsubsection{Einführung}
+\subsubsection{Datenset}
+\subsubsection{Veränderte Parameter}
+\subsubsection{Ergebnis}
+\subsubsection{Fazit}
+
+\begin{verbatim}
+python train.py ../../data/rfp_data_no_body_3096_11.10.
+2018/ ../bin13/ 1
+
+4010/4009 [==============================] - 1737s 433ms/step - loss: 0.7700
+Epoch 2/10
+4010/4009 [==============================] - 1730s 431ms/step - loss: 0.2034
+Epoch 3/10
+4010/4009 [==============================] - 1755s 438ms/step - loss: 0.1963
+Epoch 4/10
+4010/4009 [==============================] - 1742s 434ms/step - loss: 0.1945
+Epoch 5/10
+4010/4009 [==============================] - 1725s 430ms/step - loss: 0.1929
+Epoch 6/10
+4010/4009 [==============================] - 1726s 430ms/step - loss: 0.1923
+Epoch 7/10
+4010/4009 [==============================] - 1725s 430ms/step - loss: 0.1931
+Epoch 8/10
+4010/4009 [==============================] - 1724s 430ms/step - loss: 0.1923
+Epoch 9/10
+4010/4009 [==============================] - 1725s 430ms/step - loss: 0.1924
+Epoch 10/10
+4010/4009 [==============================] - 1725s 430ms/step - loss: 0.1920
+
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to
+==================================================================================================
+input_1 (InputLayer)            (None, 256, 256, 3)  0__________________________________________________________________________________________________
+input_2 (InputLayer)            (None, 48, 23)       0__________________________________________________________________________________________________
+sequential_1 (Sequential)       (None, 48, 1024)     104098080   input_1[0][0]__________________________________________________________________________________________________
+sequential_2 (Sequential)       (None, 48, 256)      812032      input_2[0][0]__________________________________________________________________________________________________
+concatenate_1 (Concatenate)     (None, 48, 1280)     0           sequential_1[1][0]                                                                 sequential_2[1][0]
+__________________________________________________________________________________________________lstm_3 (LSTM)                   (None, 48, 512)      3672064     concatenate_1[0][0]
+__________________________________________________________________________________________________
+lstm_4 (LSTM)                   (None, 512)          2099200     lstm_3[0][0]
+__________________________________________________________________________________________________
+dense_3 (Dense)                 (None, 23)           11799       lstm_4[0][0]
+==================================================================================================
+Total params: 110,693,175
+Trainable params: 110,693,175
+Non-trainable params: 0
+__________________________________________________________________________________________________
+
+CONTEXT_LENGTH 48
+IMAGE_SIZE 256
+BATCH_SIZE 64
+EPOCHS 10
+STEPS_PER_EPOCH 72000
+input_shape (256, 256, 3)
+output_size 23
+input_images 256631
+
+\end{verbatim}
+
+\subsection{Einschub - Funktioniert das original überhaupt?}
+Training insegesamt 20 Epochen
+
+\begin{verbatim}
+
+
+python train.py ../datasets/web/training_features/ ../b
+in_orginal/ 1 ../bin_orginal/pix2code.h5 
+Epoch 1/10
+291/290 [==============================] - 130s 445ms/step - loss: 0.2733
+Epoch 2/10
+291/290 [==============================] - 126s 434ms/step - loss: 0.2302
+Epoch 3/10
+291/290 [==============================] - 126s 431ms/step - loss: 0.2251
+Epoch 4/10
+291/290 [==============================] - 125s 431ms/step - loss: 0.2269
+Epoch 5/10
+291/290 [==============================] - 125s 431ms/step - loss: 0.2099
+Epoch 6/10
+291/290 [==============================] - 125s 431ms/step - loss: 0.2140
+Epoch 7/10
+291/290 [==============================] - 125s 431ms/step - loss: 0.1891
+Epoch 8/10
+291/290 [==============================] - 125s 431ms/step - loss: 0.1865
+Epoch 9/10
+291/290 [==============================] - 126s 432ms/step - loss: 0.1880
+Epoch 10/10
+291/290 [==============================] - 126s 431ms/step - loss: 0.1780
+\end{verbatim}
 \section{Zusammenfassung}
 \section{Fazit}
 
