@@ -1,10 +1,10 @@
-\documentclass[pdftex,a4paper,halfparskip]{scrartcl}
+\documentclass[pdftex,a4paper,halfparskip, article]{scrartcl}
 % Andere Dokumentklassen: article, report, book, beamer, scrartcl, scrreprt, scrbook, beamer
 % Prefix scr bedeuted aus dem KOMA-Script Paket, welches europäische Formatierungsstandards enthält
 % Gebräuchliche Optionen sind: 11pt, 12pt, twoside, twocolumn, a4paper,...
 \usepackage{ngerman} %Titel z.B. für Tabellen- und Inhaltsverzeichnis werden ins Deutsche übersetzt. Ausserdem Aktivierung der korrekten Silbentrennung
 
-\usepackage{spverbatim}
+\usepackage{verbatim}
 
 \usepackage[latin1, utf8]{inputenc} %Für das Erkennen von Umlauten
 
@@ -12,6 +12,7 @@
 
 \usepackage{hyperref}
 \usepackage{graphicx}
+\graphicspath{ {./images/} } 
 \usepackage{color}
 
 \title{Rapid Frontend Prototyping with Deep Learning} %Definition des Titels
@@ -89,19 +90,72 @@ Das Training eines Netzwerkes, ist das schrittweise Anpassen der Gewichte bis es
 CNN sind Tiefe Neuronale Netzwerke mit einer bestimmten Architektur und spezialisiert auf die Verarbeitung von Bildern. Da man die Anwendungsdomäne eingeschränkt hat, kann man bestimmte Annahmen treffen, welche die Anzahl der Verbindungen und damit Rechenoperationen verringert und somit das Netz effektiver macht. Um aus Bildern, Informationen zu gewinnen, müssen die Ebenen des Netzwerkes nicht vollständig verbunden sein. Stattdessen werden Filter (Convolutions) und Sub-Sampling genutzt. Filter sind kleine Matrizen, die bestimmte Features entdecken, zum Beispiel Kanten mit bestimmter Ausrichtung. Durch das Erlernen der Filter im Training kann das Netzwerk aus den Pixel Werten, schrittweise abstraktere Features errechnen. Diese gehen von einfachen Kanten, zu komplexeren Umrissen, und schließlich zu vollständigen Teil-Objekten. Zum Beispiel werden aus vielen Kanten ein Kreis, dann kommen noch mehr dazu bis eine Feautere Map ein Auge abbildet. 
 Aus dem Auge und der biologischen Signal Verarbeitung ist diese Architektur inspiriert \cite(Hubel68). Einzelne Neuronen des celebralen Kortex reagieren auf Reize nur in einem beschränkten Bereich. Da diese Bereiche leicht überlappen können so diese Neuronen den gesamten Sichtbereich erkennen. 
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{colah_cnn}
+\caption{CNN von \url{http://colah.github.io/}}
+\end{figure}
+
+
+
+
 \subsection{Recurrent Neural Network - RNN}
 
-Als RNN bezeichnet man neuronale Netze, welches Verbindungen, im Gegensatz zu FeedForward-Netzen, zu Neuronen der selben oder vorhergehenden Schichten besitzt. Dadurch kann es zeitliche Abhängigkeiten in den Input Daten detektieren. Diese Art von Netzen wird in der Spracherkennung, Maschineller Übersetzung und auch Handschrifterkennung eingesetzt. 
+RNNs sind eine Erweiterung der klassischen Feedforward Netze, die im Stande sind, Input-Sequenzen mit verschiedener Länge zu verarbeiten \cite{paperGRUComparison}. Die RNN schaffen dies, in dem sie einen inneren Zustand haben, dessen Aktivierungen von vorherigen Inputs abhängig sind.
+RNNs haben Verbindungen zu Neuronen der selben oder vorhergehenden Schichten und können dadurch Inputs durch das gesamte Netz durchgeben. 
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{colah_rnn}
+\caption{RNN von \url{http://colah.github.io/}}
+\end{figure}
+
+Wie auf der Abbildung zu sehen ist, ähnelt der Verbund der Rekurrenten Einheiten einer Liste. Damit ist diese Art Neuraler Netzwerke besonders gut geeignet sequentielle Daten abzuarbeiten \cite{colahsBlogLSTM}. Listen, Sprachsynthese und Maschinelle Übersetzungen sind Bereiche wofür RNNs gut geignet sind.
+
 
 
 \subsubsection{Long short-term Memory - LSTM}
 
-Ein LSTM ist eine bestimmte Form der RNNs. Ein RNN kann durch dessen starre Struktur immer nur eine bestimmte Anzahl von Schritten abspeichern. Zum Beispiel bei Videoanalysen jeweils die letzten 5 Frames. Das LSTM kann sich dynamisch Daten speichern, wodurch es irrelevante Daten aus vorherigen Schritten verwirft, relevantere jedoch länger abspeichert. Während des Trainings eines LSTMs, erlernt dieses auch das Speichern und Löschen. Dadurch kann es sehr viel effizienter als reine RNNs Daten mit temporaler Dimension auswerten. 
+Ein LSTM ist eine bestimmte Form der RNNs. Ein RNN kann durch dessen starre Struktur immer nur eine bestimmte Anzahl von Schritten abspeichern. Die Schrittanzahl hängt davon ab, wie viele RNN-Units mit einander verkettet sind. Sobald mal jedoch einen sehr weiten Kontext benötigt, zum Beispiel bei der Analyse von Texten oder der maschinellen Übersetzung, stößt diese starre Struktur an ihre Grenzen. Ein LSTM ist so gebaut, dass es die einzelnen Units selber entscheiden können, welche Daten weiter beibehalten oder vergessen werden. Durch die dynamische Speicherverwaltung, kann es auf der einen Seite sich bestimmte Informationen länger speichern, auf der anderen, kurzfristig benötigte Daten verarbeiten und dann wieder vergessen. Während des Trainings eines LSTMs, erlernt dieses auch das Speichern und Löschen. Dadurch kann es sehr viel effizienter als reine RNNs Daten mit temporaler Dimension auswerten. Fast jeder Erfolg, der mit RNNs erzielt wurde, ist auf LSTMs zurückzuführen \cite{colahsBlogLSTM}. 
+
+Eingeführt wurde das LSTM von Hochreiter und Schmidhuber im Jahr 1997 \cite{LSTM_orig}. Seit dem wurden viele Variationen davon getestet, verworfen und verbessert. In dieser Arbeit, wird mit dem Begriff LSTM diese Original Spezifikation gemeint.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{colah_lstm}
+\caption{LSTM von \url{http://colah.github.io/}}
+\end{figure}
+
+Eine LSTM-Unit teilt sich mit allen anderen LSTM-Units des Netzwerkes einen Cell-State, in der Abbildung die obere, horzontale Linie. Jede Unit kann diesen auf zwei Arten verändern, mit einem \texttt{forget}-Gate werden Informationen vergessen, mit einem \texttt{add}-Gate Informationen hinzugefügt. Schließlich berechnet jede Unit einen eigenen Hidden-State anhand des Inputs, des geteilten Cell-States und dem Hidden-State vorangegangener Units.
+
+
+\subsubsection{Gated Recurrent Unit - GRU}
+
+Die GRU, ist eine Abwandlung des klassischen LSTM. Die Architektur wurde 2014 von Kyunghyun Cho et al. eingeführt \cite{DBLP:journals/corr/ChoMGBSB14}. Was diese Variante ausmacht, ist eine Zussammenführung des \texttt{forget}- und \texttt{add}-Gates, sowie das Weglassen des Cell-States. Dadurch hat es weniger Parameter als die klassische Variante.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.3\textwidth]{colah_gru_small}
+\caption{GRU von \url{http://colah.github.io/}}
+\end{figure}
+Trotz der geringeren Anzahl an Parameter, ist die Performance ähnlich der klassische Variante\cite{lstmSearchSpace}, trainiert aber schneller, da weniger optimiert werden muss. 
 
 
 \subsection{Training}
 
 Als Training wird der Prozess bezeichnet, während dem ein Neurales Netzwerk Wissen aus vorliegenden Daten extrahiert. Genau dieser Vorgang sorgt für den großen Erfolg von Neuralen Netzen. Anders als bei herkömmlichen Statistischen Methoden können NNs aus riesigen Datenmengen Patterns und Sachverhältnisse lernen. Damit dies funktioniert, muss eine Kostenfunktion gebildet werden können, anhand bestimmt wird, wie weit das genutzte Modell von der Optimalen Lösung entfernt ist. Anhand diesem Abstand können die Parameter des gewählten Modells angepasst werden um dem Optimum näher zu kommen.
+
+\subsubsection{Overfitting}
+	
+Overfitting tritt ein, wenn das Modell zu Komplex für den gewählten Task ist, und deswegen die Trainingsdaten auswendig lernt. Somit wird es sehr gute Ergebnisse auf dem Trainingsset zeigen, sobald es aber Daten bekommt, die es nicht kennt, wird die Performance abstürzen da es nicht Verallgemeinern kann.
+
+\subsubsection{RMSProp}
+
+Eine Variante des Gradienten Abstiegs, die sich besonders gut eignet um RNNs zu optimieren \cite{kerasDocRMSprob}.
+
+\subsubsection{Dropout}
+
+Dropout ist eine Technik, die genutzt wird um Overfitting zu vermeiden. Während des Trainings werden zufällig Nodes sowie ihre Eingangs- und Ausgangsverbindungen aus dem Netzwerk entfernt \cite{JMLR:v15:srivastava14a}.
+
 
 \subsection{Sampling}
 Während dem Sampling, wird ein fertig trainiertes Neurales Netzwerk genutzt um aus Daten Schlussfolgerungen abzuleiten. In dem Fall dieser Arbeit, wird probiert aus einem Screenshot, eine deutungsvolle DSL-Sequenz zu erstellen.
@@ -125,14 +179,9 @@ CSS beschreibt die Präsentation, also das Aussehen, des Content einer Markup-La
 
 RFP ist ein Tool. welches aus einfachen GUI-Screenshots HTML/CSS Markup erzeugen kann. Dafür lernt ein System aus Neuralen Netzwerken eine einfache Token Sprache / DSL. Jedes Wort dieser Sprache hat zugehörigen HTML/CSS Markup, wodurch es nach Erstellung der Tokens einfach in diese Sprache kompiliert werden kann.
 
-Um den Code für die Website Screenshots zu generieren, wird ein Modell bestehend aus 2 LSTMs und einem CNN erstellt. Das hier benutzte Modell ist eine Abwandlung des im Original Paper verwendeten Modells. Da die neue DSL komplexer als die im Original Paper ist, musste sowohl das CNN als auch die LSTMs verändert werden. 
+Um den Code für die Website Screenshots zu generieren, wird ein Modell bestehend aus 2 LSTMs und einem CNN erstellt. Das hier benutzte Modell ist eine Abwandlung des im Original Paper verwendeten Modells. Da die neue DSL komplexer als die im Original Paper\cite{Beltramelli17} ist, musste sowohl das CNN als auch die LSTMs verändert werden. 
 
 Von einem Computer abgespeicherte Bilder sind ein denkbar schlechtes Format um aus den Rohdaten auf Inhalte zuschließen. Zu Grunde liegen ist jedes Bild ein oder mehrere Matrizen deren einzelne Elemente einem Pixel zugeordnet werden. Um aus diesem Zahlenwerten Schlussfolgerungen zu schließen, müssen diese in mehreren Schritten abstrahiert werden um zu einem bedeutungsvollem Datenmodell zu kommen. Hierfür wird ein CNN genutzt. Dieses verarbeitet das gegebene Input-Bild und erstellt eine niedrig-dimensionalere Repräsentation. Die Architektur des CNN ist recht simple und angelehnt an VGGNet von Simonyan and Zisserman. 
-
-Das Training des Systems erfolgt über ein Sliding-Window-Prinzip, jede Token Sequenz wird mit einem Fenster einer bestimmten Context-länge $n$ aufgeteilt, und jeder einzelne Token wird mit seinen jeweiligen $n$ Nachbarn sowie dem Trainingsbild als Input genutzt. Dadurch entsteht eine gewaltige Anzahl an Trainingsdaten, da jedes Trainingsbild $t$ mal genutzt wird. $t$ ist hierbei die Anzahl der Token für das jeweilige Bild. 
-
-Bei einer Kontext Länge von 96, gibt es insgesamt 377.457 Bild Token-Sequenz Paare. CHECK DAS AUS OB ES ÜBERAHUTP VON DER LÄNGE ABHÄNGT. Diese werden mit Mini-Batches a 64 Bild-Token-Sequenz Paare abgearbeitet. 
-
 
 \section{Daten Synthese}
 
@@ -289,11 +338,11 @@ Nachdem der HTML/CSS String als Datei abgespeichert wurde, kann mit dem Tool \te
 Die Gesamten Trainingsdaten, werden in ein Trainingsset mit einem Anteil von 70\%, einem Testset mit 20\% und einem Validierungsset mit 10\% der Bilder abgespeichert
 
 \section{Validierung der Ergebnisse}
+
 Um die Qualität der Ergebnisse zu vergleichen, stelle ich eine Metrik auf, die Anhand der Wichtigkeit der jeweiligen Elemente einen Score erstellt. Auf Token-Ebene einfach nach Fehlern zu suchen und jeden Falschen Token gleich zu gewichten, würde zu nicht aussage-kräftigen Scores leiten. Zum Beispiel ist ein Menue-Item zu viel oder zu wenig, sehr viel weniger schlimm, als eine falsche Kategorisierung des Headers der Website. Um eine ständig gleich bleibende Bewertung der trainierten Netzwerke zu schaffen, ist eine Datei \texttt{evaluateModel.py} implementiert worden. Diese wird nach jedem Trainieren einen Score mit allen Testdaten errechnen. Dazu werden pro Datensatz mehrere Tests gemacht. Der erste Test überprüft ob der Header korrekt ist. Dieser ist einer der am stärksten gewichteten. Danach wird überprüft ob die Anzahl der Menue Item korrekt. Anschließend wird der Rest des Content überprüft, und zwar die Anzahl an Rows, der richtige Row Type pro Row und die Anzahl der korrekten sowie falschen Buttons. Pro Datensatz wird so ein \texttt{error\_object} erstellt. 
 Hier ein Beispiel:
 
-\begin{spverbatim}
-
+\begin{verbatim}
 {
  'countCorrectButtons': 1,
  'countCorrectRowType': 0,
@@ -309,12 +358,85 @@ Hier ein Beispiel:
  'trueHeaderType': 'sidebar',
  'true_token_count': 55
 }
+\end{verbatim}
 
-\end{spverbatim}
 
 Hier hat das Modell insgesamt 16 Tokens zu viel generiert, diese kommen aus zu drei zu viel generierten Buttons, sowie den falschen Row Types. Jede generierte Row hat hier den Falschen Row Type, zu sehen an \texttt{'countCorrectRowType': 0}. Richtig generiert wurde der Header Type, hier wurde die korrekte \texttt{sidebar} verwendet.
 
-\section{Vergleich zu dem Original}
+Aus diesen Metriken, wird nun folgender Maßen ein Score berechnet:        
+\begin{equation}
+score = cWB + dBC + dMB + 5 * cWRT + 5 * dRC + iHC * 10
+\end{equation}
+
+\begin{description}
+	\item[$cWB$] \texttt{countWrongButtons}: Die Anzahl Buttons mit falscher Farbe.
+	\item[$dBC$] \texttt{differenceButtonCount}: Der Unterschied in der Anzahl an Buttons.
+	\item[$dMB$] \texttt{differenceMenuButtons}: Unterschied der erkannten Menü-Buttons.
+	\item[$cWRT$] \texttt{countWrongRowType}: Gibt an wie viele falsche Row-Types gefunden wurden.
+	\item[$dRC$] \texttt{differenceRowCount}: Ist die Differenz der Anzahl der Rows.
+	\item[$iHC$] \texttt{isHeaderCorrect}: Gibt an ob der Header korrekt ist. Kann entweder den Wert $0$ oder $1$ annehmen.	
+\end{description}
+
+Nachdem für jedes Test Bild so ein Score berechnet wurde, kann ausgehend von diesem die Performance des Modells genauer bestimmt werden. Um die Verteilung der Scores pro Modell besser verstehen zu können, wird die Verteilung der Fehler anhand mehrerer Lageparameter beschrieben. Dazugehören verschiedene Durchschnitte, und Quintile:
+
+  \begin{verbatim}
+analysed_scores {
+    'median': 6, 
+    'mean': 7.47172859450727, 
+    'g_mean': 6.192757554950546, 
+    'h_mean': 5.272351955758953, 
+    'quintiles': {
+        'p20': 4,
+        'p40': 5, 
+        'p60': 7, 
+        'p80': 9 
+	},
+    'most_common_error_count': 5, 
+    'count_most_common_error_count': 110
+    'count_no_erros': 1, 
+}
+ \end{verbatim}
+
+
+Ein weiteres wichtiges Werkzeug hierbei, ist ein Histogramm über die Verteilung der Fehlerscores. Bei Vergleich von zwei Histogrammen, Plot~\ref{fig:bsp_plot_good} und Plot~\ref{fig:bsp_plot_bad}, erkennt man, dass bei Plot~\ref{fig:bsp_plot_good} die Anzahl an niedrigen Scores sehr viel höher ist, als bei Plot~\ref{fig:bsp_plot_bad}.
+
+Außerdem findet ein Vergleich der Fehler Typ Verteilungen aller Predictions gegenüber den 20\% schlechtesten Predictions.
+
+\begin{verbatim}
+'all': {
+    'total_wrong_row_count': 99,
+    'total_wrong_headers': 0, 
+    'total_count': 619, 
+    'total_wrong_row_types': 131, 
+    'total_wrong_menue_buttons': 244, 
+    'total_wrong_buttons': 2821
+    },
+'p80': {
+    'total_wrong_row_count': 95, 
+    'total_wrong_headers': 0, 
+    'total_count': 150, 
+    'total_wrong_row_types': 128, 
+    'total_wrong_menue_buttons': 75, 
+    'total_wrong_buttons': 652
+    }
+\end{verbatim}
+
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{predictions_bin10_histogramm}
+  \captionof{figure}{A figure}
+  \label{fig:bsp_plot_good}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{predictions_bin12_histogramm}
+  \captionof{figure}{Another figure}
+  \label{fig:bsp_plot_bad}
+\end{minipage}
+\end{figure}
+
 \section{Experimente}
 
 In diesem Abschnitt wird beschrieben welche Trainingsversuche durchgeführt wurden um ein bestmögliches Ergebnis zu erhalten. Die Beschreibungen für jeden Trainingsversuch sind jeweils in fünf Abschnitte unterteilt. Dazu gehört eine Einführung, das Datenset, eine Auflistung der veränderten Parameter, die Ergebnisse und ein Fazit.
@@ -354,9 +476,9 @@ Wichtig hierbei sind folgende drei Ebenen des Modells; \texttt{sequential\_1}, \
 	\item[\texttt{concatenate\_1}] Hier wird der Output des CNN und des Sprach-Modells zusammen geführt und in ein weiteres rekurrentes Netzwerk gegeben welches aus der Sprache und dem Screenshot die Beschreibung dazu findet.
 \end{description}
 
-Weitere Parameter:
+Weitere Hyper-Parameter:
 \begin{description}
-	\item[Anzahl Netzwerk Paramerter] Insgesamt hat das Netzwerk 109.829.432 trainierbare Parameter und kommt damit auf knapp 420 Mega Byte.
+	\item[Anzahl Netzwerk Paramerter] Insgesamt hat das Netzwerk 109.829.432 trainierbare Parameter und kommt damit auf eine Größe von knapp 420 Mega Byte.
 	\item[\texttt{CONTEXT\_LENGTH}] Die \texttt{CONTEXT\_LENGTH} auf 48 Tokens eingestellt. Die \texttt{CONTEXT\_LENGTH} bestimmt die Größe des Sliding-Windows, mit dem die Input Token Sequenzen abgearbeitet werden. 
 	\item[\texttt{IMAGE\_SIZE}] Die Größe der Input Bilder ist 256 mal 256 Pixel.
 	\item[\texttt{BATCH\_SIZE}] Trainiert wird in Batches mit jeweils 64 Bildern
@@ -365,22 +487,34 @@ Weitere Parameter:
 	
 \end{description}
 
+\subsection*{Training}
+
+Da es für jeden Screenshot eine zugehörige Token-Sequenz mit variabler Länge gibt, müssen die Trainingsdaten mit einem Sliding-Window-Prinzip abgearbeitet werden. Dafür werden aus der Token-Sequenz, $n$ Samples gebildet, wobei $n = len(token\_sequence) - CONTEXT\_LENGTH$. Das Modell bekommt pro Screenshot $n$ Paare aus Screenshot und dazugehörigen Token-Kontext. Wichtig hierbei ist, dem Modell mitzuteilen wann eine Sequenz beginnt und wieder endet, dafür gibt es einen \texttt{start}-Token sowie einen \texttt{end}-Token. Diese werden je als pre- bzw. suffix an die Token-Sequenz angefügt bevor die $n$ Samples gebaut werden. 
+
+So kann während dem Training mit Backpropagation ein klassischer Multi-Class-Loss optimiert werden.
+\begin{equation}
+L(I, X) =  -\sum_{t=1}^T x_{t+1} log(y_t)
+\end{equation}
+
+Hierbei ist $x_{t+1}$ der erwartete Token, und $y_t$ der berechnete. Das Modell ist in einer Gesamtheit ableitbar , dies bedeutet, der CNN-Teil kann zusammen mit den beiden LSTMs optimiert werden. Wie im Original Paper, wurde mit RMSProp-Algorithmus trainiert, mit einer Learning Rate von $0,0001$. Außerdem wurden die Gradienten um die Numerische Stabilität zu erhöhen, werden die Output Gradienten in das Intervall $[-1,1]$ getrimmt. Es wird eine Dropout-Regulation genutzt als eine Maßnahme gegen Overfitting. Im CNN nach den Max-Pooling Ebenen mit 25\% und nach den Fully-Connected Ebenen mit 30\%.
+
+
 
 \subsection{1. Trainingsversuch}
 
-\subsubsection{Einführung}
+\subsubsection*{Einführung}
 
 Um eine Baseline aller weiteren Ergebnisse zu erstellen, wird das Original Modell aus dem pix2code Paper mit meinen neuen Daten neu trainiert. 
 
-\subsubsection{Datenset}
+\subsubsection*{Datenset}
 
 Das verwendete Datenset enthält 4128 Bilder, von denen 2890 für das Training verwendet werden. Die, das Datenset beschreibende, DSL enthält 24 Token. Jedes Bild wird mit durchschnittlich 62,47 Token (Median: 65) beschrieben, die maximale Anzahl liegt bei 92 Token, die minimale Anzahl bei 16. 
 
-\subsubsection{Veränderte Parameter}
+\subsubsection*{Veränderte Parameter}
 
 Für diese Baseline wurden alle Parameter unverändert übernommen. Die einzige Anpassung die gemacht werden mussen, sind zwei Ebenen im Netzwerk, dessen Input und Output die Anzahl der Token reflektieren. Dies sind Ebene \texttt{input\_2} und \texttt{dense\_3}. Der Shape der beiden Ebenen wurde angepasst um mit 24 Token arbeiten zu können. Daher ist dieser in der Input-Ebene \texttt{(None, 48, 24)} anstatt \texttt{(None, 48, 20)}. Ebense bei der Dense-Ebene \texttt{(None, 24)} anstatt \texttt{(None, 20)}.
 
-\subsubsection{Ergebnis}
+\subsubsection*{Ergebnis}
 
 Nach dem Training des Netzwerkes, wurden mehrere zufällige Bilder ($n=10$) aus dem Test Set ausgewertet. Bei jedem einzelnen der Bilder kommt das selbe Ergebnis:
 
@@ -424,45 +558,45 @@ body {
 }
 \end{verbatim}
 
-\subsubsection{Fazit}
+\subsubsection*{Fazit}
 
 Anhand des Ergebnisses kann man sagen, dass entweder die erhöhte Token Anzahl, oder die neuen Trainingsbilder, zu viel Entropie in die Trainingsdaten bringen. So kann das Modell leider zu keinem sinnvollen Optimum konvergieren. 
 
 
 \subsection{2. Trainingsversuch}
 
-\subsubsection{Einführung}
+\subsubsection*{Einführung}
 
 In diesem Versuch wurde eine vergrößerte Context-Länge erprobt. Da im ersten Versuch, das Training nicht funktioniert hat, vermute ich den Fehler in einem zu kleinen Sichtbereich des LSTMs. Da durch die Token-Länge die Sichtbarkeit der Long-Term-Dependencies geregelt wird, verdoppel ich diese um zu sehen ob dadurch ein verbessertes Ergebnis zustande kommt.
 
-\subsubsection{Datenset}
+\subsubsection*{Datenset}
 
 Gleichbleibend zum ersten Versuch.
 
-\subsubsection{Veränderte Parameter}
+\subsubsection*{Veränderte Parameter}
 
 Das Modell ist genau gleich wie im ersten Versuch, lediglich die Context-Länge wurde von 48 auf 96 erhöht.
 
-\subsubsection{Ergebnis}
+\subsubsection*{Ergebnis}
 
 Wie bei ersten Versuch ergibt dieses Training wieder der gleichen Output. Egal welches Bild als Input genommen wird. Um sicher zu gehen, dass diese Prediction nicht zufällig von dem gewählten Testbild abhängt, habe ich insgesamt 313 Bilder getestet, um festzustellen das alle diese Bilder zum gleichen Ergebnis führen. Alle dieser Bilder bekommen den exakt gleichen Output
 
-\subsubsection{Fazit}
+\subsubsection*{Fazit}
 
 An einem zu geringen Kontext kann das nicht konvergierende Training nicht liegen. In den folgenden Versuchen werden andere Parameter verändert.
 
 \subsection{3. Trainingsversuch}
 
 
-\subsubsection{Einführung}
+\subsubsection*{Einführung}
 
 Da im ersten und zweiten Versuch, mit der Original Architektur kein brauchbares Ergebnis heraus gekommen ist, und das Netz ein zu falsches Ergebnis liefert, wird nun versucht mit einer höheren Komplexität der LSTMs ein Modell zu finden das besser funktioniert.
 
-\subsubsection{Datenset}
+\subsubsection*{Datenset}
 
 Gleichbleibend zum ersten Versuch.
 
-\subsubsection{Veränderte Parameter}
+\subsubsection*{Veränderte Parameter}
 
 Hier hab ich die Anzahl der LSTM \texttt{units} von 128, im Language Modell, auf 192 erhöht. Außerdem erfolgte eine Veränderung der LSTM \texttt{units} von 512 auf 768 im Decoder Modell.
 
@@ -497,11 +631,11 @@ ________________________________________________________________________________
 Durch diese Veränderung gibt es ca. 8 Millionen mehr Parameter.
 Die Länge des Kontextes wurde zurück auf 48 gestellt.
 
-\subsubsection{Ergebnis}
+\subsubsection*{Ergebnis}
 
 Exakt gleiches Ergebnis zu den beiden ersten Versuchen.
 
-\subsubsection{Fazit}
+\subsubsection*{Fazit}
 
 Da inzwischen immer noch der gleiche Output generiert wird, probiere ich nun einen Fehler im Programm-Code zu finden. Folgende Ursachen könnte es geben:
 
@@ -529,19 +663,19 @@ Da inzwischen immer noch der gleiche Output generiert wird, probiere ich nun ein
 \subsection{4. Trainingsversuch}
 
 
-\subsubsection{Einführung}
+\subsubsection*{Einführung}
 
 Nach dem Finden des Fehlers im vorherigen Versuch, wurde ein neues Datenset erstellt.
 
-\subsubsection{Datenset}
+\subsubsection*{Datenset}
 
 Ei neues Datenset mit 3096 Bildern wurde erstell. Ein Drittel hat das Feature \texttt{menue\_logo\_left}, ein Drittel \texttt{menue\_logo\_right}, und der Rest die \texttt{sidebar}. 
 
-\subsubsection{Veränderte Parameter}
+\subsubsection*{Veränderte Parameter}
 
 In diesem Versuch wurden die gleichen Parameter wie im ersten Versuch genutzt.
 
-\subsubsection{Ergebnis}
+\subsubsection*{Ergebnis}
 
 Es erfolgte keine Verbesserung der Trainingsergebnisse. Die Token-Sequenz hat sich dahingehend geändert, dass nun anstatt der \texttt{sidebar} ein Menü in allen Ergebnissen ist.
 
@@ -575,35 +709,35 @@ small-titletextbtn-inactive-black
 }
 \end{verbatim}
 
-\subsubsection{Fazit}
+\subsubsection*{Fazit}
 
 Die gefundene Token Sequenz muss wohl die allgemeingültigste sein, da diese immer wieder gefunden wird. Da der Fehler nicht an einem Fehler im Programm liegt, muss er entweder in den Daten oder im Modell liegen. 
 
 \subsection{5. Trainingsversuch}
 
-\subsubsection{Einführung}
+\subsubsection*{Einführung}
 
 Gleichzeitig zu dem 4. Versuch wurde noch ein Subset der Daten erstellt, das nur 70\% der Bilder aufweist. Dieses hat 2166 Bilder im Vergleich zu dem Set vom 4. Trainingsversuch. Der Gedanke hierbei ist, dass im Original Training vom pix2code Paper 1500 Trainingsbilder ausgereicht haben. Unter Umständen konvergiert es mit weniger Daten zu einem anderen Durchschnittswert oder fängt an die richtigen Ergebnisse herauszufinden.
 
-\subsubsection{Datenset}
+\subsubsection*{Datenset}
 Eine reduzierte Variante des Sets aus dem vierten Versuch.
 
-\subsubsection{Veränderte Parameter}
+\subsubsection*{Veränderte Parameter}
 
 Gleiche Parameter wie im ersten Versuch.
 bin8
 
-\subsubsection{Ergebnis}
+\subsubsection*{Ergebnis}
 
 Es erfolgte keine Verbesserung der Trainingsergebnisse.
 
-\subsubsection{Fazit}
+\subsubsection*{Fazit}
 
 Dieser Ansatz hat gezeigt, dass dieser Weg der falsche ist.
 
 \subsection{6. Trainingsversuch}
 
-\subsubsection{Einführung}
+\subsubsection*{Einführung}
 
 Nach Analyse der Daten des Original Papers, wurde festgestellt, dass dort ein Tag weggelassen wurde. Es wird kein \texttt{body}-Tag verwendet. Dieser ist bei jedem der Bild-beschreibenden Token-Sequenzen der root-Knoten. Da er jedes mal auftritt, hat er aber keine Relevanz zu dem Screenshot und kann daher weggelassen werden.
 
@@ -613,7 +747,7 @@ python train.py ../../data/rfp_data_no_body_3096_11.10.
 
 \end{verbatim}
 
-\subsubsection{Datenset}
+\subsubsection*{Datenset}
 
 Neues Datenset, ohne \texttt{body}-Tags. Dieses hat insgesamt 3096 Bilder und ist wieder 70-20-10 gesplittet in Trainings-, Test-, und Validierungsset. Durch das fehlen des \texttt{body}-Tags ergibt sich folgende Verteilungsmaße:
 \begin{verbatim}
@@ -626,16 +760,16 @@ Token length analysis:
 
 Die Median-Token-Länge ist um genau 3 Token geringer geworden. Dies liegt daran, dass zugehörig zum \texttt{body}-Tag zwei Klammern benötigt wurden (\texttt{\{} und \texttt{\}}), welche anzeigen dass der Rest der Token Kinds-Knoten des \texttt{body}-Tags sind.
 
-\subsubsection{Veränderte Parameter}
+\subsubsection*{Veränderte Parameter}
 
 Gleiche Parameter wie im ersten Versuch.
 
-\subsubsection{Ergebnis}
+\subsubsection*{Ergebnis}
 
 Es kommt die gleiche Ergebnis-Sequenz wie bei den Versuchen davor heraus.
 
 \begin{verbatim}
-body{
+
 header{
 logo-right,btn-inactive-white,btn-inactive-white
 }
@@ -661,30 +795,30 @@ double{
 small-title,text,btn-inactive-black
 }
 }
-}
+
 \end{verbatim}
 
 Diesmal jedoch ohne \texttt{body}-Tag.
 
 
-\subsubsection{Fazit}
+\subsubsection*{Fazit}
 
 Das Scheitern des Trainings wurde nicht durch die Verkleinerung der DSL behoben. Als nächster Schritt sollte jeweils der Sprach- sowie das Bild-Teil des Modells näher in Betracht genommen werden. Ein Großteil der Parameter des Modells sind bereits im CNN (hier erfolgt die Analyse des Bildes), deswegen wird es die Gesamtperformance weniger stark verbessern wenn man die gleiche Zahl an neuen Parametern hier hinzufügt. Deswegen wird zunächst der Sprach- und der Decoder-Teil des Modell untersucht.
 
 \subsection{7. Trainingsversuch}
 
-Versuch mit GRUs \cite{GRUvsLSTM} \cite{lstmSearchSpace}
-bin10
+%Versuch mit GRUs \cite{GRUvsLSTM} \cite{lstmSearchSpace}
+%bin10
 
-\subsubsection{Einführung}
+\subsubsection*{Einführung}
 
 Wie im Fazit des vorangegangen Versuchs, wird nun daran gearbeit, die LSTMs, welche der sprach analysierende und der decodierende Teil des Modells sind zu verbessern. Nach der Lektüre eines Posts von Colahs Blog, wurden testweise die klassischen LSTMs durch GRUs ersetzt.
 
-\subsubsection{Datenset}
+\subsubsection*{Datenset}
 
 Hier wurde das Datenset aus dem sechsten Trainingsversuch verwendet.
 
-\subsubsection{Veränderte Parameter}
+\subsubsection*{Veränderte Parameter}
 
 \begin{verbatim}
 ________________________________________________________________________________
@@ -712,14 +846,112 @@ Trainable params: 108,398,775
 
 \end{verbatim}
 
-Die LSTMs in \texttt{sequential\_2} sowie in Ebene 3 und 4 wurden durch GRUs ersetzt. Die Anzahl der \texttt{units} wurde beibehalten. (128 bzw. 512)
+Die LSTMs in \texttt{sequential\_2} sowie in Ebene 3 und 4 wurden durch GRUs ersetzt. Die Anzahl der \texttt{units} wurde beibehalten (128 bzw. 512). Dadurch, dass im GRU die Input- und Forget-Gates gekoppelt sind, hat das Modell jetzt eine Millionen Parameter weniger.
+
+\subsubsection*{Ergebnis}
+
+Anstatt der bereits mehrmals auftretenden Token Abfolge, gelingt es diesem Modell richtige Predictions zu erstellten. Alle der 619 getesteten Files konnten ohne Fehler compiliert werden. Die Analyse der Fehlerverteilung ergibt folgende Lageparameter in Abbildung~\ref{fig:lage_bin10}. Die Verteilung der Fehleranzahlen ist in Abbildung~\ref{fig:hist_bin10} gegeben.
 
 
-\subsubsection{Ergebnis}
-\subsubsection{Fazit}
 
-\begin{verbatim}
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \begin{description}
+	\item[Arithmetisches Mittel] $7.82$	
+	\item[Geometrisches Mittel] $6.36$
+	\item[Harmonisches Mittel] $5.34$
+	\item[Quintile] p20: $4$, p40: $5$, p60: $7$, p80: $10$
+	\item[Median] $6$
+	\item[Modus] $5$
+	\item[Vorkommen Modus] $109$
+	\item[Gesamt Fehler Score] 4840
+	\item[Anzahl Token Testset] 36751 
+	\item[Anzahl generierter Token] 36186
+	\item[Score pro Token in Testset] 0.13
+\end{description}
+  \captionof{figure}{Lageparameter}
+  \label{fig:lage_bin10}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{predictions_bin10_histogramm}
+  \captionof{figure}{Fehlerverteilung}
+  \label{fig:hist_bin10}
+\end{minipage}
+\end{figure}
 
+
+
+\begin{comment}
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \begin{description}
+	\item[Arithmetisches Mittel] $13.98$	
+	\item[Geometrisches Mittel] $11.33$
+	\item[Harmonisches Mittel] $8.73$
+	\item[Quintile] p20: $6$, p40: $9$, p60: $16$, p80: $23$
+	\item[Median] $12$
+	\item[Modus] $7$
+	\item[Vorkommen Modus] $46$
+	\item[Gesamt Fehler Score]
+	\item[Anzahl generierter Token]
+	\item[Score pro Token]
+\end{description}
+  \captionof{figure}{Lageparameter}
+  \label{fig:lage_bin12}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{predictions_bin12_histogramm}
+  \captionof{figure}{Fehlerverteilung}
+  \label{fig:hist_bin12}
+\end{minipage}
+\end{figure}
+\end{comment}
+
+Im weiteren wird das letzte Quintil der Fehler analysiert und mit dem Rest verglichen. In der Abbildung~\ref{fig:fehler_gesamt_bin10} ist die Fehlerverteilung aller Testdaten zusehen, in Abbildung~\ref{fig:fehler_beste80_bin10} die besten 80\% und in Abbildung~\ref{fig:fehler_schlechteste20_bin10} die schlechtesten 20\%. 
+
+\begin{figure}
+\centering
+\begin{minipage}{.33\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{predictions_bin10_total_error_types_pie_chart}
+  \captionof{figure}{Gesamt}
+  \label{fig:fehler_gesamt_bin10}
+\end{minipage}%
+\begin{minipage}{.33\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{predictions_bin10_excluded_p80_error_types_pie_chart}
+  \captionof{figure}{Ohne p80}
+  \label{fig:fehler_beste80_bin10}
+\end{minipage}
+\begin{minipage}{.33\textwidth}
+  \centering
+   \includegraphics[width=1\linewidth]{predictions_bin10_p80_error_types_pie_chart}
+  \captionof{figure}{Nur p80}
+  \label{fig:fehler_schlechteste20_bin10}
+\end{minipage}%
+\end{figure}
+
+Bei 80\% aller Testdaten sind die Fehleruhrsachen zu 92\% ausschließlich falsche Buttons! Außerdem ist die Verteilung der Row Types über den Testdaten sehr genau, wie in Abbildung~\ref{fig:bin10_row_type} zu sehen ist. Mit einer Perfekten Prediction müsste jeder Row Type mit $16,\frac{2}{3}\%$ vorliegen.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.3\textwidth]{predictions_bin10_predicted_row_type_distribution}
+\caption{Verteilung Row Types}
+\label{fig:bin10_row_type}
+\end{figure}
+
+
+\subsubsection*{Fazit}
+
+Dieses Training war ein voller Erfolg. Es ergibt eine hohe Testgenauigkeit und es hat weniger Parameter als das Original Modell aus dem Paper. 
+
+\begin{comment}
 4010/4009 [==============================] - 1565s 390ms/step - loss: 0.3897
 Epoch 2/10
 4010/4009 [==============================] - 1555s 388ms/step - loss: 0.1842
@@ -739,123 +971,95 @@ Epoch 9/10
 4010/4009 [==============================] - 1529s 381ms/step - loss: 0.1157
 Epoch 10/10
 4010/4009 [==============================] - 1528s 381ms/step - loss: 0.1135
+\end{comment}
 
-
-
-
-
-\end{verbatim}
 \subsection{8. Trainingsversuch}
 
-language modell: LSTM
-Decoder: GRU
-bin11
+%language modell: LSTM
+%Decoder: GRU
+%bin11
 
 
-\subsubsection{Einführung}
-\subsubsection{Datenset}
-\subsubsection{Veränderte Parameter}
-\subsubsection{Ergebnis}
-\subsubsection{Fazit}
+\subsubsection*{Einführung}
 
+In diesem Versuch wird eine Kombination aus der Original Architektur mit LSTMs und der neuen mit GRUs aus dem siebten Trainingsversuch getestet. Das Sprach-Modell wird wie im Original mit LSTMs gebildet, der Decoder hingegen mit den GRUs. 
+
+\subsubsection*{Datenset}
+
+Hier wurde das Datenset aus dem sechsten Trainingsversuch verwendet.
+
+\subsubsection*{Veränderte Parameter}
+
+Wie folgt wurde das Modell verändert:
 \begin{verbatim}
-4010/4009 [==============================] - 1603s 400ms/step - loss: 0.5653
-Epoch 2/10
-4010/4009 [==============================] - 1602s 399ms/step - loss: 0.1885
-Epoch 3/10
-4010/4009 [==============================] - 1601s 399ms/step - loss: 0.1806
-Epoch 4/10
-4010/4009 [==============================] - 1602s 399ms/step - loss: 0.1777
-Epoch 5/10
-4010/4009 [==============================] - 1601s 399ms/step - loss: 0.1751
-Epoch 6/10
-4010/4009 [==============================] - 1600s 399ms/step - loss: 0.1728
-Epoch 7/10
-4010/4009 [==============================] - 1593s 397ms/step - loss: 0.1722
-Epoch 8/10
-4010/4009 [==============================] - 1583s 395ms/step - loss: 0.1717
-Epoch 9/10
-4010/4009 [==============================] - 1583s 395ms/step - loss: 0.1718
-Epoch 10/10
-4010/4009 [==============================] - 1582s 395ms/step - loss: 0.1714
 
 Layer (type)                    Output Shape         Param #     Connected to
-==================================================================================================
+================================================================================
 input_1 (InputLayer)            (None, 256, 256, 3)  0
-__________________________________________________________________________________________________
+________________________________________________________________________________
 input_2 (InputLayer)            (None, 48, 23)       0
-__________________________________________________________________________________________________
+________________________________________________________________________________
 sequential_1 (Sequential)       (None, 48, 1024)     104098080   input_1[0][0]
-__________________________________________________________________________________________________
+________________________________________________________________________________
 sequential_2 (Sequential)       (None, 48, 128)      209408      input_2[0][0]
-__________________________________________________________________________________________________
+________________________________________________________________________________
 concatenate_1 (Concatenate)     (None, 48, 1152)     0           sequential_1[1][0]
                                                                  sequential_2[1][0]
-__________________________________________________________________________________________________
+________________________________________________________________________________
 gru_1 (GRU)                     (None, 48, 512)      2557440     concatenate_1[0][0]
-__________________________________________________________________________________________________
+________________________________________________________________________________
 gru_2 (GRU)                     (None, 512)          1574400     gru_1[0][0]
-__________________________________________________________________________________________________
+________________________________________________________________________________
 dense_3 (Dense)                 (None, 23)           11799       gru_2[0][0]
-==================================================================================================
-Total params: 108,451,127
+================================================================================
+
 Trainable params: 108,451,127
-Non-trainable params: 0
-__________________________________________________________________________________________________
-
-CONTEXT_LENGTH 48
-IMAGE_SIZE 256
-BATCH_SIZE 64
-EPOCHS 10
-STEPS_PER_EPOCH 72000
-input_shape (256, 256, 3)
-output_size 23
-input_images 256631
-
-header{
-logo-rightbtn-inactive-whitebtn-inactive-white
-}
-row{
-quadruple{
-small-titletextbtn-inactive-black
-}
-quadruple{
-small-titletextbtn-inactive-black
-}
-double{
-small-titletextbtn-inactive-black
-}
-}
-row{
-quadruple{
-small-titletextbtn-inactive-grey
-}
-quadruple{
-small-titletextbtn-inactive-black
-}
-double{
-small-titletextbtn-inactive-black
-}
-}
 
 \end{verbatim}
 
-WIEDER der gleiche Output! Es liegt also allein am Language Modell!!!!!
+Die Ebene \texttt{sequential\_2} ist durch ein LSTM realisiert, die Ebenen \texttt{gru\_1} und \texttt{gru\_2} jeweils durch ein GRU. 
 
+\subsubsection*{Ergebnis}
+
+Jeder der getesteten Daten erzeugt den selben Output:
+\begin{verbatim}
+header{
+logo-right,btn-inactive-white,btn-inactive-white
+}
+row{
+quadruple{
+small-title,text,btn-inactive-black
+}
+quadruple{
+small-title,text,btn-inactive-black
+}
+double{
+small-title,text,btn-inactive-black
+}
+}
+row{
+quadruple{
+small-title,text,btn-inactive-black
+}
+quadruple{
+small-title,text,btn-inactive-black
+}
+double{
+small-title,text,btn-inactive-black
+}
+}
+\end{verbatim}
+
+\subsubsection*{Fazit}
+
+Dieses Ergebnis legt Nahe, dass das Bottleneck des Modells in dem Sprach-Modell liegt. 
 
 \subsection{9. Trainingsversuch}
 
-\subsubsection{Einführung}
-\subsubsection{Datenset}
-\subsubsection{Veränderte Parameter}
-\subsubsection{Ergebnis}
-\subsubsection{Fazit}
 
-language modell: GRU
-Decoder: LSTM
-
-\begin{verbatim}
-
+%language modell: GRU
+%Decoder: LSTM
+\begin{comment}
 python train.py ../../data/rfp_data_no_body_3096_11.10.
 2018/train/ ../bin12/ 1
 
@@ -878,55 +1082,129 @@ Epoch 9/10
 4010/4009 [==============================] - 1616s 403ms/step - loss: 0.1854
 Epoch 10/10
 4010/4009 [==============================] - 1609s 401ms/step - loss: 0.1783
+\end{comment}
 
-____________
+
+\subsubsection*{Einführung}
+
+Nach dem Testen ob es reicht allein den Decoder durch ein GRU zu ersetzten reicht um das Modell konvergieren zu lassen, wird nun getestet, ob es ausreicht das Sprach-Modell mit dem GRU zu realisieren.
+
+\subsubsection*{Datenset}
+
+Hier wurde das Datenset aus dem sechsten Trainingsversuch verwendet.
+
+\subsubsection*{Veränderte Parameter}
+
+Wie bereits in dem Original Paper, ist hier der Decoder mit LSTMs realisiert, zusehen in den Ebenen \texttt{lstm\_1} und \texttt{lstm\_1}. Die Ebene \texttt{sequential\_2} ist wie im erfolgreichen siebten Trainingsversuch ein GRU.
+
+\begin{verbatim}
 Layer (type)                    Output Shape         Param #     Connected to
-==================================================================================================
+===============================================================================
 input_1 (InputLayer)            (None, 256, 256, 3)  0
-__________________________________________________________________________________________________
+_______________________________________________________________________________
 input_2 (InputLayer)            (None, 48, 23)       0
-__________________________________________________________________________________________________
+_______________________________________________________________________________
 sequential_1 (Sequential)       (None, 48, 1024)     104098080   input_1[0][0]
-__________________________________________________________________________________________________
+_______________________________________________________________________________
 sequential_2 (Sequential)       (None, 48, 128)      157056      input_2[0][0]
-__________________________________________________________________________________________________
+_______________________________________________________________________________
 concatenate_1 (Concatenate)     (None, 48, 1152)     0           sequential_1[1][0]
                                                                  sequential_2[1][0]
-__________________________________________________________________________________________________
+_______________________________________________________________________________
 lstm_1 (LSTM)                   (None, 48, 512)      3409920     concatenate_1[0][0]
-__________________________________________________________________________________________________
+_______________________________________________________________________________
 lstm_2 (LSTM)                   (None, 512)          2099200     lstm_1[0][0]
-__________________________________________________________________________________________________
+_______________________________________________________________________________
 dense_3 (Dense)                 (None, 23)           11799       lstm_2[0][0]
-==================================================================================================
-Total params: 109,776,055
-Trainable params: 109,776,055
-Non-trainable params: 0
-__________________________________________________________________________________________________
+===============================================================================
 
-CONTEXT_LENGTH 48
-IMAGE_SIZE 256
-BATCH_SIZE 64
-EPOCHS 10
-STEPS_PER_EPOCH 72000
-input_shape (256, 256, 3)
-output_size 23
-input_images 256631
+Trainable params: 109,776,055
+
 \end{verbatim}
+
+Durch das Benutzen von LSTMs im Decoder, ist die Anzahl der Parameter wieder auf knappe 110 Millionen gewachsen.
+
+\subsubsection*{Ergebnis}
+
+Ähnlich wie das siebte Training konnte das Netzwerk konvergieren und einen nicht allgemeinen Output erzeugen. Die Analyse der Testdaten zeigte jedoch, dass insgesamt 143 der 619 Daten nicht kompiliert werden konnten. 
+
+Die Analyse der Fehlerverteilung ergibt folgende Lageparameter in Abbildung~\ref{fig:lage_bin12}. Die Verteilung der Fehler-Scores ist in Abbildung~\ref{fig:hist_bin12} gegeben.
+
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \begin{description}
+	\item[Arithmetisches Mittel] $33.50$	
+	\item[Geometrisches Mittel] $30.23$
+	\item[Harmonisches Mittel] $26.45$
+	\item[Quintile] p20: $20$, p40: $26$, p60: $41$, p80: $46$
+	\item[Median] $36$
+	\item[Modus] $46$
+	\item[Vorkommen Modus] $32$
+	\item[Gesamt Fehler Score] 20734
+	\item[Anzahl Token Testset] 36751 
+	\item[Anzahl generierter Token] 49012
+	\item[Score pro Token in Testset] 0.56
+\end{description}
+  \captionof{figure}{Lageparameter}
+  \label{fig:lage_bin12}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{predictions_bin12_histogramm}
+  \captionof{figure}{Fehlerverteilung}
+  \label{fig:hist_bin12}
+\end{minipage}
+\end{figure}
+
+Der Vergleich zu den Lageparametern~\ref{fig:lage_bin10} des siebten Experiment, performt dieses Modell sehr viel schlechter. Die Median Fehler-Score dieses Experiments ist fünfmal so hoch wie die des siebtens.
+
+Im weiteren wird das letzte Quintil der Fehler analysiert und mit dem Rest verglichen. In der Abbildung~\ref{fig:fehler_gesamt_bin12} ist die Fehlerverteilung aller Testdaten zusehen, in Abbildung~\ref{fig:fehler_beste80_bin12} die besten 80\% und in Abbildung~\ref{fig:fehler_schlechteste20_bin12} die schlechtesten 20\%. 
+
+\begin{figure}
+\centering
+\begin{minipage}{.33\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{predictions_bin12_total_error_types_pie_chart}
+  \captionof{figure}{Gesamt}
+  \label{fig:fehler_gesamt_bin12}
+\end{minipage}%
+\begin{minipage}{.33\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{predictions_bin12_excluded_p80_error_types_pie_chart}
+  \captionof{figure}{Ohne p80}
+  \label{fig:fehler_beste80_bin12}
+\end{minipage}
+\begin{minipage}{.33\textwidth}
+  \centering
+   \includegraphics[width=1\linewidth]{predictions_bin12_p80_error_types_pie_chart}
+  \captionof{figure}{Nur p80}
+  \label{fig:fehler_schlechteste20_bin12}
+\end{minipage}%
+\end{figure}
+
+Der Unterschied in der Verteilung der Fehlertypen zwischen den ersten 4 Quintilen und dem letzten Quintil ist hier viel geringer als in dem siebten Experiment. Diesem Modell ist es nicht gelungen, gute Ergebnisse aus den Trainingsdaten zu generieren. Dies unterstreicht die Verteilung der generierten Row Types in Abbildung~\ref{fig:bin12_row_type}. Hier ist zusehen, dass das Modell es nicht lernen konnten die verschiedenen Typen sicher zu unterscheiden. Ein Großteil wird als Typ 4 erkannt, ca. 60\%, und der Rest ist nicht regelmäßig verteilt.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.3\textwidth]{predictions_bin12_predicted_row_type_distribution}
+\caption{Verteilung Row Types}
+\label{fig:bin12_row_type}
+\end{figure}
+
+\subsubsection*{Fazit}
+
+
+
 
 
 \subsection{10. Trainingsversuch}
-Language: LSTM 256 units
-Decoder 512 units
 
+\begin{comment}
+%Language: LSTM 256 units
+%Decoder 512 units
 
-\subsubsection{Einführung}
-\subsubsection{Datenset}
-\subsubsection{Veränderte Parameter}
-\subsubsection{Ergebnis}
-\subsubsection{Fazit}
-
-\begin{verbatim}
 python train.py ../../data/rfp_data_no_body_3096_11.10.
 2018/ ../bin13/ 1
 
@@ -949,36 +1227,262 @@ Epoch 9/10
 4010/4009 [==============================] - 1725s 430ms/step - loss: 0.1924
 Epoch 10/10
 4010/4009 [==============================] - 1725s 430ms/step - loss: 0.1920
+\end{comment}
 
-__________________________________________________________________________________________________
+
+
+\subsubsection*{Einführung}
+
+Mit diesem Versuch, wird getestet, ob eine reine LSTM-Lösung mit mehr Parametern funktionieren könnte. 
+
+\subsubsection*{Datenset}
+
+Hier wurde das Datenset aus dem sechsten Trainingsversuch verwendet.
+
+\subsubsection*{Veränderte Parameter}
+
+Um zu überprüfen, ob es reicht das Sprach-Modell komplexer zu gestalten, wurde die Anzahl der LSTM Units dieses Teils verdoppelt. 
+
+\begin{verbatim}
+
 Layer (type)                    Output Shape         Param #     Connected to
-==================================================================================================
-input_1 (InputLayer)            (None, 256, 256, 3)  0__________________________________________________________________________________________________
-input_2 (InputLayer)            (None, 48, 23)       0__________________________________________________________________________________________________
-sequential_1 (Sequential)       (None, 48, 1024)     104098080   input_1[0][0]__________________________________________________________________________________________________
-sequential_2 (Sequential)       (None, 48, 256)      812032      input_2[0][0]__________________________________________________________________________________________________
-concatenate_1 (Concatenate)     (None, 48, 1280)     0           sequential_1[1][0]                                                                 sequential_2[1][0]
-__________________________________________________________________________________________________lstm_3 (LSTM)                   (None, 48, 512)      3672064     concatenate_1[0][0]
-__________________________________________________________________________________________________
+==============================================================================
+input_1 (InputLayer)            (None, 256, 256, 3)  0
+______________________________________________________________________________
+input_2 (InputLayer)            (None, 48, 23)       0
+______________________________________________________________________________
+sequential_1 (Sequential)       (None, 48, 1024)     104098080   input_1[0][0]
+______________________________________________________________________________
+sequential_2 (Sequential)       (None, 48, 256)      812032      input_2[0][0]
+______________________________________________________________________________
+concatenate_1 (Concatenate)     (None, 48, 1280)     0           sequential_1[1][0]
+                                                                 sequential_2[1][0]
+______________________________________________________________________________
+lstm_3 (LSTM)                   (None, 48, 512)      3672064     concatenate_1[0][0]
+______________________________________________________________________________
 lstm_4 (LSTM)                   (None, 512)          2099200     lstm_3[0][0]
-__________________________________________________________________________________________________
+______________________________________________________________________________
 dense_3 (Dense)                 (None, 23)           11799       lstm_4[0][0]
-==================================================================================================
-Total params: 110,693,175
-Trainable params: 110,693,175
-Non-trainable params: 0
-__________________________________________________________________________________________________
+==============================================================================
 
-CONTEXT_LENGTH 48
-IMAGE_SIZE 256
-BATCH_SIZE 64
-EPOCHS 10
-STEPS_PER_EPOCH 72000
-input_shape (256, 256, 3)
-output_size 23
-input_images 256631
+Total params: 110,693,175
+\end{verbatim}
+
+In der Ebene \texttt{sequential\_2}, kommen 256 anstatt 128 Units vor.
+
+\subsubsection*{Ergebnis}
+
+Das Training konvergierte, erzeugt ein sehr schlechtes Ergebnis. Es konnten zwar alle 619 Testdaten kompiliert werden, die Scorings sind aber nicht Konkurrenzfähig zu den siebten Versuch - aber besser als die Ergebnisse des Neuntens.
+
+Die Analyse der Fehlerverteilung ergibt folgende Lageparameter in Abbildung~\ref{fig:lage_bin13}. Die Verteilung der Fehler-Scores ist in Abbildung~\ref{fig:hist_bin13} gegeben.
+
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \begin{description}
+	\item[Arithmetisches Mittel] $23.81$	
+	\item[Geometrisches Mittel] $22.98$
+	\item[Harmonisches Mittel] $22.14$
+	\item[Quintile] p20: $19$, p40: $22$, p60: $24$, p80: $31$
+	\item[Median] $23$
+	\item[Modus] $22$
+	\item[Vorkommen Modus] $57$
+	\item[Gesamt Fehler Score] 14739
+	\item[Anzahl Token Testset] 36751 
+	\item[Anzahl generierter Token] 34664
+	\item[Score pro Token Testset]  0.40
+\end{description}
+  \captionof{figure}{Lageparameter}
+  \label{fig:lage_bin13}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{predictions_bin13_histogramm}
+  \captionof{figure}{Fehlerverteilung}
+  \label{fig:hist_bin13}
+\end{minipage}
+\end{figure}
+
+Auffallend ist hier, dass die Verteilung der Fehler Scores viel gleichmäßiger als in den Versuchen Sieben und Neun ist. Die Abstände der Verschiedenen Mittel sowie die der Quintile sind geringer. Im Vergleich zum neunten Versuch ist der Median Score um 10 geringer. 
+
+\begin{figure}
+\centering
+\begin{minipage}{.33\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{predictions_bin13_total_error_types_pie_chart}
+  \captionof{figure}{Gesamt}
+  \label{fig:fehler_gesamt_bin13}
+\end{minipage}%
+\begin{minipage}{.33\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{predictions_bin13_excluded_p80_error_types_pie_chart}
+  \captionof{figure}{Ohne p80}
+  \label{fig:fehler_beste80_bin13}
+\end{minipage}
+\begin{minipage}{.33\textwidth}
+  \centering
+   \includegraphics[width=1\linewidth]{predictions_bin13_p80_error_types_pie_chart}
+  \captionof{figure}{Nur p80}
+  \label{fig:fehler_schlechteste20_bin13}
+\end{minipage}%
+\end{figure}
+
+Auffallend ist jedoch in Abbildung~\ref{fig:fehler_gesamt_bin13}, dass dieses Modell den bisher höchsten Anteil an falsch zugeordneten \texttt{header}-Elementen hat. Die bisherigen konvergierten Modelle konnten diese jeweils perfekt zuordnen. 
+
+Schließlich kommt der letzte Punkt der Analyse, die Verteilung der generierten Row Typen. Hier schneidet dieses Modell am aller schlechtesten ab. Es generiert in für Datei aus dem Testset immer nur einen von zwei Row Types. 
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.3\textwidth]{predictions_bin13_predicted_row_type_distribution}
+\caption{Verteilung Row Types}
+\label{fig:bin13_row_type}
+\end{figure}
+
+
+\subsubsection*{Fazit}
+
+Obwohl dieses Modell mit großer LSTM Architektur knappe 2.5 Millionen Parameter mehr hat, sind die Ergebnisse viel schlechter. Besonders die drei fehlenden Row Types fallen hier ins Gewicht. Zunächst wurde angenommen, dass dieses Modell gleich gut oder besser wie die reine GRU Architektur aus Versuch Sieben sein könnte. Die LSTMs performen bisher schlechter für diesen Task. 
+
+
+
+
+\subsection{11. Trainingsversuch}
+%Language: GRU 192 units
+%Decoder GRU 768 units
+
+%bin14
+
+\subsubsection*{Einführung}
+In diesem Versuch soll heraus gefunden werden, ob eine größere GRU-Architektur ein noch besseres Ergebniss liefern könnte.
+
+\subsubsection*{Datenset}
+
+\subsubsection*{Veränderte Parameter}
+
+Es wurden sowohl die Sprach-Ebene, als auch die Decoder-Ebene vergrößert.
+
+\begin{verbatim}
+Layer (type)                    Output Shape         Param #     Connected to
+=============================================================================
+input_1 (InputLayer)            (None, 256, 256, 3)  0
+_____________________________________________________________________________
+input_2 (InputLayer)            (None, 48, 23)       0
+_____________________________________________________________________________
+sequential_1 (Sequential)       (None, 48, 1024)     104098080   input_1[0][0]
+_____________________________________________________________________________
+sequential_2 (Sequential)       (None, 48, 192)      346176      input_2[0][0]
+_____________________________________________________________________________
+concatenate_1 (Concatenate)     (None, 48, 1216)     0           sequential_1[1][0]
+                                                                 sequential_2[1][0]
+_____________________________________________________________________________
+gru_3 (GRU)                     (None, 48, 768)      4573440     concatenate_1[0][0]
+_____________________________________________________________________________
+gru_4 (GRU)                     (None, 768)          3541248     gru_3[0][0]
+_____________________________________________________________________________
+dense_3 (Dense)                 (None, 23)           17687       gru_4[0][0]==========================================================================
+
+Total params: 112,576,631
 
 \end{verbatim}
+
+Hier kann man sehen, dass in der Ebene \texttt{sequential\_2} in der Ebene \texttt{gru\_3} die Unit-Anzahl vergrößert wurde. Von 128 auf 192, bzw. von 512 auf 786.
+
+\subsubsection*{Ergebnis}
+
+Auch dieses Netz konvergiert, leider ist das Ergebnis gegenüber Versuch Sieben nicht besser geworden.
+
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \begin{description}
+	\item[Arithmetisches Mittel] $20.10$	
+	\item[Geometrisches Mittel] $19.23$
+	\item[Harmonisches Mittel] $18.38$
+	\item[Quintile] p20: $16$, p40: $19$, p60: $21$, p80: $22$
+	\item[Median] $20$
+	\item[Modus] $21$
+	\item[Vorkommen Modus] $85$
+	\item[Gesamt Fehler Score] 12442
+	\item[Anzahl Token Testset] 36751 
+	\item[Anzahl generierter Token] 33680
+	\item[Score pro Token Testset]  0.34
+\end{description}
+  \captionof{figure}{Lageparameter}
+  \label{fig:lage_bin14}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{predictions_bin14_histogramm}
+  \captionof{figure}{Fehlerverteilung}
+  \label{fig:hist_bin14}
+\end{minipage}
+\end{figure}
+
+Der Hauptteil der Fehler-Scores liegt um die Zwanzig, mit ein paar wenigen im tiereren oder höheren Bereich. Zu sehen ist das sehr gut in der Abbildung~\ref{fig:hist_bin14}. 
+
+\begin{figure}
+\centering
+\begin{minipage}{.33\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{predictions_bin14_total_error_types_pie_chart}
+  \captionof{figure}{Gesamt}
+  \label{fig:fehler_gesamt_bin14}
+\end{minipage}%
+\begin{minipage}{.33\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{predictions_bin14_excluded_p80_error_types_pie_chart}
+  \captionof{figure}{Ohne p80}
+  \label{fig:fehler_beste80_bin14}
+\end{minipage}
+\begin{minipage}{.33\textwidth}
+  \centering
+   \includegraphics[width=1\linewidth]{predictions_bin14_p80_error_types_pie_chart}
+  \captionof{figure}{Nur p80}
+  \label{fig:fehler_schlechteste20_bin14}
+\end{minipage}
+\end{figure}
+
+In Abbildungen ~\ref{fig:fehler_gesamt_bin14}-~\ref{fig:fehler_schlechteste20_bin14} ist zu sehen, dass die Verteilung der Fehler-Type nach Fehler Anzahl relativ gleichmäßig liegt. Die Daten, welche die Meisten Fehler erzeugt haben, erzeugen die gleichen Arten wie der Gesamtmenge. Daher liegt die Fehlerursache nicht in besonders komplexen Screenshots sondern bei einer schlechten Klassifizierung.
+
+Schlussendlich ist zu sehen, wie schlecht das Modell bei der richtigen Einordnung von den Row Types anschneidet in Abbildung~\ref{fig:bin14_row_type}. Es kann nicht zwischen den einzelnen Typen unterscheiden.
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.3\textwidth]{predictions_bin14_predicted_row_type_distribution}
+\caption{Verteilung Row Types}
+\label{fig:bin14_row_type}
+\end{figure}
+
+
+\subsubsection*{Fazit}
+
+Wieso performt dieses Modell, obwohl es doch größer ist so viel schlechter als Versuch Sieben? Hier hat man es mit einem klassischen Fall des Overfittings zu tun. Das Modell war hier so komplex, dass es die Beschreibungen aller Trainingsdaten auswendig lernen konnte. Dadurch sah das Training gut aus, das Testen hingegen zeigt, dass es nicht gut verallgemeinern konnte.
+
+
+\subsection{12. Trainingsversuch}
+%Language: GRU 128 units
+%Decoder GRU 512 units
+%CONTEXT_64
+%bin15
+\subsubsection*{Einführung}
+\subsubsection*{Datenset}
+\subsubsection*{Veränderte Parameter}
+\subsubsection*{Ergebnis}
+\subsubsection*{Fazit}
+
+\subsection{13. Trainingsversuch}
+Language: GRU 92 units
+Decoder GRU 386 units
+
+bin16
+\subsubsection*{Einführung}
+\subsubsection*{Datenset}
+\subsubsection*{Veränderte Parameter}
+\subsubsection*{Ergebnis}
+\subsubsection*{Fazit}
 
 \subsection{Einschub - Funktioniert das original überhaupt?}
 Training insegesamt 20 Epochen

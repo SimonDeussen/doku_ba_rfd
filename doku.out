@@ -6,84 +6,40 @@
 \BOOKMARK [2][-]{subsection.4.2}{Convolutional Neural Network - CNN}{section.4}% 6
 \BOOKMARK [2][-]{subsection.4.3}{Recurrent Neural Network - RNN}{section.4}% 7
 \BOOKMARK [3][-]{subsubsection.4.3.1}{Long short-term Memory - LSTM}{subsection.4.3}% 8
-\BOOKMARK [2][-]{subsection.4.4}{Training}{section.4}% 9
-\BOOKMARK [2][-]{subsection.4.5}{Sampling}{section.4}% 10
-\BOOKMARK [2][-]{subsection.4.6}{Keras}{section.4}% 11
-\BOOKMARK [2][-]{subsection.4.7}{Domain-specific language - DSL}{section.4}% 12
-\BOOKMARK [3][-]{subsubsection.4.7.1}{Hypertext Markup Language - HTML}{subsection.4.7}% 13
-\BOOKMARK [3][-]{subsubsection.4.7.2}{Cascading Style Sheets - CSS}{subsection.4.7}% 14
-\BOOKMARK [1][-]{section.5}{Rapid Frontend Prototyping - \334berblick}{}% 15
-\BOOKMARK [1][-]{section.6}{Daten Synthese}{}% 16
-\BOOKMARK [2][-]{subsection.6.1}{Generieren der Token-B\344ume}{section.6}% 17
-\BOOKMARK [3][-]{subsubsection.6.1.1}{Gramatik}{subsection.6.1}% 18
-\BOOKMARK [3][-]{subsubsection.6.1.2}{Zeichenerkl\344rung}{subsection.6.1}% 19
-\BOOKMARK [3][-]{subsubsection.6.1.3}{Token Generierung}{subsection.6.1}% 20
-\BOOKMARK [2][-]{subsection.6.2}{DSL Mapping}{section.6}% 21
-\BOOKMARK [2][-]{subsection.6.3}{Screenshot Erstellung}{section.6}% 22
-\BOOKMARK [2][-]{subsection.6.4}{Teilen der Trainingsdaten}{section.6}% 23
-\BOOKMARK [1][-]{section.7}{Validierung der Ergebnisse}{}% 24
-\BOOKMARK [1][-]{section.8}{Vergleich zu dem Original}{}% 25
-\BOOKMARK [1][-]{section.9}{Experimente}{}% 26
-\BOOKMARK [2][-]{subsection.9.1}{1. Trainingsversuch}{section.9}% 27
-\BOOKMARK [3][-]{subsubsection.9.1.1}{Einf\374hrung}{subsection.9.1}% 28
-\BOOKMARK [3][-]{subsubsection.9.1.2}{Datenset}{subsection.9.1}% 29
-\BOOKMARK [3][-]{subsubsection.9.1.3}{Ver\344nderte Parameter}{subsection.9.1}% 30
-\BOOKMARK [3][-]{subsubsection.9.1.4}{Ergebnis}{subsection.9.1}% 31
-\BOOKMARK [3][-]{subsubsection.9.1.5}{Fazit}{subsection.9.1}% 32
-\BOOKMARK [2][-]{subsection.9.2}{2. Trainingsversuch}{section.9}% 33
-\BOOKMARK [3][-]{subsubsection.9.2.1}{Einf\374hrung}{subsection.9.2}% 34
-\BOOKMARK [3][-]{subsubsection.9.2.2}{Datenset}{subsection.9.2}% 35
-\BOOKMARK [3][-]{subsubsection.9.2.3}{Ver\344nderte Parameter}{subsection.9.2}% 36
-\BOOKMARK [3][-]{subsubsection.9.2.4}{Ergebnis}{subsection.9.2}% 37
-\BOOKMARK [3][-]{subsubsection.9.2.5}{Fazit}{subsection.9.2}% 38
-\BOOKMARK [2][-]{subsection.9.3}{3. Trainingsversuch}{section.9}% 39
-\BOOKMARK [3][-]{subsubsection.9.3.1}{Einf\374hrung}{subsection.9.3}% 40
-\BOOKMARK [3][-]{subsubsection.9.3.2}{Datenset}{subsection.9.3}% 41
-\BOOKMARK [3][-]{subsubsection.9.3.3}{Ver\344nderte Parameter}{subsection.9.3}% 42
-\BOOKMARK [3][-]{subsubsection.9.3.4}{Ergebnis}{subsection.9.3}% 43
-\BOOKMARK [3][-]{subsubsection.9.3.5}{Fazit}{subsection.9.3}% 44
-\BOOKMARK [2][-]{subsection.9.4}{4. Trainingsversuch}{section.9}% 45
-\BOOKMARK [3][-]{subsubsection.9.4.1}{Einf\374hrung}{subsection.9.4}% 46
-\BOOKMARK [3][-]{subsubsection.9.4.2}{Datenset}{subsection.9.4}% 47
-\BOOKMARK [3][-]{subsubsection.9.4.3}{Ver\344nderte Parameter}{subsection.9.4}% 48
-\BOOKMARK [3][-]{subsubsection.9.4.4}{Ergebnis}{subsection.9.4}% 49
-\BOOKMARK [3][-]{subsubsection.9.4.5}{Fazit}{subsection.9.4}% 50
-\BOOKMARK [2][-]{subsection.9.5}{5. Trainingsversuch}{section.9}% 51
-\BOOKMARK [3][-]{subsubsection.9.5.1}{Einf\374hrung}{subsection.9.5}% 52
-\BOOKMARK [3][-]{subsubsection.9.5.2}{Datenset}{subsection.9.5}% 53
-\BOOKMARK [3][-]{subsubsection.9.5.3}{Ver\344nderte Parameter}{subsection.9.5}% 54
-\BOOKMARK [3][-]{subsubsection.9.5.4}{Ergebnis}{subsection.9.5}% 55
-\BOOKMARK [3][-]{subsubsection.9.5.5}{Fazit}{subsection.9.5}% 56
-\BOOKMARK [2][-]{subsection.9.6}{6. Trainingsversuch}{section.9}% 57
-\BOOKMARK [3][-]{subsubsection.9.6.1}{Einf\374hrung}{subsection.9.6}% 58
-\BOOKMARK [3][-]{subsubsection.9.6.2}{Datenset}{subsection.9.6}% 59
-\BOOKMARK [3][-]{subsubsection.9.6.3}{Ver\344nderte Parameter}{subsection.9.6}% 60
-\BOOKMARK [3][-]{subsubsection.9.6.4}{Ergebnis}{subsection.9.6}% 61
-\BOOKMARK [3][-]{subsubsection.9.6.5}{Fazit}{subsection.9.6}% 62
-\BOOKMARK [2][-]{subsection.9.7}{7. Trainingsversuch}{section.9}% 63
-\BOOKMARK [3][-]{subsubsection.9.7.1}{Einf\374hrung}{subsection.9.7}% 64
-\BOOKMARK [3][-]{subsubsection.9.7.2}{Datenset}{subsection.9.7}% 65
-\BOOKMARK [3][-]{subsubsection.9.7.3}{Ver\344nderte Parameter}{subsection.9.7}% 66
-\BOOKMARK [3][-]{subsubsection.9.7.4}{Ergebnis}{subsection.9.7}% 67
-\BOOKMARK [3][-]{subsubsection.9.7.5}{Fazit}{subsection.9.7}% 68
-\BOOKMARK [2][-]{subsection.9.8}{8. Trainingsversuch}{section.9}% 69
-\BOOKMARK [3][-]{subsubsection.9.8.1}{Einf\374hrung}{subsection.9.8}% 70
-\BOOKMARK [3][-]{subsubsection.9.8.2}{Datenset}{subsection.9.8}% 71
-\BOOKMARK [3][-]{subsubsection.9.8.3}{Ver\344nderte Parameter}{subsection.9.8}% 72
-\BOOKMARK [3][-]{subsubsection.9.8.4}{Ergebnis}{subsection.9.8}% 73
-\BOOKMARK [3][-]{subsubsection.9.8.5}{Fazit}{subsection.9.8}% 74
-\BOOKMARK [2][-]{subsection.9.9}{9. Trainingsversuch}{section.9}% 75
-\BOOKMARK [3][-]{subsubsection.9.9.1}{Einf\374hrung}{subsection.9.9}% 76
-\BOOKMARK [3][-]{subsubsection.9.9.2}{Datenset}{subsection.9.9}% 77
-\BOOKMARK [3][-]{subsubsection.9.9.3}{Ver\344nderte Parameter}{subsection.9.9}% 78
-\BOOKMARK [3][-]{subsubsection.9.9.4}{Ergebnis}{subsection.9.9}% 79
-\BOOKMARK [3][-]{subsubsection.9.9.5}{Fazit}{subsection.9.9}% 80
-\BOOKMARK [2][-]{subsection.9.10}{10. Trainingsversuch}{section.9}% 81
-\BOOKMARK [3][-]{subsubsection.9.10.1}{Einf\374hrung}{subsection.9.10}% 82
-\BOOKMARK [3][-]{subsubsection.9.10.2}{Datenset}{subsection.9.10}% 83
-\BOOKMARK [3][-]{subsubsection.9.10.3}{Ver\344nderte Parameter}{subsection.9.10}% 84
-\BOOKMARK [3][-]{subsubsection.9.10.4}{Ergebnis}{subsection.9.10}% 85
-\BOOKMARK [3][-]{subsubsection.9.10.5}{Fazit}{subsection.9.10}% 86
-\BOOKMARK [2][-]{subsection.9.11}{Einschub - Funktioniert das original \374berhaupt?}{section.9}% 87
-\BOOKMARK [1][-]{section.10}{Zusammenfassung}{}% 88
-\BOOKMARK [1][-]{section.11}{Fazit}{}% 89
+\BOOKMARK [3][-]{subsubsection.4.3.2}{Gated Recurrent Unit - GRU}{subsection.4.3}% 9
+\BOOKMARK [2][-]{subsection.4.4}{Training}{section.4}% 10
+\BOOKMARK [3][-]{subsubsection.4.4.1}{Overfitting}{subsection.4.4}% 11
+\BOOKMARK [3][-]{subsubsection.4.4.2}{RMSProp}{subsection.4.4}% 12
+\BOOKMARK [3][-]{subsubsection.4.4.3}{Dropout}{subsection.4.4}% 13
+\BOOKMARK [2][-]{subsection.4.5}{Sampling}{section.4}% 14
+\BOOKMARK [2][-]{subsection.4.6}{Keras}{section.4}% 15
+\BOOKMARK [2][-]{subsection.4.7}{Domain-specific language - DSL}{section.4}% 16
+\BOOKMARK [3][-]{subsubsection.4.7.1}{Hypertext Markup Language - HTML}{subsection.4.7}% 17
+\BOOKMARK [3][-]{subsubsection.4.7.2}{Cascading Style Sheets - CSS}{subsection.4.7}% 18
+\BOOKMARK [1][-]{section.5}{Rapid Frontend Prototyping - \334berblick}{}% 19
+\BOOKMARK [1][-]{section.6}{Daten Synthese}{}% 20
+\BOOKMARK [2][-]{subsection.6.1}{Generieren der Token-B\344ume}{section.6}% 21
+\BOOKMARK [3][-]{subsubsection.6.1.1}{Gramatik}{subsection.6.1}% 22
+\BOOKMARK [3][-]{subsubsection.6.1.2}{Zeichenerkl\344rung}{subsection.6.1}% 23
+\BOOKMARK [3][-]{subsubsection.6.1.3}{Token Generierung}{subsection.6.1}% 24
+\BOOKMARK [2][-]{subsection.6.2}{DSL Mapping}{section.6}% 25
+\BOOKMARK [2][-]{subsection.6.3}{Screenshot Erstellung}{section.6}% 26
+\BOOKMARK [2][-]{subsection.6.4}{Teilen der Trainingsdaten}{section.6}% 27
+\BOOKMARK [1][-]{section.7}{Validierung der Ergebnisse}{}% 28
+\BOOKMARK [1][-]{section.8}{Experimente}{}% 29
+\BOOKMARK [2][-]{subsection.8.1}{1. Trainingsversuch}{section.8}% 30
+\BOOKMARK [2][-]{subsection.8.2}{2. Trainingsversuch}{section.8}% 31
+\BOOKMARK [2][-]{subsection.8.3}{3. Trainingsversuch}{section.8}% 32
+\BOOKMARK [2][-]{subsection.8.4}{4. Trainingsversuch}{section.8}% 33
+\BOOKMARK [2][-]{subsection.8.5}{5. Trainingsversuch}{section.8}% 34
+\BOOKMARK [2][-]{subsection.8.6}{6. Trainingsversuch}{section.8}% 35
+\BOOKMARK [2][-]{subsection.8.7}{7. Trainingsversuch}{section.8}% 36
+\BOOKMARK [2][-]{subsection.8.8}{8. Trainingsversuch}{section.8}% 37
+\BOOKMARK [2][-]{subsection.8.9}{9. Trainingsversuch}{section.8}% 38
+\BOOKMARK [2][-]{subsection.8.10}{10. Trainingsversuch}{section.8}% 39
+\BOOKMARK [2][-]{subsection.8.11}{11. Trainingsversuch}{section.8}% 40
+\BOOKMARK [2][-]{subsection.8.12}{12. Trainingsversuch}{section.8}% 41
+\BOOKMARK [2][-]{subsection.8.13}{13. Trainingsversuch}{section.8}% 42
+\BOOKMARK [2][-]{subsection.8.14}{Einschub - Funktioniert das original \374berhaupt?}{section.8}% 43
+\BOOKMARK [1][-]{section.9}{Zusammenfassung}{}% 44
+\BOOKMARK [1][-]{section.10}{Fazit}{}% 45

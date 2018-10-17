@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{electron}
 Electron.
@@ -7,6 +7,14 @@ Electron.
 \bibitem{Beltramelli17Github}
 pix2code.
 \newblock \url{https://www.github.com/tonybeltramelli/pix2code}.
+
+\bibitem{kerasDocRMSprob}
+Rmsprob.
+\newblock \url{https://keras.io/optimizers/#rmsprop}.
+
+\bibitem{colahsBlogLSTM}
+Understanding lstm networks.
+\newblock \url{http://colah.github.io/posts/2015-08-Understanding-LSTMs/}.
 
 \bibitem{DeepCoder16}
 Matej Balog, Alexander~L. Gaunt, Marc Brockschmidt, Sebastian Nowozin, and
@@ -19,11 +27,31 @@ Tony Beltramelli.
 \newblock pix2code: Generating code from a graphical user interface screenshot.
 \newblock {\em CoRR}, abs/1705.07962, 2017.
 
+\bibitem{DBLP:journals/corr/ChoMGBSB14}
+Kyunghyun Cho, Bart van Merrienboer, {\c{C}}aglar G{\"{u}}l{\c{c}}ehre, Fethi
+  Bougares, Holger Schwenk, and Yoshua Bengio.
+\newblock Learning phrase representations using {RNN} encoder-decoder for
+  statistical machine translation.
+\newblock {\em CoRR}, abs/1406.1078, 2014.
+
+\bibitem{paperGRUComparison}
+Junyoung Chung, {\c{C}}aglar G{\"{u}}l{\c{c}}ehre, KyungHyun Cho, and Yoshua
+  Bengio.
+\newblock Empirical evaluation of gated recurrent neural networks on sequence
+  modeling.
+\newblock {\em CoRR}, abs/1412.3555, 2014.
+
 \bibitem{lstmSearchSpace}
 Klaus Greff, Rupesh~Kumar Srivastava, Jan Koutn{\'{\i}}k, Bas~R. Steunebrink,
   and J{\"{u}}rgen Schmidhuber.
 \newblock {LSTM:} {A} search space odyssey.
 \newblock {\em CoRR}, abs/1503.04069, 2015.
+
+\bibitem{LSTM_orig}
+Sepp Hochreiter and Jürgen Schmidhuber.
+\newblock Long short-term memory.
+\newblock {\em Neural Computation, 9(8)}, page 1735–1780, 1997.
+\newblock \url{https://www.bioinf.jku.at/publications/older/2604.pdf}.
 
 \bibitem{GRUvsLSTM}
 Shubham Khandelwal, Benjamin Lecouteux, and Laurent Besacier.
@@ -41,5 +69,11 @@ Tuan~Anh Nguyen and Christoph Csallner.
 Günter~Daniel Rey and Fabian Beck.
 \newblock Neuronale netze - eine einführung.
 \newblock \url{http://www.neuronalesnetz.de/downloads/neuronalesnetz_de.pdf}.
+
+\bibitem{JMLR:v15:srivastava14a}
+Nitish Srivastava, Geoffrey Hinton, Alex Krizhevsky, Ilya Sutskever, and Ruslan
+  Salakhutdinov.
+\newblock Dropout: A simple way to prevent neural networks from overfitting.
+\newblock {\em Journal of Machine Learning Research}, 15:1929--1958, 2014.
 
 \end{thebibliography}

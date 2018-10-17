@@ -1,89 +1,45 @@
-\contentsline {section}{\numberline {1}Einleitung}{3}{section.1}
-\contentsline {section}{\numberline {2}\IeC {\"A}hnliche Arbeiten}{4}{section.2}
-\contentsline {section}{\numberline {3}Motivation}{4}{section.3}
-\contentsline {section}{\numberline {4}Benutzte Technologien}{5}{section.4}
-\contentsline {subsection}{\numberline {4.1}Neuronale Netzwerke}{5}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Convolutional Neural Network - CNN}{6}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Recurrent Neural Network - RNN}{7}{subsection.4.3}
-\contentsline {subsubsection}{\numberline {4.3.1}Long short-term Memory - LSTM}{7}{subsubsection.4.3.1}
-\contentsline {subsection}{\numberline {4.4}Training}{7}{subsection.4.4}
-\contentsline {subsection}{\numberline {4.5}Sampling}{7}{subsection.4.5}
-\contentsline {subsection}{\numberline {4.6}Keras}{8}{subsection.4.6}
-\contentsline {subsection}{\numberline {4.7}Domain-specific language - DSL}{8}{subsection.4.7}
-\contentsline {subsubsection}{\numberline {4.7.1}Hypertext Markup Language - HTML}{8}{subsubsection.4.7.1}
-\contentsline {subsubsection}{\numberline {4.7.2}Cascading Style Sheets - CSS}{8}{subsubsection.4.7.2}
-\contentsline {section}{\numberline {5}Rapid Frontend Prototyping - \IeC {\"U}berblick}{8}{section.5}
-\contentsline {section}{\numberline {6}Daten Synthese}{9}{section.6}
-\contentsline {subsection}{\numberline {6.1}Generieren der Token-B\IeC {\"a}ume}{9}{subsection.6.1}
+\contentsline {section}{\numberline {1}Einleitung}{2}{section.1}
+\contentsline {section}{\numberline {2}\IeC {\"A}hnliche Arbeiten}{3}{section.2}
+\contentsline {section}{\numberline {3}Motivation}{3}{section.3}
+\contentsline {section}{\numberline {4}Benutzte Technologien}{4}{section.4}
+\contentsline {subsection}{\numberline {4.1}Neuronale Netzwerke}{4}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Convolutional Neural Network - CNN}{5}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Recurrent Neural Network - RNN}{6}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {4.3.1}Long short-term Memory - LSTM}{6}{subsubsection.4.3.1}
+\contentsline {subsubsection}{\numberline {4.3.2}Gated Recurrent Unit - GRU}{7}{subsubsection.4.3.2}
+\contentsline {subsection}{\numberline {4.4}Training}{8}{subsection.4.4}
+\contentsline {subsubsection}{\numberline {4.4.1}Overfitting}{8}{subsubsection.4.4.1}
+\contentsline {subsubsection}{\numberline {4.4.2}RMSProp}{8}{subsubsection.4.4.2}
+\contentsline {subsubsection}{\numberline {4.4.3}Dropout}{8}{subsubsection.4.4.3}
+\contentsline {subsection}{\numberline {4.5}Sampling}{8}{subsection.4.5}
+\contentsline {subsection}{\numberline {4.6}Keras}{9}{subsection.4.6}
+\contentsline {subsection}{\numberline {4.7}Domain-specific language - DSL}{9}{subsection.4.7}
+\contentsline {subsubsection}{\numberline {4.7.1}Hypertext Markup Language - HTML}{9}{subsubsection.4.7.1}
+\contentsline {subsubsection}{\numberline {4.7.2}Cascading Style Sheets - CSS}{9}{subsubsection.4.7.2}
+\contentsline {section}{\numberline {5}Rapid Frontend Prototyping - \IeC {\"U}berblick}{9}{section.5}
+\contentsline {section}{\numberline {6}Daten Synthese}{10}{section.6}
+\contentsline {subsection}{\numberline {6.1}Generieren der Token-B\IeC {\"a}ume}{10}{subsection.6.1}
 \contentsline {subsubsection}{\numberline {6.1.1}Gramatik}{10}{subsubsection.6.1.1}
-\contentsline {subsubsection}{\numberline {6.1.2}Zeichenerkl\IeC {\"a}rung}{10}{subsubsection.6.1.2}
-\contentsline {subsubsection}{\numberline {6.1.3}Token Generierung}{11}{subsubsection.6.1.3}
-\contentsline {subsection}{\numberline {6.2}DSL Mapping}{12}{subsection.6.2}
-\contentsline {subsection}{\numberline {6.3}Screenshot Erstellung}{13}{subsection.6.3}
-\contentsline {subsection}{\numberline {6.4}Teilen der Trainingsdaten}{13}{subsection.6.4}
-\contentsline {section}{\numberline {7}Validierung der Ergebnisse}{13}{section.7}
-\contentsline {section}{\numberline {8}Vergleich zu dem Original}{14}{section.8}
-\contentsline {section}{\numberline {9}Experimente}{14}{section.9}
-\contentsline {subsection}{\numberline {9.1}1. Trainingsversuch}{15}{subsection.9.1}
-\contentsline {subsubsection}{\numberline {9.1.1}Einf\IeC {\"u}hrung}{15}{subsubsection.9.1.1}
-\contentsline {subsubsection}{\numberline {9.1.2}Datenset}{16}{subsubsection.9.1.2}
-\contentsline {subsubsection}{\numberline {9.1.3}Ver\IeC {\"a}nderte Parameter}{16}{subsubsection.9.1.3}
-\contentsline {subsubsection}{\numberline {9.1.4}Ergebnis}{16}{subsubsection.9.1.4}
-\contentsline {subsubsection}{\numberline {9.1.5}Fazit}{17}{subsubsection.9.1.5}
-\contentsline {subsection}{\numberline {9.2}2. Trainingsversuch}{17}{subsection.9.2}
-\contentsline {subsubsection}{\numberline {9.2.1}Einf\IeC {\"u}hrung}{17}{subsubsection.9.2.1}
-\contentsline {subsubsection}{\numberline {9.2.2}Datenset}{17}{subsubsection.9.2.2}
-\contentsline {subsubsection}{\numberline {9.2.3}Ver\IeC {\"a}nderte Parameter}{17}{subsubsection.9.2.3}
-\contentsline {subsubsection}{\numberline {9.2.4}Ergebnis}{18}{subsubsection.9.2.4}
-\contentsline {subsubsection}{\numberline {9.2.5}Fazit}{18}{subsubsection.9.2.5}
-\contentsline {subsection}{\numberline {9.3}3. Trainingsversuch}{18}{subsection.9.3}
-\contentsline {subsubsection}{\numberline {9.3.1}Einf\IeC {\"u}hrung}{18}{subsubsection.9.3.1}
-\contentsline {subsubsection}{\numberline {9.3.2}Datenset}{18}{subsubsection.9.3.2}
-\contentsline {subsubsection}{\numberline {9.3.3}Ver\IeC {\"a}nderte Parameter}{18}{subsubsection.9.3.3}
-\contentsline {subsubsection}{\numberline {9.3.4}Ergebnis}{19}{subsubsection.9.3.4}
-\contentsline {subsubsection}{\numberline {9.3.5}Fazit}{19}{subsubsection.9.3.5}
-\contentsline {subsection}{\numberline {9.4}4. Trainingsversuch}{20}{subsection.9.4}
-\contentsline {subsubsection}{\numberline {9.4.1}Einf\IeC {\"u}hrung}{20}{subsubsection.9.4.1}
-\contentsline {subsubsection}{\numberline {9.4.2}Datenset}{20}{subsubsection.9.4.2}
-\contentsline {subsubsection}{\numberline {9.4.3}Ver\IeC {\"a}nderte Parameter}{20}{subsubsection.9.4.3}
-\contentsline {subsubsection}{\numberline {9.4.4}Ergebnis}{20}{subsubsection.9.4.4}
-\contentsline {subsubsection}{\numberline {9.4.5}Fazit}{21}{subsubsection.9.4.5}
-\contentsline {subsection}{\numberline {9.5}5. Trainingsversuch}{21}{subsection.9.5}
-\contentsline {subsubsection}{\numberline {9.5.1}Einf\IeC {\"u}hrung}{21}{subsubsection.9.5.1}
-\contentsline {subsubsection}{\numberline {9.5.2}Datenset}{21}{subsubsection.9.5.2}
-\contentsline {subsubsection}{\numberline {9.5.3}Ver\IeC {\"a}nderte Parameter}{22}{subsubsection.9.5.3}
-\contentsline {subsubsection}{\numberline {9.5.4}Ergebnis}{22}{subsubsection.9.5.4}
-\contentsline {subsubsection}{\numberline {9.5.5}Fazit}{22}{subsubsection.9.5.5}
-\contentsline {subsection}{\numberline {9.6}6. Trainingsversuch}{22}{subsection.9.6}
-\contentsline {subsubsection}{\numberline {9.6.1}Einf\IeC {\"u}hrung}{22}{subsubsection.9.6.1}
-\contentsline {subsubsection}{\numberline {9.6.2}Datenset}{22}{subsubsection.9.6.2}
-\contentsline {subsubsection}{\numberline {9.6.3}Ver\IeC {\"a}nderte Parameter}{23}{subsubsection.9.6.3}
-\contentsline {subsubsection}{\numberline {9.6.4}Ergebnis}{23}{subsubsection.9.6.4}
-\contentsline {subsubsection}{\numberline {9.6.5}Fazit}{23}{subsubsection.9.6.5}
-\contentsline {subsection}{\numberline {9.7}7. Trainingsversuch}{24}{subsection.9.7}
-\contentsline {subsubsection}{\numberline {9.7.1}Einf\IeC {\"u}hrung}{24}{subsubsection.9.7.1}
-\contentsline {subsubsection}{\numberline {9.7.2}Datenset}{24}{subsubsection.9.7.2}
-\contentsline {subsubsection}{\numberline {9.7.3}Ver\IeC {\"a}nderte Parameter}{24}{subsubsection.9.7.3}
-\contentsline {subsubsection}{\numberline {9.7.4}Ergebnis}{24}{subsubsection.9.7.4}
-\contentsline {subsubsection}{\numberline {9.7.5}Fazit}{24}{subsubsection.9.7.5}
-\contentsline {subsection}{\numberline {9.8}8. Trainingsversuch}{25}{subsection.9.8}
-\contentsline {subsubsection}{\numberline {9.8.1}Einf\IeC {\"u}hrung}{26}{subsubsection.9.8.1}
-\contentsline {subsubsection}{\numberline {9.8.2}Datenset}{26}{subsubsection.9.8.2}
-\contentsline {subsubsection}{\numberline {9.8.3}Ver\IeC {\"a}nderte Parameter}{26}{subsubsection.9.8.3}
-\contentsline {subsubsection}{\numberline {9.8.4}Ergebnis}{26}{subsubsection.9.8.4}
-\contentsline {subsubsection}{\numberline {9.8.5}Fazit}{26}{subsubsection.9.8.5}
-\contentsline {subsection}{\numberline {9.9}9. Trainingsversuch}{28}{subsection.9.9}
-\contentsline {subsubsection}{\numberline {9.9.1}Einf\IeC {\"u}hrung}{28}{subsubsection.9.9.1}
-\contentsline {subsubsection}{\numberline {9.9.2}Datenset}{28}{subsubsection.9.9.2}
-\contentsline {subsubsection}{\numberline {9.9.3}Ver\IeC {\"a}nderte Parameter}{28}{subsubsection.9.9.3}
-\contentsline {subsubsection}{\numberline {9.9.4}Ergebnis}{28}{subsubsection.9.9.4}
-\contentsline {subsubsection}{\numberline {9.9.5}Fazit}{28}{subsubsection.9.9.5}
-\contentsline {subsection}{\numberline {9.10}10. Trainingsversuch}{29}{subsection.9.10}
-\contentsline {subsubsection}{\numberline {9.10.1}Einf\IeC {\"u}hrung}{30}{subsubsection.9.10.1}
-\contentsline {subsubsection}{\numberline {9.10.2}Datenset}{30}{subsubsection.9.10.2}
-\contentsline {subsubsection}{\numberline {9.10.3}Ver\IeC {\"a}nderte Parameter}{30}{subsubsection.9.10.3}
-\contentsline {subsubsection}{\numberline {9.10.4}Ergebnis}{30}{subsubsection.9.10.4}
-\contentsline {subsubsection}{\numberline {9.10.5}Fazit}{30}{subsubsection.9.10.5}
-\contentsline {subsection}{\numberline {9.11}Einschub - Funktioniert das original \IeC {\"u}berhaupt?}{31}{subsection.9.11}
-\contentsline {section}{\numberline {10}Zusammenfassung}{32}{section.10}
-\contentsline {section}{\numberline {11}Fazit}{32}{section.11}
+\contentsline {subsubsection}{\numberline {6.1.2}Zeichenerkl\IeC {\"a}rung}{11}{subsubsection.6.1.2}
+\contentsline {subsubsection}{\numberline {6.1.3}Token Generierung}{12}{subsubsection.6.1.3}
+\contentsline {subsection}{\numberline {6.2}DSL Mapping}{13}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}Screenshot Erstellung}{14}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.4}Teilen der Trainingsdaten}{14}{subsection.6.4}
+\contentsline {section}{\numberline {7}Validierung der Ergebnisse}{14}{section.7}
+\contentsline {section}{\numberline {8}Experimente}{17}{section.8}
+\contentsline {subsection}{\numberline {8.1}1. Trainingsversuch}{19}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}2. Trainingsversuch}{20}{subsection.8.2}
+\contentsline {subsection}{\numberline {8.3}3. Trainingsversuch}{21}{subsection.8.3}
+\contentsline {subsection}{\numberline {8.4}4. Trainingsversuch}{23}{subsection.8.4}
+\contentsline {subsection}{\numberline {8.5}5. Trainingsversuch}{25}{subsection.8.5}
+\contentsline {subsection}{\numberline {8.6}6. Trainingsversuch}{26}{subsection.8.6}
+\contentsline {subsection}{\numberline {8.7}7. Trainingsversuch}{28}{subsection.8.7}
+\contentsline {subsection}{\numberline {8.8}8. Trainingsversuch}{30}{subsection.8.8}
+\contentsline {subsection}{\numberline {8.9}9. Trainingsversuch}{32}{subsection.8.9}
+\contentsline {subsection}{\numberline {8.10}10. Trainingsversuch}{35}{subsection.8.10}
+\contentsline {subsection}{\numberline {8.11}11. Trainingsversuch}{38}{subsection.8.11}
+\contentsline {subsection}{\numberline {8.12}12. Trainingsversuch}{40}{subsection.8.12}
+\contentsline {subsection}{\numberline {8.13}13. Trainingsversuch}{40}{subsection.8.13}
+\contentsline {subsection}{\numberline {8.14}Einschub - Funktioniert das original \IeC {\"u}berhaupt?}{41}{subsection.8.14}
+\contentsline {section}{\numberline {9}Zusammenfassung}{42}{section.9}
+\contentsline {section}{\numberline {10}Fazit}{42}{section.10}
