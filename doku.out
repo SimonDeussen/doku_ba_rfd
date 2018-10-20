@@ -9,7 +9,7 @@
 \BOOKMARK [3][-]{subsubsection.4.3.2}{Gated Recurrent Unit - GRU}{subsection.4.3}% 9
 \BOOKMARK [2][-]{subsection.4.4}{Training}{section.4}% 10
 \BOOKMARK [3][-]{subsubsection.4.4.1}{Overfitting}{subsection.4.4}% 11
-\BOOKMARK [3][-]{subsubsection.4.4.2}{RMSProp}{subsection.4.4}% 12
+\BOOKMARK [3][-]{subsubsection.4.4.2}{Stochastig Gradient Descent - SGD}{subsection.4.4}% 12
 \BOOKMARK [3][-]{subsubsection.4.4.3}{Dropout}{subsection.4.4}% 13
 \BOOKMARK [2][-]{subsection.4.5}{Sampling}{section.4}% 14
 \BOOKMARK [2][-]{subsection.4.6}{Keras}{section.4}% 15

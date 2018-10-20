@@ -5,7 +5,6 @@
 \usepackage{ngerman} %Titel z.B. für Tabellen- und Inhaltsverzeichnis werden ins Deutsche übersetzt. Ausserdem Aktivierung der korrekten Silbentrennung
 
 \usepackage{verbatim}
-
 \usepackage[latin1, utf8]{inputenc} %Für das Erkennen von Umlauten
 
 \usepackage[T1]{fontenc} %Font-Encodierung wird auf das T1-Format mit bis zu 256 (anstelle 128 im Default Fontencoder) umgeschaltet
@@ -24,7 +23,7 @@
 \maketitle	
 
 \begin{abstract}
-Generierung von HTML/CSS Code anhand von pixelbasierten Screenshots und -designs. Aufbauend auf dem Pix2Code Paper \cite{Beltramelli17}, wird diese Arbeit eine eigene Implementation einer ausführlicheren DSL erstellen. Durch automatisches Erstellen von Frontend-Code können Anwendungen wie diese rapide Entwicklungszyklen realisieren. 
+Generierung von HTML/CSS Code für Websites aus Screenshots. Aufbauend auf dem Pix2Code Paper \cite{Beltramelli17}, ist diese Arbeit eine erweiterte Implementation mit mehr Elementen und damit komplexeren Websites. Dank Neuronaler Netze können Modelle erstellt werden, die selbständig valides HTML erzeugen. Durch automatisches Erstellen von Frontend-Code können Anwendungen wie diese rapide Entwicklungszyklen realisieren. 
 \end{abstract}
 
 
@@ -33,18 +32,20 @@ Generierung von HTML/CSS Code anhand von pixelbasierten Screenshots und -designs
 %\listoftables    % Tabellenverzeichnis
 \section{Einleitung} 
 
-Viele Client-basierte Anwendungen brauchen ein schönes Frontend. Dieses soll gleichzeitig funktional und übersichtlich sein, sowie die Firma durch gutes Design repräsentieren. Seit Apple \& Co ist es unglaublich wichtig gutes Design im Frontend zu haben, da sich die Kunden sonst schnell eine Alternative suchen. Um nun ein großartiges Frontend zu realisieren benötigt man ein enge Kooperation von Designern und Entwicklern, da hier zwei, sich kaum überschneidende, Skillsets gebraucht werden. Im der klassischen Entwicklung sieht diese Zusammenarbeit folgendermaßen aus: \\
-Ein Designer macht einen grafischen Entwurf, dieser wird vom Kunde abgenommen, dann geht er zu dem Entwickler, der nun zu aller erst Markup für den Content und anschließend das Design und die richtige Darstellung nach bauen muss. Für jede grafische Veränderung muss dieser Prozess wieder ausgeführt werden. Für die meisten Entwickler, ist die Markup und CSS-Erstellung der widrigste Part der ganzen Arbeit, da er recht zeit-aufwendig, repetitiv und langweilig ist. Es gab bisher viele Ansätze diese Arbeit zu automatisieren, zum Beispiel durch Tools in dem man gleichzeitig Designen und den Markup exportieren kann. Leider sind diese Tools entweder nicht besonders gut die Designs zu erstellen oder darin den Markup zu exportieren.
+Worin besteht der Nutzen automatisierter Code erstellen? Besonders im Bereich der Frontend-Entwicklung, bei der ein Team aus Leuten mit unterschiedlichen Fertigkeiten benötigt wird, kann es bei der Entwicklung zu Bottlenecks kommen. Im der klassischen Entwicklung sieht diese Zusammenarbeit folgendermaßen aus: \\
+Ein Designer macht einen grafischen Entwurf, dieser wird vom Kunde abgenommen, dann geht er zu dem Entwickler, der nun zu aller erst Markup für den Content und anschließend das Design und die richtige Darstellung nach bauen muss. Für jede grafische Veränderung muss dieser Prozess wieder ausgeführt werden. Für die meisten Entwickler, ist die Markup und CSS-Erstellung der widrigste Part der ganzen Arbeit, da er recht zeit-aufwendig, repetitiv und langweilig ist.
+Hier kommt es schließlich zu den Bottlenecks und Unzufriedenheit bei der Arbeit. Deswegen kann besonders ab der Schnittstelle zwischen Designern und Entwickler mit Automation viel gewonnen werden. Es gab bisher viele Ansätze diese Arbeit zu automatisieren, zum Beispiel durch Tools in dem man gleichzeitig Designen und den Markup exportieren kann. Leider sind diese Tools entweder nicht besonders gut darin, die Designs zu erstellen oder den Markup zu exportieren.
 
-Eine Abhilfe soll diese Arbeit liefern: Sie ermöglicht, dass der Designer mit seinem bevorzugten Tools das Design baut und der Entwickler mit einem Mausklick das fertige Markup bekommt. So kann sich der Entwickler vollends auf die Realisierung des Verhaltens und der Logik der Anwendung konzentrieren. 
+Eine Abhilfe soll diese Arbeit liefern: Sie ermöglicht, dass der Designer mit seinem bevorzugten Tools das Design entwickelt und der Entwickler mit einem Mausklick das fertige Markup bekommt. So kann sich der Entwickler vollends auf die Realisierung des Verhaltens und der Logik der Anwendung konzentrieren. 
 
 \section{Ähnliche Arbeiten}
 
-Diese Arbeit basiert auf dem Pix2Code Paper von Tony Beltramelli \cite{Beltramelli17} . Er war der erste der Code anhand von visuellen Input generieren kann. 
+Diese Arbeit basiert auf dem Pix2Code Paper von Tony Beltramelli \cite{Beltramelli17}. Er war der erste der Code anhand von visuellen Input mit Neuronalen Netzwerken generieren hat. 
 Anderen Ansätze wie DeepCoder \cite{DeepCoder16} benötigen komplizierte DSL als Input und schränken so die Benutzbarkeit stark ein. Visuelle Versuche mit Android-GUIs von Nguyen \cite{Nguyen15} benötigt ebenfalls unpraktische von Experten erstellte Heuristiken. Pix2Code ist so das erste Paper das einen allgemeinen Input hat, und daraus momentan drei verschiedene Targetsprachen hat. Zum einen kann es HTMl/CSS Code erstellen, zum anderen aber auch Android- und iOS-Markup. Siehe Original Code auf Github \cite{Beltramelli17Github}
 
 
 \section{Motivation}
+
 Computer genierte Programme werden die Zukunft der Software Entwicklung sein und diesen Bereich auch grundsätzlich verändern. Schon jetzt im Bereich der Cloud mit Serverless Computing und Lambdas, geht es oftmals bestehende Software-Teile zu verbinden. Diesen Trend, der für die Reduktion des Schreibens, mehr in die Richtung des Konfigurieren geht, sehe in Zukunft noch viel umfassender und allgegenwärtig. Es wird so weit gehen, dass man nicht nur wie hier in dieser Arbeit das Markup generiert sondern das aus einer Skizze sofort eine fertige Website gebaut wird, und man mit ein paar Klicks das nötige Verhalten einfach hinzufügen kann. 
 Wobei dieser Trend nicht nur auf das Web bezogen ist. Ich denke das sich die Webtechnologien auch in der Desktop Umgebung durchsetzen.  Da Plattform unabhängig und sehr stark optimiert. Sehr einfach zu lernen, weit verbreitet. Zum Beispiel Electron \cite{electron} ermöglicht den einfachen Einsatz durch einen eingebettet Browser.
 Daher kommt die Motivation diese Arbeit zu verfassen: Automation ist unumgänglich, deswegen sollte man diese am besten selber bauen und damit endlosen Entwicklern das Leben leichter machen.
@@ -54,7 +55,7 @@ Daher kommt die Motivation diese Arbeit zu verfassen: Automation ist unumgängli
 In dem folgenden Abschnitt werden die benutzten Technologien beschrieben. Diese Erklärungen sind recht generell und gehen zunächst nicht auf die genaue Verwendung der Technologien in dem Projekt ein, dies wird aber im Abschnitt Überblick genauer beleuchtet.
 
 \subsection{Neuronale Netzwerke}
-Neuronale Netzwerke sind einfach zu benutzende Modelle, welche nicht-lineare Abhängigkeiten mit vielen latenten Variablen stochastisch abbilden können \cite{nnWebsite}. Im einfachen Sinne, sind sie gerichtete Graphen, deren Knoten oder Nodes aus ihren Inputs Werte errechnen und die an die folgenden Nodes weitergeben. Hierbei werden zwischen 3 verschiedenen Arten von Nodes unterschieden:
+Neuronale Netzwerke sind einfach zu benutzende Modelle, welche nicht-lineare Abhängigkeiten mit vielen latenten Variablen stochastisch abbilden können \cite{nnWebsite}. Im einfachen Sinne, sind sie gerichtete Graphen, deren Knoten oder Nodes aus ihren Inputs Werte errechnen und diese an die folgenden Nodes weitergeben. Hierbei werden zwischen 3 verschiedenen Arten von Nodes unterschieden:
 
 \begin{description}
 	\item[Input Nodes] Über diese Nodes bekommt das Netzwerke die Input Parameter.
@@ -74,7 +75,7 @@ Nachdem die Node aus den Inputs einen Wert errechnet hat, geht dieser durch eine
 	\item[Sigmoide Aktivitätsfunktion] Benutzung entweder einer logistischen oder Tangens-Hyperbolicus Funktion. Diese Funktionen gehen bei sehr großen Werten gegen 1 und bei sehr negativen Werten gegen 0 (logistische Funktion) oder -1 (Tangens-Hyperbolicus Funktion). Diese Funktion bietet den Vorteil das sie das Aktivitätlevel begrenzt.
 \end{description} 
 
-Jede der Nodes hat eine bestimmte Anzahl an Verbindungen, diese hängt von der Art der Nodes und deren Zweck ab. Wichtig ist jedoch, das jede Node mit mehreren anderen Nodes verbunden ist, dies soll heißen, den Output mehrerer Nodes als Input zu bekommen und den eigenen Output als Input für die folgenden Nodes weiterzuleiten. Die Stärke der Abhängigkeit zwischen zwei Nodes wird als Gewicht ausgedrückt. Jede Verbindung in einem Neuronalen Netzwerk hat ein Gewicht, welches mit dem Output der vorangegangen Node multipliziert wird bevor es als Input weiter verwendet wird. TODO BIAS
+Jede der Nodes hat eine bestimmte Anzahl an Verbindungen, diese hängt von der Art der Nodes und deren Zweck ab. Wichtig ist jedoch, das jede Node mit mehreren anderen Nodes verbunden ist, dies soll heißen, den Output mehrerer Nodes als Input zu bekommen und den eigenen Output als Input für die folgenden Nodes weiterzuleiten. Die Stärke der Abhängigkeit zwischen zwei Nodes wird als Gewicht ausgedrückt. Jede Verbindung in einem Neuronalen Netzwerk hat ein Gewicht, welches mit dem Output der vorangegangen Node multipliziert wird bevor es als Input weiter verwendet wird.
 
 Das Netzwerk-interne Modell wird in diesen Gewichten abgespeichert. Es repräsentiert also das Wissen, dass durch das Training entstanden ist.
 
@@ -87,17 +88,36 @@ Das Training eines Netzwerkes, ist das schrittweise Anpassen der Gewichte bis es
 
 \subsection{Convolutional Neural Network - CNN}
 
-CNN sind Tiefe Neuronale Netzwerke mit einer bestimmten Architektur und spezialisiert auf die Verarbeitung von Bildern. Da man die Anwendungsdomäne eingeschränkt hat, kann man bestimmte Annahmen treffen, welche die Anzahl der Verbindungen und damit Rechenoperationen verringert und somit das Netz effektiver macht. Um aus Bildern, Informationen zu gewinnen, müssen die Ebenen des Netzwerkes nicht vollständig verbunden sein. Stattdessen werden Filter (Convolutions) und Sub-Sampling genutzt. Filter sind kleine Matrizen, die bestimmte Features entdecken, zum Beispiel Kanten mit bestimmter Ausrichtung. Durch das Erlernen der Filter im Training kann das Netzwerk aus den Pixel Werten, schrittweise abstraktere Features errechnen. Diese gehen von einfachen Kanten, zu komplexeren Umrissen, und schließlich zu vollständigen Teil-Objekten. Zum Beispiel werden aus vielen Kanten ein Kreis, dann kommen noch mehr dazu bis eine Feautere Map ein Auge abbildet. 
-Aus dem Auge und der biologischen Signal Verarbeitung ist diese Architektur inspiriert \cite(Hubel68). Einzelne Neuronen des celebralen Kortex reagieren auf Reize nur in einem beschränkten Bereich. Da diese Bereiche leicht überlappen können so diese Neuronen den gesamten Sichtbereich erkennen. 
+CNN sind Tiefe Neuronale Netzwerke mit einer bestimmten Architektur und spezialisiert auf die Verarbeitung von Bildern. Da man die Anwendungsdomäne eingeschränkt hat, kann man bestimmte Annahmen treffen, welche die Anzahl der Verbindungen und damit Rechenoperationen verringert und somit das Netz effektiver macht. Um aus Bildern, Informationen zu gewinnen, müssen die Ebenen des Netzwerkes nicht vollständig verbunden sein. Stattdessen werden Filter (Convolutions) und Sub-Sampling genutzt \cite{colahsBlogCnn}. Filter sind kleine Matrizen, die bestimmte Features entdecken, zum Beispiel Kanten mit bestimmter Ausrichtung. Durch das Erlernen der Filter im Training kann das Netzwerk aus den Pixel Werten, schrittweise abstraktere Features errechnen. Diese gehen von einfachen Kanten, zu komplexeren Umrissen, und schließlich zu vollständigen Teil-Objekten . Zum Beispiel werden aus vielen Kanten ein Kreis, dann kommen noch mehr dazu bis eine Feautere Map ein Auge abbildet. 
+Aus dem Auge und der biologischen Signal Verarbeitung ist diese Architektur inspiriert \cite{Hubel68}. Einzelne Neuronen des celebralen Kortex reagieren auf Reize nur in einem beschränkten Bereich. Da diese Bereiche leicht überlappen können so diese Neuronen den gesamten Sichtbereich erkennen. 
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.5\textwidth]{colah_cnn}
 \caption{CNN von \url{http://colah.github.io/}}
+\label{fig:colah-cnn}
 \end{figure}
 
 
+In Neuronalen Netzen sind Fully-Connected-Layer die Ebenen mit den meisten Verbindungen. Bei Betrachtung der Abbildung~\ref{fig:colah-cnn}, würde eine Fully-Connected-Layer insgesamt $ n = 9^2 * 5^2 = 2025$ Verbindungen zwischen $x_{i, j}$ und $A$ benötigen. Stattdessen benötigen die Convolutional-Ebene mit einem Kernel von $2*2$ nur $n = 8 * 5 *4 = 128$ Verbindungen. Abgesehen von den Einsparung der Verbindungen, hat ein CNN viele verschiedene Kernel, welche sich pro jeweils die gelernten Gewichte teilen \cite{colahsBlogCnn}. Für jeden Kernel $A$ in der Abbildung werden die gleichen 4 Gewichte gebraucht. Diese Gewichte werden während dem Training gelernt und bilden dann ein bestimmtes Feature der Input-Daten ab, wie oben beschrieben.
 
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.3\linewidth]{gimp_doku_edges_kernel}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{gimp_doku_edges}
+  \end{minipage}
+\captionof{figure}{Beispiel Kernel aus der Gimp-Dokumentation \cite{gimpdoku}}
+  \label{fig:kernel}
+\end{figure}
+
+Die Operationen die Kernel auf einem Input ausführen, ist in Abbildung~\ref{fig:kernel} visualisiert. Hier wird durch eine einfache Convolution eine Repräsentation des Inputs gebildet, in der nur vertikale Kanten enthalten sind. Wenn nun ein Kernel mit einer derartigen Operation in Netzwerk aktiviert wird, teilt dieser dem Rest des Netzwerkes mit, dass hier eine vertikale Kante in Input ist.
+
+Durch das Kopieren der Kernel und der geringeren Verbindungsanzahl sind nun sehr große und sehr tiefe Modelle möglich. In 2012, haben Krizhevsky et al. die Welt der Bildklassifizierung mit ihrem Paper und den darin vorgestellten Modell revolutioniert \cite{ImageNetOriginal}. Ihr tiefes, convolutional Neural Network konnte insgesamt 1000 Klassen unterscheiden mit einer Genauigkeit von 63\%. Deren Ergebnisse waren der Anfang einer neuen Art von Bildklassifizierung, und es folgten viele weitere Paper die auf deren Erfolg aufbauend, CNNs tief in der Computer Vision verankerten \cite{colahsBlogCnn}.
 
 \subsection{Recurrent Neural Network - RNN}
 
@@ -148,9 +168,15 @@ Als Training wird der Prozess bezeichnet, während dem ein Neurales Netzwerk Wis
 	
 Overfitting tritt ein, wenn das Modell zu Komplex für den gewählten Task ist, und deswegen die Trainingsdaten auswendig lernt. Somit wird es sehr gute Ergebnisse auf dem Trainingsset zeigen, sobald es aber Daten bekommt, die es nicht kennt, wird die Performance abstürzen da es nicht Verallgemeinern kann.
 
-\subsubsection{RMSProp}
+\subsubsection{Stochastig Gradient Descent - SGD}
 
-Eine Variante des Gradienten Abstiegs, die sich besonders gut eignet um RNNs zu optimieren \cite{kerasDocRMSprob}.
+SGD ist eine iterative Methode um ableitbare Funktionen und Modelle zu optimieren. Um ein Modell zu optimieren, wird eine Verlustfunktion benötigt. Diese zeigt den Schaden an, der entsteht wenn das Modell mit falschen Parametern Entscheidungen trifft. Um die richtigen Parameter während des Trainings zu finden, muss diese Verlustfunktion minimiert werden.
+Bei SGD werden durch zufällige Samples des Trainingssets, Näherungen an den Gradienten gebildet, die dann wiederum genutzt werden um die Parameter zu optimieren. Nach mehreren Durchläufen durch das Trainingsset wird ein Set an Parameters gefunden, die ein Minimum der Verlustfunktion bilden \cite{walkSGD}. 
+
+
+\begin{description}
+	\item[RMSprob] Eine Variante des SGD, die sich besonders gut eignet um RNNs zu optimieren \cite{kerasDocRMSprob}. Diese wird in der Arbeit genutzt.
+\end{description}
 
 \subsubsection{Dropout}
 
@@ -869,7 +895,7 @@ Anstatt der bereits mehrmals auftretenden Token Abfolge, gelingt es diesem Model
 	\item[Gesamt Fehler Score] 4840
 	\item[Anzahl Token Testset] 36751 
 	\item[Anzahl generierter Token] 36186
-	\item[Score pro Token in Testset] 0.13
+	\item[Score pro Token in Testset] 0.1317
 \end{description}
   \captionof{figure}{Lageparameter}
   \label{fig:lage_bin10}
@@ -1358,6 +1384,9 @@ In diesem Versuch soll heraus gefunden werden, ob eine größere GRU-Architektur
 
 \subsubsection*{Datenset}
 
+Hier wurde das Datenset aus dem sechsten Trainingsversuch verwendet.
+
+
 \subsubsection*{Veränderte Parameter}
 
 Es wurden sowohl die Sprach-Ebene, als auch die Decoder-Ebene vergrößert.
@@ -1380,7 +1409,8 @@ gru_3 (GRU)                     (None, 48, 768)      4573440     concatenate_1[0
 _____________________________________________________________________________
 gru_4 (GRU)                     (None, 768)          3541248     gru_3[0][0]
 _____________________________________________________________________________
-dense_3 (Dense)                 (None, 23)           17687       gru_4[0][0]==========================================================================
+dense_3 (Dense)                 (None, 23)           17687       gru_4[0][0]
+=============================================================================
 
 Total params: 112,576,631
 
@@ -1420,7 +1450,7 @@ Auch dieses Netz konvergiert, leider ist das Ergebnis gegenüber Versuch Sieben 
 \end{minipage}
 \end{figure}
 
-Der Hauptteil der Fehler-Scores liegt um die Zwanzig, mit ein paar wenigen im tiereren oder höheren Bereich. Zu sehen ist das sehr gut in der Abbildung~\ref{fig:hist_bin14}. 
+Der Hauptteil der Fehler-Scores liegt um die Zwanzig, mit ein paar wenigen im niedrigeren oder höheren Bereich. Zu sehen ist das sehr gut in der Abbildung~\ref{fig:hist_bin14}. 
 
 \begin{figure}
 \centering
@@ -1468,21 +1498,229 @@ Wieso performt dieses Modell, obwohl es doch größer ist so viel schlechter als
 %CONTEXT_64
 %bin15
 \subsubsection*{Einführung}
+
+In diesem Versuch wird überprüft, ob eine Vergrößerung der \texttt{CONTEXT\_LENGTH} das Ergebnis positiv beeinflusst, und wenn ja wie stark. 
+
 \subsubsection*{Datenset}
+
+Hier wurde das Datenset aus dem sechsten Trainingsversuch verwendet.
+
 \subsubsection*{Veränderte Parameter}
+
+Die \texttt{CONTEXT\_LENGTH} wurde von 48 auf 64 (Anmerkung: die Median Token-Sequenz-Länge des Trainingssets ist 62) erhöht. Die wirkt sich folgendermaßen auf die Architektur aus:
+\begin{verbatim}
+
+_____________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to
+=============================================================================
+input_1 (InputLayer)            (None, 256, 256, 3)  0
+_____________________________________________________________________________
+input_2 (InputLayer)            (None, 64, 23)       0
+_____________________________________________________________________________
+sequential_1 (Sequential)       (None, 64, 1024)     104098080   input_1[0][0]
+_____________________________________________________________________________
+sequential_2 (Sequential)       (None, 64, 128)      157056      input_2[0][0]
+_____________________________________________________________________________
+concatenate_1 (Concatenate)     (None, 64, 1152)     0           sequential_1[1][0]
+                                                                 sequential_2[1][0]
+_____________________________________________________________________________
+gru_3 (GRU)                     (None, 64, 512)      2557440     concatenate_1[0][0]
+_____________________________________________________________________________
+gru_4 (GRU)                     (None, 512)          1574400     gru_3[0][0]
+_____________________________________________________________________________
+dense_3 (Dense)                 (None, 23)           11799       gru_4[0][0]
+=============================================================================
+
+Trainable params: 108,398,775
+
+\end{verbatim}
+
+Der \texttt{Output Shape} der Ebenen \texttt{input\_2},  \texttt{sequential\_1},  \texttt{sequential\_2},  \texttt{concatenate\_1} und \texttt{gru\_3} spiegelt jeweils in der ersten Dimension die nun erhöhte \texttt{CONTEXT\_LENGTH} wieder.
+Ansonsten ist das Modell gleich wie das des siebten Versuchs.
 \subsubsection*{Ergebnis}
+
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \begin{description}
+	\item[Arithmetisches Mittel] $6.44$	
+	\item[Geometrisches Mittel] $5.78$
+	\item[Harmonisches Mittel] $5.07$
+	\item[Quintile] p20: $4$, p40: $6$, p60: $7$, p80: $8$
+	\item[Median] $6$
+	\item[Modus] $6$
+	\item[Vorkommen Modus] $116$
+	\item[Gesamt Fehler Score] 3989
+	\item[Anzahl Token Testset] 36751 
+	\item[Anzahl generierter Token] 36869
+	\item[Score pro Token Testset]  0.1085
+\end{description}
+  \captionof{figure}{Lageparameter}
+  \label{fig:lage_bin15}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{predictions_bin15_histogramm}
+  \captionof{figure}{Fehlerverteilung}
+  \label{fig:hist_bin15}
+\end{minipage}
+\end{figure}
+
+Im Vergleich zu das Modell vom Versuch Sieben, performt dieses Modell besser, siehe \ref{fig:lage_bin10}. Der Fehler-Score ist etwas geringer, aber im Modell von Versuch Sieben ist das zweite Quintil, sowie der Modus jeweils um eine Einheit niedriger. 
+
+\begin{figure}
+\centering
+\begin{minipage}{.33\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{predictions_bin15_total_error_types_pie_chart}
+  \captionof{figure}{Gesamt}
+  \label{fig:fehler_gesamt_bin15}
+\end{minipage}%
+\begin{minipage}{.33\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{predictions_bin15_excluded_p80_error_types_pie_chart}
+  \captionof{figure}{Ohne p80}
+  \label{fig:fehler_beste80_bin15}
+\end{minipage}
+\begin{minipage}{.33\textwidth}
+  \centering
+   \includegraphics[width=1\linewidth]{predictions_bin15_p80_error_types_pie_chart}
+  \captionof{figure}{Nur p80}
+  \label{fig:fehler_schlechteste20_bin15}
+\end{minipage}
+\end{figure}
+
+Die Verteilung der Fehler im letzten Quintil ist ebenso sehr gut; es gab nur 22 mal das Auftreten von falschen Row-Klassifizierungen. Zum Vergleich, im siebten Versuch gab es 174 falsche Klassifizierungen des Row Types.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.3\textwidth]{predictions_bin15_predicted_row_type_distribution}
+\caption{Verteilung Row Types}
+\label{fig:bin15_row_type}
+\end{figure}
+
+Daher ist auch die Verteilung der Row Type sehr gleichmäßig, zu sehen in Abbildung~\ref{fig:bin15_row_type}. 
+Der Fehler Score ist gegenüber Versuch Sieben um ca. 18\% gesunken. 
+Interessant ist, dass dieses Modell 276\% der Fehler des siebten Versuchs in den Menü-Buttons macht. Außerdem hat es einmal einen falschen Header identifiziert. Bei der Anzahl der falschen Buttons gibt es kaum einen Unterschied zum siebten Modell.
+
 \subsubsection*{Fazit}
+Aufgrund der längeren \texttt{CONTEXT\_LENGTH} ist das Ergebnis sehr viel besser geworden. Row-Types werden hier mit am zuverlässigsten erkannt, was wahrscheinlich an der verlängerten \texttt{CONTEXT\_LENGTH} liegt, da das Modell so auf jeden Fall die aktuelle Row als auch die davor gleichzeitig im Speicher haben kann. Leider gibt es Abspriche in der Qualität der Menüs, da hat fast 3 mal so viele Fehler gemacht wie der Vergleich. Die ist aber zu verschmerzen, da Performance der Rows so außerordentlich gut ist. Vielleicht ist das Modell ein bisschen zu einfach um die Komplexität der DSL und der Screenshots ausreichend abzubilden. 
 
 \subsection{13. Trainingsversuch}
-Language: GRU 92 units
-Decoder GRU 386 units
+%Language: GRU 92 units
+%Decoder GRU 386 units
 
-bin16
+%bin16
+
 \subsubsection*{Einführung}
+
+Hier wird eine vereinfachte Variante des siebten Modells genutzt um zu testen, ob es so besser verallgemeinert.
+
 \subsubsection*{Datenset}
+
+Hier wurde das Datenset aus dem sechsten Trainingsversuch verwendet.
+
 \subsubsection*{Veränderte Parameter}
+
+Sowohl der Sprach- als auch der Decoder-Teil des Modells wurden verkleinert. Die Anzahl der rekurrenten \texttt{Units} sind von 128 auf 92 im Sprach-Teil und von 512 auf 386 im Decoder-Teil reduziert worden.
+
+\begin{verbatim}
+Layer (type)                    Output Shape         Param #     Connected to
+=============================================================================
+input_1 (InputLayer)            (None, 256, 256, 3)  0
+_____________________________________________________________________________
+input_2 (InputLayer)            (None, 48, 23)       0
+_____________________________________________________________________________
+sequential_1 (Sequential)       (None, 48, 1024)     104098080   input_1[0][0]
+_____________________________________________________________________________
+sequential_2 (Sequential)       (None, 48, 92)       83076       input_2[0][0]
+_____________________________________________________________________________
+concatenate_1 (Concatenate)     (None, 48, 1116)     0           sequential_1[1][0]
+                                                                 sequential_2[1][0]
+_____________________________________________________________________________
+gru_3 (GRU)                     (None, 48, 386)      1740474     concatenate_1[0][0]
+_____________________________________________________________________________
+gru_4 (GRU)                     (None, 386)          895134      gru_3[0][0]
+_____________________________________________________________________________
+dense_3 (Dense)                 (None, 23)           8901        gru_4[0][0]
+
+
+Trainable params: 106,825,665
+\end{verbatim}
+
+Diese Änderung sieht man in den Ebenen \texttt{sequential\_2} sowie \texttt{gru\_2} und \texttt{gru\_4}.
+Durch die Verkleinerung der RNNs, ist das Modell um knappe zwei Millionen Parameter kleiner geworden.
+
 \subsubsection*{Ergebnis}
+
+
+Wie in Abbildung~\ref{fig:lage_bin16} zu sehen ist, sind alle Lageparameter schlechter als die bisherigen guten Ergebnisse.
+
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \begin{description}
+	\item[Arithmetisches Mittel] $16.71$	
+	\item[Geometrisches Mittel] $15.25$
+	\item[Harmonisches Mittel] $13.62$
+	\item[Quintile] p20: $11$, p40: $15$, p60: $17$, p80: $22$
+	\item[Median] $16$
+	\item[Modus] $16$
+	\item[Vorkommen Modus] $54$
+	\item[Gesamt Fehler Score] 10342
+	\item[Anzahl Token Testset] 36751 
+	\item[Anzahl generierter Token] 36047
+	\item[Score pro Token Testset]  0.28
+\end{description}
+  \captionof{figure}{Lageparameter}
+  \label{fig:lage_bin16}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{predictions_bin16_histogramm}
+  \captionof{figure}{Fehlerverteilung}
+  \label{fig:hist_bin16}
+\end{minipage}
+\end{figure}
+
+Im Vergleich der Lageparameter zu dem zehnten Trainingsversuch (LSTM mit mehr Parametern), gibt es hier einen geringeren Fehler-Score. Es ist jedoch zu sehen, an den Abbildungen~\ref{fig:fehler_gesamt_bin16} bis ~\ref{fig:fehler_p80_bin16}, dass dieFehlerverteilung überall gleich ist, egal in welchem Quintil.
+
+\begin{figure}
+\centering
+\begin{minipage}{.33\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{predictions_bin16_total_error_types_pie_chart}
+  \captionof{figure}{Gesamt}
+  \label{fig:fehler_gesamt_bin16}
+\end{minipage}%
+\begin{minipage}{.33\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{predictions_bin16_excluded_p80_error_types_pie_chart}
+  \captionof{figure}{Ohne p80}
+  \label{fig:fehler_beste80_bin16}
+\end{minipage}
+\begin{minipage}{.33\textwidth}
+  \centering
+   \includegraphics[width=1\linewidth]{predictions_bin16_p80_error_types_pie_chart}
+  \captionof{figure}{Nur p80}
+  \label{fig:fehler_schlechteste20_bin16}
+\end{minipage}
+\end{figure}
+
+An der Verteilung der generierten Row Types in Abbildung~\ref{fig:bin16_row_type} erkennt man, dass diese Modell es nicht gelernt hat die Typen zuverlässig zu unterscheiden.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.3\textwidth]{predictions_bin16_predicted_row_type_distribution}
+\caption{Verteilung Row Types}
+\label{fig:bin16_row_type}
+\end{figure}
+
 \subsubsection*{Fazit}
+Durch das Reduzieren der \texttt{Units} der RNNs ist das Modell schlicht zu simpel geworden. Obwohl es die richtige Grammatik lernen konnte - es hat keine Token-Sequenzen erzeugt, die nicht kompiliert werden konnte.
+
 
 \subsection{Einschub - Funktioniert das original überhaupt?}
 Training insegesamt 20 Epochen

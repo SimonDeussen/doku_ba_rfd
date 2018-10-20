@@ -1,8 +1,17 @@
 \begin{thebibliography}{10}
 
+\bibitem{colahsBlogCnn}
+Colah's blog cnn.
+\newblock
+  \url{http://colah.github.io/posts/2014-07-Understanding-Convolutions/}.
+
 \bibitem{electron}
 Electron.
 \newblock \url{https://www.electronjs.org/}.
+
+\bibitem{gimpdoku}
+Gimp dokumentation.
+\newblock \url{https://docs.gimp.org/2.8/en/plug-in-convmatrix.html}.
 
 \bibitem{Beltramelli17Github}
 pix2code.
@@ -53,10 +62,19 @@ Sepp Hochreiter and Jürgen Schmidhuber.
 \newblock {\em Neural Computation, 9(8)}, page 1735–1780, 1997.
 \newblock \url{https://www.bioinf.jku.at/publications/older/2604.pdf}.
 
-\bibitem{GRUvsLSTM}
-Shubham Khandelwal, Benjamin Lecouteux, and Laurent Besacier.
-\newblock {COMPARING GRU AND LSTM FOR AUTOMATIC SPEECH RECOGNITION}.
-\newblock Research report, {LIG}, January 2016.
+\bibitem{Hubel68}
+D.~H. Hubel and T.~N. Wiesel.
+\newblock Receptive fields and functional architecture of monkey striate
+  cortex.
+\newblock {\em The Journal of Physiology}, page 215–243, 1968.
+\newblock \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1557912}.
+
+\bibitem{ImageNetOriginal}
+Alex Krizhevsky, Ilya Sutskever, and Geoffrey~E Hinton.
+\newblock Imagenet classification with deep convolutional neural networks.
+\newblock In F.~Pereira, C.~J.~C. Burges, L.~Bottou, and K.~Q. Weinberger,
+  editors, {\em Advances in Neural Information Processing Systems 25}, pages
+  1097--1105. Curran Associates, Inc., 2012.
 
 \bibitem{Nguyen15}
 Tuan~Anh Nguyen and Christoph Csallner.

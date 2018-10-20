@@ -3,50 +3,51 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: doku.aux
 The style file: plain.bst
 Database file #1: sources.bib
-Warning--I didn't find a database entry for "("
 Warning--to sort, need author or key in Beltramelli17Github
 Warning--to sort, need author or key in electron
+Warning--to sort, need author or key in colahsBlogCnn
+Warning--to sort, need author or key in gimpdoku
 Warning--to sort, need author or key in colahsBlogLSTM
 Warning--to sort, need author or key in kerasDocRMSprob
-You've used 14 entries,
+You've used 17 entries,
             2118 wiz_defined-function locations,
-            574 strings with 6307 characters,
-and the built_in function-call counts, 4046 in all, are:
-= -- 387
-> -- 208
-< -- 2
-+ -- 84
-- -- 70
-* -- 236
-:= -- 657
-add.period$ -- 39
-call.type$ -- 14
-change.case$ -- 78
+            592 strings with 6859 characters,
+and the built_in function-call counts, 5152 in all, are:
+= -- 502
+> -- 237
+< -- 4
++ -- 95
+- -- 78
+* -- 285
+:= -- 786
+add.period$ -- 48
+call.type$ -- 17
+change.case$ -- 88
 chr.to.int$ -- 0
-cite$ -- 18
-duplicate$ -- 158
-empty$ -- 306
-format.name$ -- 70
-if$ -- 864
+cite$ -- 23
+duplicate$ -- 220
+empty$ -- 411
+format.name$ -- 78
+if$ -- 1140
 int.to.chr$ -- 0
-int.to.str$ -- 14
-missing$ -- 8
-newline$ -- 70
-num.names$ -- 20
-pop$ -- 103
+int.to.str$ -- 17
+missing$ -- 10
+newline$ -- 84
+num.names$ -- 24
+pop$ -- 134
 preamble$ -- 1
-purify$ -- 63
+purify$ -- 71
 quote$ -- 0
-skip$ -- 142
+skip$ -- 204
 stack$ -- 0
-substring$ -- 147
-swap$ -- 45
-text.length$ -- 2
+substring$ -- 220
+swap$ -- 79
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 56
-warning$ -- 4
-while$ -- 24
-width$ -- 16
-write$ -- 140
-(There were 5 warnings)
+type$ -- 68
+warning$ -- 6
+while$ -- 31
+width$ -- 19
+write$ -- 168
+(There were 6 warnings)
