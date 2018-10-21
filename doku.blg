@@ -5,49 +5,46 @@ The style file: plain.bst
 Database file #1: sources.bib
 Warning--to sort, need author or key in Beltramelli17Github
 Warning--to sort, need author or key in electron
-Warning--to sort, need author or key in colahsBlogCnn
 Warning--to sort, need author or key in gimpdoku
-Warning--to sort, need author or key in colahsBlogLSTM
-Warning--to sort, need author or key in kerasDocRMSprob
-You've used 17 entries,
+You've used 20 entries,
             2118 wiz_defined-function locations,
-            592 strings with 6859 characters,
-and the built_in function-call counts, 5152 in all, are:
-= -- 502
-> -- 237
+            611 strings with 7344 characters,
+and the built_in function-call counts, 6051 in all, are:
+= -- 588
+> -- 298
 < -- 4
-+ -- 95
-- -- 78
-* -- 285
-:= -- 786
-add.period$ -- 48
-call.type$ -- 17
-change.case$ -- 88
++ -- 119
+- -- 98
+* -- 330
+:= -- 982
+add.period$ -- 60
+call.type$ -- 20
+change.case$ -- 107
 chr.to.int$ -- 0
 cite$ -- 23
-duplicate$ -- 220
-empty$ -- 411
-format.name$ -- 78
-if$ -- 1140
+duplicate$ -- 250
+empty$ -- 459
+format.name$ -- 98
+if$ -- 1306
 int.to.chr$ -- 0
-int.to.str$ -- 17
-missing$ -- 10
-newline$ -- 84
-num.names$ -- 24
-pop$ -- 134
+int.to.str$ -- 20
+missing$ -- 13
+newline$ -- 102
+num.names$ -- 36
+pop$ -- 142
 preamble$ -- 1
-purify$ -- 71
+purify$ -- 87
 quote$ -- 0
-skip$ -- 204
+skip$ -- 230
 stack$ -- 0
-substring$ -- 220
-swap$ -- 79
+substring$ -- 236
+swap$ -- 82
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 68
-warning$ -- 6
-while$ -- 31
-width$ -- 19
-write$ -- 168
-(There were 6 warnings)
+type$ -- 80
+warning$ -- 3
+while$ -- 43
+width$ -- 22
+write$ -- 208
+(There were 3 warnings)

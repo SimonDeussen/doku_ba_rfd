@@ -1,10 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{colahsBlogCnn}
-Colah's blog cnn.
-\newblock
-  \url{http://colah.github.io/posts/2014-07-Understanding-Convolutions/}.
-
 \bibitem{electron}
 Electron.
 \newblock \url{https://www.electronjs.org/}.
@@ -16,14 +11,6 @@ Gimp dokumentation.
 \bibitem{Beltramelli17Github}
 pix2code.
 \newblock \url{https://www.github.com/tonybeltramelli/pix2code}.
-
-\bibitem{kerasDocRMSprob}
-Rmsprob.
-\newblock \url{https://keras.io/optimizers/#rmsprop}.
-
-\bibitem{colahsBlogLSTM}
-Understanding lstm networks.
-\newblock \url{http://colah.github.io/posts/2015-08-Understanding-LSTMs/}.
 
 \bibitem{DeepCoder16}
 Matej Balog, Alexander~L. Gaunt, Marc Brockschmidt, Sebastian Nowozin, and
@@ -50,11 +37,22 @@ Junyoung Chung, {\c{C}}aglar G{\"{u}}l{\c{c}}ehre, KyungHyun Cho, and Yoshua
   modeling.
 \newblock {\em CoRR}, abs/1412.3555, 2014.
 
+\bibitem{DBLP:journals/corr/Graves13}
+Alex Graves.
+\newblock Generating sequences with recurrent neural networks.
+\newblock {\em CoRR}, abs/1308.0850, 2013.
+
 \bibitem{lstmSearchSpace}
 Klaus Greff, Rupesh~Kumar Srivastava, Jan Koutn{\'{\i}}k, Bas~R. Steunebrink,
   and J{\"{u}}rgen Schmidhuber.
 \newblock {LSTM:} {A} search space odyssey.
 \newblock {\em CoRR}, abs/1503.04069, 2015.
+
+\bibitem{kerasDocRMSprob}
+Geoffrey Hinton.
+\newblock Rmsprob.
+\newblock
+  \url{http://www.cs.toronto.edu/%7Etijmen/csc321/slides/lecture_slides_lec6.pdf}.
 
 \bibitem{LSTM_orig}
 Sepp Hochreiter and Jürgen Schmidhuber.
@@ -83,15 +81,36 @@ Tuan~Anh Nguyen and Christoph Csallner.
 \newblock {\em 2015 30th IEEE/ACM International Conference on Automated
   Software Engineering (ASE)}, pages 248--259, 2015.
 
+\bibitem{colahsBlogCnn}
+Christopher Olah.
+\newblock Colah's blog cnn, 2014.
+\newblock
+  \url{http://colah.github.io/posts/2014-07-Understanding-Convolutions/}.
+
+\bibitem{colahsBlogLSTM}
+Christopher Olah.
+\newblock Understanding lstm networks, 2015.
+\newblock \url{http://colah.github.io/posts/2015-08-Understanding-LSTMs/}.
+
 \bibitem{nnWebsite}
 Günter~Daniel Rey and Fabian Beck.
 \newblock Neuronale netze - eine einführung.
 \newblock \url{http://www.neuronalesnetz.de/downloads/neuronalesnetz_de.pdf}.
+
+\bibitem{DBLP:journals/corr/SimonyanZ14a}
+Karen Simonyan and Andrew Zisserman.
+\newblock Very deep convolutional networks for large-scale image recognition.
+\newblock {\em CoRR}, abs/1409.1556, 2014.
 
 \bibitem{JMLR:v15:srivastava14a}
 Nitish Srivastava, Geoffrey Hinton, Alex Krizhevsky, Ilya Sutskever, and Ruslan
   Salakhutdinov.
 \newblock Dropout: A simple way to prevent neural networks from overfitting.
 \newblock {\em Journal of Machine Learning Research}, 15:1929--1958, 2014.
+
+\bibitem{walkSGD}
+Chen Xing, Devansh Arpit, Christos Tsirigotis, and Yoshua Bengi.
+\newblock A walk with sgd.
+\newblock {\em stat.ML}, 2018.
 
 \end{thebibliography}

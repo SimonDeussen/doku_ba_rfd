@@ -3,6 +3,7 @@
 % Prefix scr bedeuted aus dem KOMA-Script Paket, welches europäische Formatierungsstandards enthält
 % Gebräuchliche Optionen sind: 11pt, 12pt, twoside, twocolumn, a4paper,...
 \usepackage{ngerman} %Titel z.B. für Tabellen- und Inhaltsverzeichnis werden ins Deutsche übersetzt. Ausserdem Aktivierung der korrekten Silbentrennung
+\usepackage{amsmath}
 
 \usepackage{verbatim}
 \usepackage[latin1, utf8]{inputenc} %Für das Erkennen von Umlauten
@@ -23,7 +24,7 @@
 \maketitle	
 
 \begin{abstract}
-Generierung von HTML/CSS Code für Websites aus Screenshots. Aufbauend auf dem Pix2Code Paper \cite{Beltramelli17}, ist diese Arbeit eine erweiterte Implementation mit mehr Elementen und damit komplexeren Websites. Dank Neuronaler Netze können Modelle erstellt werden, die selbständig valides HTML erzeugen. Durch automatisches Erstellen von Frontend-Code können Anwendungen wie diese rapide Entwicklungszyklen realisieren. 
+Generierung von HTML/CSS Code für Websites aus Screenshots. Aufbauend auf dem Pix2Code Paper \cite{Beltramelli17}, ist diese Arbeit eine erweiterte Implementation mit mehr Elementen und damit komplexeren Websites. Ein Beitrag dieser Arbeit ist eine neue, verbesserte Netzwerk Architektur, als auch ein Tool, mit dem neue Trainingsdaten erzeugt werden können.
 \end{abstract}
 
 
@@ -121,22 +122,21 @@ Durch das Kopieren der Kernel und der geringeren Verbindungsanzahl sind nun sehr
 
 \subsection{Recurrent Neural Network - RNN}
 
-RNNs sind eine Erweiterung der klassischen Feedforward Netze, die im Stande sind, Input-Sequenzen mit verschiedener Länge zu verarbeiten \cite{paperGRUComparison}. Die RNN schaffen dies, in dem sie einen inneren Zustand haben, dessen Aktivierungen von vorherigen Inputs abhängig sind.
+RNNs sind eine Erweiterung der klassischen Feedforward Netze, die im Stande sind, Input-Sequenzen mit verschiedener Länge zu verarbeiten \cite{paperGRUComparison}. Die RNN schaffen dies, in dem sie einen inneren Zustand haben, dessen Aktivierungen von vorherigen Inputs abhängig sind. 
 RNNs haben Verbindungen zu Neuronen der selben oder vorhergehenden Schichten und können dadurch Inputs durch das gesamte Netz durchgeben. 
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.5\textwidth]{colah_rnn}
 \caption{RNN von \url{http://colah.github.io/}}
+\label{fig:rnn}
 \end{figure}
 
-Wie auf der Abbildung zu sehen ist, ähnelt der Verbund der Rekurrenten Einheiten einer Liste. Damit ist diese Art Neuraler Netzwerke besonders gut geeignet sequentielle Daten abzuarbeiten \cite{colahsBlogLSTM}. Listen, Sprachsynthese und Maschinelle Übersetzungen sind Bereiche wofür RNNs gut geignet sind.
-
-
+Wie auf der Abbildung~\ref{fig:rnn} zu sehen ist, ähnelt der Verbund der Rekurrenten Einheiten einer Liste. Damit ist diese Art Neuraler Netzwerke besonders gut geeignet sequentielle Daten abzuarbeiten \cite{colahsBlogLSTM}. Listen, Sprachsynthese und Maschinelle Übersetzungen sind Bereiche wofür RNNs gut geignet sind. Klassische RNNs, gelangen jedoch an einen Punkt, ab dem sie Sequenzen von zu großer Länge nicht mehr ausreichend gut modellieren können, da aber einer gewissen Länge, beim Training die Gradienten zu numerischer Instabilität neigen \cite{DBLP:journals/corr/Graves13}. Das heißt, die Gradienten gehen gegen null oder in seltenen Fällen gegen $\infty$ \cite{paperGRUComparison}, wodurch das Training scheitert. Damit scheidet das reine Verketten von RNN-Units aus um lange Abhängigkeiten zu modellieren. 
 
 \subsubsection{Long short-term Memory - LSTM}
 
-Ein LSTM ist eine bestimmte Form der RNNs. Ein RNN kann durch dessen starre Struktur immer nur eine bestimmte Anzahl von Schritten abspeichern. Die Schrittanzahl hängt davon ab, wie viele RNN-Units mit einander verkettet sind. Sobald mal jedoch einen sehr weiten Kontext benötigt, zum Beispiel bei der Analyse von Texten oder der maschinellen Übersetzung, stößt diese starre Struktur an ihre Grenzen. Ein LSTM ist so gebaut, dass es die einzelnen Units selber entscheiden können, welche Daten weiter beibehalten oder vergessen werden. Durch die dynamische Speicherverwaltung, kann es auf der einen Seite sich bestimmte Informationen länger speichern, auf der anderen, kurzfristig benötigte Daten verarbeiten und dann wieder vergessen. Während des Trainings eines LSTMs, erlernt dieses auch das Speichern und Löschen. Dadurch kann es sehr viel effizienter als reine RNNs Daten mit temporaler Dimension auswerten. Fast jeder Erfolg, der mit RNNs erzielt wurde, ist auf LSTMs zurückzuführen \cite{colahsBlogLSTM}. 
+Ein LSTM ist eine bestimmte Form der RNNs. Ein LSTM ist so gebaut, dass es die einzelnen Units selber entscheiden können, welche Daten weiter beibehalten oder vergessen werden - es hat einen eigenen Speicher, dessen Benutzung trainiert werden kann. Durch diese dynamische Speicherverwaltung, kann es auf der einen Seite sich bestimmte Informationen länger speichern, auf der anderen, kurzfristig benötigte Daten verarbeiten und dann wieder vergessen. Während des Trainings eines LSTMs, erlernt dieses auch das Speichern und Löschen. Dadurch kann es sehr viel effizienter als reine RNNs Daten mit temporaler Dimension auswerten. Fast jeder Erfolg, der mit RNNs erzielt wurde, ist auf LSTMs zurückzuführen \cite{colahsBlogLSTM}. 
 
 Eingeführt wurde das LSTM von Hochreiter und Schmidhuber im Jahr 1997 \cite{LSTM_orig}. Seit dem wurden viele Variationen davon getestet, verworfen und verbessert. In dieser Arbeit, wird mit dem Begriff LSTM diese Original Spezifikation gemeint.
 
@@ -144,6 +144,8 @@ Eingeführt wurde das LSTM von Hochreiter und Schmidhuber im Jahr 1997 \cite{LST
 \centering
 \includegraphics[width=0.5\textwidth]{colah_lstm}
 \caption{LSTM von \url{http://colah.github.io/}}
+\label{fig:gru}
+
 \end{figure}
 
 Eine LSTM-Unit teilt sich mit allen anderen LSTM-Units des Netzwerkes einen Cell-State, in der Abbildung die obere, horzontale Linie. Jede Unit kann diesen auf zwei Arten verändern, mit einem \texttt{forget}-Gate werden Informationen vergessen, mit einem \texttt{add}-Gate Informationen hinzugefügt. Schließlich berechnet jede Unit einen eigenen Hidden-State anhand des Inputs, des geteilten Cell-States und dem Hidden-State vorangegangener Units.
@@ -151,13 +153,13 @@ Eine LSTM-Unit teilt sich mit allen anderen LSTM-Units des Netzwerkes einen Cell
 
 \subsubsection{Gated Recurrent Unit - GRU}
 
-Die GRU, ist eine Abwandlung des klassischen LSTM. Die Architektur wurde 2014 von Kyunghyun Cho et al. eingeführt \cite{DBLP:journals/corr/ChoMGBSB14}. Was diese Variante ausmacht, ist eine Zussammenführung des \texttt{forget}- und \texttt{add}-Gates, sowie das Weglassen des Cell-States. Dadurch hat es weniger Parameter als die klassische Variante.
+Die GRU, ist eine Abwandlung des klassischen LSTM. Die Architektur wurde 2014 von Kyunghyun Cho et al. eingeführt \cite{DBLP:journals/corr/ChoMGBSB14} um eine RNN Einheit zu erhalten, welche es schafft selbstständig Feautures aus verschiedenen, weit auseinander liegenden, Zeitpunkten zu extrahieren \cite{paperGRUComparison}. Was diese Variante ausmacht, ist eine Zussammenführung des \texttt{forget}- und \texttt{add}-Gates, sowie das Weglassen des Cell-States. Dadurch hat es weniger Parameter als die klassische Variante.
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.3\textwidth]{colah_gru_small}
 \caption{GRU von \url{http://colah.github.io/}}
 \end{figure}
-Trotz der geringeren Anzahl an Parameter, ist die Performance ähnlich der klassische Variante\cite{lstmSearchSpace}, trainiert aber schneller, da weniger optimiert werden muss. 
+Trotz der geringeren Anzahl an Parameter, ist die Performance ähnlich der klassische Variante\cite{lstmSearchSpace}, trainiert aber schneller, da weniger optimiert werden muss.  Im LSTM erfolgt eine Kontrolle darüber, wie viel des Cell-States mit in einer Berechnung einfließt. Im GRU auf der andern Seite, wird immer die volle Historie mit in die Berechnung aufgenommen \cite{paperGRUComparison}. 
 
 
 \subsection{Training}
@@ -203,18 +205,110 @@ CSS beschreibt die Präsentation, also das Aussehen, des Content einer Markup-La
 
 \section{Rapid Frontend Prototyping - Überblick}
 
-RFP ist ein Tool. welches aus einfachen GUI-Screenshots HTML/CSS Markup erzeugen kann. Dafür lernt ein System aus Neuralen Netzwerken eine einfache Token Sprache / DSL. Jedes Wort dieser Sprache hat zugehörigen HTML/CSS Markup, wodurch es nach Erstellung der Tokens einfach in diese Sprache kompiliert werden kann.
+RFP ist ein Tool, welches aus einfachen Website-Screenshots HTML/CSS Markup erzeugen kann. Dafür lernt ein System aus Neuralen Netzwerken eine einfache Domain Specific Language (DSL). Jeder Token in dieser Sprache hat zugehörigen HTML/CSS Code, wodurch eine Token-Sequenz einfach in diese Sprache kompiliert werden kann.
 
-Um den Code für die Website Screenshots zu generieren, wird ein Modell bestehend aus 2 LSTMs und einem CNN erstellt. Das hier benutzte Modell ist eine Abwandlung des im Original Paper verwendeten Modells. Da die neue DSL komplexer als die im Original Paper\cite{Beltramelli17} ist, musste sowohl das CNN als auch die LSTMs verändert werden. 
+Um den Code für die Website Screenshots zu generieren, wird ein Modell bestehend aus 2 Rekurrenten Netzwerken und einem Convolutional Neural Network erstellt. Das hier benutzte Modell ist eine Abwandlung des im Original Paper verwendeten Modells. Da die neue DSL komplexer als die im Original Paper\cite{Beltramelli17} ist, musste sowohl das CNN als auch die RNNs verändert werden. 
 
-Von einem Computer abgespeicherte Bilder sind ein denkbar schlechtes Format um aus den Rohdaten auf Inhalte zuschließen. Zu Grunde liegen ist jedes Bild ein oder mehrere Matrizen deren einzelne Elemente einem Pixel zugeordnet werden. Um aus diesem Zahlenwerten Schlussfolgerungen zu schließen, müssen diese in mehreren Schritten abstrahiert werden um zu einem bedeutungsvollem Datenmodell zu kommen. Hierfür wird ein CNN genutzt. Dieses verarbeitet das gegebene Input-Bild und erstellt eine niedrig-dimensionalere Repräsentation. Die Architektur des CNN ist recht simple und angelehnt an VGGNet von Simonyan and Zisserman. 
+Von einem Computer abgespeicherte Bilder sind ein denkbar schlechtes Format um aus den Rohdaten auf Inhalte zuschließen. Zu Grunde liegen ist jedes Bild ein oder mehrere Matrizen deren einzelne Elemente einem Pixel zugeordnet werden. Um aus diesem Zahlenwerten Schlussfolgerungen zu schließen, müssen diese in mehreren Schritten abstrahiert werden, um bedeutungsvolle Features zu extrahieren. Hierfür wird ein CNN genutzt. Dieses verarbeitet das gegebene Input-Bild und erstellt eine niedrig-dimensionale Repräsentation. Die Architektur des CNN ist angelehnt an das VGGNet von Simonyan and Zisserman \cite{DBLP:journals/corr/SimonyanZ14a}.
+
+Das erste RNN, wird dafür benötigt, die DSL zu lernen, insbesondere die validen Reihenfolgen und die Grammatik. Das zweite RNN, bekommt als Input, den Output des CNN, also eine Repräsentation des Bildes sowie den Output des ersten RNNs. Zu sehen ist dieses Zusammenspiel in der Abbildung~\ref{fig:pix2code_paper_architecture}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\textwidth]{pix2code_paper_architecture}
+\caption{Architektur des Netzwerkes, Grafik aus dem Original Paper \cite{Beltramelli17}}
+\label{fig:pix2code_paper_architecture}
+\end{figure}
+
+Die rechte Seite der Abbildung~\ref{fig:pix2code_paper_architecture} stellt den Zustand während dem Training dar. Ein Screenshot, zusammen mit der dazugehörigen Token Sequenz wird als Input in das Netzwerk angelegt. Die Details hierzu sind in Section~\ref{sub:training}. Nach dem das Training fertig ist, wird ein Input, an das Modell angelegt, der nur einen \texttt{Start}-Token enthält. Dieser leere Kontext wird nun Token, für Token, von dem Modell befüllt, bis ein \texttt{End}-Token erzeugt wird. Auf der rechten Seite der Abbildung~\ref{fig:pix2code_paper_architecture} sieht man die Generierung. Dem anfangs leeren Kontexts, wird jeder weitere generierte Token hinzugefügt. Das Netzwerk bekommt so dein eigenen Output wieder als Input. Dies ist eine gängige Methode um ein Netzwerk zu nutzen um Sequenzen von unterschiedlicher Länge zu generieren \cite{DBLP:journals/corr/Graves13}.
+
+\subsection{Vision Modell}
+ 
+CNN ermöglichen eine aussagekräftige Repräsentation eines Inputs, hier eines Screenshots, zu erlernen. In dieser Arbeit, findet das CNN des Modells durch unüberwachtes Lernen eine derartige Repräsentation der Screenshots. Die Screenshots werden wir um Original Paper auf 256 mal 256 Pixel herunter skaliert, ohne Bewahrung der Seitenverhältnisse. Ähnlich des VGGNets \cite{DBLP:journals/corr/SimonyanZ14a} nutzt das CNN Convolutions mit einem 3 mal 3 Pixel großen Kernel, welche über ein ReLU aktiviert werden. Die 3x3 Convolution Ebenen werden jeweils zwei mal hintereinander genutzt. Anschließend wird eine Pooling Ebene genutzt und ein Dropout ausgeführt. Wie im Code zu sehen ist, wird die Anzahl der Features pro \texttt{Conv2D/Conv2D/MaxPooling2D/Dropout}-Modul jeweils verdoppelt.
+
+\begin{verbatim}
+image_model = Sequential()
+image_model.add(Conv2D(32, (3, 3), padding='valid', activation='relu', 
+input_shape=input_shape))
+image_model.add(Conv2D(32, (3, 3), padding='valid', activation='relu')) 
+image_model.add(MaxPooling2D(pool_size=(2, 2)))
+image_model.add(Dropout(0.25))
+
+image_model.add(Conv2D(64, (3, 3), padding='valid', activation='relu'))
+image_model.add(Conv2D(64, (3, 3), padding='valid', activation='relu'))
+image_model.add(MaxPooling2D(pool_size=(2, 2)))
+image_model.add(Dropout(0.25))
+
+image_model.add(Conv2D(128, (3, 3), padding='valid', activation='relu'))
+image_model.add(Conv2D(128, (3, 3), padding='valid', activation='relu'))
+image_model.add(MaxPooling2D(pool_size=(2, 2)))
+image_model.add(Dropout(0.25))
+
+image_model.add(Flatten())
+image_model.add(Dense(1024, activation='relu'))
+image_model.add(Dropout(0.3))
+image_model.add(Dense(1024, activation='relu'))
+image_model.add(Dropout(0.3))
+
+image_model.add(RepeatVector(CONTEXT_LENGTH))
+\end{verbatim}
+
+Danach werden 2 Fully-Connected Ebenen (\texttt{Dense} im Code) genutzt. Danach wird der Output über den \texttt{RepeatVector} an das Decoder-RNN weitergegeben.
+
+\subsection{Sprach Modell}
+
+Da für das Problem der Screenshot-Erstellung eine einfache Sprache erstellt wurde, kann jeder der Token über ein One-Hot-Encoding modelliert werden. Eine Sequenz von Token, wird nun ein Sequenz von Ont-Hot-Encodings, die so in das Sprach-Modell gegeben werden. Das Sprach-Modell lernt aus diesen Sequenzen eine eigene, Modell-interne Repräsentation der Sprache. Diese Repräsentation wird dem Output des Vision-Modells angehängt und in den Decoder Teil des Netzwerkes gegeben. 
+
+Ein klassisches RNN würde bei dem Task der Sprach-Modellierung schlechter abschneiden, da es in der hier benutzen DSL lange Abhängigkeiten gibt \cite{colahsBlogLSTM}. Deswegen besteht das Sprach-Modell im Original Paper aus zwei LSTM-Ebenen mit jeweils 128 Units. In dieser Arbeit wurde jedoch bessere Ergebnisse mit GRU-Ebenen erstellt. Beides sind erweiterte Varianten von RNNs, und unterscheiden sich hauptsächlich in der Art wie der Modell-interne Speicher verwaltet wird \cite{colahsBlogLSTM}. 
+
+\subsection{Decoder Modell}
+
+Der Decoder-Teil des generiert aus dem zusammengefügten Inputs des Vision und des Sprach Modells die Token-Sequenz.
+Es besteht im Original Paper aus zwei LSTM-Ebenen mit jeweils 512 Units. Auch hier konnten bessere Ergebnisse mit GRUs erzeugt werden. Wie in Abbildung~\ref{fig:pix2code_paper_architecture} zu sehen ist, wird so lange durch das gesamte Netzwerk gelooped, bis dieses den speziellen \texttt{End}-Token generiert.
+
+\subsection{Mathematische Beschreibung}
+
+Mathematisch gesehen lässt sich die Generierung von Tokens durch das Netzwerk folgendermaßen beschreiben:
+
+\begin{equation}
+\begin{aligned}
+encImg  &= CNN(inputImg) \\
+encTkn &= RNN(token_t) \\
+predToken &= softmax(RNN'(encImg, encTkn)) \\
+token_{t+1} &= token_{t+1} + predToken
+\end{aligned}
+\end{equation}
+
+
+\begin{description}
+	\item[$inputImg$] Der auf 256 mal 256 Pixel skalierte Screenshot.
+	\item[$encImg$] Encoding des CNNs vom Input Bild.
+	\item[$token_t$] Entweder der zuletzt vorkommende Token, oder beim Start der Prediction, ein \texttt{Start}-Token
+	\item[$encTkn$] Die Modell-interne Repräsentation des Tokens
+	\item[$predToken$] Ausgabe des Netzwerkes. Wird für den nächsten Schritt an den Input hinzugefügt.
+	\\
+	\item[$CNN$] Der Vision-Teil des Modells
+	\item[$RNN$] Das Sprach-Modell
+	\item[$RNN'$] Der Encoder-Teil des Modells
+\end{description}
+
+Durch die Verkettung der jeweiligen Netzwerke ist die Gesamtarchitektur nach wie vor ableitbar, und damit von Anfang bis Ende optimierbar. Was außerdem die Komplexität des Netzwerkes verringert, ist die geringe Token Anzahl. Durch das One-Hot-Encoding jedes Tokens, ist die Aufgabe des Netzwerkes ein reines Problem der Klassifizierung.
 
 \section{Daten Synthese}
 
-Da im Zuge dieser Arbeit eine Erweiterung der DSL des Original Papers implementiert wurde, ist es erforderlich, neue Trainingsdaten zu synthetisieren. Das DataCreationTool ist ein Programm, welches nach vorgegebenen Regeln einen Token-Baum erzeugt und diesen anschließend abspeichert. Dieser Token-Baum hat immer einen body-Token als Wurzel und der gesamten Inhalt liegt als dessen Kinder vor. Dafür wurde eine Helfer Klasse geschrieben, die ein Element in dem Token Baum abbildet. Diese kann zum einen Parameter wie den Token-Name, Inhalt und Kinder speichern, zum anderen enthält sie Funktionen zum Konvertieren des Baumes zu einer String-Repräsentation sowie zum Rendering nach HTML/CSS. 
+Da im Zuge dieser Arbeit eine Erweiterung der DSL des Original Papers implementiert wurde, ist es erforderlich, neue Trainingsdaten zu synthetisieren. Ein Beispiel eines der neu synthetisierten Daten ist in der Abbildung~\ref{fig:beispiel_daten} zu sehen. Im Zuge der Arbeit wurden insgesamt 4 verschiedene Datensets synthetisiert, mit jeweils ca. 3000 bis 4000 Bildern. 
+
+Das DataCreationTool ist ein Programm, welches nach vorgegebenen Regeln einen Token-Baum erzeugt und diesen anschließend abspeichert. Dieser Token-Baum hat immer einen body-Token als Wurzel und der gesamten Inhalt liegt als dessen Kinder vor. Dafür wurde eine Helfer Klasse geschrieben, die ein Element in dem Token Baum abbildet. Diese kann zum einen Parameter wie den Token-Name, Inhalt und Kinder speichern, zum anderen enthält sie Funktionen zum Konvertieren des Baumes zu einer String-Repräsentation sowie zum Rendering nach HTML/CSS. 
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{beispiel_daten}
+\caption{Ein Beispiel Bild aus dem Datenset}
+\label{fig:beispiel_daten}
+\end{figure}
 
 \subsection{Generieren der Token-Bäume}
-Die Token-Bäume werden in der Datei \texttt{createAllTokens.py} generiert. Diese Datei erzeugt alle möglichen Token-Kombination anhand der folgenden Regeln:
+Die Token-Bäume werden in der Datei \texttt{dateCreationTool/createAllTokens.py} generiert. Diese Datei erzeugt alle möglichen Token-Kombination anhand der folgenden Regeln:
 
 \subsubsection{Gramatik}
 
@@ -467,6 +561,7 @@ Außerdem findet ein Vergleich der Fehler Typ Verteilungen aller Predictions geg
 
 In diesem Abschnitt wird beschrieben welche Trainingsversuche durchgeführt wurden um ein bestmögliches Ergebnis zu erhalten. Die Beschreibungen für jeden Trainingsversuch sind jeweils in fünf Abschnitte unterteilt. Dazu gehört eine Einführung, das Datenset, eine Auflistung der veränderten Parameter, die Ergebnisse und ein Fazit.
 
+\subsection{Architektur}\label{sub:architektur}
 Bevor die Beschreibung der jeweiligen Experimenten beginnt, hier eine Auflistung der Standard Parameter der Modelle. 
 
 \begin{verbatim}
@@ -513,7 +608,7 @@ Weitere Hyper-Parameter:
 	
 \end{description}
 
-\subsection*{Training}
+\subsection{Training}\label{sub:training}
 
 Da es für jeden Screenshot eine zugehörige Token-Sequenz mit variabler Länge gibt, müssen die Trainingsdaten mit einem Sliding-Window-Prinzip abgearbeitet werden. Dafür werden aus der Token-Sequenz, $n$ Samples gebildet, wobei $n = len(token\_sequence) - CONTEXT\_LENGTH$. Das Modell bekommt pro Screenshot $n$ Paare aus Screenshot und dazugehörigen Token-Kontext. Wichtig hierbei ist, dem Modell mitzuteilen wann eine Sequenz beginnt und wieder endet, dafür gibt es einen \texttt{start}-Token sowie einen \texttt{end}-Token. Diese werden je als pre- bzw. suffix an die Token-Sequenz angefügt bevor die $n$ Samples gebaut werden. 
 
@@ -1359,10 +1454,11 @@ Auffallend ist jedoch in Abbildung~\ref{fig:fehler_gesamt_bin13}, dass dieses Mo
 Schließlich kommt der letzte Punkt der Analyse, die Verteilung der generierten Row Typen. Hier schneidet dieses Modell am aller schlechtesten ab. Es generiert in für Datei aus dem Testset immer nur einen von zwei Row Types. 
 
 \begin{figure}[h]
+\label{fig:bin13_row_type}
+
 \centering
 \includegraphics[width=0.3\textwidth]{predictions_bin13_predicted_row_type_distribution}
 \caption{Verteilung Row Types}
-\label{fig:bin13_row_type}
 \end{figure}
 
 
@@ -1685,7 +1781,7 @@ Wie in Abbildung~\ref{fig:lage_bin16} zu sehen ist, sind alle Lageparameter schl
 \end{minipage}
 \end{figure}
 
-Im Vergleich der Lageparameter zu dem zehnten Trainingsversuch (LSTM mit mehr Parametern), gibt es hier einen geringeren Fehler-Score. Es ist jedoch zu sehen, an den Abbildungen~\ref{fig:fehler_gesamt_bin16} bis ~\ref{fig:fehler_p80_bin16}, dass dieFehlerverteilung überall gleich ist, egal in welchem Quintil.
+Im Vergleich der Lageparameter zu dem zehnten Trainingsversuch (LSTM mit mehr Parametern), gibt es hier einen geringeren Fehler-Score. Es ist jedoch zu sehen, an den Abbildungen~\ref{fig:fehler_gesamt_bin16} bis ~\ref{fig:fehler_schlechteste20_bin16}, dass dieFehlerverteilung überall gleich ist, egal in welchem Quintil.
 
 \begin{figure}
 \centering
@@ -1722,37 +1818,65 @@ An der Verteilung der generierten Row Types in Abbildung~\ref{fig:bin16_row_type
 Durch das Reduzieren der \texttt{Units} der RNNs ist das Modell schlicht zu simpel geworden. Obwohl es die richtige Grammatik lernen konnte - es hat keine Token-Sequenzen erzeugt, die nicht kompiliert werden konnte.
 
 
-\subsection{Einschub - Funktioniert das original überhaupt?}
-Training insegesamt 20 Epochen
+%
+%\subsection{Einschub - Funktioniert das original überhaupt?}
+%Training insegesamt 20 Epochen
+%
+%\begin{verbatim}
+%
+%
+%python train.py ../datasets/web/training_features/ ../b
+%in_orginal/ 1 ../bin_orginal/pix2code.h5 
+%Epoch 1/10
+%291/290 [==============================] - 130s 445ms/step - loss: 0.2733
+%Epoch 2/10
+%291/290 [==============================] - 126s 434ms/step - loss: 0.2302
+%Epoch 3/10
+%291/290 [==============================] - 126s 431ms/step - loss: 0.2251
+%Epoch 4/10
+%291/290 [==============================] - 125s 431ms/step - loss: 0.2269
+%Epoch 5/10
+%291/290 [==============================] - 125s 431ms/step - loss: 0.2099
+%Epoch 6/10
+%291/290 [==============================] - 125s 431ms/step - loss: 0.2140
+%Epoch 7/10
+%291/290 [==============================] - 125s 431ms/step - loss: 0.1891
+%Epoch 8/10
+%291/290 [==============================] - 125s 431ms/step - loss: 0.1865
+%Epoch 9/10
+%291/290 [==============================] - 126s 432ms/step - loss: 0.1880
+%Epoch 10/10
+%291/290 [==============================] - 126s 431ms/step - loss: 0.1780
+%\end{verbatim}
 
-\begin{verbatim}
+\section{Zusammenfassung der Versuchsergebnisse}
+
+In Tabelle~\ref{tab:comparison} sind die drei Modelle mit der besten Performance aufgeführt.
+
+\begin{table}[]
+\begin{tabular}{cccc}
+\textbf{Versuch}                           & \textbf{Sieben} & \textbf{Elf} & \textbf{Zwölf} \\
+\textbf{Fehler-Score}                      & 4840            & 12442        & 3989           \\
+\textbf{Fehler/Token}                      & 0.1317          & 0.34         & 0.1085         \\
+\textbf{Aritmetisches Mittel Fehler-Score} & 7.82            & 20.10        & \textbf{6.44}           \\
+\textbf{Anzahl Parameter}                  & 108.398.775     & 112.576.631  & 108,398,775   
+\end{tabular}
+\captionof{table}{Für jede der Metriken gilt: Je kleiner, desto besser}
+\label{tab:comparison}
+\end{table}
+
+Viele der Versuche sind nicht gut konvergiert, oder hatten die Tendenz die Trainingsdaten auswendig zu lernen. Trotz der vielen Fehlschläge, gelang es eine Architektur zu finden, welche die Ansprüche der DSL und der Komplexität der Screenshots abbilden konnte. 
+Das Ersetzen der LSTMs zu GRUs zeigte einen erstaunlichen Performance-Schub, genauso mit einer Erhöhung der Kontext Länge, konnte so die Architektur aus Versuch Sieben noch mal verbessert werden um schließlich bei der Konfiguration aus Versuch Zwölf anzukommen. 
 
 
-python train.py ../datasets/web/training_features/ ../b
-in_orginal/ 1 ../bin_orginal/pix2code.h5 
-Epoch 1/10
-291/290 [==============================] - 130s 445ms/step - loss: 0.2733
-Epoch 2/10
-291/290 [==============================] - 126s 434ms/step - loss: 0.2302
-Epoch 3/10
-291/290 [==============================] - 126s 431ms/step - loss: 0.2251
-Epoch 4/10
-291/290 [==============================] - 125s 431ms/step - loss: 0.2269
-Epoch 5/10
-291/290 [==============================] - 125s 431ms/step - loss: 0.2099
-Epoch 6/10
-291/290 [==============================] - 125s 431ms/step - loss: 0.2140
-Epoch 7/10
-291/290 [==============================] - 125s 431ms/step - loss: 0.1891
-Epoch 8/10
-291/290 [==============================] - 125s 431ms/step - loss: 0.1865
-Epoch 9/10
-291/290 [==============================] - 126s 432ms/step - loss: 0.1880
-Epoch 10/10
-291/290 [==============================] - 126s 431ms/step - loss: 0.1780
-\end{verbatim}
-\section{Zusammenfassung}
 \section{Fazit}
+
+In vielen Bereichen der Sequenz Modellierung performen LSTMs und GRUs auf einer Ebene ohne einen signifikanten Gewinner auf einer der Seiten. Hier, im Bereich der Sprach-Modellierung in Verbindung mit der Analyse eines Screenshots gibt es aber einen klaren Gewinner: Die \textbf{Gated Recurrent Unit}.
+
+Verschiedene Publikationen \cite{paperGRUComparison}, \cite{lstmSearchSpace}, \cite{colahsBlogLSTM} deuteten stets auf eine ungefähre Ausgewogenheit der Scores der beiden RNN Varianten, aber auch darauf, dass, je nach spezieller Domäne eines Problems, eine Variante besser als die andere sein kann.
+
+Die Annahme, die im Rahmen dieser Arbeit getroffen wird, ist, dass die innere Struktur der GRU, siehe Abbildung~\ref{fig:gru}, besonders gut die Eltern/Kind Beziehungen der verwendeten DSL abbilden kann. Durch die in GRUs verwendete Kopplung der \texttt{forget}- und \texttt{add}-Gates kann diese Beziehung vielleicht besser abgebildet werden als in dem Cell-State des LSTMs. Vielleicht haben Fehler, entweder während des Löschens von Informationen aus dem Cell-State, während des Hinzufügen oder dem Maskieren des selben, bei LSTMs das halten des Token-States zu kompliziert gemacht und dies hat so zu Fehlern in den Eltern/Kind Beziehungen geführt. Dies sieht man besonders bei Versuch Zehn, wo auch eine besonders große LSTM-Architektur ein dürftiges Ergebnis produziert. In Abbildung~\ref{fig:bin13_row_type} erkennt man das wirklich schlechte Modellieren der Rows in diesem Ansatz. In Versuch Sieben und Zwölf auf der anderen Seite, sind diese Rows stets korrekt modelliert, woraus geschlossen werden könnte, dass diese GRUs besser in der Lage sind, Eltern/Kind Beziehungen zu Modellieren. Darüber sollten in Zukunft noch ausführlichere Forschungsarbeiten verfasst werden.
+
 
 \bibliographystyle{plain}
 \bibliography{sources} 
