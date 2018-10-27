@@ -30,6 +30,11 @@ Kyunghyun Cho, Bart van Merrienboer, {\c{C}}aglar G{\"{u}}l{\c{c}}ehre, Fethi
   statistical machine translation.
 \newblock {\em CoRR}, abs/1406.1078, 2014.
 
+\bibitem{chollet2015keras}
+Fran\c{c}ois Chollet et~al.
+\newblock Keras.
+\newblock \url{https://keras.io}, 2015.
+
 \bibitem{paperGRUComparison}
 Junyoung Chung, {\c{C}}aglar G{\"{u}}l{\c{c}}ehre, KyungHyun Cho, and Yoshua
   Bengio.

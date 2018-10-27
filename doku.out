@@ -9,42 +9,45 @@
 \BOOKMARK [3][-]{subsubsection.4.3.2}{Gated Recurrent Unit - GRU}{subsection.4.3}% 9
 \BOOKMARK [2][-]{subsection.4.4}{Training}{section.4}% 10
 \BOOKMARK [3][-]{subsubsection.4.4.1}{Overfitting}{subsection.4.4}% 11
-\BOOKMARK [3][-]{subsubsection.4.4.2}{Stochastig Gradient Descent - SGD}{subsection.4.4}% 12
-\BOOKMARK [3][-]{subsubsection.4.4.3}{Dropout}{subsection.4.4}% 13
-\BOOKMARK [2][-]{subsection.4.5}{Sampling}{section.4}% 14
-\BOOKMARK [2][-]{subsection.4.6}{Keras}{section.4}% 15
-\BOOKMARK [2][-]{subsection.4.7}{Domain-specific language - DSL}{section.4}% 16
-\BOOKMARK [3][-]{subsubsection.4.7.1}{Hypertext Markup Language - HTML}{subsection.4.7}% 17
-\BOOKMARK [3][-]{subsubsection.4.7.2}{Cascading Style Sheets - CSS}{subsection.4.7}% 18
-\BOOKMARK [1][-]{section.5}{Rapid Frontend Prototyping - \334berblick}{}% 19
-\BOOKMARK [2][-]{subsection.5.1}{Vision Modell}{section.5}% 20
-\BOOKMARK [2][-]{subsection.5.2}{Sprach Modell}{section.5}% 21
-\BOOKMARK [2][-]{subsection.5.3}{Decoder Modell}{section.5}% 22
-\BOOKMARK [2][-]{subsection.5.4}{Mathematische Beschreibung}{section.5}% 23
-\BOOKMARK [1][-]{section.6}{Daten Synthese}{}% 24
-\BOOKMARK [2][-]{subsection.6.1}{Generieren der Token-B\344ume}{section.6}% 25
-\BOOKMARK [3][-]{subsubsection.6.1.1}{Gramatik}{subsection.6.1}% 26
-\BOOKMARK [3][-]{subsubsection.6.1.2}{Zeichenerkl\344rung}{subsection.6.1}% 27
-\BOOKMARK [3][-]{subsubsection.6.1.3}{Token Generierung}{subsection.6.1}% 28
-\BOOKMARK [2][-]{subsection.6.2}{DSL Mapping}{section.6}% 29
-\BOOKMARK [2][-]{subsection.6.3}{Screenshot Erstellung}{section.6}% 30
-\BOOKMARK [2][-]{subsection.6.4}{Teilen der Trainingsdaten}{section.6}% 31
-\BOOKMARK [1][-]{section.7}{Validierung der Ergebnisse}{}% 32
-\BOOKMARK [1][-]{section.8}{Experimente}{}% 33
-\BOOKMARK [2][-]{subsection.8.1}{Architektur}{section.8}% 34
-\BOOKMARK [2][-]{subsection.8.2}{Training}{section.8}% 35
-\BOOKMARK [2][-]{subsection.8.3}{1. Trainingsversuch}{section.8}% 36
-\BOOKMARK [2][-]{subsection.8.4}{2. Trainingsversuch}{section.8}% 37
-\BOOKMARK [2][-]{subsection.8.5}{3. Trainingsversuch}{section.8}% 38
-\BOOKMARK [2][-]{subsection.8.6}{4. Trainingsversuch}{section.8}% 39
-\BOOKMARK [2][-]{subsection.8.7}{5. Trainingsversuch}{section.8}% 40
-\BOOKMARK [2][-]{subsection.8.8}{6. Trainingsversuch}{section.8}% 41
-\BOOKMARK [2][-]{subsection.8.9}{7. Trainingsversuch}{section.8}% 42
-\BOOKMARK [2][-]{subsection.8.10}{8. Trainingsversuch}{section.8}% 43
-\BOOKMARK [2][-]{subsection.8.11}{9. Trainingsversuch}{section.8}% 44
-\BOOKMARK [2][-]{subsection.8.12}{10. Trainingsversuch}{section.8}% 45
-\BOOKMARK [2][-]{subsection.8.13}{11. Trainingsversuch}{section.8}% 46
-\BOOKMARK [2][-]{subsection.8.14}{12. Trainingsversuch}{section.8}% 47
-\BOOKMARK [2][-]{subsection.8.15}{13. Trainingsversuch}{section.8}% 48
-\BOOKMARK [1][-]{section.9}{Zusammenfassung der Versuchsergebnisse}{}% 49
-\BOOKMARK [1][-]{section.10}{Fazit}{}% 50
+\BOOKMARK [3][-]{subsubsection.4.4.2}{Underfitting}{subsection.4.4}% 12
+\BOOKMARK [3][-]{subsubsection.4.4.3}{Stochastig Gradient Descent - SGD}{subsection.4.4}% 13
+\BOOKMARK [3][-]{subsubsection.4.4.4}{Dropout}{subsection.4.4}% 14
+\BOOKMARK [2][-]{subsection.4.5}{Sampling}{section.4}% 15
+\BOOKMARK [2][-]{subsection.4.6}{Keras}{section.4}% 16
+\BOOKMARK [2][-]{subsection.4.7}{Domain-specific language - DSL}{section.4}% 17
+\BOOKMARK [3][-]{subsubsection.4.7.1}{Hypertext Markup Language - HTML}{subsection.4.7}% 18
+\BOOKMARK [3][-]{subsubsection.4.7.2}{Cascading Style Sheets - CSS}{subsection.4.7}% 19
+\BOOKMARK [1][-]{section.5}{Rapid Frontend Prototyping - \334berblick}{}% 20
+\BOOKMARK [2][-]{subsection.5.1}{Vision Modell}{section.5}% 21
+\BOOKMARK [2][-]{subsection.5.2}{Sprach Modell}{section.5}% 22
+\BOOKMARK [2][-]{subsection.5.3}{Decoder Modell}{section.5}% 23
+\BOOKMARK [2][-]{subsection.5.4}{Mathematische Beschreibung}{section.5}% 24
+\BOOKMARK [1][-]{section.6}{Daten Synthese}{}% 25
+\BOOKMARK [2][-]{subsection.6.1}{Generieren der Token-B\344ume}{section.6}% 26
+\BOOKMARK [3][-]{subsubsection.6.1.1}{Gramatik}{subsection.6.1}% 27
+\BOOKMARK [3][-]{subsubsection.6.1.2}{Zeichenerkl\344rung}{subsection.6.1}% 28
+\BOOKMARK [3][-]{subsubsection.6.1.3}{Token Generierung}{subsection.6.1}% 29
+\BOOKMARK [2][-]{subsection.6.2}{DSL Mapping}{section.6}% 30
+\BOOKMARK [2][-]{subsection.6.3}{Screenshot Erstellung}{section.6}% 31
+\BOOKMARK [2][-]{subsection.6.4}{Teilen der Trainingsdaten}{section.6}% 32
+\BOOKMARK [1][-]{section.7}{Validierung der Ergebnisse}{}% 33
+\BOOKMARK [1][-]{section.8}{Experimente}{}% 34
+\BOOKMARK [2][-]{subsection.8.1}{Architektur}{section.8}% 35
+\BOOKMARK [2][-]{subsection.8.2}{Training}{section.8}% 36
+\BOOKMARK [2][-]{subsection.8.3}{1. Trainingsversuch}{section.8}% 37
+\BOOKMARK [2][-]{subsection.8.4}{2. Trainingsversuch}{section.8}% 38
+\BOOKMARK [2][-]{subsection.8.5}{3. Trainingsversuch}{section.8}% 39
+\BOOKMARK [2][-]{subsection.8.6}{4. Trainingsversuch}{section.8}% 40
+\BOOKMARK [2][-]{subsection.8.7}{5. Trainingsversuch}{section.8}% 41
+\BOOKMARK [2][-]{subsection.8.8}{6. Trainingsversuch}{section.8}% 42
+\BOOKMARK [2][-]{subsection.8.9}{7. Trainingsversuch}{section.8}% 43
+\BOOKMARK [2][-]{subsection.8.10}{8. Trainingsversuch}{section.8}% 44
+\BOOKMARK [2][-]{subsection.8.11}{9. Trainingsversuch}{section.8}% 45
+\BOOKMARK [2][-]{subsection.8.12}{10. Trainingsversuch}{section.8}% 46
+\BOOKMARK [2][-]{subsection.8.13}{11. Trainingsversuch}{section.8}% 47
+\BOOKMARK [2][-]{subsection.8.14}{12. Trainingsversuch}{section.8}% 48
+\BOOKMARK [2][-]{subsection.8.15}{13. Trainingsversuch}{section.8}% 49
+\BOOKMARK [1][-]{section.9}{Zusammenfassung der Versuchsergebnisse}{}% 50
+\BOOKMARK [1][-]{section.10}{Fazit}{}% 51
+\BOOKMARK [1][-]{section.11}{Bonus Experiment: Ist das Modell komplex genug um aus einer Skizze eine Website zu erstellen?}{}% 52
+\BOOKMARK [2][-]{subsection.11.1}{1. Trainingsversuch}{section.11}% 53

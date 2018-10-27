@@ -6,45 +6,45 @@ Database file #1: sources.bib
 Warning--to sort, need author or key in Beltramelli17Github
 Warning--to sort, need author or key in electron
 Warning--to sort, need author or key in gimpdoku
-You've used 20 entries,
+You've used 21 entries,
             2118 wiz_defined-function locations,
-            611 strings with 7344 characters,
-and the built_in function-call counts, 6051 in all, are:
-= -- 588
-> -- 298
+            615 strings with 7419 characters,
+and the built_in function-call counts, 6292 in all, are:
+= -- 611
+> -- 311
 < -- 4
-+ -- 119
-- -- 98
-* -- 330
-:= -- 982
-add.period$ -- 60
-call.type$ -- 20
-change.case$ -- 107
++ -- 124
+- -- 102
+* -- 339
+:= -- 1023
+add.period$ -- 63
+call.type$ -- 21
+change.case$ -- 111
 chr.to.int$ -- 0
-cite$ -- 23
-duplicate$ -- 250
-empty$ -- 459
-format.name$ -- 98
-if$ -- 1306
+cite$ -- 24
+duplicate$ -- 257
+empty$ -- 481
+format.name$ -- 102
+if$ -- 1359
 int.to.chr$ -- 0
-int.to.str$ -- 20
+int.to.str$ -- 21
 missing$ -- 13
-newline$ -- 102
-num.names$ -- 36
-pop$ -- 142
+newline$ -- 107
+num.names$ -- 38
+pop$ -- 150
 preamble$ -- 1
-purify$ -- 87
+purify$ -- 90
 quote$ -- 0
-skip$ -- 230
+skip$ -- 239
 stack$ -- 0
-substring$ -- 236
-swap$ -- 82
+substring$ -- 241
+swap$ -- 83
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 80
+type$ -- 84
 warning$ -- 3
-while$ -- 43
-width$ -- 22
-write$ -- 208
+while$ -- 45
+width$ -- 23
+write$ -- 218
 (There were 3 warnings)
