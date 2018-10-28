@@ -273,12 +273,15 @@ Realisiert wird das Sprach-Modell durch zwei Ebenen aus rekurrenten Units. Im Or
 
 Das Sprach Modell, gibt nach der Enkodierung des Sprach-Inputs, diesen an das Decoder-Modell weiter. Während des Trainings, erhält das Sprach-Modell einen Input Vektor, gefüllt mit dem \texttt{start}-Token und dem ersten Token der zu dem Screenshot passenden Token-Sequenz. Dieser Vektor arbeitet mit einem Sliding-Windows alle Tokens der Token-Sequenz ab, bis der gesamte Content an das Netzwerk übergeben wurde. Im Falle der Generierung von Code, wird dem Sprach-Modell in der ersten Iteration ein leerer Vektor, nur mit dem \texttt{start}-Token gefüllt übergeben. Dieser Vektor wird nun mit iterativ mit den Outputs des Netzwerkes befüllt, wie das Netzwerk den \texttt{end}-Token generiert.
 
+Diese Ebenen geben als Output die gesamte Verarbeitete Sequenz zurück. Dadurch hat dieser Output die Maße $\texttt{CONTEXT\_LENGTH} * \texttt{ANZAHL\_RNN\_UNITS}$. J
+
 
 \subsection{Decoder Modell}
 
 
 
-Der Decoder-Teil des generiert aus dem zusammengefügten Outputs des Vision- und des Sprach-Modells die Token-Sequenz. Nachdem der Input Screenshot sowie die dazugehörigen Tokens verarbeitet wurden, muss das Netzwerk nun den Zusammenhang zwischen diesen Daten erlernen. 
+Der Decoder-Teil des generiert aus dem zusammengefügten Outputs des Vision- und des Sprach-Modells die Token-Sequenz. Übergeben werden die Daten folgendermaßen: \texttt{decoder = concatenate([encoded\_image, encoded\_text])
+}. Durch die \texttt{concatemate}-Funktion, wird jeder einzelne kodierte Sprach-Output mit einer Repräsentation des Screenshots verknüpft.  Nachdem der Input Screenshot sowie die dazugehörigen Tokens verarbeitet wurden, muss das Netzwerk nun den Zusammenhang zwischen diesen Daten erlernen. 
 
 Auch dieser Teil des Netzwerkes besteht aus rekurrenten Units. Zum Vergleich, dieser hier hat viermal so viele Einheiten wie das Sprach Modell. Auch hier wurden bessere Ergebnisse bei der Benutzung von GRUs anstellte von LSTMs erzielt.
 
@@ -300,10 +303,10 @@ token_{t+1} &= token_{t+1} + predToken
 
 
 \begin{description}
-	\item[$inputImg$] Der auf 256 mal 256 Pixel skalierte Screenshot.
-	\item[$encImg$] Encoding des CNNs vom Input Bild.
-	\item[$token_t$] Entweder der zuletzt vorkommende Token, oder beim Start der Prediction, ein \texttt{Start}-Token
-	\item[$encTkn$] Die Modell-interne Repräsentation des Tokens
+	\item[$inputImg$] Screenshot der Website, $256 * 256$ Pixel.
+	\item[$encImg$] Encoding des CNNs vom Input Bild, durch die abschließende \texttt{RepeatVector}-Ebene, sind die Output-Maße $\texttt{CONTEXT\_LENGTH} * 1024$. 
+	\item[$token_t$] Entweder der zuletzt vorkommende Token, oder beim Start der Prediction, ein \texttt{Start}-Token. Output der Maße $\texttt{CONTEXT\_LENGTH} * \texttt{ANZAHL\_TOKEN}$, Häufig auftrendender Fall: $48 * 23$ 
+	\item[$encTkn$] Die Modell-interne Repräsentation der Tokens
 	\item[$predToken$] Ausgabe des Netzwerkes. Wird für den nächsten Schritt an den Input hinzugefügt.
 	\\
 	\item[$CNN$] Der Vision-Teil des Modells
@@ -311,7 +314,7 @@ token_{t+1} &= token_{t+1} + predToken
 	\item[$RNN'$] Der Encoder-Teil des Modells
 \end{description}
 
-Durch die Verkettung der jeweiligen Netzwerke ist die Gesamtarchitektur nach wie vor ableitbar und damit von Anfang bis Ende optimierbar. Durch das One-Hot-Encoding jedes Tokens, ist die Aufgabe des Netzwerkes ein reines Problem der Klassifizierung.
+Durch die Verkettung der jeweiligen Netzwerke ist die Gesamtarchitektur nach wie vor ableitbar und damit von Anfang bis Ende optimierbar. 
 
 \section{Daten Synthese}
 
@@ -1489,7 +1492,7 @@ Obwohl dieses Modell mit großer LSTM Architektur knappe 2.5 Millionen Parameter
 
 
 
-\subsection{11. Trainingsversuch}
+\subsection{11. Trainingsversuch}\label{sec:elf}
 %Language: GRU 192 units
 %Decoder GRU 768 units
 
@@ -1837,37 +1840,79 @@ An der Verteilung der generierten Row Types in Abbildung~\ref{fig:bin16_row_type
 \subsubsection*{Fazit}
 Durch das Reduzieren der \texttt{Units} der RNNs ist das Modell schlicht zu simpel geworden. Obwohl es die richtige Grammatik lernen konnte - es hat keine Token-Sequenzen erzeugt, die nicht kompiliert werden konnte.
 
+\subsection{14. Trainingsversuch}
 
-%
-%\subsection{Einschub - Funktioniert das original überhaupt?}
-%Training insegesamt 20 Epochen
-%
-%\begin{verbatim}
-%
-%
-%python train.py ../datasets/web/training_features/ ../b
-%in_orginal/ 1 ../bin_orginal/pix2code.h5 
-%Epoch 1/10
-%291/290 [==============================] - 130s 445ms/step - loss: 0.2733
-%Epoch 2/10
-%291/290 [==============================] - 126s 434ms/step - loss: 0.2302
-%Epoch 3/10
-%291/290 [==============================] - 126s 431ms/step - loss: 0.2251
-%Epoch 4/10
-%291/290 [==============================] - 125s 431ms/step - loss: 0.2269
-%Epoch 5/10
-%291/290 [==============================] - 125s 431ms/step - loss: 0.2099
-%Epoch 6/10
-%291/290 [==============================] - 125s 431ms/step - loss: 0.2140
-%Epoch 7/10
-%291/290 [==============================] - 125s 431ms/step - loss: 0.1891
-%Epoch 8/10
-%291/290 [==============================] - 125s 431ms/step - loss: 0.1865
-%Epoch 9/10
-%291/290 [==============================] - 126s 432ms/step - loss: 0.1880
-%Epoch 10/10
-%291/290 [==============================] - 126s 431ms/step - loss: 0.1780
-%\end{verbatim}
+\subsubsection*{Einführung}
+
+Der Ansatz aus dem 12. Versuch, die vergrößerte \texttt{CONTEXT\_LENGTH} wurde hier verwendet, in Kombination mit einem etwas größeren Netzwerk. In den bisherigen Versuchen gab es stets viele falsch farbige Buttons, vielleicht kann dieses Problem mit einer leicht vergrößerten Decoder Architektur behoben werden.
+
+\subsubsection*{Datenset}
+
+Hier wurde das Datenset auf dem sechsten Trainingsversuch verwendet.
+
+\subsubsection*{Veränderte Parameter}
+
+Die Anzahl der GRUs in dem Decoder-Teil des Netzwerkes wurde von 512 auf 564 erhöht. Außerdem wurden 20 Epochen trainiert statt nur 10.
+
+\subsubsection*{Ergebnis}
+
+Diese Model performt sogar noch besser als das Modell des Siebten und Zwölften Versuches.
+
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \begin{description}
+	\item[Arithmetisches Mittel] $5.85$	
+	\item[Geometrisches Mittel] $5.06$
+	\item[Harmonisches Mittel] $4.43$
+	\item[Quintile] p20: $3$, p40: $5$, p60: $6$, p80: $7$
+	\item[Median] $5$
+	\item[Modus] $6$
+	\item[Vorkommen Modus] $116$
+	\item[Gesamt Fehler Score] 3621
+	\item[Anzahl Token Testset] 36751 
+	\item[Anzahl generierter Token] 36879
+	\item[Score pro Token Testset]  0.0985
+\end{description}
+  \captionof{figure}{Lageparameter}
+  \label{fig:lage_bin16}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{predictions_bin18_2_histogramm}
+  \captionof{figure}{Fehlerverteilung}
+  \label{fig:hist_bin18}
+\end{minipage}
+\end{figure}
+
+Im Vergleich zum Versuch Zwölf, macht dieses Modell sehr viel weniger Fehler bei Bestimmung der richten Anzahl der Menü Buttons (223 gegenüber 780) aber bei Bestimmung der richtigen Buttons im Content ist Performance ein wenig schlechter (2963 gegenüber 2751). Das aktuelle Modell bestimmt mehr falsche Row Types, 32 gegenüber 13 in Versuch Zwölf, aber dafür generiert es weniger oft die falsche Row Anzahl (33 gegenüber 45). 
+
+\begin{figure}
+\centering
+\begin{minipage}{.33\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{predictions_bin18_2_total_error_types_pie_chart}
+  \captionof{figure}{Gesamt}
+  \label{fig:fehler_gesamt_bin18_2}
+\end{minipage}%
+\begin{minipage}{.33\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{predictions_bin18_2_excluded_p80_error_types_pie_chart}
+  \captionof{figure}{Ohne p80}
+  \label{fig:fehler_beste80_bin18_2}
+\end{minipage}
+\begin{minipage}{.33\textwidth}
+  \centering
+   \includegraphics[width=1\linewidth]{predictions_bin18_2_p80_error_types_pie_chart}
+  \captionof{figure}{Nur p80}
+  \label{fig:fehler_schlechteste20_bin18_2}
+\end{minipage}
+\end{figure}
+
+\subsubsection*{Fazit}
+
+Der Fehler Score ist etwas geringer als im Versuch 12, aber im Grunde ist die Performance der beiden Modelle ziemlich ähnlich. Die geringe Vergrößerung des Decoder-Teils, hat so nicht zu einer signifikanten Verbesserung beigetragen. Da das Netzwerk bei einer stärkeren Vergrößerung zum Overfitting neigt (vergleiche mit Versuch 11, Abschnitt~\ref{sec:elf}, ist diese Konfiguration des Netzwerkes die Effektivste.
 
 \section{Zusammenfassung der Versuchsergebnisse}
 
@@ -1960,17 +2005,25 @@ Das Modell des letzten Versuch wurde genutzt.
 \subsubsection*{Ergebnis}
    
 Leider führte das Training zu keiner Konvergenz des Netzwerkes.
-Siehe Abbildung LOSS.
+Siehe Abbildung~\ref{fig:loss_drawn_standart}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{loss_drawn_standart}
+\caption{Loss des 1. Extra-Training}
+\label{fig:loss_drawn_standart}
+\end{figure}
+
 
 \subsubsection*{Fazit}
 
-Da das Datenset aus viel Komplexeren Bildern bestand (Weichzeichnung, Rotation, veränderte Belichtung), wird angenommen, dass das Vision-Modell auf die neuen Daten underfittet. An den Sprach- und Decodier-Teil kann dies nicht liegen, da hier die Daten gleich sind. Nun muss der Vision-Teil lernen, die wichtigen Features in den viel unterschiedlicheren Daten zu erkenn, wofür es leider nicht ausreichend komplex gewesen ist.
+Da das Datenset aus komplexeren Bildern bestand (Weichzeichnung, Rotation, veränderte Belichtung), wird angenommen, dass das Vision-Modell auf die neuen Daten underfittet. An den Sprach- und Decodier-Teil kann dies nicht liegen, da hier die Daten gleich sind. Nun muss der Vision-Teil lernen, die wichtigen Features in den viel unterschiedlicheren Daten zu erkenn, wofür es leider nicht ausreichend komplex gewesen ist.
 
 \subsection{2. Traininsversuch}
 
 \subsubsection*{Einleitung}
 
-Bei diesem Experiment wird ein anderes Vision-Modell getestet. Anstatt einer auf VGGNet bestehenden Architektur, wird eine aus dem Xception \cite{DBLP:journals/corr/Chollet16a} Modell erstellt. Diese Modell performt auf dem ImageNet Dataset um ca. 8\% besser als VGGNet bei ca. einem Sechstel der Parameter \cite{kerasModels}. Außerdem kann diese Architektur mit vortrainierten Parametern direkt in Keras geladen werde, deswegen können so die Vorteile von Transferlernen ausgenutzt werden. 
+Bei diesem Experiment wird ein anderes Vision-Modell getestet. Anstatt einer auf VGGNet bestehenden Architektur, wird eine aus dem Xception \cite{DBLP:journals/corr/Chollet16a} Modell erstellt. Diese Modell performt auf dem ImageNet Dataset um ca. 8\% besser als VGGNet bei ca. einem Sechstel der Parameter \cite{kerasModels}. Außerdem kann dieses Modell mit trainierten Parametern direkt aus Keras geladen werde, so können die Vorteile von Transferlernen ausgenutzt werden. 
 
 \subsubsection*{Datenset}
 
@@ -1980,6 +2033,38 @@ Wie bei dem ersten Versuch.
 
 Das Vision-Modell wurde ausgetauscht und stattdessen ein Xception-Netzwerk verwendet.
 
+\begin{verbatim}
+______________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to                     
+==============================================================================
+input_15 (InputLayer)           (None, 256, 256, 3)  0                                            
+______________________________________________________________________________
+input_16 (InputLayer)           (None, 48, 23)       0                                            
+______________________________________________________________________________
+sequential_10 (Sequential)      (None, 48, 1024)     21886504    input_15[0][0]                   
+______________________________________________________________________________
+sequential_11 (Sequential)      (None, 48, 128)      157056      input_16[0][0]                   
+______________________________________________________________________________
+concatenate_3 (Concatenate)     (None, 48, 1152)     0           sequential_10[1][0]              
+                                                                 sequential_11[1][0]              
+______________________________________________________________________________
+gru_11 (GRU)                    (None, 48, 564)      2905164     concatenate_3[0][0]              
+______________________________________________________________________________
+gru_12 (GRU)                    (None, 564)          1910268     gru_11[0][0]                     
+______________________________________________________________________________
+dense_11 (Dense)                (None, 23)           12995       gru_12[0][0]                     
+==============================================================================
+Total params: 26,871,987
+Trainable params: 20,868,771
+Non-trainable params: 6,003,216
+\end{verbatim}
+
+Die Ebene \texttt{sequential\_10} enthält statt der VGGNet-ähnlichen Architektur nun ein Xception Modell. Das Xception Modell enthält ca. 21 Millionen Parameter, von denen ungefähr 5 Millionen eingefroren wurden. Da das Modell schon vortrainiert ist, wurden die ersten 6 von insgesamt 12 Xception Module eingefroren. Die in diesen Modulen gelernten Features werden beibehalten, nur die höheren werden während dem Training optimiert. Dies spart Zeit und erhöht die Genauigkeit des Netzwerkes.
+Nochmal zum Vergleich: Das Netzwerk aus dem allerersten Versuch hatte 109.829.432 trainierbare Parameter.
+
+\subsubsection*{Ergebnis}
+
+\subsubsection*{Fazit}
 
 \bibliographystyle{plain}
 \bibliography{sources} 

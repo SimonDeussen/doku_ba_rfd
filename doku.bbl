@@ -35,6 +35,17 @@ Fran\c{c}ois Chollet et~al.
 \newblock Keras.
 \newblock \url{https://keras.io}, 2015.
 
+\bibitem{kerasModels}
+Fran\c{c}ois Chollet et~al.
+\newblock Keras, vergleich der modelle, 2015.
+\newblock
+  \url{https://keras.io/applications/#documentation-for-individual-models}.
+
+\bibitem{DBLP:journals/corr/Chollet16a}
+Fran{\c{c}}ois Chollet.
+\newblock Xception: Deep learning with depthwise separable convolutions.
+\newblock {\em CoRR}, abs/1610.02357, 2016.
+
 \bibitem{paperGRUComparison}
 Junyoung Chung, {\c{C}}aglar G{\"{u}}l{\c{c}}ehre, KyungHyun Cho, and Yoshua
   Bengio.
