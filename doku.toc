@@ -44,10 +44,10 @@
 \contentsline {subsection}{\numberline {8.9}7. Trainingsversuch}{34}{subsection.8.9}
 \contentsline {subsection}{\numberline {8.10}8. Trainingsversuch}{36}{subsection.8.10}
 \contentsline {subsection}{\numberline {8.11}9. Trainingsversuch}{38}{subsection.8.11}
-\contentsline {subsection}{\numberline {8.12}10. Trainingsversuch}{41}{subsection.8.12}
+\contentsline {subsection}{\numberline {8.12}10. Trainingsversuch}{40}{subsection.8.12}
 \contentsline {subsection}{\numberline {8.13}11. Trainingsversuch}{44}{subsection.8.13}
-\contentsline {subsection}{\numberline {8.14}12. Trainingsversuch}{46}{subsection.8.14}
-\contentsline {subsection}{\numberline {8.15}13. Trainingsversuch}{49}{subsection.8.15}
+\contentsline {subsection}{\numberline {8.14}12. Trainingsversuch}{47}{subsection.8.14}
+\contentsline {subsection}{\numberline {8.15}13. Trainingsversuch}{50}{subsection.8.15}
 \contentsline {subsection}{\numberline {8.16}14. Trainingsversuch}{52}{subsection.8.16}
 \contentsline {section}{\numberline {9}Zusammenfassung der Versuchsergebnisse}{54}{section.9}
 \contentsline {section}{\numberline {10}Fazit}{54}{section.10}
