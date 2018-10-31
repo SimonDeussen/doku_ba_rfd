@@ -1,56 +1,53 @@
 \contentsline {section}{\numberline {1}Einleitung}{3}{section.1}
-\contentsline {section}{\numberline {2}\IeC {\"A}hnliche Arbeiten}{3}{section.2}
-\contentsline {section}{\numberline {3}Motivation}{4}{section.3}
-\contentsline {section}{\numberline {4}Benutzte Technologien}{4}{section.4}
-\contentsline {subsection}{\numberline {4.1}Neuronale Netzwerke}{4}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Convolutional Neural Network - CNN}{6}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Recurrent Neural Network - RNN}{7}{subsection.4.3}
-\contentsline {subsubsection}{\numberline {4.3.1}Long short-term Memory - LSTM}{8}{subsubsection.4.3.1}
-\contentsline {subsubsection}{\numberline {4.3.2}Gated Recurrent Unit - GRU}{9}{subsubsection.4.3.2}
-\contentsline {subsection}{\numberline {4.4}Training}{9}{subsection.4.4}
-\contentsline {subsubsection}{\numberline {4.4.1}Stochastig Gradient Descent - SGD}{10}{subsubsection.4.4.1}
-\contentsline {subsubsection}{\numberline {4.4.2}Overfitting}{10}{subsubsection.4.4.2}
-\contentsline {subsubsection}{\numberline {4.4.3}Underfitting}{10}{subsubsection.4.4.3}
-\contentsline {subsubsection}{\numberline {4.4.4}Dropout}{10}{subsubsection.4.4.4}
-\contentsline {subsubsection}{\numberline {4.4.5}Transferlernen}{11}{subsubsection.4.4.5}
-\contentsline {subsection}{\numberline {4.5}Sampling}{11}{subsection.4.5}
-\contentsline {subsection}{\numberline {4.6}Keras}{11}{subsection.4.6}
-\contentsline {subsection}{\numberline {4.7}Domain-specific language - DSL}{11}{subsection.4.7}
-\contentsline {subsubsection}{\numberline {4.7.1}Hypertext Markup Language - HTML}{12}{subsubsection.4.7.1}
-\contentsline {subsubsection}{\numberline {4.7.2}Cascading Style Sheets - CSS}{12}{subsubsection.4.7.2}
-\contentsline {section}{\numberline {5}Rapid Frontend Prototyping - \IeC {\"U}berblick}{12}{section.5}
-\contentsline {subsection}{\numberline {5.1}Vision Modell}{13}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Sprach Modell}{14}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}Decoder Modell}{15}{subsection.5.3}
-\contentsline {subsection}{\numberline {5.4}Mathematische Beschreibung}{15}{subsection.5.4}
-\contentsline {subsection}{\numberline {5.5}Training}{16}{subsection.5.5}
-\contentsline {section}{\numberline {6}Daten Synthese}{17}{section.6}
-\contentsline {subsection}{\numberline {6.1}Generieren der Token-B\IeC {\"a}ume}{17}{subsection.6.1}
-\contentsline {subsubsection}{\numberline {6.1.1}Grammatik}{18}{subsubsection.6.1.1}
-\contentsline {subsubsection}{\numberline {6.1.2}Zeichenerkl\IeC {\"a}rung}{18}{subsubsection.6.1.2}
-\contentsline {subsubsection}{\numberline {6.1.3}Token Generierung}{19}{subsubsection.6.1.3}
-\contentsline {subsection}{\numberline {6.2}DSL Mapping}{20}{subsection.6.2}
-\contentsline {subsection}{\numberline {6.3}Screenshot Erstellung}{21}{subsection.6.3}
-\contentsline {subsection}{\numberline {6.4}Teilen der Trainingsdaten}{21}{subsection.6.4}
-\contentsline {section}{\numberline {7}Validierung der Ergebnisse}{21}{section.7}
-\contentsline {section}{\numberline {8}Experimente}{23}{section.8}
-\contentsline {subsection}{\numberline {8.1}Architektur}{24}{subsection.8.1}
-\contentsline {subsection}{\numberline {8.2}1. Trainingsversuch}{25}{subsection.8.2}
-\contentsline {subsection}{\numberline {8.3}2. Trainingsversuch}{27}{subsection.8.3}
-\contentsline {subsection}{\numberline {8.4}3. Trainingsversuch}{28}{subsection.8.4}
-\contentsline {subsection}{\numberline {8.5}4. Trainingsversuch}{30}{subsection.8.5}
-\contentsline {subsection}{\numberline {8.6}5. Trainingsversuch}{31}{subsection.8.6}
-\contentsline {subsection}{\numberline {8.7}6. Trainingsversuch}{32}{subsection.8.7}
-\contentsline {subsection}{\numberline {8.8}7. Trainingsversuch}{34}{subsection.8.8}
-\contentsline {subsection}{\numberline {8.9}8. Trainingsversuch}{37}{subsection.8.9}
-\contentsline {subsection}{\numberline {8.10}9. Trainingsversuch}{38}{subsection.8.10}
-\contentsline {subsection}{\numberline {8.11}10. Trainingsversuch}{41}{subsection.8.11}
-\contentsline {subsection}{\numberline {8.12}11. Trainingsversuch}{44}{subsection.8.12}
-\contentsline {subsection}{\numberline {8.13}12. Trainingsversuch}{47}{subsection.8.13}
-\contentsline {subsection}{\numberline {8.14}13. Trainingsversuch}{50}{subsection.8.14}
-\contentsline {subsection}{\numberline {8.15}14. Trainingsversuch}{53}{subsection.8.15}
-\contentsline {section}{\numberline {9}Zusammenfassung der Versuchsergebnisse}{55}{section.9}
-\contentsline {section}{\numberline {10}Fazit}{55}{section.10}
-\contentsline {section}{\numberline {11}Bonus Experiment: Ist das Modell komplex genug um aus einer Skizze eine Website zu erstellen?}{56}{section.11}
-\contentsline {subsection}{\numberline {11.1}1. Trainingsversuch}{56}{subsection.11.1}
-\contentsline {subsection}{\numberline {11.2}2. Traininsversuch}{59}{subsection.11.2}
+\contentsline {subsection}{\numberline {1.1}\IeC {\"A}hnliche Arbeiten}{4}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Motivation}{4}{subsection.1.2}
+\contentsline {section}{\numberline {2}Benutzte Technologien}{5}{section.2}
+\contentsline {subsection}{\numberline {2.1}Neuronale Netzwerke}{5}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Convolutional Neural Network - CNN}{6}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Recurrent Neural Network - RNN}{8}{subsection.2.3}
+\contentsline {subsubsection}{\numberline {2.3.1}Long short-term Memory - LSTM}{9}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.2}Gated Recurrent Unit - GRU}{9}{subsubsection.2.3.2}
+\contentsline {subsection}{\numberline {2.4}Training}{10}{subsection.2.4}
+\contentsline {subsubsection}{\numberline {2.4.1}Stochastig Gradient Descent - SGD}{10}{subsubsection.2.4.1}
+\contentsline {subsubsection}{\numberline {2.4.2}Overfitting}{11}{subsubsection.2.4.2}
+\contentsline {subsubsection}{\numberline {2.4.3}Underfitting}{11}{subsubsection.2.4.3}
+\contentsline {subsubsection}{\numberline {2.4.4}Dropout}{11}{subsubsection.2.4.4}
+\contentsline {subsubsection}{\numberline {2.4.5}Transferlernen}{11}{subsubsection.2.4.5}
+\contentsline {subsection}{\numberline {2.5}Sampling}{12}{subsection.2.5}
+\contentsline {subsection}{\numberline {2.6}Keras}{12}{subsection.2.6}
+\contentsline {subsection}{\numberline {2.7}Domain-specific language - DSL}{12}{subsection.2.7}
+\contentsline {section}{\numberline {3}Rapid Frontend Prototyping - \IeC {\"U}berblick}{13}{section.3}
+\contentsline {subsection}{\numberline {3.1}Vision Modell}{14}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Sprach Modell}{15}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Decoder Modell}{16}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Mathematische Beschreibung}{16}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.5}Training}{17}{subsection.3.5}
+\contentsline {subsection}{\numberline {3.6}Sampling}{18}{subsection.3.6}
+\contentsline {section}{\numberline {4}Daten Synthese}{19}{section.4}
+\contentsline {subsection}{\numberline {4.1}Generieren der Token-B\IeC {\"a}ume}{19}{subsection.4.1}
+\contentsline {subsubsection}{\numberline {4.1.1}Grammatik}{20}{subsubsection.4.1.1}
+\contentsline {subsubsection}{\numberline {4.1.2}Zeichenerkl\IeC {\"a}rung}{20}{subsubsection.4.1.2}
+\contentsline {subsubsection}{\numberline {4.1.3}Token Generierung}{21}{subsubsection.4.1.3}
+\contentsline {subsection}{\numberline {4.2}DSL Mapping}{22}{subsection.4.2}
+\contentsline {section}{\numberline {5}Validierung der Ergebnisse}{24}{section.5}
+\contentsline {section}{\numberline {6}Experimente}{26}{section.6}
+\contentsline {subsection}{\numberline {6.1}1. Trainingsversuch}{27}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}2. Trainingsversuch}{29}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}3. Trainingsversuch}{30}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.4}4. Trainingsversuch}{32}{subsection.6.4}
+\contentsline {subsection}{\numberline {6.5}5. Trainingsversuch}{33}{subsection.6.5}
+\contentsline {subsection}{\numberline {6.6}6. Trainingsversuch}{34}{subsection.6.6}
+\contentsline {subsection}{\numberline {6.7}7. Trainingsversuch}{36}{subsection.6.7}
+\contentsline {subsection}{\numberline {6.8}8. Trainingsversuch}{39}{subsection.6.8}
+\contentsline {subsection}{\numberline {6.9}9. Trainingsversuch}{40}{subsection.6.9}
+\contentsline {subsection}{\numberline {6.10}10. Trainingsversuch}{43}{subsection.6.10}
+\contentsline {subsection}{\numberline {6.11}11. Trainingsversuch}{46}{subsection.6.11}
+\contentsline {subsection}{\numberline {6.12}12. Trainingsversuch}{49}{subsection.6.12}
+\contentsline {subsection}{\numberline {6.13}13. Trainingsversuch}{52}{subsection.6.13}
+\contentsline {subsection}{\numberline {6.14}14. Trainingsversuch}{55}{subsection.6.14}
+\contentsline {section}{\numberline {7}Zusammenfassung der Versuchsergebnisse}{57}{section.7}
+\contentsline {section}{\numberline {8}Fazit}{59}{section.8}
+\contentsline {section}{\numberline {A}Experiment: Kann ein besseres Vision-Modell die Performance verbessern?}{61}{appendix.A}
+\contentsline {section}{\numberline {B}Bonus Experiment: Ist das Modell komplex genug um aus einer Skizze eine Website zu erstellen?}{64}{appendix.B}
+\contentsline {subsection}{\numberline {B.1}1. Trainingsversuch}{64}{subsection.B.1}
+\contentsline {subsection}{\numberline {B.2}2. Traininsversuch}{66}{subsection.B.2}

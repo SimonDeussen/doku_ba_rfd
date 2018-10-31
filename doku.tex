@@ -40,21 +40,33 @@ Hier kommt es schließlich zu den Bottlenecks und Unzufriedenheit bei der Arbeit
 
 Eine Abhilfe soll diese Arbeit liefern: Sie ermöglicht, dass der Designer mit seinem bevorzugten Tools das Design entwickelt und der Entwickler mit einem Mausklick das fertige Markup bekommt. So kann sich der Entwickler vollends auf die Realisierung des Verhaltens und der Logik der Anwendung konzentrieren. 
 
-\section{Ähnliche Arbeiten}
+Die große Frage ist wie weit dieser Ansatz gehen kann? Diese Arbeit, wird versuchen die bestehende Architektur mit eigenen Daten zu nutzen, um anschließend die Komplexität der Websiten, die erstellt werden können, zu erhöhen.
+
+\subsubsection*{Überblick über die Arbeit}
+
+Die ersten beiden Kapitel dieser Arbeit stellen die Einleitung dar und umreisen die benutzen Technologien. Sie sollen den Leser durch Beschreibungen und Verweise auf weitere Ressourcen auf den Rest dieser Arbeit vorbeireiten.
+
+Anschließend erfolgt im dritten Kapitel ein Überblick über die Funktionsweise des Modells sowie eine detaillierte Beschreibung. In den nächsten beiden Kapiteln geht es im Detail um die Synthese der Daten sowie der Validierung der Ergebnisse. 
+
+Im sechstem Kapitel werden die Experimente beschrieben, die nötig gewesen sind, das Modell zu trainieren und die Architektur zu verbessern. Schließlich endet die Arbeit mit einer Zusammenfassung der Experimente sowie einem Fazit.
+
+\subsection{Ähnliche Arbeiten}
 
 Diese Arbeit basiert auf dem Pix2Code Paper von Tony Beltramelli \cite{Beltramelli17}. Er war der Erste, der Code anhand von visuellem Input mit neuronalen Netzwerken generieren konnte. 
 Anderen Ansätze wie DeepCoder \cite{DeepCoder16} benötigen komplizierte DSL als Input und schränken so die Benutzbarkeit stark ein. Visuelle Versuche mit Android-GUIs von Nguyen \cite{Nguyen15} benötigen ebenfalls unpraktische von Experten erstellte Heuristiken. Pix2Code ist das erste Paper, das einen allgemeinen Input hat, in  Form einfacher Screenshots und diesen in drei verschiedene Targetsprachen übersetzten kann. Zum einen kann es HTMl/CSS Code erstellen, zum anderen aber auch Android- und iOS-Markup. Siehe Original Code auf Github \cite{Beltramelli17Github}
 
+\subsection{Motivation}
 
-\section{Motivation}
 
 Computer- genierte Programme werden die Zukunft der Software Entwicklung sein und diesen Bereich auch grundsätzlich verändern. Schon jetzt im Bereich der Cloud mit Serverless Computing und Lambdas geht es oftmals nur noch darum, bestehende Software-Teile zu verbinden und zu konfigurieren. Diesen Trend, der eine Reduktion des Schreibens erreichen will, und dazu stark in die Richtung des Konfigurierens geht, sehe ich in Zukunft noch viel umfassender und allgegenwärtiger. Es wird so weit gehen, dass man - nicht nur wie hier in dieser Arbeit - das Markup generiert, sondern dass aus einer Skizze sofort eine fertige Website gebaut wird, und man mit ein paar Klicks das nötige Verhalten einfach hinzufügen kann. 
 Dieser Trend ist nicht nur auf das Web bezogen. Ich denke das sich die Webtechnologien auch in der Desktop Umgebung durchsetzen,  da sie Plattform unabhängig und sehr stark optimiert sind. Außerdem sind sie sehr einfach zu lernen und weit verbreitet. Zum Beispiel Electron \cite{electron} ermöglicht den einfachen Einsatz von Webtechnologien durch einen eingebettetwn Browser in der Desktopwelt.
 Diese Beobachtungen motivieren mich diese Arbeit zu verfassen: Automatisierung ist unumgänglich, weshalb man diese selbst bauen und damit unzähligen Entwicklern das leben leichter machen sollte.
 
+\newpage
 \section{Benutzte Technologien}
 
-In dem folgenden Abschnitt werden die benutzten Technologien beschrieben. Diese Erklärungen sind recht generell und gehen zunächst nicht auf die genaue Verwendung der Technologien in dem Projekt ein, dies wird aber im Abschnitt ~\ref{sec:rfp} genauer beleuchtet.
+
+In dem folgenden Abschnitt werden die benutzten Technologien beschrieben. Diese Erklärungen sind recht generell und gehen zunächst nicht auf die genaue Verwendung der Technologien in dem Projekt ein, dies wird anschließend im Abschnitt ~\ref{sec:rfp} genauer beleuchtet.
 
 \subsection{Neuronale Netzwerke}
 Neuronale Netzwerke sind einfach zu benutzende Modelle, welche nicht-lineare Abhängigkeiten mit vielen latenten Variablen stochastisch abbilden können \cite{nnWebsite}. Die Stärke von neuronalen Netzen liegt darin, aus großen Mengen von Daten Gesetzmäßigkeiten oder Patterns zu erkennen. 
@@ -198,7 +210,7 @@ Dropout ist eine Technik, die genutzt wird, um Overfitting zu vermeiden. Währen
 
 \subsubsection{Transferlernen}
 
-Transferlernen ist ein Prozess, bei dem ein fertiges Netzwerk, welches auf ein bestimmtes Problem trainiert ist, für ein andere Problemlösung genutzt wird. Anstatt das Netzwerk mit zufälligen Gewichten zu initialisieren, werden die bereits erlernten Gewichte weiter trainiert bis diese gelernt haben, das neue Problem zu lösen. Gerade im Bereich der Bildklassifizierung ist diese Technik sehr sinnvoll, da allgemeine Features wie verschieden ausgerichtete Kanten oder einfache geometrische Objekte universell sind und so nicht erst gelernt werden müssen. Dadurch bekommt ein Netzwerk eine gewisse Wissensbasis, die für die neue Problemdomäne als Grundbaustein dient.
+Transferlernen ist ein Prozess, bei dem ein fertiges Netzwerk, welches auf ein bestimmtes Problem trainiert ist, für ein andere Problemlösung genutzt wird. Anstatt das Netzwerk mit zufälligen Gewichten zu initialisieren, werden die bereits erlernten Gewichte weiter trainiert bis diese gelernt haben, das neue Problem zu lösen. Zum Beispiel im Bereich der Bildklassifizierung ist diese Technik sehr sinnvoll, da allgemeine Features wie verschieden ausgerichtete Kanten oder einfache geometrische Objekte universell sind und so nicht erst gelernt werden müssen. Dadurch bekommt ein Netzwerk eine gewisse Wissensbasis, die für die neue Problemdomäne als Grundbaustein dient.
 
 \subsection{Sampling}
 Während des Samplings, wird ein fertig trainiertes neuronales Netzwerk genutzt um, aus Daten Schlussfolgerungen abzuleiten. Im Kontext dieser Arbeit, wird probiert aus einem Screenshot, eine bedeutungsvolle DSL-Sequenz zu erstellen.
@@ -211,13 +223,15 @@ Um die in dieser Arbeit genutzten tiefen neuronale Netzwerke zu definieren, wird
 Eine Programmiersprache, die auf eine einzelne Problem-Domäne spezialisiert ist, wird DSL genannt. Im Gegensatz zur DSL steht die General Purpose Language, welche eine Programmiersprache ist, die sehr breit, für viele verschiedene Anwendungen, benutzt werden kann. Die Trennung zwischen DSL und GPL ist nicht immer klar: Es gibt zum Beispiel Teile einer Sprach, die hoch spezialisiert für eine bestimmte Aufgabe sind, aber andere Teile können allgemeinere Aufgaben lösen. Auch historisch bedingt kann sich die Einordnung einer Sprache ändern. JavaScript wurde ursprünglich für ganz einfache Steuerungen von Websites eingeführt, kann aber inzwischen für alles mögliche eingesetzt werden - vom Trainieren von CNNs im Browser, zu klassischen Backend-Jobs. 
 In dieser Arbeit, wird eine hoch spezialisierte Sprache aus Token genutzt, um die Websites für das neuronale Netzwerk zu beschreiben. Die Token-Sprache wird genutzt damit das Netzwerk einfach Vokabeln erlernen kann, wodurch die Komplexität der Sprachmodellierung, die das Netzwerk intern machen muss, stark sinkt. Die Ausgabe des Netzwerkes erfolgt ebenso in der Token-Sprache und kann anschließend in valides Markup kompiliert werden.
 
-\subsubsection{Hypertext Markup Language - HTML}
-HTML ist die Standardprogrammiersprache zur Erstellung von Websites. Mit einzelnen HTML Elementen beschreibt sie den semantischen Zusammenhang von Websites.
+\begin{description}
+	\item[Hypertext Markup Language - HTML] HTML ist die Standardprogrammiersprache zur Erstellung von Websites. Mit einzelnen HTML Elementen beschreibt sie den semantischen Zusammenhang von Websites.
+	\item[Cascading Style Sheets - CSS] CSS beschreibt die Präsentation, also das Aussehen des Content einer Markup-Language (zum Beispiel HTML). Klassische Inhalte sind Farben, Positionen und Effekte von User Interface Elementen.
+\end{description}
 
-\subsubsection{Cascading Style Sheets - CSS}
-CSS beschreibt die Präsentation, also das Aussehen des Content einer Markup-Language (zum Beispiel HTML). Klassische Inhalte sind Farben, Positionen und Effekte von User Interface Elementen.
+
+
  
-
+\newpage
 \section{Rapid Frontend Prototyping - Überblick}\label{sec:rfp}
 
 RFP ist ein Tool, welches aus einfachen Website-Screenshots HTML/CSS Markup erzeugen kann. Dafür lernt ein System aus neuronalen Netzwerken eine einfache Domain Specific Language (DSL). Jeder Token in dieser Sprache hat zugehörigen HTML/CSS Code, wodurch eine Token-Sequenz einfach in diese Sprache kompiliert werden kann.
@@ -226,7 +240,9 @@ Um den Code für die Website Screenshots zu generieren, wird ein Modell bestehen
 
 Von einem Computer abgespeicherte Bilder sind ein denkbar schlechtes Format, um aus den Rohdaten auf deren Inhalte zu schließen. Die Pixel, die einem Bild zugrunde liegen, sind lediglich Helligkeitsinformationen, die einfach genutzt werden können, um für Menschen Bilder darzustellen, aber in roher Form eben sehr wenig Informationen enthalten, was in einem Bild dargestellt wird. Um aus diesen Zahlenwerten Schlussfolgerungen zu ziehen, müssen diese in mehreren Schritten abstrahiert werden, um bedeutungsvolle Features zu extrahieren. Hierfür wird ein CNN eingesetzt. Dieses verarbeitet das gegebene Input-Bild und erstellt eine niedrig-dimensionale Repräsentation. Die Architektur des CNN ist angelehnt an das VGGNet von Simonyan and Zisserman \cite{DBLP:journals/corr/SimonyanZ14a}.
 
-Das erste RNN wird dafür benötigt, um die DSL zu lernen, insbesondere die validen Reihenfolgen und die Grammatik. Das zweite RNN, bekommt als Input, den Output des CNN, also eine Repräsentation des Bildes, sowie den Output des ersten RNNs. Daraus kann es wiederum eine valide Tokenabfolge generieren die den Screenshot beschreibt. Zu sehen ist dieses Zusammenspiel in der Abbildung~\ref{fig:pix2code_paper_architecture}.
+Als nächsten muss das Modell die Verwendung und Bedeutung der Spache, also der den Screenshot beschreibende Token-Sequenz, erlernen. Dafür wird ein RNN, das Sprach-Modell, genutzt, das sich eine Netzwerk-interne Repräsentation der Sprache generiert. 
+
+Diese beiden Schritte führen zu einer internen Repräsentation des Input-Bildes und der Input Sequenz. Als nächstes müssen diese beiden Elemente zusammengeführt und verstanden werden. Dies geschieht im zweiten RNN. Dieses Decoder-Modell bekommt die beiden Elemente als Input und erlernt eine Sequenz an Token zu erstellen, die das Input-Bild beschreibt. Zu sehen ist dieses Zusammenspiel in der Abbildung~\ref{fig:pix2code_paper_architecture}.
 
 \begin{figure}[h]
 \centering
@@ -235,9 +251,18 @@ Das erste RNN wird dafür benötigt, um die DSL zu lernen, insbesondere die vali
 \label{fig:pix2code_paper_architecture}
 \end{figure}
 
-Die linke Seite der Abbildung~\ref{fig:pix2code_paper_architecture} stellt den Zustand während des Trainings dar. Ein Screenshot, zusammen mit der dazugehörigen Token Sequenz wird als Input in das Netzwerk angelegt. Die Details hierzu sind in Abschnitt~\ref{sub:training}. Nachdem das Training fertig ist, wird ein Input, an das Modell angelegt, der nur einen \texttt{Start}-Token enthält. Dieser leere Kontext wird nun Token für Token von dem Modell befüllt, bis ein \texttt{End}-Token erzeugt wird. 
+Die linke Seite der Abbildung~\ref{fig:pix2code_paper_architecture} stellt den Zustand während des Trainings dar. Die rechte Seite während der Predictions.
 
-Auf der rechten Seite der Abbildung~\ref{fig:pix2code_paper_architecture} sieht man die Generierung. Dem anfangs leeren Kontexts wird jeder generierte Token hinzugefügt, bis es selbständig den \texttt{End}-Token erstellt. Das Netzwerk bekommt so den eigenen Output wieder als Input. Dies ist eine gängige Methode,ein Netzwerk zu verwenden für die Generierung von Sequenzen unterschiedlicher Länge cite{DBLP:journals/corr/Graves13}.
+\begin{enumerate} 
+\item Ein Screenshot $I$ und die zugehörigen Token Sequenz $x_t$ wird als Input in das Netzwerk angelegt. Der Screenshot an das CNN, die Token-Sequenz an das LSTM
+\item Das LSTM erstellt eine interne Repräsentation $q_t$ und das CNN erstelle die Repräsentation $p$
+\item $q_t$ und $p$ werden zu dem Vektor $r_t$ zusammengefügt
+\item LSTM' erstellt aus dem Vektor $r_t$ die Prediction $y_t$
+\item $y_t$ wird dem Input $x_{t+1}$ angehängt.
+\end{enumerate}
+
+Während einer Prediction, erstellt das Netzwerk Token für Token, welche jeweils wieder mit den Input kommen, bis es feststellt, dass die Prediction abgeschlossen ist. Dies ist eine gängige Methode,ein Netzwerk für die Generierung von Sequenzen zu verwenden. cite{DBLP:journals/corr/Graves13}. Die Details hierzu sind in Abschnitt~\ref{sub:training} und Abschnitt~\ref{sub:sampling}. 
+
 
 \subsection{Vision Modell}
  
@@ -286,9 +311,7 @@ Diese Ebenen geben als Output die gesamte Verarbeitete Sequenz zurück. Dadurch 
 \subsection{Decoder Modell}
 
 
-
-Der Decoder-Teil generiert aus den zusammengefügten Outputs des Vision- und des Sprach-Modells die Token-Sequenz. Übergeben werden die Daten folgendermaßen: \texttt{decoder = concatenate([encoded\_image, encoded\_text])
-}. Durch die \texttt{concatemate}-Funktion, wird jeder einzelne kodierte Sprach-Output mit einer Repräsentation des Screenshots verknüpft.  Nachdem der Input-Screenshot sowie die dazugehörigen Tokens verarbeitet wurden, muss das Netzwerk nun den Zusammenhang zwischen diesen Daten erlernen. 
+Der Decoder-Teil generiert aus den zusammengefügten Outputs des Vision- und des Sprach-Modells die Token-Sequenz. Nachdem der Input-Screenshot sowie die dazugehörigen Tokens verarbeitet wurden, muss das Netzwerk nun den Zusammenhang zwischen diesen Daten erlernen. Übergeben werden die Daten folgendermaßen: \texttt{decoder = concatenate([encoded\_image, encoded\_text])}. Durch die \texttt{concatenate}-Funktion, wird jeder einzelne kodierte Sprach-Output mit einer Repräsentation des Screenshots verknüpft.  
 
 Auch dieser Teil des Netzwerkes besteht aus rekurrenten Units. Zum Vergleich, das Decoder-Modell hier hat viermal so viele Einheiten wie das Sprach Modell. Auch hier wurden bessere Ergebnisse bei der Benutzung von GRUs anstelle von LSTMs erzielt.
 
@@ -327,15 +350,45 @@ Durch die Verkettung der jeweiligen Netzwerke ist die Gesamtarchitektur nach wie
 
 \subsection{Training}\label{sub:training}
 
-Da es für jeden Screenshot eine zugehörige Token-Sequenz mit variabler Länge gibt, müssen die Trainingsdaten mit einem Sliding-Window-Prinzip abgearbeitet werden. Dafür werden aus der Token-Sequenz $n$ Samples gebildet, wobei $n = len(token\_sequence) - CONTEXT\_LENGTH$. Das Modell bekommt pro Screenshot $n$ Paare aus Screenshot und dazugehörigem Token-Kontext. Wichtig hierbei ist, dem Modell mitzuteilen, wann eine Sequenz beginnt und wieder endet, dafür gibt es einen \texttt{start}-Token sowie einen \texttt{end}-Token. Diese werden als pre- bzw. suffix an die Token-Sequenz angefügt, bevor die $n$ Samples gebaut werden. 
+Da es für jeden Screenshot eine zugehörige Token-Sequenz mit variabler Länge gibt, müssen die Trainingsdaten mit einem Sliding-Window-Prinzip abgearbeitet werden. Dafür werden aus der Token-Sequenz $n$ Samples gebildet, wobei $n = len(token\_sequence) - \texttt{CONTEXT\_LENGTH}$. Das Modell bekommt pro Screenshot $n$ Paare aus Screenshot und dazugehörigem Token-Kontext. Wichtig hierbei ist, dem Modell mitzuteilen, wann eine Sequenz beginnt und wieder endet, dafür gibt es einen \texttt{start}-Token sowie einen \texttt{end}-Token. Diese werden als pre- bzw. suffix an die Token-Sequenz angefügt, bevor die $n$ Samples gebaut werden. Zur Veranschaulichung wird ein einfaches Beispiel durchgespielt:
 
-So kann während des Trainings mit Backpropagation ein klassischer Multi-Class-Loss optimiert werden.
+\begin{enumerate}
+	\item $X = (I, T)$ beschreibt den Datensatz bestehend aus Input-Bild $I$ und dazugehöriger Token-Sequenz $T$.
+	\item Um ein erstes Trainings-Sample zu bilden, wird ein Vektor $S_0$ der Länge $\texttt{CONTEXT\_LENGTH} = 6$ erstellt.
+	\item $S_0$ wird nur mit dem \texttt{start}-Token befüllt. $S_0 = \texttt{[start, none, none, none, none, none]}$
+	\item Für die Erstellung weiterer Trainingssample, wird $T$ mit einem Sliding-Window abgearbeitet. 
+	\item Zunächst wird der erste Token $t_0 = T(0) = \texttt{header}$ aus $T$ an erster Stelle des neuen Samples $S_1$ gesetzt und der \texttt{start}-Token rückt an zweite Stelle: \\
+	$S_1 = \texttt{[header, start, none, none, none, none]}$
+	\item Das nächste Sample $S_2$ nimmt nun einen weiteren Token $t_1 = T(1) = \{$ aus $T$ mit auf, und verrückt die beiden schon vorhandenen, um eine Stelle weiter: \\
+	$S_2 = \texttt{[\{, header, start, none, none, none]}$
+	\item Diese Schritten werden so lange wieder holt, bis alle einzelnen Token aus $T$ aufgenommen wurden. Danach wird das letzte Sample erstellt, welches den \texttt{end}-Token enthält: \\
+	$S_{last} = \texttt{[end, \}, button, text, headline, \{]}$
+	\item Nun trainiert das Netzwerk mit jeden Tupel $x_n = (I, S_n)$ sequentiell.
+\end{enumerate}
+
+
+
+Die Aufgabe des Netzwerkes ist es nun, aus dem Input $x_n$ nächsten Token $y_{n+1}$ zu klassifizieren. So kann während des Trainings mit Backpropagation ein klassischer Multi-Class-Loss optimiert werden.
 \begin{equation}
 L(I, X) =  -\sum_{t=1}^T x_{t+1} log(y_t)
 \end{equation}
 
 Hierbei ist $x_{t+1}$ der erwartete Token und $y_t$ der berechnete Token. Das Modell ist in einer Gesamtheit ableitbar, dies bedeutet, der CNN-Teil kann zusammen mit den beiden LSTMs optimiert werden. Wie im Original Paper wurde mit RMSProp-Algorithmus trainiert mit einer Learning Rate von $0,0001$. Zur Erhöhung der numerischen Stabilität wurden die Output Gradienten in das Intervall $[-1,1]$ getrimmt. Es wird eine Dropout-Regulation genutzt als  Maßnahme gegen Overfitting. Im CNN nach den Max-Pooling Ebenen mit 25\% und nach den Fully-Connected Ebenen mit 30\%.
 
+
+\subsection{Sampling}\label{sub:sampling}
+
+Für das Sampling von Bildern wird ein ähnlicher Prozess wie während dem Training in Abschnitt~\ref{sub:training} durchlaufen:
+
+\begin{enumerate}
+	\item Das Test-Bild $I$ wird mit einem Kontext Vektor $C_0$, der nur den \texttt{start}-Token enthält, an das Netzwerk angelegt. \\ Dabei gilt: $C_0 = \texttt{[start, none, none, none, none, none]}$ 
+	\item Mit der erste Prediction $y_0 = header$ des Netzwerkes wird genauso, wie während des Trainings, ein neuer Kontext-Vektor $C_1 = \texttt{[header, start, none, none, none, none]}$ erstellt.
+	\item Jede weitere Prediction des Netzwerkes wird so wieder als Input verwendet bis der Fall $y_{last} = \texttt{end}$ auftritt. 
+\end{enumerate}
+
+Nachdem der \texttt{end}-Token erstellt wurde, kann probiert werden, aus der Token-Sequenz eine Website zu kompilieren. 
+
+\newpage
 \section{Daten Synthese}
 
 Da im Zuge dieser Arbeit eine Erweiterung der DSL des Original Papers implementiert wurde, ist es erforderlich, neue Trainingsdaten zu synthetisieren. Ein Beispiel der neu synthetisierten Daten ist in der Abbildung~\ref{fig:beispiel_daten} zu sehen. Für die Arbeit wurden insgesamt 4 verschiedene Datensets synthetisiert, mit jeweils ca. 3000 bis 4000 Bildern. 
@@ -492,15 +545,17 @@ Zu jedem dieser Token, existiert ein Mapping nach HTML/CSS. In einer eigenen Dat
 Um somit aus einem Token-Baum HTML/CSS Markup zu erzeugen, startet der Wurzelknoten eine rekursive Rendering-Funktion. Diese nutzt dem zu den Knoten gehörigen Code und traversiert den gesamten Baum. Jeder Mapping String eines Tokens enthält einen Platzhalter, hier \texttt{\{\}}, mit dem signalisiert wird, wo der Code des Kinderknoten hingehört. Ähnlich gibt es ebenso einen Platzhalter für Text-Content, nämlich die Zeichen: \texttt{[]}. 
 Für den Text-Content werden im Zuge der Arbeit nur zufällige Zeichenfolgen genommen, damit das neuronale Netzwerk lernt nicht auf den Text zu achten. 
 
+Weitere Punkte im Zusammenhang mit der Erstellung der Trainingsdaten:
 
-\subsection{Screenshot Erstellung}
+\begin{description}
+	\item[Screenshot Erstellung] Nachdem der HTML/CSS String als Datei abgespeichert wurde, kann mit dem Tool \texttt{imgkit} ein \texttt{.png} oder \texttt{.jpg} erzeugt werden.
+	\item[Teilen der Trainingsdaten] Die Gesamten Trainingsdaten werden in einem Trainingsset mit einem Anteil von 70\%, einem Testset mit 20\% und einem Validierungsset mit 10\% der Bilder abgespeichert.
+\end{description}
 
-Nachdem der HTML/CSS String als Datei abgespeichert wurde, kann mit dem Tool \texttt{imgkit} ein \texttt{.png} oder \texttt{.jpg} erzeugt werden.
 
-\subsection{Teilen der Trainingsdaten}
 
-Die Gesamten Trainingsdaten werden in einem Trainingsset mit einem Anteil von 70\%, einem Testset mit 20\% und einem Validierungsset mit 10\% der Bilder abgespeichert
 
+\newpage
 \section{Validierung der Ergebnisse}
 
 Um die Qualität der Ergebnisse zu vergleichen, wurde eine Metrik erstellt, welche anhand der Wichtigkeit der jeweiligen Elemente einen Score erstellt. Auf Token-Ebene einfach nach Fehlern zu suchen und jeden falschen Token gleich zu gewichten, würde zu nicht aussage-kräftigen Scores führen. Zum Beispiel ist ein Menü-Item zu viel oder zu wenig sehr viel weniger schlimm als eine falsche Kategorisierung des Headers der Website. Um eine ständig gleich bleibende Bewertung der trainierten Netzwerke zu schaffen, ist ein Jupyter Notebook \texttt{dataCreationTool/testScoring.ipynb} implementiert worden. Dieses analysiert die generierten Token-Sequenzen der getesteten Netzwerke. Dazu werden pro Datensatz mehrere Tests gemacht. Der erste Test überprüft ob der Header korrekt ist. Dieser ist einer der am stärksten gewichteten Tests. Danach wird festgestellt, ob die Anzahl der Menü-Item korrekt ist. Anschließend wird der Rest des Contents geprüft und zwar die Anzahl an Rows, der richtige Row-Type pro Row und die Anzahl der korrekten sowie falschen Buttons. Pro Datensatz wird so ein \texttt{error\_object} erstellt. 
@@ -517,8 +572,8 @@ Hier ein Beispiel:
  'differenceRowCount': 0,
  'differenceTokenCount': 16,
  'isHeaderCorrect': True,
- 'predictedFileName': './generatedMarkup/second.gui',
- 'trueFileName': './generatedMarkup/SECOND_complete_generation_4_04.10.2018_1538655331945.gui',
+ 'predictedFileName': 'pred.gui',
+ 'trueFileName': 'true.gui',
  'trueHeaderType': 'sidebar',
  'true_token_count': 55
 }
@@ -566,24 +621,24 @@ Ein weiteres wichtiges Werkzeug hierbei ist ein Histogramm über die Verteilung 
 
 Außerdem findet ein Vergleich der Fehler-Typ-Verteilungen aller Predictions gegenüber den 20\% schlechtesten Predictions statt.
 
-\begin{verbatim}
-'all': {
-    'total_wrong_row_count': 99,
-    'total_wrong_headers': 0, 
-    'total_count': 619, 
-    'total_wrong_row_types': 131, 
-    'total_wrong_menue_buttons': 244, 
-    'total_wrong_buttons': 2821
-    },
-'p80': {
-    'total_wrong_row_count': 95, 
-    'total_wrong_headers': 0, 
-    'total_count': 150, 
-    'total_wrong_row_types': 128, 
-    'total_wrong_menue_buttons': 75, 
-    'total_wrong_buttons': 652
-    }
-\end{verbatim}
+%\begin{verbatim}
+%'all': {
+%    'total_wrong_row_count': 99,
+%    'total_wrong_headers': 0, 
+%    'total_count': 619, 
+%    'total_wrong_row_types': 131, 
+%    'total_wrong_menue_buttons': 244, 
+%    'total_wrong_buttons': 2821
+%    },
+%'p80': {
+%    'total_wrong_row_count': 95, 
+%    'total_wrong_headers': 0, 
+%    'total_count': 150, 
+%    'total_wrong_row_types': 128, 
+%    'total_wrong_menue_buttons': 75, 
+%    'total_wrong_buttons': 652
+%    }
+%\end{verbatim}
 
 \begin{figure}
 \centering
@@ -601,36 +656,35 @@ Außerdem findet ein Vergleich der Fehler-Typ-Verteilungen aller Predictions geg
 \end{minipage}
 \end{figure}
 
-\section{Experimente}
+\newpage
+\section{Experimente}\label{sec:experimente}
 
 In diesem Abschnitt wird beschrieben, welche Trainingsversuche durchgeführt wurden um ein bestmögliches Ergebnis zu erhalten. Die Beschreibungen für jeden Trainingsversuch sind jeweils in fünf Abschnitte unterteilt. Dazu gehört eine Einführung, das Datenset, eine Auflistung der veränderten Parameter, die Ergebnisse und ein Fazit.
 
-\subsection{Architektur}\label{sub:architektur}
+\subsection*{Architektur}\label{sub:architektur}
 Bevor die Beschreibung der jeweiligen Experimente beginnt, hier eine Auflistung der Standard Parameter der Modelle. 
 
 \begin{verbatim}
-model.summary():
-________________________________________________________________________________
+
 Layer (type)                    Output Shape         Param #     Connected to
 
-================================================================================
+=============================================================================
 input_1 (InputLayer)            (None, 256, 256, 3)  0
-________________________________________________________________________________
+_____________________________________________________________________________
 input_2 (InputLayer)            (None, 48, 20)       0
-________________________________________________________________________________
+_____________________________________________________________________________
 sequential_1 (Sequential)       (None, 48, 1024)     104098080   input_1[0][0]
-________________________________________________________________________________
+_____________________________________________________________________________
 sequential_2 (Sequential)       (None, 48, 128)      209920      input_2[0][0]
-________________________________________________________________________________
+_____________________________________________________________________________
 concatenate_1 (Concatenate)     (None, 48, 1152)     0           sequential_1[1][0]
                                                                  sequential_2[1][0]
-________________________________________________________________________________
+_____________________________________________________________________________
 lstm_3 (LSTM)                   (None, 48, 512)      3409920     concatenate_1[0][0]
-________________________________________________________________________________
+_____________________________________________________________________________
 lstm_4 (LSTM)                   (None, 512)          2099200     lstm_3[0][0]
-________________________________________________________________________________
+_____________________________________________________________________________
 dense_3 (Dense)                 (None, 20)           12312       lstm_4[0][0]
-================================================================================
 \end{verbatim}
 
 Wichtig hierbei sind folgende drei Ebenen des Modells; \texttt{sequential\_1}, \texttt{sequential\_2} und \texttt{concatenate\_1}. 
@@ -753,31 +807,28 @@ Gleichbleibend zum ersten Versuch.
 Hier habe ich die Anzahl der LSTM \texttt{units} von 128 im Language Modell auf 192 erhöht. Außerdem erfolgte eine Veränderung der LSTM \texttt{units} von 512 auf 768 im Decoder Modell.
 
 \begin{verbatim}
-________________________________________________________________________________
+_____________________________________________________________________________
 Layer (type)                    Output Shape         Param #     Connected to
-================================================================================
+=============================================================================
 input_1 (InputLayer)            (None, 256, 256, 3)  0
-________________________________________________________________________________
+_____________________________________________________________________________
 input_2 (InputLayer)            (None, 48, 24)       0
-________________________________________________________________________________
+_____________________________________________________________________________
 sequential_3 (Sequential)       (None, 48, 1024)     104098080   input_1[0][0]
-________________________________________________________________________________
+_____________________________________________________________________________
 sequential_4 (Sequential)       (None, 48, 192)      462336      input_2[0][0]
-________________________________________________________________________________
+_____________________________________________________________________________
 concatenate_1 (Concatenate)     (None, 48, 1216)     0           sequential_3[1][0]
                                                                  sequential_4[1][0]
-________________________________________________________________________________
+_____________________________________________________________________________
 lstm_3 (LSTM)                   (None, 48, 768)      6097920     concatenate_1[0][0]
-________________________________________________________________________________
+_____________________________________________________________________________
 lstm_4 (LSTM)                   (None, 768)          4721664     lstm_3[0][0]
-________________________________________________________________________________
+_____________________________________________________________________________
 dense_3 (Dense)                 (None, 24)           18456       lstm_4[0][0]
-================================================================================
-Total params: 115,398,456
+=============================================================================
 Trainable params: 115,398,456
-Non-trainable params: 0
 
-________________________________________________________________________________
 \end{verbatim}
 
 Durch diese Veränderung ergeben sich ca. 8 Millionen mehr Parameter.
@@ -972,7 +1023,7 @@ Das Scheitern des Trainings wurde nicht durch die Verkleinerung der DSL behoben.
 
 \subsubsection*{Einführung}
 
-Wie im Fazit des vorangegangen Versuchs erwähnt, wird nun daran gearbeitet, die LSTMs, welche der sprach analysierende und der decodierende Teil des Modells sind zu verbessern. Nach der Lektüre eines Posts von Colahs Blog, wurden testweise die klassischen LSTMs durch GRUs ersetzt.
+Wie im Fazit des vorangegangen Versuchs erwähnt, wird nun daran gearbeitet, die LSTMs, welche der sprach analysierende und der decodierende Teil des Modells sind zu verbessern. Nach der Lektüre eines Posts von Colahs Blog \cite{colahsBlogLSTM}, werden testweise die klassischen LSTMs durch GRUs ersetzt.
 
 \subsubsection*{Datenset}
 
@@ -981,26 +1032,26 @@ Hier wurde das Datenset aus dem sechsten Trainingsversuch verwendet.
 \subsubsection*{Veränderte Parameter}
 
 \begin{verbatim}
-________________________________________________________________________________
+
 Layer (type)                    Output Shape         Param #     Connected to
-================================================================================
+=============================================================================
 input_1 (InputLayer)            (None, 256, 256, 3)  0
-________________________________________________________________________________
+_____________________________________________________________________________
 input_2 (InputLayer)            (None, 48, 23)       0
-________________________________________________________________________________
+_____________________________________________________________________________
 sequential_1 (Sequential)       (None, 48, 1024)     104098080   input_1[0][0]
-________________________________________________________________________________
+_____________________________________________________________________________
 sequential_2 (Sequential)       (None, 48, 128)      157056      input_2[0][0]
-________________________________________________________________________________
+_____________________________________________________________________________
 concatenate_1 (Concatenate)     (None, 48, 1152)     0           sequential_1[1][0]
                                                                  sequential_2[1][0]
-________________________________________________________________________________
+_____________________________________________________________________________
 gru_3 (GRU)                     (None, 48, 512)      2557440     concatenate_1[0][0]
-________________________________________________________________________________
+_____________________________________________________________________________
 gru_4 (GRU)                     (None, 512)          1574400     gru_3[0][0]
-________________________________________________________________________________
+_____________________________________________________________________________
 dense_3 (Dense)                 (None, 23)           11799       gru_4[0][0]
-================================================================================
+=============================================================================
 
 Trainable params: 108,398,775
 
@@ -1154,24 +1205,24 @@ Wie folgt wurde das Modell verändert:
 \begin{verbatim}
 
 Layer (type)                    Output Shape         Param #     Connected to
-================================================================================
+=============================================================================
 input_1 (InputLayer)            (None, 256, 256, 3)  0
-________________________________________________________________________________
+_____________________________________________________________________________
 input_2 (InputLayer)            (None, 48, 23)       0
-________________________________________________________________________________
+_____________________________________________________________________________
 sequential_1 (Sequential)       (None, 48, 1024)     104098080   input_1[0][0]
-________________________________________________________________________________
+_____________________________________________________________________________
 sequential_2 (Sequential)       (None, 48, 128)      209408      input_2[0][0]
-________________________________________________________________________________
+_____________________________________________________________________________
 concatenate_1 (Concatenate)     (None, 48, 1152)     0           sequential_1[1][0]
                                                                  sequential_2[1][0]
-________________________________________________________________________________
+_____________________________________________________________________________
 gru_1 (GRU)                     (None, 48, 512)      2557440     concatenate_1[0][0]
-________________________________________________________________________________
+_____________________________________________________________________________
 gru_2 (GRU)                     (None, 512)          1574400     gru_1[0][0]
-________________________________________________________________________________
+_____________________________________________________________________________
 dense_3 (Dense)                 (None, 23)           11799       gru_2[0][0]
-================================================================================
+=============================================================================
 
 Trainable params: 108,451,127
 
@@ -1259,24 +1310,24 @@ Wie bereits in dem Original Paper ist hier der Decoder mit LSTMs realisiert, zu 
 
 \begin{verbatim}
 Layer (type)                    Output Shape         Param #     Connected to
-===============================================================================
+=============================================================================
 input_1 (InputLayer)            (None, 256, 256, 3)  0
-_______________________________________________________________________________
+_____________________________________________________________________________
 input_2 (InputLayer)            (None, 48, 23)       0
-_______________________________________________________________________________
+_____________________________________________________________________________
 sequential_1 (Sequential)       (None, 48, 1024)     104098080   input_1[0][0]
-_______________________________________________________________________________
+_____________________________________________________________________________
 sequential_2 (Sequential)       (None, 48, 128)      157056      input_2[0][0]
-_______________________________________________________________________________
+_____________________________________________________________________________
 concatenate_1 (Concatenate)     (None, 48, 1152)     0           sequential_1[1][0]
                                                                  sequential_2[1][0]
-_______________________________________________________________________________
+_____________________________________________________________________________
 lstm_1 (LSTM)                   (None, 48, 512)      3409920     concatenate_1[0][0]
-_______________________________________________________________________________
+_____________________________________________________________________________
 lstm_2 (LSTM)                   (None, 512)          2099200     lstm_1[0][0]
-_______________________________________________________________________________
+_____________________________________________________________________________
 dense_3 (Dense)                 (None, 23)           11799       lstm_2[0][0]
-===============================================================================
+=============================================================================
 
 Trainable params: 109,776,055
 
@@ -1391,7 +1442,7 @@ Epoch 10/10
 
 \subsubsection*{Einführung}
 
-Mit diesem Versuch wird getestet, ob eine reine LSTM-Lösung mit mehr Parametern funktionieren könnte. 
+Mit diesem Versuch wird getestet, ob eine LSTM-Lösung mit mehr Parametern funktionieren könnte und das GRU vielleicht doch noch einholt. 
 
 \subsubsection*{Datenset}
 
@@ -1853,6 +1904,7 @@ Durch das Reduzieren der \texttt{Units} der RNNs ist das Modell schlicht zu simp
 
 \subsection{14. Trainingsversuch}
 
+%predictions_bin18_2/
 \subsubsection*{Einführung}
 
 Der Ansatz aus dem 12. Versuch, die vergrößerte \texttt{CONTEXT\_LENGTH} wurde hier verwendet, in Kombination mit einem etwas größeren Netzwerk. In den bisherigen Versuchen gab es stets viele falsch farbige Buttons, vielleicht kann dieses Problem mit einer leicht vergrößerten Decoder Architektur behoben werden.
@@ -1863,7 +1915,33 @@ Hier wurde das Datenset auf dem sechsten Trainingsversuch verwendet.
 
 \subsubsection*{Veränderte Parameter}
 
-Die Anzahl der GRUs in dem Decoder-Teil des Netzwerkes wurde von 512 auf 564 erhöht. Außerdem wurden 20 Epochen trainiert statt nur 10.
+Die Anzahl der GRUs in dem Decoder-Teil des Netzwerkes wurde von 512 auf 564 erhöht. 
+
+\begin{verbatim}
+Layer (type)                    Output Shape         Param #     Connected to
+=============================================================================
+input_1 (InputLayer)            (None, 256, 256, 3)  0
+_____________________________________________________________________________
+input_2 (InputLayer)            (None, 64, 23)       0
+_____________________________________________________________________________
+sequential_1 (Sequential)       (None, 64, 1024)     104097600   input_1[0][0]
+_____________________________________________________________________________
+sequential_2 (Sequential)       (None, 64, 128)      157056      input_2[0][0]
+_____________________________________________________________________________
+concatenate_1 (Concatenate)     (None, 64, 1152)     0           sequential_1[1][0]
+                                                                 sequential_2[1][0]
+_____________________________________________________________________________
+gru_3 (GRU)                     (None, 64, 564)      2905164     concatenate_1[0][0]
+_____________________________________________________________________________
+gru_4 (GRU)                     (None, 564)          1910268     gru_3[0][0]
+_____________________________________________________________________________
+dense_3 (Dense)                 (None, 23)           12995       gru_4[0][0]
+=============================================================================
+Trainable params: 109,083,083
+
+\end{verbatim}
+
+Sichtbar ist dies in den Ebenen \texttt{gru\_3} und \texttt{gru\_4}.
 
 \subsubsection*{Ergebnis}
 
@@ -1927,16 +2005,16 @@ Der Fehler Score ist etwas geringer als im Versuch 12, aber im Grunde ist die Pe
 
 \section{Zusammenfassung der Versuchsergebnisse}
 
-In Tabelle~\ref{tab:comparison} sind die drei Modelle mit der besten Performance aufgeführt.
+In Tabelle~\ref{tab:comparison} sind die drei Modelle mit der besten Performance aufgeführt. Eine kleine Vergrößerung der GRU-Architektur in Kombination mit der leicht erhöhten Kontext Länge im Versuch 14 hat das beste Ergebnis erzielt. Dieses Modell hat immer noch ca. 800.000 Parameter weniger als die Originale LSTM Architektur, performt aber um ein vielfaches besser auf den hier verwendeten Daten.
 
 \begin{table}[]
-\begin{tabular}{cccc}
-\textbf{Versuch}                           & \textbf{Sieben} & \textbf{Elf} & \textbf{Zwölf} \\
-\textbf{Fehler-Score}                      & 4840            & 12442        & 3989           \\
-\textbf{Fehler/Token}                      & 0.1317          & 0.34         & 0.1085         \\
-\textbf{Aritmetisches Mittel Fehler-Score} & 7.82            & 20.10        & \textbf{6.44}           \\
-\textbf{Anzahl Parameter}                  & 108.398.775     & 112.576.631  & 108,398,775   
+\begin{tabular}{lrrr}
+\textbf{Versuch}& 7      & 12       & 14    \\
+\textbf{Fehler Score    }                     & 4840        & 3989        & 3621        \\
+\textbf{Fehler/Token}                       & 0.1317      & 0.1085      & 0.0985      \\
+\textbf{Anzahl Parameter} & 108.398.775 & 108.398.775 & 109.083.083
 \end{tabular}
+
 \captionof{table}{Für jede der Metriken gilt: Je kleiner, desto besser}
 \label{tab:comparison}
 \end{table}
@@ -1944,16 +2022,149 @@ In Tabelle~\ref{tab:comparison} sind die drei Modelle mit der besten Performance
 Viele der Versuche sind nicht gut konvergiert oder hatten die Tendenz die Trainingsdaten auswendig zu lernen. Trotz der vielen Fehlschläge, gelang es eine Architektur zu finden, welche die Ansprüche der DSL und der Komplexität der Screenshots abbilden konnte. 
 Das Ersetzen der LSTMs zu GRUs zeigte einen erstaunlichen Performance-Schub, genauso mit einer Erhöhung der Kontext Länge, konnte so die Architektur aus Versuch Sieben noch mal verbessert werden, um schließlich bei der Konfiguration aus Versuch Zwölf anzukommen. 
 
-
-\section{Fazit}
-
 In vielen Bereichen der Sequenz Modellierung performen LSTMs und GRUs auf einer Ebene ohne einen signifikanten Gewinner auf einer der Seiten. Hier, im Bereich der Sprach-Modellierung in Verbindung mit der Analyse eines Screenshots gibt es aber einen klaren Gewinner: Die \textbf{Gated Recurrent Unit}.
 
 Verschiedene Publikationen \cite{paperGRUComparison}, \cite{lstmSearchSpace}, \cite{colahsBlogLSTM} deuteten stets auf eine ungefähre Ausgewogenheit der Scores der beiden RNN Varianten, aber auch darauf, dass, je nach spezieller Domäne eines Problems, eine Variante besser als die andere sein kann.
 
-Die Annahme, die im Rahmen dieser Arbeit getroffen wird, ist, dass die innere Struktur der GRU, siehe Abbildung~\ref{fig:gru}, besonders gut die Eltern/Kind Beziehungen der verwendeten DSL abbilden kann. Durch die in GRUs verwendete Kopplung der \texttt{forget}- und \texttt{add}-Gates kann diese Beziehung vielleicht besser abgebildet werden als in dem Cell-State des LSTMs. Vielleicht haben Fehler, entweder während des Löschens von Informationen aus dem Cell-State, während des Hinzufügen oder dem Maskieren desselben, bei LSTMs das Halten des Token-States zu kompliziert gemacht und dies hat so zu Fehlern in den Eltern/Kind Beziehungen geführt. Dies sieht man besonders bei Versuch zehn, wo auch eine besonders große LSTM-Architektur ein dürftiges Ergebnis produziert. In Abbildung~\ref{fig:bin13_row_type} erkennt man das wirklich schlechte Modellieren der Rows in diesem Ansatz. In Versuch Sieben und Zwölf auf der anderen Seite, sind diese Rows stets korrekt modelliert, woraus geschlossen werden könnte, dass diese GRUs besser in der Lage sind, Eltern/Kind Beziehungen zu modellieren. Darüber sollten in Zukunft noch ausführlichere Forschungsarbeiten verfasst werden.
+Die Annahme, die im Rahmen dieser Arbeit getroffen wird, ist, dass die innere Struktur der GRU, siehe Abbildung~\ref{fig:gru}, besonders gut die Eltern/Kind Beziehungen der verwendeten DSL abbilden kann. Durch die, in GRUs verwendete, Kopplung der \texttt{forget}- und \texttt{add}-Gates kann diese Beziehung vielleicht besser abgebildet werden als in dem Cell-State des LSTMs. Vielleicht haben Fehler während des Löschens von Informationen aus dem Cell-State oder während dem Hinzufügen von Informationen zu demselben, bei LSTMs das Halten der Input-Historie zu kompliziert gemacht und verfälscht. Denn wenn der Zustand der Zellen nicht gut genug verwaltet wird, können die Langzeit-Beziehungen innerhalb der Daten nicht richtig modelliert werden, insbesondere die Eltern/Kind Beziehungen des DSL. Dies sieht man besonders bei Versuch zehn, wo auch eine besonders große LSTM-Architektur ein nur dürftiges Ergebnis produziert. In Abbildung~\ref{fig:bin13_row_type} erkennt man das wirklich schlechte Modellieren der Rows in diesem Ansatz. In Versuch Sieben und Zwölf auf der anderen Seite, sind diese Rows stets korrekt modelliert, woraus geschlossen werden könnte, dass diese GRUs besser in der Lage sind, Eltern/Kind Beziehungen zu modellieren. 
 
-\section{Bonus Experiment: Ist das Modell komplex genug um aus einer Skizze eine Website zu erstellen?}
+So konnte auf der Suche nach den richtigen Parametern ein Modell gefunden werden, welches den Vorteil der GRUs nutzt und dadurch in der Lage war zu lernen, richtigen Code aus den Input-Bildern zu erstellen. Bei über 80\% der getesteten Bilder waren die einzigen Fehler die das Netzwerk gemacht hat, eine falsche Button-Farbe, größere und wichtigerere Elemente konnten stets korrekt vorhergesagt werden. 
+
+Dies führt zu einem Ende der Zusammenfassung der getätigten Experimente. Es wird gerne die Architektur des 14. Versuches präsentiert, um einen Teil zu der Automatisierung der Frontend-Entwicklung bei zu tragen.
+
+Zusätzlich zu den Experimenten im Kapitel~\ref{sec:experimente} wurden im Anhang zwei weitere Arten von Versuchen durchgeführt. Der erste Versuch, siehe Abschnitt~\ref{sub:exception}, evaluiert, ob eine anderes Vision-Modell besser abschneidet als die im Original Paper benutzte Architektur. Hier konnte jedoch keine Verbesserung festgestellt werden. 
+Der zweite Versuch, siehe Abschnitt~\ref{sub:skizze}, testet ob die verwendeten Architekturen auch lernen können, mit einer Skizze einer Website den dazugehörigen Code zu generieren. Dort werden einige Ansätze und Versuche beschrieben, die in einer ausgebauten Form bestimmt ebenso gute Ergebnisse erzielen könnten wie die Code-Generierung aus den Screenshots. Leider ist noch sehr viel Arbeit nötig um an diesen Punkt zu gelangen.
+
+\newpage
+\section{Fazit}
+
+Das Ziel dieser Arbeit ist, folgender Frage auf den Grund zu gehen: Ist es möglich die auch komplexere Websiten mit pix2code Modell zu abzubilden?  
+
+Nein, das ist es nicht. Um komplexere Websites abzubilden, wird ein erweitertes Sprach-Vokabular benötigt und die Original Architektur scheiterte daran, diese zu verstehen.
+Die zugrunde liegende Original Architektur musste angepasst werden, damit die neuronalen Netzwerke zu einer akzeptablen Lösung konvergieren konnten. Dies wurde durch das Verwenden einer anderen Art von rekurrenten Netzwerken erreicht. Das Ersetzen der LSTMs zu GRUs hatte die Folge, dass das Modell den Zusammenhang zwischen DSL und Input-Bilder viel genauer abbilden konnte. So ist ein Beitrag dieser Arbeit die verbesserte Architektur, aber auch eine Evaluation, welche Art von rekurrenten Netzwerken besser ist, um eine HTML/CSS Markup beschreibende DSL zu modellieren. So kann ein neue, auf dem Original aufbauende, Architektur veröffentlicht werden, um Code aus Screenshots zu erstellen und die Empfehlung ausgesprochen werden, GRUs an stelle von LSTMs für diesen Task mit dem hier genutzten Datenset zu verwenden.
+
+Ein weiterer Beitrag ist ein synthetisiertes Datenset, aus Website-Screenshots und dazugehörigen Token-Token-Sequenzen. Mit diesem Datenset können viele weitere Experimente durchgeführt werde, um herauszufinden wie das Modellieren von Websites aus Screenshots noch besser funktionieren kann. Dieses Datenset enthält zwei verschiedene Ausführungen, nämlich die Screenshots die für das Training der Experimente genutzt wurde, aber auch ein zweites Set, welches Websites besteht, die so aussehen als ob diese skizziert sind. Damit können neuronale Netzwerke trainiert werden, um Websites aus Skizzen zu erstellen.
+
+Schlussendlich ist diese Arbeit einer von vielen Bausteinen die benötigt werden, um in naher Zukunft die Erstellung von Websites zu weiter zu automatisieren. 
+
+Naheliegend wäre der Schritt, die Erstellung des HTML-Markup sowie des CSS-Stylings voneinander zu trennen. So könnten beide Teile unabhängig von einander optimiert werden und es kann jeweils eine höher spezialisierte Lösung gefunden werden.
+
+
+
+\newpage
+\bibliographystyle{plain}
+\bibliography{sources} 
+
+\appendix
+
+\section{Experiment: Kann ein besseres Vision-Modell die Performance verbessern?}\label{sub:exception}
+
+\subsubsection*{Einführung}
+
+Bei diesem Experiment wird ein anderes Vision-Modell getestet. Anstatt einer auf VGGNet bestehenden Architektur, wird eine aus dem Xception \cite{DBLP:journals/corr/Chollet16a} Modell erstellt. Diese Modell performt auf dem ImageNet Dataset um ca. 8\% besser als VGGNet bei ca. einem Sechstel der Parameter \cite{kerasModels}. Außerdem kann dieses Modell mit trainierten Parametern direkt aus Keras geladen werde, so können die Vorteile von Transferlernen ausgenutzt werden. 
+
+\begin{description}
+	\item[Datenset] Hier wurde das Datenset aus dem sechsten Versuch genutzt.
+\end{description}
+
+\subsubsection*{Veränderte Parameter}
+
+\begin{verbatim}
+______________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to                     
+==============================================================================
+input_15 (InputLayer)           (None, 256, 256, 3)  0                                            
+______________________________________________________________________________
+input_16 (InputLayer)           (None, 48, 23)       0                                            
+______________________________________________________________________________
+sequential_10 (Sequential)      (None, 48, 1024)     21886504    input_15[0][0]                   
+______________________________________________________________________________
+sequential_11 (Sequential)      (None, 48, 128)      157056      input_16[0][0]                   
+______________________________________________________________________________
+concatenate_3 (Concatenate)     (None, 48, 1152)     0           sequential_10[1][0]              
+                                                                 sequential_11[1][0]              
+______________________________________________________________________________
+gru_11 (GRU)                    (None, 48, 564)      2905164     concatenate_3[0][0]              
+______________________________________________________________________________
+gru_12 (GRU)                    (None, 564)          1910268     gru_11[0][0]                     
+______________________________________________________________________________
+dense_11 (Dense)                (None, 23)           12995       gru_12[0][0]                     
+==============================================================================
+Total params: 26,871,987
+Trainable params: 20,868,771
+Non-trainable params: 6,003,216
+\end{verbatim}
+
+Die Ebene \texttt{sequential\_10} enthält statt der VGGNet-ähnlichen Architektur nun ein Xception Modell. Das Xception Modell enthält ca. 21 Millionen Parameter, von denen ungefähr 5 Millionen eingefroren wurden. Da das Modell schon vortrainiert ist, wurden die ersten 6 von insgesamt 12 Xception Module eingefroren. Die in diesen Modulen gelernten Features werden beibehalten, nur die höheren werden während dem Training optimiert. Dies spart Zeit und erhöht die Genauigkeit des Netzwerkes.
+Nochmal zum Vergleich: Das Netzwerk aus dem der Original Architektur hatte 109.829.432 trainierbare Parameter.
+
+\subsubsection*{Ergebnis}
+
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \begin{description}
+	\item[Arithmetisches Mittel] $20.10$	
+	\item[Geometrisches Mittel] $19.23$
+	\item[Harmonisches Mittel] $18.38$
+	\item[Quintile] p20: $16$, p40: $19$, p60: $21$, p80: $22$
+	\item[Median] $20$
+	\item[Modus] $21$
+	\item[Vorkommen Modus] $85$
+	\item[Gesamt Fehler Score] 12442
+	\item[Anzahl Token Testset] 36751 
+	\item[Anzahl generierter Token] 33680
+	\item[Score pro Token Testset]  0.34
+\end{description}
+  \captionof{figure}{Lageparameter}
+  \label{fig:lage_bin19_x}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{predictions_bin19_x_histogramm}
+  \captionof{figure}{Fehlerverteilung}
+  \label{fig:hist_bin19_x}
+\end{minipage}
+\end{figure}
+
+Wie in den Abbildungen \ref{fig:lage_bin19_x} bis \ref{fig:bin19_x_row_type} zu sehen ist, performt diese Netzwerk nicht besonders gut. Die Fehler Score von 12442 über das Test ist nicht konkurrenzfähig zu den anderen Architekturen.
+
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{predictions_bin19_x_total_error_types_pie_chart}
+  \captionof{figure}{Gesamt}
+  \label{fig:fehler_gesamt_bin19_x}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{predictions_bin19_x_excluded_p80_error_types_pie_chart}
+  \captionof{figure}{Ohne p80}
+  \label{fig:fehler_beste80_bin19_x}
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+  \centering
+   \includegraphics[width=1\linewidth]{predictions_bin19_x_p80_error_types_pie_chart}
+  \captionof{figure}{Nur p80}
+  \label{fig:fehler_schlechteste20_bin19_x}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{predictions_bin19_x_predicted_row_type_distribution}
+\caption{Verteilung Row Types}
+\label{fig:bin19_x_row_type}
+\end{figure}
+
+
+\subsubsection*{Fazit}
+
+Da das Xception-Modell, in vielen anderen Domänen, besser performt als das VGGNet-Modell wurde angenommen, dass es auch hier besser sein könnte.  Der Ansatz nur das Vision-Modell zu ersetzten, schlug leider fehl. Aufgrund der modularen Bauweise des Netzwerkes hätte es funktionieren können, aber es werden noch mehr Anpassungen benötigt, um die Architektur auf ein Xception-Netzwerk umzustellen. Weiter in diese Richtung zu gehen, würde den Rahmen dieser Arbeit sprengen.
+
+\section{Bonus Experiment: Ist das Modell komplex genug um aus einer Skizze eine Website zu erstellen?}\label{sub:skizze}
 
 Ein Website aus einen Screenshot eines Designs zu erstellen, ist das eine Problem, aber könnte das selbe Modell auch aus einen groben Skizze vollständiges HTML zu erlernen?
 
@@ -2034,7 +2245,7 @@ Da das Datenset aus komplexeren Bildern bestand (Weichzeichnung, Rotation, verä
 
 \subsubsection*{Einleitung}
 
-Bei diesem Experiment wird ein anderes Vision-Modell getestet. Anstatt einer auf VGGNet bestehenden Architektur, wird eine aus dem Xception \cite{DBLP:journals/corr/Chollet16a} Modell erstellt. Diese Modell performt auf dem ImageNet Dataset um ca. 8\% besser als VGGNet bei ca. einem Sechstel der Parameter \cite{kerasModels}. Außerdem kann dieses Modell mit trainierten Parametern direkt aus Keras geladen werde, so können die Vorteile von Transferlernen ausgenutzt werden. 
+Hier wird ebenfalls das Xception-Netzwerk für das Visions-Modell getestet. 
 
 \subsubsection*{Datenset}
 
@@ -2042,44 +2253,33 @@ Wie bei dem ersten Versuch.
 
 \subsubsection*{Veränderte Parameter}
 
-Das Vision-Modell wurde ausgetauscht und stattdessen ein Xception-Netzwerk verwendet.
+Das Vision-Modell wurde ausgetauscht und stattdessen ein Xception-Netzwerk verwendet. Siehe die Detail im Abschnitt~\ref{sub:exception}
 
-\begin{verbatim}
-______________________________________________________________________________
-Layer (type)                    Output Shape         Param #     Connected to                     
-==============================================================================
-input_15 (InputLayer)           (None, 256, 256, 3)  0                                            
-______________________________________________________________________________
-input_16 (InputLayer)           (None, 48, 23)       0                                            
-______________________________________________________________________________
-sequential_10 (Sequential)      (None, 48, 1024)     21886504    input_15[0][0]                   
-______________________________________________________________________________
-sequential_11 (Sequential)      (None, 48, 128)      157056      input_16[0][0]                   
-______________________________________________________________________________
-concatenate_3 (Concatenate)     (None, 48, 1152)     0           sequential_10[1][0]              
-                                                                 sequential_11[1][0]              
-______________________________________________________________________________
-gru_11 (GRU)                    (None, 48, 564)      2905164     concatenate_3[0][0]              
-______________________________________________________________________________
-gru_12 (GRU)                    (None, 564)          1910268     gru_11[0][0]                     
-______________________________________________________________________________
-dense_11 (Dense)                (None, 23)           12995       gru_12[0][0]                     
-==============================================================================
-Total params: 26,871,987
-Trainable params: 20,868,771
-Non-trainable params: 6,003,216
-\end{verbatim}
-
-Die Ebene \texttt{sequential\_10} enthält statt der VGGNet-ähnlichen Architektur nun ein Xception Modell. Das Xception Modell enthält ca. 21 Millionen Parameter, von denen ungefähr 5 Millionen eingefroren wurden. Da das Modell schon vortrainiert ist, wurden die ersten 6 von insgesamt 12 Xception Module eingefroren. Die in diesen Modulen gelernten Features werden beibehalten, nur die höheren werden während dem Training optimiert. Dies spart Zeit und erhöht die Genauigkeit des Netzwerkes.
-Nochmal zum Vergleich: Das Netzwerk aus dem allerersten Versuch hatte 109.829.432 trainierbare Parameter.
 
 \subsubsection*{Ergebnis}
 
+Leider sind die Predictions des Netzwerkes stets eine zufällig erscheinende Abfolge von Token:
+
+\begin{verbatim}
+<START>sidebarsidebar<START>sidebar<START>sidebarsidebar
+<START>sidebarsidebar<START>sidebar<START>sidebarsidebar
+<START><START>sidebarsidebar<START>sidebar<START>sidebarsidebar
+<START><START>sidebarsidebar<START>sidebar<START>sidebarsidebar
+<START><START>sidebar<END>
+\end{verbatim}
+
+Da eine derartige Folge ebenso erscheint, wenn ein Bild aus den Trainingsdaten gesamplet wird, stellt sich die Frage wieso der Trainings-Loss einen Verlauf wie in Abbildung~\ref{fig:loss_drawn_x_15}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{loss_drawn_x_15}
+\caption{Loss des 2. Extra-Training}
+\label{fig:loss_drawn_x_15}
+\end{figure}
+
 \subsubsection*{Fazit}
-
-\bibliographystyle{plain}
-\bibliography{sources} 
-
+Das Training dieses Netzwerkes über 15 Epochen hat insgesamt 45 Stunden gedauert. Aus diesem Grund, wird es keine weiteren Experimente mit der augmentierten Datenset von Skizzen geben. 
+Es ist wirklich schade diese Experimente einstellen zu müssen, im Rahmen dieser Arbeit, ist aber kein Platz mehr für weitere Ausführungen. Besonders im Zusammenhang mit dem Experiment in Abschnitt~\ref{sub:exception} ist zu beobachten, dass die neue Vision-Architektur noch ausgiebig angepasst und verbessert werden muss.
 \end{document}
 
 
