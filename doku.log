@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.13)  31 OCT 2018 20:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.13)  1 NOV 2018 12:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -744,7 +744,7 @@ Overfull \hbox (12.99841pt too wide) in paragraph at lines 91--92
 on) oder -1 (Tangens-Hyperbolicus
  []
 
-[5] <./images/colah_cnn.png, id=321, 1230.5975pt x 741.77126pt>
+[5] <./images/colah_cnn.png, id=326, 1230.5975pt x 741.77126pt>
 File: ./images/colah_cnn.png Graphic file (type png)
 
 <use ./images/colah_cnn.png>
@@ -756,7 +756,7 @@ LaTeX Font Info:    Try loading font information for T1+cmtt on input line 116.
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 ) [6]
-<./images/gimp_doku_edges_kernel.png, id=332, 50.1875pt x 50.1875pt>
+<./images/gimp_doku_edges_kernel.png, id=338, 50.1875pt x 50.1875pt>
 File: ./images/gimp_doku_edges_kernel.png Graphic file (type png)
 
 <use ./images/gimp_doku_edges_kernel.png>
@@ -764,14 +764,14 @@ Package pdftex.def Info: ./images/gimp_doku_edges_kernel.png used on input line
  127.
 (pdftex.def)             Requested size: 62.73897pt x 62.74338pt.
 
-<./images/gimp_doku_edges.jpg, id=333, 150.5625pt x 150.5625pt>
+<./images/gimp_doku_edges.jpg, id=339, 150.5625pt x 150.5625pt>
 File: ./images/gimp_doku_edges.jpg Graphic file (type jpg)
 
 <use ./images/gimp_doku_edges.jpg>
 Package pdftex.def Info: ./images/gimp_doku_edges.jpg used on input line 131.
 (pdftex.def)             Requested size: 167.30286pt x 167.31932pt.
  [7 <./images/colah_cnn.png>]
-<./images/colah_rnn.png, id=351, 977.8131pt x 256.91985pt>
+<./images/colah_rnn.png, id=356, 977.8131pt x 256.91985pt>
 File: ./images/colah_rnn.png Graphic file (type png)
 
 <use ./images/colah_rnn.png>
@@ -779,14 +779,14 @@ Package pdftex.def Info: ./images/colah_rnn.png used on input line 147.
 (pdftex.def)             Requested size: 209.12778pt x 54.94658pt.
  [8 <./images/gimp_doku_edges_kernel.png (PNG copy)> <./images/gimp_doku_edges.
 jpg> <./images/colah_rnn.png>]
-<./images/colah_lstm.png, id=371, 806.89455pt x 303.17265pt>
+<./images/colah_lstm.png, id=376, 806.89455pt x 303.17265pt>
 File: ./images/colah_lstm.png Graphic file (type png)
 
 <use ./images/colah_lstm.png>
 Package pdftex.def Info: ./images/colah_lstm.png used on input line 166.
 (pdftex.def)             Requested size: 209.12778pt x 78.57321pt.
 
-<./images/colah_gru_small.png, id=376, 524.96124pt x 397.485pt>
+<./images/colah_gru_small.png, id=381, 524.96124pt x 397.485pt>
 File: ./images/colah_gru_small.png Graphic file (type png)
 
 <use ./images/colah_gru_small.png>
@@ -798,656 +798,675 @@ Overfull \hbox (0.37712pt too wide) in paragraph at lines 227--228
  []
 
 [12]
-<./images/pix2code_paper_architecture.png, id=414, 1176.395pt x 308.15125pt>
+<./images/pix2code_paper_architecture.png, id=418, 1176.395pt x 308.15125pt>
 File: ./images/pix2code_paper_architecture.png Graphic file (type png)
 
 <use ./images/pix2code_paper_architecture.png>
 Package pdftex.def Info: ./images/pix2code_paper_architecture.png used on input
  line 249.
 (pdftex.def)             Requested size: 397.34149pt x 104.07883pt.
- [13 <./images/pix2code_paper_architecture.png>] [14] [15]
-Underfull \hbox (badness 10000) in paragraph at lines 342--344
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[13] [14 <./images/pix2code_paper_architecture.png>] [15] [16]
+Underfull \hbox (badness 10000) in paragraph at lines 360--362
 
  []
 
-[16]
-Overfull \hbox (27.06976pt too wide) in paragraph at lines 349--350
+
+Overfull \hbox (27.06976pt too wide) in paragraph at lines 367--368
 \T1/cmr/m/n/10.95 leit-bar und da-mit von An-fang bis En-de op-ti-mier-bar mit 
 ei-nem Gradienten-Abstiegsverfahren. 
  []
 
 
-Overfull \hbox (34.42564pt too wide) in paragraph at lines 357--358
+Overfull \hbox (34.42564pt too wide) in paragraph at lines 375--376
 []\T1/cmr/m/n/10.95 Um ein ers-tes Trainings-Sample zu bil-den, wird ein Vek-to
 r $\OML/cmm/m/it/10.95 S[]$ \T1/cmr/m/n/10.95 der Län-ge $[] \OT1/cmr/m/n/10.95
  =
  []
 
 
-Overfull \hbox (40.98409pt too wide) in paragraph at lines 358--359
+Overfull \hbox (40.98409pt too wide) in paragraph at lines 376--377
 []$\OML/cmm/m/it/10.95 S[]$ \T1/cmr/m/n/10.95 wird nur mit dem \T1/cmtt/m/n/10.
 95 start\T1/cmr/m/n/10.95 -Token be-füllt. $\OML/cmm/m/it/10.95 S[] \OT1/cmr/m/
 n/10.95 = []$ 
  []
 
 [17]
-Overfull \hbox (27.92311pt too wide) in paragraph at lines 385--386
+Overfull \hbox (27.92311pt too wide) in paragraph at lines 403--404
 \T1/cmr/m/n/10.95 Trai-nings, ein neu-er Kontext-Vektor $\OML/cmm/m/it/10.95 C[
 ] \OT1/cmr/m/n/10.95 = []$
  []
 
-[18] <./images/beispiel_daten.jpg, id=472, 1850.112pt x 1059.96pt>
+[18] [19] <./images/beispiel_daten.jpg, id=482, 1850.112pt x 1059.96pt>
 File: ./images/beispiel_daten.jpg Graphic file (type jpg)
 
 <use ./images/beispiel_daten.jpg>
-Package pdftex.def Info: ./images/beispiel_daten.jpg used on input line 400.
+Package pdftex.def Info: ./images/beispiel_daten.jpg used on input line 418.
 (pdftex.def)             Requested size: 418.25555pt x 239.61287pt.
- [19 <./images/beispiel_daten.jpg>] [20]
-Overfull \hbox (40.0725pt too wide) in paragraph at lines 486--486
+ [20 <./images/beispiel_daten.jpg>] [21]
+Overfull \hbox (40.0725pt too wide) in paragraph at lines 504--504
 []        \T1/cmtt/m/n/10.95 row_count_layout_combinations[i] = list(row_count_
 layout_combinations[i])[] 
  []
 
 
-Overfull \hbox (90.99783pt too wide) in paragraph at lines 498--498
+Overfull \hbox (90.99783pt too wide) in paragraph at lines 516--516
 []                            \T1/cmtt/m/n/10.95 menu = tokenBuilder.createMenu
 (logo_flag, num_of_menue_button)[] 
  []
 
 
-Overfull \hbox (62.70598pt too wide) in paragraph at lines 501--501
+Overfull \hbox (62.70598pt too wide) in paragraph at lines 519--519
 []                            \T1/cmtt/m/n/10.95 sidebar = tokenBuilder.createS
 idebar(num_of_menue_button)[] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 505--505
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 523--523
 []                            \T1/cmtt/m/n/10.95 row = tokenBuilder.createRow(r
 ow_count_layout[i])[] 
  []
 
-[21] [22] [23] [24]
-<./images/predictions_bin10_histogramm.png, id=513, 433.62pt x 289.08pt>
+[22] [23] <./images/beispiel_daten_2.jpg, id=510, 1850.112pt x 1040.688pt>
+File: ./images/beispiel_daten_2.jpg Graphic file (type jpg)
+
+<use ./images/beispiel_daten_2.jpg>
+Package pdftex.def Info: ./images/beispiel_daten_2.jpg used on input line 578.
+(pdftex.def)             Requested size: 188.21371pt x 105.8693pt.
+
+<./images/beispiel_daten_3.jpg, id=511, 1850.112pt x 1059.96pt>
+File: ./images/beispiel_daten_3.jpg Graphic file (type jpg)
+
+<use ./images/beispiel_daten_3.jpg>
+Package pdftex.def Info: ./images/beispiel_daten_3.jpg used on input line 582.
+(pdftex.def)             Requested size: 188.21371pt x 107.82983pt.
+ [24 <./images/beispiel_daten_2.jpg> <./images/beispiel_daten_3.jpg>] [25]
+<./images/predictions_bin10_histogramm.png, id=527, 433.62pt x 289.08pt>
 File: ./images/predictions_bin10_histogramm.png Graphic file (type png)
 
 <use ./images/predictions_bin10_histogramm.png>
 Package pdftex.def Info: ./images/predictions_bin10_histogramm.png used on inpu
-t line 647.
+t line 670.
 (pdftex.def)             Requested size: 167.30286pt x 111.53653pt.
 
-<./images/predictions_bin12_histogramm.png, id=514, 433.62pt x 289.08pt>
+<./images/predictions_bin12_histogramm.png, id=528, 433.62pt x 289.08pt>
 File: ./images/predictions_bin12_histogramm.png Graphic file (type png)
 
 <use ./images/predictions_bin12_histogramm.png>
 Package pdftex.def Info: ./images/predictions_bin12_histogramm.png used on inpu
-t line 653.
+t line 676.
 (pdftex.def)             Requested size: 167.30286pt x 111.53653pt.
- [25]
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 669--669
+ [26 <./images/predictions_bin10_histogramm.png> <./images/predictions_bin12_hi
+stogramm.png>]
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 692--692
 []\T1/cmtt/m/n/10.95 Layer (type)                    Output Shape         Param
  #     Connected to[] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 671--671
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 694--694
 []\T1/cmtt/m/n/10.95 ==========================================================
 ===================[] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 673--673
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 696--696
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 675--675
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 698--698
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 676--676
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 699--699
 []\T1/cmtt/m/n/10.95 sequential_1 (Sequential)       (None, 48, 1024)     10409
 8080   input_1[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 677--677
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 700--700
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 678--678
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 701--701
 []\T1/cmtt/m/n/10.95 sequential_2 (Sequential)       (None, 48, 128)      20992
 0      input_2[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 679--679
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 702--702
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (51.38924pt too wide) in paragraph at lines 680--680
+Overfull \hbox (51.38924pt too wide) in paragraph at lines 703--703
 []\T1/cmtt/m/n/10.95 concatenate_1 (Concatenate)     (None, 48, 1152)     0    
        sequential_1[1][0][] 
  []
 
 
-Overfull \hbox (51.38924pt too wide) in paragraph at lines 681--681
+Overfull \hbox (51.38924pt too wide) in paragraph at lines 704--704
 []                                                                 \T1/cmtt/m/n
 /10.95 sequential_2[1][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 682--682
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 705--705
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (57.0476pt too wide) in paragraph at lines 683--683
+Overfull \hbox (57.0476pt too wide) in paragraph at lines 706--706
 []\T1/cmtt/m/n/10.95 lstm_3 (LSTM)                   (None, 48, 512)      34099
 20     concatenate_1[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 684--684
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 707--707
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 685--685
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 708--708
 []\T1/cmtt/m/n/10.95 lstm_4 (LSTM)                   (None, 512)          20992
 00     lstm_3[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 686--686
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 709--709
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 687--687
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 710--710
 []\T1/cmtt/m/n/10.95 dense_3 (Dense)                 (None, 20)           12312
        lstm_4[0][0][] 
  []
 
-[26 <./images/predictions_bin10_histogramm.png> <./images/predictions_bin12_his
-togramm.png>]
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 693.
- [27] [28] [29]
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 810--810
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 716.
+[27] [28] [29] [30]
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 833--833
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________ 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 811--811
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 834--834
 []\T1/cmtt/m/n/10.95 Layer (type)                    Output Shape         Param
  #     Connected to[] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 812--812
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 835--835
 []\T1/cmtt/m/n/10.95 ==========================================================
 ===================[] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 814--814
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 837--837
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 816--816
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 839--839
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 817--817
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 840--840
 []\T1/cmtt/m/n/10.95 sequential_3 (Sequential)       (None, 48, 1024)     10409
 8080   input_1[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 818--818
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 841--841
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 819--819
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 842--842
 []\T1/cmtt/m/n/10.95 sequential_4 (Sequential)       (None, 48, 192)      46233
 6      input_2[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 820--820
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 843--843
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (51.38924pt too wide) in paragraph at lines 821--821
+Overfull \hbox (51.38924pt too wide) in paragraph at lines 844--844
 []\T1/cmtt/m/n/10.95 concatenate_1 (Concatenate)     (None, 48, 1216)     0    
        sequential_3[1][0][] 
  []
 
 
-Overfull \hbox (51.38924pt too wide) in paragraph at lines 822--822
+Overfull \hbox (51.38924pt too wide) in paragraph at lines 845--845
 []                                                                 \T1/cmtt/m/n
 /10.95 sequential_4[1][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 823--823
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 846--846
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (57.0476pt too wide) in paragraph at lines 824--824
+Overfull \hbox (57.0476pt too wide) in paragraph at lines 847--847
 []\T1/cmtt/m/n/10.95 lstm_3 (LSTM)                   (None, 48, 768)      60979
 20     concatenate_1[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 825--825
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 848--848
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 826--826
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 849--849
 []\T1/cmtt/m/n/10.95 lstm_4 (LSTM)                   (None, 768)          47216
 64     lstm_3[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 827--827
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 850--850
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 828--828
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 851--851
 []\T1/cmtt/m/n/10.95 dense_3 (Dense)                 (None, 24)           18456
        lstm_4[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 829--829
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 852--852
 []\T1/cmtt/m/n/10.95 ==========================================================
 ===================[] 
  []
 
-[30] [31]
-Overfull \hbox (39.50752pt too wide) in paragraph at lines 875--876
+[31] [32]
+Overfull \hbox (39.50752pt too wide) in paragraph at lines 898--899
 \T1/cmr/m/n/10.95 Ein neu-es Da-ten-set mit 3096 Bil-dern wur-de er-stellt. Ein
  Drit-tel hat das Fea-ture \T1/cmtt/m/n/10.95 menue_logo_left\T1/cmr/m/n/10.95 
 ,
  []
 
-[32] [33] [34] [35]
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1036--1036
+[33] [34] [35] [36]
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1059--1059
 []\T1/cmtt/m/n/10.95 Layer (type)                    Output Shape         Param
  #     Connected to[] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1037--1037
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1060--1060
 []\T1/cmtt/m/n/10.95 ==========================================================
 ===================[] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1039--1039
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1062--1062
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1041--1041
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1064--1064
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 1042--1042
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 1065--1065
 []\T1/cmtt/m/n/10.95 sequential_1 (Sequential)       (None, 48, 1024)     10409
 8080   input_1[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1043--1043
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1066--1066
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 1044--1044
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 1067--1067
 []\T1/cmtt/m/n/10.95 sequential_2 (Sequential)       (None, 48, 128)      15705
 6      input_2[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1045--1045
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1068--1068
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (51.38924pt too wide) in paragraph at lines 1046--1046
+Overfull \hbox (51.38924pt too wide) in paragraph at lines 1069--1069
 []\T1/cmtt/m/n/10.95 concatenate_1 (Concatenate)     (None, 48, 1152)     0    
        sequential_1[1][0][] 
  []
 
 
-Overfull \hbox (51.38924pt too wide) in paragraph at lines 1047--1047
+Overfull \hbox (51.38924pt too wide) in paragraph at lines 1070--1070
 []                                                                 \T1/cmtt/m/n
 /10.95 sequential_2[1][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1048--1048
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1071--1071
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (57.0476pt too wide) in paragraph at lines 1049--1049
+Overfull \hbox (57.0476pt too wide) in paragraph at lines 1072--1072
 []\T1/cmtt/m/n/10.95 gru_3 (GRU)                     (None, 48, 512)      25574
 40     concatenate_1[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1050--1050
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1073--1073
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (11.78064pt too wide) in paragraph at lines 1051--1051
+Overfull \hbox (11.78064pt too wide) in paragraph at lines 1074--1074
 []\T1/cmtt/m/n/10.95 gru_4 (GRU)                     (None, 512)          15744
 00     gru_3[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1052--1052
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1075--1075
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (11.78064pt too wide) in paragraph at lines 1053--1053
+Overfull \hbox (11.78064pt too wide) in paragraph at lines 1076--1076
 []\T1/cmtt/m/n/10.95 dense_3 (Dense)                 (None, 23)           11799
        gru_4[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1054--1054
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1077--1077
 []\T1/cmtt/m/n/10.95 ==========================================================
 ===================[] 
  []
 
-[36]
+[37]
 File: ./images/predictions_bin10_histogramm.png Graphic file (type png)
  <use ./images/predictions_bin10_histogramm.png>
 Package pdftex.def Info: ./images/predictions_bin10_histogramm.png used on inpu
-t line 1090.
+t line 1113.
 (pdftex.def)             Requested size: 209.12778pt x 139.41846pt.
 
-<./images/predictions_bin10_total_error_types_pie_chart.png, id=610, 516.93124p
+<./images/predictions_bin10_total_error_types_pie_chart.png, id=625, 516.93124p
 t x 238.8925pt>
 File: ./images/predictions_bin10_total_error_types_pie_chart.png Graphic file (
 type png)
 
 <use ./images/predictions_bin10_total_error_types_pie_chart.png>
 Package pdftex.def Info: ./images/predictions_bin10_total_error_types_pie_chart
-.png used on input line 1133.
+.png used on input line 1156.
 (pdftex.def)             Requested size: 209.12778pt x 96.64522pt.
 
-<./images/predictions_bin10_excluded_p80_error_types_pie_chart.png, id=611, 516
+<./images/predictions_bin10_excluded_p80_error_types_pie_chart.png, id=626, 516
 .93124pt x 238.8925pt>
 File: ./images/predictions_bin10_excluded_p80_error_types_pie_chart.png Graphic
  file (type png)
 
 <use ./images/predictions_bin10_excluded_p80_error_types_pie_chart.png>
 Package pdftex.def Info: ./images/predictions_bin10_excluded_p80_error_types_pi
-e_chart.png used on input line 1139.
+e_chart.png used on input line 1162.
 (pdftex.def)             Requested size: 209.12778pt x 96.64522pt.
 
-<./images/predictions_bin10_p80_error_types_pie_chart.png, id=612, 516.93124pt 
+<./images/predictions_bin10_p80_error_types_pie_chart.png, id=627, 516.93124pt 
 x 238.8925pt>
 File: ./images/predictions_bin10_p80_error_types_pie_chart.png Graphic file (ty
 pe png)
  <use ./images/predictions_bin10_p80_error_types_pie_chart.png>
 Package pdftex.def Info: ./images/predictions_bin10_p80_error_types_pie_chart.p
-ng used on input line 1145.
+ng used on input line 1168.
 (pdftex.def)             Requested size: 209.12778pt x 96.64522pt.
 
-[37]
-<./images/predictions_bin10_predicted_row_type_distribution.png, id=625, 516.93
+<./images/predictions_bin10_predicted_row_type_distribution.png, id=629, 516.93
 124pt x 238.8925pt>
 File: ./images/predictions_bin10_predicted_row_type_distribution.png Graphic fi
 le (type png)
 
 <use ./images/predictions_bin10_predicted_row_type_distribution.png>
 Package pdftex.def Info: ./images/predictions_bin10_predicted_row_type_distribu
-tion.png used on input line 1155.
+tion.png used on input line 1178.
 (pdftex.def)             Requested size: 209.12778pt x 96.64522pt.
- [38 <./images/predictions_bin10_total_error_types_pie_chart.png> <./images/pre
-dictions_bin10_excluded_p80_error_types_pie_chart.png> <./images/predictions_bi
-n10_p80_error_types_pie_chart.png> <./images/predictions_bin10_predicted_row_ty
-pe_distribution.png>]
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1207--1207
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[38] [39 <./images/predictions_bin10_total_error_types_pie_chart.png> <./images
+/predictions_bin10_excluded_p80_error_types_pie_chart.png> <./images/prediction
+s_bin10_p80_error_types_pie_chart.png> <./images/predictions_bin10_predicted_ro
+w_type_distribution.png>]
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1230--1230
 []\T1/cmtt/m/n/10.95 Layer (type)                    Output Shape         Param
  #     Connected to[] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1208--1208
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1231--1231
 []\T1/cmtt/m/n/10.95 ==========================================================
 ===================[] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1210--1210
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1233--1233
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1212--1212
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1235--1235
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 1213--1213
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 1236--1236
 []\T1/cmtt/m/n/10.95 sequential_1 (Sequential)       (None, 48, 1024)     10409
 8080   input_1[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1214--1214
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1237--1237
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 1215--1215
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 1238--1238
 []\T1/cmtt/m/n/10.95 sequential_2 (Sequential)       (None, 48, 128)      20940
 8      input_2[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1216--1216
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1239--1239
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (51.38924pt too wide) in paragraph at lines 1217--1217
+Overfull \hbox (51.38924pt too wide) in paragraph at lines 1240--1240
 []\T1/cmtt/m/n/10.95 concatenate_1 (Concatenate)     (None, 48, 1152)     0    
        sequential_1[1][0][] 
  []
 
 
-Overfull \hbox (51.38924pt too wide) in paragraph at lines 1218--1218
+Overfull \hbox (51.38924pt too wide) in paragraph at lines 1241--1241
 []                                                                 \T1/cmtt/m/n
 /10.95 sequential_2[1][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1219--1219
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1242--1242
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (57.0476pt too wide) in paragraph at lines 1220--1220
+Overfull \hbox (57.0476pt too wide) in paragraph at lines 1243--1243
 []\T1/cmtt/m/n/10.95 gru_1 (GRU)                     (None, 48, 512)      25574
 40     concatenate_1[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1221--1221
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1244--1244
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (11.78064pt too wide) in paragraph at lines 1222--1222
+Overfull \hbox (11.78064pt too wide) in paragraph at lines 1245--1245
 []\T1/cmtt/m/n/10.95 gru_2 (GRU)                     (None, 512)          15744
 00     gru_1[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1223--1223
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1246--1246
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (11.78064pt too wide) in paragraph at lines 1224--1224
+Overfull \hbox (11.78064pt too wide) in paragraph at lines 1247--1247
 []\T1/cmtt/m/n/10.95 dense_3 (Dense)                 (None, 23)           11799
        gru_2[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1225--1225
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1248--1248
 []\T1/cmtt/m/n/10.95 ==========================================================
 ===================[] 
  []
 
-[39] [40]
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1312--1312
+[40]
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1335--1335
 []\T1/cmtt/m/n/10.95 Layer (type)                    Output Shape         Param
  #     Connected to 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1313--1313
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1336--1336
 []\T1/cmtt/m/n/10.95 ==========================================================
 ===================[] 
  []
 
-
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1315--1315
+[41]
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1338--1338
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1317--1317
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1340--1340
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 1318--1318
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 1341--1341
 []\T1/cmtt/m/n/10.95 sequential_1 (Sequential)       (None, 48, 1024)     10409
 8080   input_1[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1319--1319
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1342--1342
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 1320--1320
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 1343--1343
 []\T1/cmtt/m/n/10.95 sequential_2 (Sequential)       (None, 48, 128)      15705
 6      input_2[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1321--1321
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1344--1344
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (51.38924pt too wide) in paragraph at lines 1322--1322
+Overfull \hbox (51.38924pt too wide) in paragraph at lines 1345--1345
 []\T1/cmtt/m/n/10.95 concatenate_1 (Concatenate)     (None, 48, 1152)     0    
        sequential_1[1][0][] 
  []
 
 
-Overfull \hbox (51.38924pt too wide) in paragraph at lines 1323--1323
+Overfull \hbox (51.38924pt too wide) in paragraph at lines 1346--1346
 []                                                                 \T1/cmtt/m/n
 /10.95 sequential_2[1][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1324--1324
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1347--1347
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (57.0476pt too wide) in paragraph at lines 1325--1325
+Overfull \hbox (57.0476pt too wide) in paragraph at lines 1348--1348
 []\T1/cmtt/m/n/10.95 lstm_1 (LSTM)                   (None, 48, 512)      34099
 20     concatenate_1[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1326--1326
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1349--1349
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1327--1327
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1350--1350
 []\T1/cmtt/m/n/10.95 lstm_2 (LSTM)                   (None, 512)          20992
 00     lstm_1[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1328--1328
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1351--1351
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1329--1329
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1352--1352
 []\T1/cmtt/m/n/10.95 dense_3 (Dense)                 (None, 23)           11799
        lstm_2[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1330--1330
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1353--1353
 []\T1/cmtt/m/n/10.95 ==========================================================
 ===================[] 
  []
@@ -1455,1039 +1474,1044 @@ Overfull \hbox (17.43901pt too wide) in paragraph at lines 1330--1330
 File: ./images/predictions_bin12_histogramm.png Graphic file (type png)
 <use ./images/predictions_bin12_histogramm.png>
 Package pdftex.def Info: ./images/predictions_bin12_histogramm.png used on inpu
-t line 1366.
+t line 1389.
 (pdftex.def)             Requested size: 209.12778pt x 139.41846pt.
- [41]
-<./images/predictions_bin12_total_error_types_pie_chart.png, id=663, 516.93124p
+
+<./images/predictions_bin12_total_error_types_pie_chart.png, id=672, 516.93124p
 t x 238.8925pt>
 File: ./images/predictions_bin12_total_error_types_pie_chart.png Graphic file (
 type png)
 
 <use ./images/predictions_bin12_total_error_types_pie_chart.png>
 Package pdftex.def Info: ./images/predictions_bin12_total_error_types_pie_chart
-.png used on input line 1380.
+.png used on input line 1403.
 (pdftex.def)             Requested size: 209.12778pt x 96.64522pt.
 
-<./images/predictions_bin12_excluded_p80_error_types_pie_chart.png, id=664, 516
+<./images/predictions_bin12_excluded_p80_error_types_pie_chart.png, id=673, 516
 .93124pt x 238.8925pt>
 File: ./images/predictions_bin12_excluded_p80_error_types_pie_chart.png Graphic
  file (type png)
 
 <use ./images/predictions_bin12_excluded_p80_error_types_pie_chart.png>
 Package pdftex.def Info: ./images/predictions_bin12_excluded_p80_error_types_pi
-e_chart.png used on input line 1386.
+e_chart.png used on input line 1409.
 (pdftex.def)             Requested size: 209.12778pt x 96.64522pt.
 
-<./images/predictions_bin12_p80_error_types_pie_chart.png, id=665, 516.93124pt 
+<./images/predictions_bin12_p80_error_types_pie_chart.png, id=674, 516.93124pt 
 x 238.8925pt>
 File: ./images/predictions_bin12_p80_error_types_pie_chart.png Graphic file (ty
 pe png)
  <use ./images/predictions_bin12_p80_error_types_pie_chart.png>
 Package pdftex.def Info: ./images/predictions_bin12_p80_error_types_pie_chart.p
-ng used on input line 1392.
+ng used on input line 1415.
 (pdftex.def)             Requested size: 209.12778pt x 96.64522pt.
 
-<./images/predictions_bin12_predicted_row_type_distribution.png, id=667, 516.93
+[42] [43 <./images/predictions_bin12_total_error_types_pie_chart.png> <./images
+/predictions_bin12_excluded_p80_error_types_pie_chart.png> <./images/prediction
+s_bin12_p80_error_types_pie_chart.png>]
+<./images/predictions_bin12_predicted_row_type_distribution.png, id=694, 516.93
 124pt x 238.8925pt>
 File: ./images/predictions_bin12_predicted_row_type_distribution.png Graphic fi
 le (type png)
 
 <use ./images/predictions_bin12_predicted_row_type_distribution.png>
 Package pdftex.def Info: ./images/predictions_bin12_predicted_row_type_distribu
-tion.png used on input line 1402.
+tion.png used on input line 1425.
 (pdftex.def)             Requested size: 209.12778pt x 96.64522pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[42] [43 <./images/predictions_bin12_total_error_types_pie_chart.png> <./images
-/predictions_bin12_excluded_p80_error_types_pie_chart.png> <./images/prediction
-s_bin12_p80_error_types_pie_chart.png> <./images/predictions_bin12_predicted_ro
-w_type_distribution.png>]
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1457--1457
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1480--1480
 []\T1/cmtt/m/n/10.95 Layer (type)                    Output Shape         Param
  #     Connected to[] 
  []
 
 
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 1458--1458
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 1481--1481
 []\T1/cmtt/m/n/10.95 ==========================================================
 ====================[] 
  []
 
 
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 1460--1460
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 1483--1483
+[]\T1/cmtt/m/n/10.95 __________________________________________________________
+____________________[] 
+ []
+
+[44 <./images/predictions_bin12_predicted_row_type_distribution.png>]
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 1485--1485
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ____________________[] 
  []
 
 
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 1462--1462
-[]\T1/cmtt/m/n/10.95 __________________________________________________________
-____________________[] 
- []
-
-
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 1463--1463
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 1486--1486
 []\T1/cmtt/m/n/10.95 sequential_1 (Sequential)       (None, 48, 1024)     10409
 8080   input_1[0][0][] 
  []
 
 
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 1464--1464
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 1487--1487
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ____________________[] 
  []
 
 
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 1465--1465
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 1488--1488
 []\T1/cmtt/m/n/10.95 sequential_2 (Sequential)       (None, 48, 256)      81203
 2      input_2[0][0][] 
  []
 
 
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 1466--1466
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 1489--1489
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ____________________[] 
  []
 
 
-Overfull \hbox (51.38924pt too wide) in paragraph at lines 1467--1467
+Overfull \hbox (51.38924pt too wide) in paragraph at lines 1490--1490
 []\T1/cmtt/m/n/10.95 concatenate_1 (Concatenate)     (None, 48, 1280)     0    
        sequential_1[1][0][] 
  []
 
 
-Overfull \hbox (51.38924pt too wide) in paragraph at lines 1468--1468
+Overfull \hbox (51.38924pt too wide) in paragraph at lines 1491--1491
 []                                                                 \T1/cmtt/m/n
 /10.95 sequential_2[1][0][] 
  []
 
 
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 1469--1469
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 1492--1492
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ____________________[] 
  []
 
 
-Overfull \hbox (57.0476pt too wide) in paragraph at lines 1470--1470
+Overfull \hbox (57.0476pt too wide) in paragraph at lines 1493--1493
 []\T1/cmtt/m/n/10.95 lstm_3 (LSTM)                   (None, 48, 512)      36720
 64     concatenate_1[0][0][] 
  []
 
 
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 1471--1471
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 1494--1494
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ____________________[] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1472--1472
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1495--1495
 []\T1/cmtt/m/n/10.95 lstm_4 (LSTM)                   (None, 512)          20992
 00     lstm_3[0][0][] 
  []
 
 
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 1473--1473
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 1496--1496
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ____________________[] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1474--1474
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1497--1497
 []\T1/cmtt/m/n/10.95 dense_3 (Dense)                 (None, 23)           11799
        lstm_4[0][0][] 
  []
 
 
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 1475--1475
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 1498--1498
 []\T1/cmtt/m/n/10.95 ==========================================================
 ====================[] 
  []
 
-<./images/predictions_bin13_histogramm.png, id=692, 433.62pt x 289.08pt>
+<./images/predictions_bin13_histogramm.png, id=708, 433.62pt x 289.08pt>
 File: ./images/predictions_bin13_histogramm.png Graphic file (type png)
 
 <use ./images/predictions_bin13_histogramm.png>
 Package pdftex.def Info: ./images/predictions_bin13_histogramm.png used on inpu
-t line 1510.
+t line 1533.
 (pdftex.def)             Requested size: 209.12778pt x 139.41846pt.
 
-<./images/predictions_bin13_total_error_types_pie_chart.png, id=693, 516.93124p
+<./images/predictions_bin13_total_error_types_pie_chart.png, id=709, 516.93124p
 t x 238.8925pt>
 File: ./images/predictions_bin13_total_error_types_pie_chart.png Graphic file (
 type png)
 
 <use ./images/predictions_bin13_total_error_types_pie_chart.png>
 Package pdftex.def Info: ./images/predictions_bin13_total_error_types_pie_chart
-.png used on input line 1522.
+.png used on input line 1545.
 (pdftex.def)             Requested size: 209.12778pt x 96.64522pt.
 
-<./images/predictions_bin13_excluded_p80_error_types_pie_chart.png, id=694, 516
+<./images/predictions_bin13_excluded_p80_error_types_pie_chart.png, id=710, 516
 .93124pt x 238.8925pt>
 File: ./images/predictions_bin13_excluded_p80_error_types_pie_chart.png Graphic
  file (type png)
 
 <use ./images/predictions_bin13_excluded_p80_error_types_pie_chart.png>
 Package pdftex.def Info: ./images/predictions_bin13_excluded_p80_error_types_pi
-e_chart.png used on input line 1528.
+e_chart.png used on input line 1551.
 (pdftex.def)             Requested size: 209.12778pt x 96.64522pt.
 
-<./images/predictions_bin13_p80_error_types_pie_chart.png, id=695, 516.93124pt 
+<./images/predictions_bin13_p80_error_types_pie_chart.png, id=711, 516.93124pt 
 x 238.8925pt>
 File: ./images/predictions_bin13_p80_error_types_pie_chart.png Graphic file (ty
 pe png)
  <use ./images/predictions_bin13_p80_error_types_pie_chart.png>
 Package pdftex.def Info: ./images/predictions_bin13_p80_error_types_pie_chart.p
-ng used on input line 1534.
+ng used on input line 1557.
 (pdftex.def)             Requested size: 209.12778pt x 96.64522pt.
 
-[44] [45 <./images/predictions_bin13_histogramm.png> <./images/predictions_bin1
-3_total_error_types_pie_chart.png> <./images/predictions_bin13_excluded_p80_err
-or_types_pie_chart.png> <./images/predictions_bin13_p80_error_types_pie_chart.p
-ng>]
-<./images/predictions_bin13_predicted_row_type_distribution.png, id=717, 516.93
+<./images/predictions_bin13_predicted_row_type_distribution.png, id=713, 516.93
 124pt x 238.8925pt>
 File: ./images/predictions_bin13_predicted_row_type_distribution.png Graphic fi
 le (type png)
 
 <use ./images/predictions_bin13_predicted_row_type_distribution.png>
 Package pdftex.def Info: ./images/predictions_bin13_predicted_row_type_distribu
-tion.png used on input line 1548.
+tion.png used on input line 1571.
 (pdftex.def)             Requested size: 209.12778pt x 96.64522pt.
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1576--1576
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[45] [46 <./images/predictions_bin13_histogramm.png> <./images/predictions_bin1
+3_total_error_types_pie_chart.png> <./images/predictions_bin13_excluded_p80_err
+or_types_pie_chart.png> <./images/predictions_bin13_p80_error_types_pie_chart.p
+ng>]
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1599--1599
 []\T1/cmtt/m/n/10.95 Layer (type)                    Output Shape         Param
  #     Connected to 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1577--1577
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1600--1600
 []\T1/cmtt/m/n/10.95 ==========================================================
 ===================[] 
  []
 
-[46 <./images/predictions_bin13_predicted_row_type_distribution.png>]
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1579--1579
+
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1602--1602
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1581--1581
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1604--1604
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 1582--1582
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 1605--1605
 []\T1/cmtt/m/n/10.95 sequential_1 (Sequential)       (None, 48, 1024)     10409
 8080   input_1[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1583--1583
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1606--1606
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 1584--1584
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 1607--1607
 []\T1/cmtt/m/n/10.95 sequential_2 (Sequential)       (None, 48, 192)      34617
 6      input_2[0][0][] 
  []
 
-
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1585--1585
+[47 <./images/predictions_bin13_predicted_row_type_distribution.png>]
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1608--1608
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (51.38924pt too wide) in paragraph at lines 1586--1586
+Overfull \hbox (51.38924pt too wide) in paragraph at lines 1609--1609
 []\T1/cmtt/m/n/10.95 concatenate_1 (Concatenate)     (None, 48, 1216)     0    
        sequential_1[1][0][] 
  []
 
 
-Overfull \hbox (51.38924pt too wide) in paragraph at lines 1587--1587
+Overfull \hbox (51.38924pt too wide) in paragraph at lines 1610--1610
 []                                                                 \T1/cmtt/m/n
 /10.95 sequential_2[1][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1588--1588
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1611--1611
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (57.0476pt too wide) in paragraph at lines 1589--1589
+Overfull \hbox (57.0476pt too wide) in paragraph at lines 1612--1612
 []\T1/cmtt/m/n/10.95 gru_3 (GRU)                     (None, 48, 768)      45734
 40     concatenate_1[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1590--1590
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1613--1613
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (11.78064pt too wide) in paragraph at lines 1591--1591
+Overfull \hbox (11.78064pt too wide) in paragraph at lines 1614--1614
 []\T1/cmtt/m/n/10.95 gru_4 (GRU)                     (None, 768)          35412
 48     gru_3[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1592--1592
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1615--1615
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (11.78064pt too wide) in paragraph at lines 1593--1593
+Overfull \hbox (11.78064pt too wide) in paragraph at lines 1616--1616
 []\T1/cmtt/m/n/10.95 dense_3 (Dense)                 (None, 23)           17687
        gru_4[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1594--1594
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1617--1617
 []\T1/cmtt/m/n/10.95 ==========================================================
 ===================[] 
  []
 
-<./images/predictions_bin14_histogramm.png, id=727, 433.62pt x 289.08pt>
+<./images/predictions_bin14_histogramm.png, id=742, 433.62pt x 289.08pt>
 File: ./images/predictions_bin14_histogramm.png Graphic file (type png)
 
 <use ./images/predictions_bin14_histogramm.png>
 Package pdftex.def Info: ./images/predictions_bin14_histogramm.png used on inpu
-t line 1628.
+t line 1651.
 (pdftex.def)             Requested size: 209.12778pt x 139.41846pt.
 
-<./images/predictions_bin14_total_error_types_pie_chart.png, id=729, 516.93124p
+<./images/predictions_bin14_total_error_types_pie_chart.png, id=744, 516.93124p
 t x 238.8925pt>
 File: ./images/predictions_bin14_total_error_types_pie_chart.png Graphic file (
 type png)
 
 <use ./images/predictions_bin14_total_error_types_pie_chart.png>
 Package pdftex.def Info: ./images/predictions_bin14_total_error_types_pie_chart
-.png used on input line 1640.
+.png used on input line 1663.
 (pdftex.def)             Requested size: 209.12778pt x 96.64522pt.
 
-<./images/predictions_bin14_excluded_p80_error_types_pie_chart.png, id=730, 516
+<./images/predictions_bin14_excluded_p80_error_types_pie_chart.png, id=745, 516
 .93124pt x 238.8925pt>
 File: ./images/predictions_bin14_excluded_p80_error_types_pie_chart.png Graphic
  file (type png)
 
 <use ./images/predictions_bin14_excluded_p80_error_types_pie_chart.png>
 Package pdftex.def Info: ./images/predictions_bin14_excluded_p80_error_types_pi
-e_chart.png used on input line 1646.
+e_chart.png used on input line 1669.
 (pdftex.def)             Requested size: 209.12778pt x 96.64522pt.
 
-<./images/predictions_bin14_p80_error_types_pie_chart.png, id=731, 516.93124pt 
+<./images/predictions_bin14_p80_error_types_pie_chart.png, id=746, 516.93124pt 
 x 238.8925pt>
 File: ./images/predictions_bin14_p80_error_types_pie_chart.png Graphic file (ty
 pe png)
  <use ./images/predictions_bin14_p80_error_types_pie_chart.png>
 Package pdftex.def Info: ./images/predictions_bin14_p80_error_types_pie_chart.p
-ng used on input line 1652.
+ng used on input line 1675.
 (pdftex.def)             Requested size: 209.12778pt x 96.64522pt.
 
-<./images/predictions_bin14_predicted_row_type_distribution.png, id=735, 516.93
+<./images/predictions_bin14_predicted_row_type_distribution.png, id=750, 516.93
 124pt x 238.8925pt>
 File: ./images/predictions_bin14_predicted_row_type_distribution.png Graphic fi
 le (type png)
 
 <use ./images/predictions_bin14_predicted_row_type_distribution.png>
 Package pdftex.def Info: ./images/predictions_bin14_predicted_row_type_distribu
-tion.png used on input line 1665.
+tion.png used on input line 1688.
 (pdftex.def)             Requested size: 209.12778pt x 96.64522pt.
- [47]
-[48 <./images/predictions_bin14_histogramm.png> <./images/predictions_bin14_tot
-al_error_types_pie_chart.png> <./images/predictions_bin14_excluded_p80_error_ty
-pes_pie_chart.png> <./images/predictions_bin14_p80_error_types_pie_chart.png>]
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1694--1694
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[48] [49 <./images/predictions_bin14_histogramm.png> <./images/predictions_bin1
+4_total_error_types_pie_chart.png> <./images/predictions_bin14_excluded_p80_err
+or_types_pie_chart.png> <./images/predictions_bin14_p80_error_types_pie_chart.p
+ng>]
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1717--1717
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1695--1695
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1718--1718
 []\T1/cmtt/m/n/10.95 Layer (type)                    Output Shape         Param
  #     Connected to[] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1696--1696
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1719--1719
 []\T1/cmtt/m/n/10.95 ==========================================================
 ===================[] 
  []
 
-[49 <./images/predictions_bin14_predicted_row_type_distribution.png>]
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1698--1698
+
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1721--1721
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1700--1700
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1723--1723
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 1701--1701
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 1724--1724
 []\T1/cmtt/m/n/10.95 sequential_1 (Sequential)       (None, 64, 1024)     10409
 8080   input_1[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1702--1702
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1725--1725
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 1703--1703
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 1726--1726
 []\T1/cmtt/m/n/10.95 sequential_2 (Sequential)       (None, 64, 128)      15705
 6      input_2[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1704--1704
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1727--1727
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (51.38924pt too wide) in paragraph at lines 1705--1705
+Overfull \hbox (51.38924pt too wide) in paragraph at lines 1728--1728
 []\T1/cmtt/m/n/10.95 concatenate_1 (Concatenate)     (None, 64, 1152)     0    
        sequential_1[1][0][] 
  []
 
 
-Overfull \hbox (51.38924pt too wide) in paragraph at lines 1706--1706
+Overfull \hbox (51.38924pt too wide) in paragraph at lines 1729--1729
 []                                                                 \T1/cmtt/m/n
 /10.95 sequential_2[1][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1707--1707
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1730--1730
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (57.0476pt too wide) in paragraph at lines 1708--1708
+Overfull \hbox (57.0476pt too wide) in paragraph at lines 1731--1731
 []\T1/cmtt/m/n/10.95 gru_3 (GRU)                     (None, 64, 512)      25574
 40     concatenate_1[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1709--1709
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1732--1732
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
-
-Overfull \hbox (11.78064pt too wide) in paragraph at lines 1710--1710
+[50 <./images/predictions_bin14_predicted_row_type_distribution.png>]
+Overfull \hbox (11.78064pt too wide) in paragraph at lines 1733--1733
 []\T1/cmtt/m/n/10.95 gru_4 (GRU)                     (None, 512)          15744
 00     gru_3[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1711--1711
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1734--1734
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (11.78064pt too wide) in paragraph at lines 1712--1712
+Overfull \hbox (11.78064pt too wide) in paragraph at lines 1735--1735
 []\T1/cmtt/m/n/10.95 dense_3 (Dense)                 (None, 23)           11799
        gru_4[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1713--1713
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1736--1736
 []\T1/cmtt/m/n/10.95 ==========================================================
 ===================[] 
  []
 
-<./images/predictions_bin15_histogramm.png, id=766, 433.62pt x 289.08pt>
+<./images/predictions_bin15_histogramm.png, id=780, 433.62pt x 289.08pt>
 File: ./images/predictions_bin15_histogramm.png Graphic file (type png)
 
 <use ./images/predictions_bin15_histogramm.png>
 Package pdftex.def Info: ./images/predictions_bin15_histogramm.png used on inpu
-t line 1745.
+t line 1768.
 (pdftex.def)             Requested size: 209.12778pt x 139.41846pt.
 
-<./images/predictions_bin15_total_error_types_pie_chart.png, id=768, 516.93124p
+<./images/predictions_bin15_total_error_types_pie_chart.png, id=782, 516.93124p
 t x 238.8925pt>
 File: ./images/predictions_bin15_total_error_types_pie_chart.png Graphic file (
 type png)
 
 <use ./images/predictions_bin15_total_error_types_pie_chart.png>
 Package pdftex.def Info: ./images/predictions_bin15_total_error_types_pie_chart
-.png used on input line 1757.
+.png used on input line 1780.
 (pdftex.def)             Requested size: 209.12778pt x 96.64522pt.
 
-<./images/predictions_bin15_excluded_p80_error_types_pie_chart.png, id=769, 516
+<./images/predictions_bin15_excluded_p80_error_types_pie_chart.png, id=783, 516
 .93124pt x 238.8925pt>
 File: ./images/predictions_bin15_excluded_p80_error_types_pie_chart.png Graphic
  file (type png)
 
 <use ./images/predictions_bin15_excluded_p80_error_types_pie_chart.png>
 Package pdftex.def Info: ./images/predictions_bin15_excluded_p80_error_types_pi
-e_chart.png used on input line 1763.
+e_chart.png used on input line 1786.
 (pdftex.def)             Requested size: 209.12778pt x 96.64522pt.
 
-<./images/predictions_bin15_p80_error_types_pie_chart.png, id=770, 516.93124pt 
+<./images/predictions_bin15_p80_error_types_pie_chart.png, id=784, 516.93124pt 
 x 238.8925pt>
 File: ./images/predictions_bin15_p80_error_types_pie_chart.png Graphic file (ty
 pe png)
  <use ./images/predictions_bin15_p80_error_types_pie_chart.png>
 Package pdftex.def Info: ./images/predictions_bin15_p80_error_types_pie_chart.p
-ng used on input line 1769.
+ng used on input line 1792.
 (pdftex.def)             Requested size: 209.12778pt x 96.64522pt.
 
-<./images/predictions_bin15_predicted_row_type_distribution.png, id=771, 516.93
+<./images/predictions_bin15_predicted_row_type_distribution.png, id=785, 516.93
 124pt x 238.8925pt>
 File: ./images/predictions_bin15_predicted_row_type_distribution.png Graphic fi
 le (type png)
 
 <use ./images/predictions_bin15_predicted_row_type_distribution.png>
 Package pdftex.def Info: ./images/predictions_bin15_predicted_row_type_distribu
-tion.png used on input line 1779.
+tion.png used on input line 1802.
 (pdftex.def)             Requested size: 209.12778pt x 96.64522pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[50] [51 <./images/predictions_bin15_histogramm.png> <./images/predictions_bin1
+[51 <./images/predictions_bin15_histogramm.png>] [52 <./images/predictions_bin1
 5_total_error_types_pie_chart.png> <./images/predictions_bin15_excluded_p80_err
 or_types_pie_chart.png> <./images/predictions_bin15_p80_error_types_pie_chart.p
-ng>]
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1810--1810
+ng> <./images/predictions_bin15_predicted_row_type_distribution.png>]
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1833--1833
 []\T1/cmtt/m/n/10.95 Layer (type)                    Output Shape         Param
  #     Connected to 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1811--1811
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1834--1834
 []\T1/cmtt/m/n/10.95 ==========================================================
 ===================[] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1813--1813
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1836--1836
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1815--1815
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1838--1838
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
-[52 <./images/predictions_bin15_predicted_row_type_distribution.png>]
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 1816--1816
+
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 1839--1839
 []\T1/cmtt/m/n/10.95 sequential_1 (Sequential)       (None, 48, 1024)     10409
 8080   input_1[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1817--1817
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1840--1840
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 1818--1818
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 1841--1841
 []\T1/cmtt/m/n/10.95 sequential_2 (Sequential)       (None, 48, 92)       83076
        input_2[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1819--1819
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1842--1842
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (51.38924pt too wide) in paragraph at lines 1820--1820
+Overfull \hbox (51.38924pt too wide) in paragraph at lines 1843--1843
 []\T1/cmtt/m/n/10.95 concatenate_1 (Concatenate)     (None, 48, 1116)     0    
        sequential_1[1][0][] 
  []
 
 
-Overfull \hbox (51.38924pt too wide) in paragraph at lines 1821--1821
+Overfull \hbox (51.38924pt too wide) in paragraph at lines 1844--1844
 []                                                                 \T1/cmtt/m/n
 /10.95 sequential_2[1][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1822--1822
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1845--1845
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (57.0476pt too wide) in paragraph at lines 1823--1823
+Overfull \hbox (57.0476pt too wide) in paragraph at lines 1846--1846
 []\T1/cmtt/m/n/10.95 gru_3 (GRU)                     (None, 48, 386)      17404
 74     concatenate_1[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1824--1824
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1847--1847
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (11.78064pt too wide) in paragraph at lines 1825--1825
+Overfull \hbox (11.78064pt too wide) in paragraph at lines 1848--1848
 []\T1/cmtt/m/n/10.95 gru_4 (GRU)                     (None, 386)          89513
 4      gru_3[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1826--1826
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1849--1849
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (11.78064pt too wide) in paragraph at lines 1827--1827
+Overfull \hbox (11.78064pt too wide) in paragraph at lines 1850--1850
 []\T1/cmtt/m/n/10.95 dense_3 (Dense)                 (None, 23)           8901 
        gru_4[0][0][] 
  []
 
-<./images/predictions_bin16_histogramm.png, id=802, 433.62pt x 289.08pt>
+[53] <./images/predictions_bin16_histogramm.png, id=816, 433.62pt x 289.08pt>
 File: ./images/predictions_bin16_histogramm.png Graphic file (type png)
 
 <use ./images/predictions_bin16_histogramm.png>
 Package pdftex.def Info: ./images/predictions_bin16_histogramm.png used on inpu
-t line 1863.
+t line 1886.
 (pdftex.def)             Requested size: 209.12778pt x 139.41846pt.
 
-<./images/predictions_bin16_total_error_types_pie_chart.png, id=805, 516.93124p
+<./images/predictions_bin16_total_error_types_pie_chart.png, id=819, 516.93124p
 t x 238.8925pt>
 File: ./images/predictions_bin16_total_error_types_pie_chart.png Graphic file (
 type png)
 
 <use ./images/predictions_bin16_total_error_types_pie_chart.png>
 Package pdftex.def Info: ./images/predictions_bin16_total_error_types_pie_chart
-.png used on input line 1875.
+.png used on input line 1898.
 (pdftex.def)             Requested size: 209.12778pt x 96.64522pt.
 
-<./images/predictions_bin16_excluded_p80_error_types_pie_chart.png, id=806, 516
+<./images/predictions_bin16_excluded_p80_error_types_pie_chart.png, id=820, 516
 .93124pt x 238.8925pt>
 File: ./images/predictions_bin16_excluded_p80_error_types_pie_chart.png Graphic
  file (type png)
 
 <use ./images/predictions_bin16_excluded_p80_error_types_pie_chart.png>
 Package pdftex.def Info: ./images/predictions_bin16_excluded_p80_error_types_pi
-e_chart.png used on input line 1881.
+e_chart.png used on input line 1904.
 (pdftex.def)             Requested size: 209.12778pt x 96.64522pt.
 
-<./images/predictions_bin16_p80_error_types_pie_chart.png, id=807, 516.93124pt 
+<./images/predictions_bin16_p80_error_types_pie_chart.png, id=821, 516.93124pt 
 x 238.8925pt>
 File: ./images/predictions_bin16_p80_error_types_pie_chart.png Graphic file (ty
 pe png)
  <use ./images/predictions_bin16_p80_error_types_pie_chart.png>
 Package pdftex.def Info: ./images/predictions_bin16_p80_error_types_pie_chart.p
-ng used on input line 1887.
+ng used on input line 1910.
 (pdftex.def)             Requested size: 209.12778pt x 96.64522pt.
 
-<./images/predictions_bin16_predicted_row_type_distribution.png, id=809, 516.93
+<./images/predictions_bin16_predicted_row_type_distribution.png, id=823, 516.93
 124pt x 238.8925pt>
 File: ./images/predictions_bin16_predicted_row_type_distribution.png Graphic fi
 le (type png)
 
 <use ./images/predictions_bin16_predicted_row_type_distribution.png>
 Package pdftex.def Info: ./images/predictions_bin16_predicted_row_type_distribu
-tion.png used on input line 1897.
+tion.png used on input line 1920.
 (pdftex.def)             Requested size: 209.12778pt x 96.64522pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[53] [54 <./images/predictions_bin16_histogramm.png> <./images/predictions_bin1
+[54 <./images/predictions_bin16_histogramm.png>] [55 <./images/predictions_bin1
 6_total_error_types_pie_chart.png> <./images/predictions_bin16_excluded_p80_err
 or_types_pie_chart.png> <./images/predictions_bin16_p80_error_types_pie_chart.p
-ng>]
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1921--1921
+ng> <./images/predictions_bin16_predicted_row_type_distribution.png>]
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1944--1944
 []\T1/cmtt/m/n/10.95 Layer (type)                    Output Shape         Param
  #     Connected to 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1922--1922
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1945--1945
 []\T1/cmtt/m/n/10.95 ==========================================================
 ===================[] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1924--1924
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1947--1947
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1926--1926
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1949--1949
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 1927--1927
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 1950--1950
 []\T1/cmtt/m/n/10.95 sequential_1 (Sequential)       (None, 64, 1024)     10409
 7600   input_1[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1928--1928
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1951--1951
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 1929--1929
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 1952--1952
 []\T1/cmtt/m/n/10.95 sequential_2 (Sequential)       (None, 64, 128)      15705
 6      input_2[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1930--1930
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1953--1953
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (51.38924pt too wide) in paragraph at lines 1931--1931
+Overfull \hbox (51.38924pt too wide) in paragraph at lines 1954--1954
 []\T1/cmtt/m/n/10.95 concatenate_1 (Concatenate)     (None, 64, 1152)     0    
        sequential_1[1][0][] 
  []
 
 
-Overfull \hbox (51.38924pt too wide) in paragraph at lines 1932--1932
+Overfull \hbox (51.38924pt too wide) in paragraph at lines 1955--1955
 []                                                                 \T1/cmtt/m/n
 /10.95 sequential_2[1][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1933--1933
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1956--1956
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (57.0476pt too wide) in paragraph at lines 1934--1934
+Overfull \hbox (57.0476pt too wide) in paragraph at lines 1957--1957
 []\T1/cmtt/m/n/10.95 gru_3 (GRU)                     (None, 64, 564)      29051
 64     concatenate_1[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1935--1935
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1958--1958
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
-[55 <./images/predictions_bin16_predicted_row_type_distribution.png>]
-Overfull \hbox (11.78064pt too wide) in paragraph at lines 1936--1936
+
+Overfull \hbox (11.78064pt too wide) in paragraph at lines 1959--1959
 []\T1/cmtt/m/n/10.95 gru_4 (GRU)                     (None, 564)          19102
 68     gru_3[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1937--1937
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1960--1960
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ___________________[] 
  []
 
 
-Overfull \hbox (11.78064pt too wide) in paragraph at lines 1938--1938
+Overfull \hbox (11.78064pt too wide) in paragraph at lines 1961--1961
 []\T1/cmtt/m/n/10.95 dense_3 (Dense)                 (None, 23)           12995
        gru_4[0][0][] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 1939--1939
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 1962--1962
 []\T1/cmtt/m/n/10.95 ==========================================================
 ===================[] 
  []
 
-<./images/predictions_bin18_2_histogramm.png, id=840, 433.62pt x 289.08pt>
+<./images/predictions_bin18_2_histogramm.png, id=850, 433.62pt x 289.08pt>
 File: ./images/predictions_bin18_2_histogramm.png Graphic file (type png)
 
 <use ./images/predictions_bin18_2_histogramm.png>
 Package pdftex.def Info: ./images/predictions_bin18_2_histogramm.png used on in
-put line 1972.
+put line 1995.
 (pdftex.def)             Requested size: 209.12778pt x 139.41846pt.
 
-<./images/predictions_bin18_2_total_error_types_pie_chart.png, id=841, 516.9312
+<./images/predictions_bin18_2_total_error_types_pie_chart.png, id=851, 516.9312
 4pt x 238.8925pt>
 File: ./images/predictions_bin18_2_total_error_types_pie_chart.png Graphic file
  (type png)
 
 <use ./images/predictions_bin18_2_total_error_types_pie_chart.png>
 Package pdftex.def Info: ./images/predictions_bin18_2_total_error_types_pie_cha
-rt.png used on input line 1984.
+rt.png used on input line 2007.
 (pdftex.def)             Requested size: 138.02509pt x 63.78372pt.
 
-<./images/predictions_bin18_2_excluded_p80_error_types_pie_chart.png, id=842, 5
+<./images/predictions_bin18_2_excluded_p80_error_types_pie_chart.png, id=852, 5
 16.93124pt x 238.8925pt>
 File: ./images/predictions_bin18_2_excluded_p80_error_types_pie_chart.png Graph
 ic file (type png)
 
 <use ./images/predictions_bin18_2_excluded_p80_error_types_pie_chart.png>
 Package pdftex.def Info: ./images/predictions_bin18_2_excluded_p80_error_types_
-pie_chart.png used on input line 1990.
+pie_chart.png used on input line 2013.
 (pdftex.def)             Requested size: 138.02509pt x 63.78372pt.
 
-<./images/predictions_bin18_2_p80_error_types_pie_chart.png, id=843, 516.93124p
+<./images/predictions_bin18_2_p80_error_types_pie_chart.png, id=853, 516.93124p
 t x 238.8925pt>
 File: ./images/predictions_bin18_2_p80_error_types_pie_chart.png Graphic file (
 type png)
 
 <use ./images/predictions_bin18_2_p80_error_types_pie_chart.png>
 Package pdftex.def Info: ./images/predictions_bin18_2_p80_error_types_pie_chart
-.png used on input line 1996.
+.png used on input line 2019.
 (pdftex.def)             Requested size: 138.02509pt x 63.78372pt.
- [56 <./images/predictions_bin18_2_histogramm.png>]
+ [56] [57 <./images/predictions_bin18_2_histogramm.png> <./images/predictions_b
+in18_2_total_error_types_pie_chart.png> <./images/predictions_bin18_2_excluded_
+p80_error_types_pie_chart.png> <./images/predictions_bin18_2_p80_error_types_pi
+e_chart.png>]
+[58]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 2010.
+               Default added (so using `tbp') on input line 2037.
 
-[57 <./images/predictions_bin18_2_total_error_types_pie_chart.png> <./images/pr
-edictions_bin18_2_excluded_p80_error_types_pie_chart.png> <./images/predictions
-_bin18_2_p80_error_types_pie_chart.png>] [58] [59] (./doku.bbl [60])
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 2073--2073
+[59] [60] [61] (./doku.bbl [62])
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 2097--2097
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ____________________ 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 2074--2074
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 2098--2098
 []\T1/cmtt/m/n/10.95 Layer (type)                    Output Shape         Param
  #     Connected to[] 
  []
 
-[61]
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 2075--2075
+[63]
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 2099--2099
 []\T1/cmtt/m/n/10.95 ==========================================================
 ====================[] 
  []
 
 
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 2077--2077
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 2101--2101
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ____________________[] 
  []
 
 
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 2079--2079
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 2103--2103
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ____________________[] 
  []
 
 
-Overfull \hbox (28.75575pt too wide) in paragraph at lines 2080--2080
+Overfull \hbox (28.75575pt too wide) in paragraph at lines 2104--2104
 []\T1/cmtt/m/n/10.95 sequential_10 (Sequential)      (None, 48, 1024)     21886
 504    input_15[0][0][] 
  []
 
 
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 2081--2081
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 2105--2105
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ____________________[] 
  []
 
 
-Overfull \hbox (28.75575pt too wide) in paragraph at lines 2082--2082
+Overfull \hbox (28.75575pt too wide) in paragraph at lines 2106--2106
 []\T1/cmtt/m/n/10.95 sequential_11 (Sequential)      (None, 48, 128)      15705
 6      input_16[0][0][] 
  []
 
 
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 2083--2083
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 2107--2107
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ____________________[] 
  []
 
 
-Overfull \hbox (57.0476pt too wide) in paragraph at lines 2084--2084
+Overfull \hbox (57.0476pt too wide) in paragraph at lines 2108--2108
 []\T1/cmtt/m/n/10.95 concatenate_3 (Concatenate)     (None, 48, 1152)     0    
        sequential_10[1][0][] 
  []
 
 
-Overfull \hbox (57.0476pt too wide) in paragraph at lines 2085--2085
+Overfull \hbox (57.0476pt too wide) in paragraph at lines 2109--2109
 []                                                                 \T1/cmtt/m/n
 /10.95 sequential_11[1][0][] 
  []
 
 
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 2086--2086
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 2110--2110
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ____________________[] 
  []
 
 
-Overfull \hbox (57.0476pt too wide) in paragraph at lines 2087--2087
+Overfull \hbox (57.0476pt too wide) in paragraph at lines 2111--2111
 []\T1/cmtt/m/n/10.95 gru_11 (GRU)                    (None, 48, 564)      29051
 64     concatenate_3[0][0][] 
  []
 
 
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 2088--2088
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 2112--2112
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ____________________[] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 2089--2089
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 2113--2113
 []\T1/cmtt/m/n/10.95 gru_12 (GRU)                    (None, 564)          19102
 68     gru_11[0][0][] 
  []
 
 
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 2090--2090
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 2114--2114
 []\T1/cmtt/m/n/10.95 __________________________________________________________
 ____________________[] 
  []
 
 
-Overfull \hbox (17.43901pt too wide) in paragraph at lines 2091--2091
+Overfull \hbox (17.43901pt too wide) in paragraph at lines 2115--2115
 []\T1/cmtt/m/n/10.95 dense_11 (Dense)                (None, 23)           12995
        gru_12[0][0][] 
  []
 
 
-Overfull \hbox (23.09738pt too wide) in paragraph at lines 2092--2092
+Overfull \hbox (23.09738pt too wide) in paragraph at lines 2116--2116
 []\T1/cmtt/m/n/10.95 ==========================================================
 ====================[] 
  []
 
-<./images/predictions_bin19_x_histogramm.png, id=918, 433.62pt x 289.08pt>
+<./images/predictions_bin19_x_histogramm.png, id=936, 433.62pt x 289.08pt>
 File: ./images/predictions_bin19_x_histogramm.png Graphic file (type png)
 
 <use ./images/predictions_bin19_x_histogramm.png>
 Package pdftex.def Info: ./images/predictions_bin19_x_histogramm.png used on in
-put line 2125.
+put line 2149.
 (pdftex.def)             Requested size: 209.12778pt x 139.41846pt.
 
-<./images/predictions_bin19_x_total_error_types_pie_chart.png, id=921, 516.9312
+<./images/predictions_bin19_x_total_error_types_pie_chart.png, id=939, 516.9312
 4pt x 238.8925pt>
 File: ./images/predictions_bin19_x_total_error_types_pie_chart.png Graphic file
  (type png)
 
 <use ./images/predictions_bin19_x_total_error_types_pie_chart.png>
 Package pdftex.def Info: ./images/predictions_bin19_x_total_error_types_pie_cha
-rt.png used on input line 2137.
+rt.png used on input line 2161.
 (pdftex.def)             Requested size: 209.12778pt x 96.64522pt.
 
-<./images/predictions_bin19_x_excluded_p80_error_types_pie_chart.png, id=922, 5
+<./images/predictions_bin19_x_excluded_p80_error_types_pie_chart.png, id=940, 5
 16.93124pt x 238.8925pt>
 File: ./images/predictions_bin19_x_excluded_p80_error_types_pie_chart.png Graph
 ic file (type png)
 
 <use ./images/predictions_bin19_x_excluded_p80_error_types_pie_chart.png>
 Package pdftex.def Info: ./images/predictions_bin19_x_excluded_p80_error_types_
-pie_chart.png used on input line 2143.
+pie_chart.png used on input line 2167.
 (pdftex.def)             Requested size: 209.12778pt x 96.64522pt.
 
-<./images/predictions_bin19_x_p80_error_types_pie_chart.png, id=923, 516.93124p
+<./images/predictions_bin19_x_p80_error_types_pie_chart.png, id=941, 516.93124p
 t x 238.8925pt>
 File: ./images/predictions_bin19_x_p80_error_types_pie_chart.png Graphic file (
 type png)
 
 <use ./images/predictions_bin19_x_p80_error_types_pie_chart.png>
 Package pdftex.def Info: ./images/predictions_bin19_x_p80_error_types_pie_chart
-.png used on input line 2149.
+.png used on input line 2173.
 (pdftex.def)             Requested size: 209.12778pt x 96.64522pt.
 
-<./images/predictions_bin19_x_predicted_row_type_distribution.png, id=924, 516.
+<./images/predictions_bin19_x_predicted_row_type_distribution.png, id=942, 516.
 93124pt x 238.8925pt>
 File: ./images/predictions_bin19_x_predicted_row_type_distribution.png Graphic 
 file (type png)
 
 <use ./images/predictions_bin19_x_predicted_row_type_distribution.png>
 Package pdftex.def Info: ./images/predictions_bin19_x_predicted_row_type_distri
-bution.png used on input line 2157.
+bution.png used on input line 2181.
 (pdftex.def)             Requested size: 209.12778pt x 96.64522pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[62] [63 <./images/predictions_bin19_x_histogramm.png> <./images/predictions_bi
+[64] [65 <./images/predictions_bin19_x_histogramm.png> <./images/predictions_bi
 n19_x_total_error_types_pie_chart.png> <./images/predictions_bin19_x_excluded_p
 80_error_types_pie_chart.png> <./images/predictions_bin19_x_p80_error_types_pie
-_chart.png>] <./images/skizze_1.jpg, id=946, 1850.112pt x 1040.688pt>
+_chart.png>] <./images/skizze_1.jpg, id=965, 1850.112pt x 1040.688pt>
 File: ./images/skizze_1.jpg Graphic file (type jpg)
 
 <use ./images/skizze_1.jpg>
-Package pdftex.def Info: ./images/skizze_1.jpg used on input line 2185.
+Package pdftex.def Info: ./images/skizze_1.jpg used on input line 2209.
 (pdftex.def)             Requested size: 167.30286pt x 94.10251pt.
 
-<./images/skizze_2.jpg, id=947, 1850.112pt x 1059.96pt>
+<./images/skizze_2.jpg, id=966, 1850.112pt x 1059.96pt>
 File: ./images/skizze_2.jpg Graphic file (type jpg)
 
 <use ./images/skizze_2.jpg>
-Package pdftex.def Info: ./images/skizze_2.jpg used on input line 2189.
+Package pdftex.def Info: ./images/skizze_2.jpg used on input line 2213.
 (pdftex.def)             Requested size: 167.30286pt x 95.84514pt.
- [64 <./images/predictions_bin19_x_predicted_row_type_distribution.png>]
-<./images/skizze_aug_1.png, id=959, 262.9825pt x 252.945pt>
+ [66 <./images/predictions_bin19_x_predicted_row_type_distribution.png>]
+<./images/skizze_aug_1.png, id=977, 262.9825pt x 252.945pt>
 File: ./images/skizze_aug_1.png Graphic file (type png)
 
 <use ./images/skizze_aug_1.png>
-Package pdftex.def Info: ./images/skizze_aug_1.png used on input line 2201.
+Package pdftex.def Info: ./images/skizze_aug_1.png used on input line 2225.
 (pdftex.def)             Requested size: 167.30286pt x 160.9232pt.
 
-<./images/skizze_aug_2.png, id=960, 262.9825pt x 252.945pt>
+<./images/skizze_aug_2.png, id=978, 262.9825pt x 252.945pt>
 File: ./images/skizze_aug_2.png Graphic file (type png)
 
 <use ./images/skizze_aug_2.png>
-Package pdftex.def Info: ./images/skizze_aug_2.png used on input line 2205.
+Package pdftex.def Info: ./images/skizze_aug_2.png used on input line 2229.
 (pdftex.def)             Requested size: 167.30286pt x 160.9232pt.
- [65 <./images/skizze_1.jpg> <./images/skizze_2.jpg> <./images/skizze_aug_1.png
+ [67 <./images/skizze_1.jpg> <./images/skizze_2.jpg> <./images/skizze_aug_1.png
 > <./images/skizze_aug_2.png>]
-<./images/loss_drawn_standart.png, id=969, 389.455pt x 134.5025pt>
+<./images/loss_drawn_standart.png, id=988, 389.455pt x 134.5025pt>
 File: ./images/loss_drawn_standart.png Graphic file (type png)
 
 <use ./images/loss_drawn_standart.png>
 Package pdftex.def Info: ./images/loss_drawn_standart.png used on input line 22
-34.
+58.
 (pdftex.def)             Requested size: 209.12778pt x 72.22389pt.
- [66 <./images/loss_drawn_standart.png>]
-<./images/loss_drawn_x_15.png, id=984, 367.3725pt x 133.49875pt>
+ [68 <./images/loss_drawn_standart.png>]
+<./images/loss_drawn_x_15.png, id=1003, 367.3725pt x 133.49875pt>
 File: ./images/loss_drawn_x_15.png Graphic file (type png)
 
 <use ./images/loss_drawn_x_15.png>
-Package pdftex.def Info: ./images/loss_drawn_x_15.png used on input line 2275.
+Package pdftex.def Info: ./images/loss_drawn_x_15.png used on input line 2299.
 (pdftex.def)             Requested size: 209.12778pt x 75.99524pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2283.
- [67 <./images/loss_drawn_x_15.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2283.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2307.
+ [69 <./images/loss_drawn_x_15.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2307.
 
 (./doku.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2283.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2283.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2307.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2307.
 
 Package rerunfilecheck Info: File `doku.out' has not changed.
-(rerunfilecheck)             Checksum: B841560E6BADBFA8FF7D5F15BBBBBD47;3711.
+(rerunfilecheck)             Checksum: 2A8D1180A8A07D5D64867C978B691405;3784.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2283.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2307.
  ) 
 Here is how much of TeX's memory you used:
- 8797 strings out of 494860
- 139943 string characters out of 6177601
- 274108 words of memory out of 5000000
- 11630 multiletter control sequences out of 15000+600000
+ 8814 strings out of 494860
+ 140348 string characters out of 6177601
+ 274255 words of memory out of 5000000
+ 11641 multiletter control sequences out of 15000+600000
  17761 words of font info for 45 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  43i,8n,56p,1288b,468s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2506,10 +2530,10 @@ type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmsy8.pfb>
-Output written on doku.pdf (67 pages, 2700553 bytes).
+Output written on doku.pdf (69 pages, 2909328 bytes).
 PDF statistics:
- 1565 PDF objects out of 1728 (max. 8388607)
- 928 compressed objects within 10 object streams
- 321 named destinations out of 1000 (max. 500000)
- 690 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1591 PDF objects out of 1728 (max. 8388607)
+ 944 compressed objects within 10 object streams
+ 325 named destinations out of 1000 (max. 500000)
+ 708 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -16,7 +16,7 @@
 \usepackage{color}
 
 \title{Rapid Frontend Prototyping with Deep Learning} %Definition des Titels
-\author{Simon Deussen}	%Definition des Autors
+\author{Simon Deussen \\ simon.deussen@gmail.com}	%Definition des Autors
 % \date{7.Nov.2010}
 
 \begin{document}
@@ -24,7 +24,7 @@
 \maketitle	
 
 \begin{abstract}
-Die Arbeit handelt von der Generierung von HTML/CSS Code für Websites aus Screenshots. Aufbauend auf dem Pix2Code Paper \cite{Beltramelli17}, ist diese Arbeit eine erweiterte Implementierung mit mehr Elementen und damit komplexeren Websites. Ein Beitrag dieser Arbeit ist eine neue, verbesserte Netzwerk Architektur, als auch ein Tool, mit dem neue Trainingsdaten erzeugt werden können.
+Die Arbeit handelt von der Generierung von HTML/CSS Code für Websites aus Screenshots. Aufbauend auf dem Pix2Code Paper \cite{Beltramelli17}, ist diese Arbeit eine erweiterte Implementierung mit komplexeren Websites. Beiträge dieser Arbeit sind eine neue, verbesserte Netzwerk Architektur und ein neues Datenset aus Screenshots mit dazugehörigen Code.
 \end{abstract}
 
 
@@ -33,7 +33,7 @@ Die Arbeit handelt von der Generierung von HTML/CSS Code für Websites aus Scree
 %\listoftables    % Tabellenverzeichnis
 \section{Einleitung} 
 
-Worin besteht der Nutzen automatisierter Code erstellung? 
+Worin besteht der Nutzen automatisierter Code-Erstellung? 
 Besonders im Bereich der Frontend-Entwicklung, bei der ein Team aus Leuten mit unterschiedlichen Fertigkeiten benötigt wird, kann es bei der Entwicklung zu Bottlenecks kommen. In der klassischen Entwicklung sieht diese Zusammenarbeit folgendermaßen aus: \\
 Ein Designer macht einen grafischen Entwurf, dieser wird vom Kunden abgenommen, dann geht er zu einem Entwickler, der nun zuallererst Markup für den Content und anschließend das Design und die richtige Darstellung nachbauen muss. Für jede grafische Veränderung muss dieser Prozess wieder ausgeführt werden. Für die meisten Entwickler, ist die Markup und CSS-Erstellung der widrigste Part der ganzen Arbeit, da er recht zeit-aufwendig, repetitiv und langweilig ist.
 Hier kommt es schließlich zu den Bottlenecks und Unzufriedenheit bei der Arbeit. Deswegen kann besonders an der Schnittstelle zwischen Designern und Entwicklern mit Automation viel gewonnen werden. Es gab bisher viele Ansätze diese Arbeit zu automatisieren, zum Beispiel durch Tools in dem man gleichzeitig Designen und den Markup exportieren kann. Leider sind diese Tools jedoch nicht besonders gut darin, sowohl die Designs zu erstellen, als auch den Markup zu exportieren
@@ -44,9 +44,9 @@ Die große Frage ist wie weit dieser Ansatz gehen kann? Diese Arbeit, wird versu
 
 \subsubsection*{Überblick über die Arbeit}
 
-Die ersten beiden Kapitel dieser Arbeit stellen die Einleitung dar und umreisen die benutzen Technologien. Sie sollen den Leser durch Beschreibungen und Verweise auf weitere Ressourcen auf den Rest dieser Arbeit vorbeireiten.
+Die ersten beiden Kapitel dieser Arbeit stellen die Einleitung dar und umreisen die benutzen Technologien. Sie sollen den Leser durch Beschreibungen und Verweise auf weitere Ressourcen auf den Rest dieser Arbeit vorbereiten.
 
-Anschließend erfolgt im dritten Kapitel ein Überblick über die Funktionsweise des Modells sowie eine detaillierte Beschreibung. In den nächsten beiden Kapiteln geht es im Detail um die Synthese der Daten sowie der Validierung der Ergebnisse. 
+Anschließend erfolgt im dritten Kapitel ein Überblick über die Funktionsweise des Modells sowie eine detaillierte Beschreibung. In den nächsten beiden Kapiteln geht es im Detail um die Synthese des neuen Datensets sowie der Validierung der Experimente. 
 
 Im sechstem Kapitel werden die Experimente beschrieben, die nötig gewesen sind, das Modell zu trainieren und die Architektur zu verbessern. Schließlich endet die Arbeit mit einer Zusammenfassung der Experimente sowie einem Fazit.
 
@@ -59,7 +59,7 @@ Anderen Ansätze wie DeepCoder \cite{DeepCoder16} benötigen komplizierte DSL al
 
 
 Computer- genierte Programme werden die Zukunft der Software Entwicklung sein und diesen Bereich auch grundsätzlich verändern. Schon jetzt im Bereich der Cloud mit Serverless Computing und Lambdas geht es oftmals nur noch darum, bestehende Software-Teile zu verbinden und zu konfigurieren. Diesen Trend, der eine Reduktion des Schreibens erreichen will, und dazu stark in die Richtung des Konfigurierens geht, sehe ich in Zukunft noch viel umfassender und allgegenwärtiger. Es wird so weit gehen, dass man - nicht nur wie hier in dieser Arbeit - das Markup generiert, sondern dass aus einer Skizze sofort eine fertige Website gebaut wird, und man mit ein paar Klicks das nötige Verhalten einfach hinzufügen kann. 
-Dieser Trend ist nicht nur auf das Web bezogen. Ich denke das sich die Webtechnologien auch in der Desktop Umgebung durchsetzen,  da sie Plattform unabhängig und sehr stark optimiert sind. Außerdem sind sie sehr einfach zu lernen und weit verbreitet. Zum Beispiel Electron \cite{electron} ermöglicht den einfachen Einsatz von Webtechnologien durch einen eingebettetwn Browser in der Desktopwelt.
+Dieser Trend ist nicht nur auf das Web bezogen. Ich denke das sich die Webtechnologien auch in der Desktop Umgebung durchsetzen,  da sie Plattform unabhängig und sehr stark optimiert sind. Außerdem sind sie sehr einfach zu lernen und weit verbreitet. Zum Beispiel Electron \cite{electron} ermöglicht den einfachen Einsatz von Webtechnologien durch einen eingebetteten Browser in der Desktopwelt.
 Diese Beobachtungen motivieren mich diese Arbeit zu verfassen: Automatisierung ist unumgänglich, weshalb man diese selbst bauen und damit unzähligen Entwicklern das leben leichter machen sollte.
 
 \newpage
@@ -234,15 +234,15 @@ In dieser Arbeit, wird eine hoch spezialisierte Sprache aus Token genutzt, um di
 \newpage
 \section{Rapid Frontend Prototyping - Überblick}\label{sec:rfp}
 
-RFP ist ein Tool, welches aus einfachen Website-Screenshots HTML/CSS Markup erzeugen kann. Dafür lernt ein System aus neuronalen Netzwerken eine einfache Domain Specific Language (DSL). Jeder Token in dieser Sprache hat zugehörigen HTML/CSS Code, wodurch eine Token-Sequenz einfach in diese Sprache kompiliert werden kann.
+RFP ist ein Tool, welches aus einfachen Website-Screenshots HTML/CSS Markup erzeugen kann. Dafür lernt ein System aus neuronalen Netzwerken den Zusammenhang von Screenshots und deren Code. 
 
 Um den Code für die Website Screenshots zu generieren, wird ein Modell bestehend aus zwei rekurrenten Netzwerken und einem Convolutional Neural Network erstellt. Das hier genutzte Modell ist eine Abwandlung des im Original Paper verwendeten Modells. Da die neue DSL komplexer als die im Original Paper\cite{Beltramelli17} ist, mussten die RNNs verändert werden. 
 
-Von einem Computer abgespeicherte Bilder sind ein denkbar schlechtes Format, um aus den Rohdaten auf deren Inhalte zu schließen. Die Pixel, die einem Bild zugrunde liegen, sind lediglich Helligkeitsinformationen, die einfach genutzt werden können, um für Menschen Bilder darzustellen, aber in roher Form eben sehr wenig Informationen enthalten, was in einem Bild dargestellt wird. Um aus diesen Zahlenwerten Schlussfolgerungen zu ziehen, müssen diese in mehreren Schritten abstrahiert werden, um bedeutungsvolle Features zu extrahieren. Hierfür wird ein CNN eingesetzt. Dieses verarbeitet das gegebene Input-Bild und erstellt eine niedrig-dimensionale Repräsentation. Die Architektur des CNN ist angelehnt an das VGGNet von Simonyan and Zisserman \cite{DBLP:journals/corr/SimonyanZ14a}.
+Von einem Computer abgespeicherte Bilder sind ein denkbar schlechtes Format, um aus den Rohdaten auf deren Inhalte zu schließen. Die Pixel, die einem Bild zugrunde liegen, sind lediglich Helligkeitsinformationen, die einfach genutzt werden können, um für Menschen Bilder darzustellen, aber in roher Form eben sehr wenig Informationen enthalten, was in einem Bild dargestellt wird. Um aus diesen Helligkeitsinformationen Schlussfolgerungen zu ziehen, müssen diese in mehreren Schritten abstrahiert werden, um bedeutungsvolle Features zu extrahieren. Hierfür wird ein CNN eingesetzt. Dieses verarbeitet das gegebene Input-Bild und erstellt eine niedrig-dimensionale Repräsentation aus bedeutungsvollen Features. 
 
-Als nächsten muss das Modell die Verwendung und Bedeutung der Spache, also der den Screenshot beschreibende Token-Sequenz, erlernen. Dafür wird ein RNN, das Sprach-Modell, genutzt, das sich eine Netzwerk-interne Repräsentation der Sprache generiert. 
+Als nächstes muss das Modell die Verwendung und Bedeutung der Sprache, also der den Screenshot beschreibende Token-Sequenz, erlernen. Dafür wird ein RNN, das Sprach-Modell, genutzt, welches eine Netzwerk-interne Repräsentation der Sprache erlernt. Dem Netzwerk direkt  HTML/CSS-Markup beizubringen, würde einen großen Overhead erzeugen, da pro Feature des Screenshots viele Tags, Klassen und Symbole benötigt werden, die aber auch einfach duch einen Token mit dazugehörigen Code repräsentiert werden können. So kann die Sprache einfach per One-Hot-Encoding übergeben werden und das Netzwerk kann sich auf die Zusammenhänge von High-Level Features des Screenshots und Token-Elementen konzentrieren.
 
-Diese beiden Schritte führen zu einer internen Repräsentation des Input-Bildes und der Input Sequenz. Als nächstes müssen diese beiden Elemente zusammengeführt und verstanden werden. Dies geschieht im zweiten RNN. Dieses Decoder-Modell bekommt die beiden Elemente als Input und erlernt eine Sequenz an Token zu erstellen, die das Input-Bild beschreibt. Zu sehen ist dieses Zusammenspiel in der Abbildung~\ref{fig:pix2code_paper_architecture}.
+Das CNN und das RNN  erzeugen eine interne Repräsentation des Input-Bildes und der Input Sequenz. Nun müssen die beiden Elemente zusammengeführt und verstanden werden. Dies geschieht im zweiten RNN. Das Decoder-Modell bekommt die beiden Elemente als Input und erlernt eine Sequenz an Token zu erstellen, die das Input-Bild beschreibt. Zu sehen ist dieses Zusammenspiel in der Abbildung~\ref{fig:pix2code_paper_architecture}.
 
 \begin{figure}[h]
 \centering
@@ -261,61 +261,79 @@ Die linke Seite der Abbildung~\ref{fig:pix2code_paper_architecture} stellt den Z
 \item $y_t$ wird dem Input $x_{t+1}$ angehängt.
 \end{enumerate}
 
-Während einer Prediction, erstellt das Netzwerk Token für Token, welche jeweils wieder mit den Input kommen, bis es feststellt, dass die Prediction abgeschlossen ist. Dies ist eine gängige Methode,ein Netzwerk für die Generierung von Sequenzen zu verwenden. cite{DBLP:journals/corr/Graves13}. Die Details hierzu sind in Abschnitt~\ref{sub:training} und Abschnitt~\ref{sub:sampling}. 
+Während einer Prediction, erstellt das Netzwerk Token für Token, bis es feststellt, dass die Prediction abgeschlossen ist. Die Details hierzu sind in Abschnitt~\ref{sub:training} und Abschnitt~\ref{sub:sampling}. 
 
 
 \subsection{Vision Modell}
  
-CNN ermöglichen eine aussagekräftige Repräsentation eines Inputs, hier eines Screenshots, zu finden. In dieser Arbeit geschieht das Lernen des CNNS unüberwacht. Das gesamte Modell wird zu einem möglichst geringen Klassifikationsfehler  optimiert, im Zuge dessen auch die Erlernung des Bildinhalts. Die Screenshots werden wir um Original Paper auf 256 mal 256 Pixel herunter skaliert, ohne Bewahrung der Seitenverhältnisse. Ähnlich des VGGNets \cite{DBLP:journals/corr/SimonyanZ14a} nutzt das CNN Convolutions mit einem 3 mal 3 Pixel großen Kernel, welche über ein ReLU aktiviert werden. Die 3x3 Convolution Ebenen werden jeweils zweimal hintereinander genutzt. Anschließend wird eine Pooling Ebene genutzt und ein Dropout ausgeführt. Wie im Code zu sehen ist, wird die Anzahl der Features pro \texttt{Conv2D/Conv2D/MaxPooling2D/Dropout}-Modul jeweils verdoppelt.
+Das CNN ermöglicht eine aussagekräftige Repräsentation des Input-Screenshots zu erstellen. Jeder Screenshot wird durch das CNN auf einen Vektor mit 1024 Features reduziert, welcher genug High-level-Informationen enthält um das Bild zu beschreiben. 
+ 
+In dieser Arbeit geschieht das Lernen des CNNs unüberwacht. Das gesamte Modell wird zu einem möglichst geringen Klassifikationsfehler  optimiert, im Zuge dessen erlernt das CNN die Representation des  Bildinhaltes. 
+
+Die Screenshots werden wie um Original Paper auf 256 mal 256 Pixel skaliert, ohne Bewahrung der Seitenverhältnisse. Wie das VGGNet \cite{DBLP:journals/corr/SimonyanZ14a} nutzt das CNN Convolutions mit einem 3 mal 3 Pixel großen Kernel, welche über ein ReLU aktiviert werden. Die 3x3 Convolution Ebenen werden jeweils zweimal hintereinander genutzt. Anschließend wird eine Pooling Ebene genutzt und ein Dropout ausgeführt. Wie im Code zu sehen ist, wird die Anzahl der Features pro \texttt{Conv2D/Conv2D/MaxPooling2D/Dropout}-Modul jeweils verdoppelt.
 
 \begin{verbatim}
-image_model = Sequential()
-image_model.add(Conv2D(32, (3, 3), padding='valid', activation='relu', 
-input_shape=input_shape))
-image_model.add(Conv2D(32, (3, 3), padding='valid', activation='relu')) 
-image_model.add(MaxPooling2D(pool_size=(2, 2)))
-image_model.add(Dropout(0.25))
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d_1 (Conv2D)            (None, 254, 254, 32)      896       
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 252, 252, 32)      9248      
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 126, 126, 32)      0         
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 126, 126, 32)      0         
+_________________________________________________________________
+conv2d_3 (Conv2D)            (None, 124, 124, 64)      18496     
+_________________________________________________________________
+conv2d_4 (Conv2D)            (None, 122, 122, 64)      36928     
+_________________________________________________________________
+max_pooling2d_2 (MaxPooling2 (None, 61, 61, 64)        0         
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 61, 61, 64)        0         
+_________________________________________________________________
+conv2d_5 (Conv2D)            (None, 59, 59, 128)       73856     
+_________________________________________________________________
+conv2d_6 (Conv2D)            (None, 57, 57, 128)       147584    
+_________________________________________________________________
+max_pooling2d_3 (MaxPooling2 (None, 28, 28, 128)       0         
+_________________________________________________________________
+dropout_3 (Dropout)          (None, 28, 28, 128)       0         
+_________________________________________________________________
+flatten_1 (Flatten)          (None, 100352)            0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 1024)              102761472 
+_________________________________________________________________
+dropout_4 (Dropout)          (None, 1024)              0         
+_________________________________________________________________
+dense_2 (Dense)              (None, 1024)              1049600   
+_________________________________________________________________
+dropout_5 (Dropout)          (None, 1024)              0         
+_________________________________________________________________
+repeat_vector_1 (RepeatVecto (None, 48, 1024)          0         
+=================================================================
 
-image_model.add(Conv2D(64, (3, 3), padding='valid', activation='relu'))
-image_model.add(Conv2D(64, (3, 3), padding='valid', activation='relu'))
-image_model.add(MaxPooling2D(pool_size=(2, 2)))
-image_model.add(Dropout(0.25))
-
-image_model.add(Conv2D(128, (3, 3), padding='valid', activation='relu'))
-image_model.add(Conv2D(128, (3, 3), padding='valid', activation='relu'))
-image_model.add(MaxPooling2D(pool_size=(2, 2)))
-image_model.add(Dropout(0.25))
-
-image_model.add(Flatten())
-image_model.add(Dense(1024, activation='relu'))
-image_model.add(Dropout(0.3))
-image_model.add(Dense(1024, activation='relu'))
-image_model.add(Dropout(0.3))
-
-image_model.add(RepeatVector(CONTEXT_LENGTH))
+Trainable params: 104,098,080
 \end{verbatim}
 
-Danach werden 2 Fully-Connected Ebenen (\texttt{Dense} im Code) genutzt. Anschließend wird der Output über den \texttt{RepeatVector} an das Decoder-RNN weitergegeben.
+Danach werden 2 Fully-Connected Ebenen (\texttt{Dense} im Code) genutzt, um aus den gefundenen Features eine 1024-dimensionale Repräsentation des Bildes zu finden. Anschließend wird der Output über den \texttt{RepeatVector} an das Decoder-RNN weitergegeben.
 
 \subsection{Sprach Modell}
 
-In diesem Teil des Netzwerkes wird eine Netzwerk-interne Repräsentation der DSL erlernt. Damit das Netzwerk die DSL verstehen kann, wird diese per One-Hot-Encoding übergeben. Weder die Repräsentation als String, noch die als One-Hot-Encoding gibt den einzelnen Token eine Bedeutung. Genau dafür wird das Sprach-Modell benötigt, denn die Netzwerk-interne Repräsentation erschafft eine detaillierte Sprache, welche ähnlich den Features aus höheren CNN Ebenen mehr Informationen enthält. 
+In diesem Teil des Netzwerkes wird eine interne Repräsentation der DSL erlernt. Damit das Netzwerk die DSL verwenden kann, wird diese per One-Hot-Encoding übergeben. Weder die Repräsentation als String, noch die als One-Hot-Encoding gibt den einzelnen Token eine Bedeutung untereinander. Genau dafür wird das Sprach-Modell benötigt, denn die Netzwerk-interne Repräsentation erschafft eine detaillierte Sprache, welche ähnlich den Features aus höheren CNN Ebenen mehr Informationen über den Kontext enthält. 
 
 Realisiert wird das Sprach-Modell durch zwei Ebenen aus rekurrenten Units. Im Original Paper wurden hier LSTM Units benutzt, in der Implementierung dieser Arbeit jedoch GRU Units. Beide rekurrenten Units unterscheiden sich hauptsächlich in der internen Verwaltung vorheriger Zustände und der Modellierung von längeren Beziehungen in den Input-Daten \cite{colahsBlogLSTM}. 
 
-Das Sprach Modell gibt nach der Enkodierung des Sprach-Inputs diesen an das Decoder-Modell weiter. Während des Trainings erhält das Sprach-Modell einen Input Vektor, gefüllt mit dem \texttt{start}-Token und dem ersten Token der zu dem Screenshot passenden Token-Sequenz. Dieser Vektor arbeitet mit einem Sliding-Window alle Tokens der Token-Sequenz ab, bis der gesamte Content an das Netzwerk übergeben wurde. Im Falle der Generierung von Code wird dem Sprach-Modell in der ersten Iteration ein leerer Vektor, nur mit dem \texttt{start}-Token gefüllt, übergeben. Dieser Vektor wird nun iterativ mit den Outputs des Netzwerkes befüllt, so wie das Netzwerk den \texttt{end}-Token generiert.
+Das Sprach Modell gibt nach der Enkodierung des Sprach-Inputs diesen an das Decoder-Modell weiter. 
 
-Diese Ebenen geben als Output die gesamte Verarbeitete Sequenz zurück. Dadurch hat dieser Output die Maße $\texttt{CONTEXT\_LENGTH} * \texttt{ANZAHL\_RNN\_UNITS}$. J
+Die RNN des Sprach Modells geben als Output die gesamte verarbeitete Sequenz zurück. Dadurch hat dieser Output die Maße $\texttt{CONTEXT\_LENGTH} * \texttt{ANZAHL\_RNN\_UNITS}$. 
 
 
 \subsection{Decoder Modell}
 
 
-Der Decoder-Teil generiert aus den zusammengefügten Outputs des Vision- und des Sprach-Modells die Token-Sequenz. Nachdem der Input-Screenshot sowie die dazugehörigen Tokens verarbeitet wurden, muss das Netzwerk nun den Zusammenhang zwischen diesen Daten erlernen. Übergeben werden die Daten folgendermaßen: \texttt{decoder = concatenate([encoded\_image, encoded\_text])}. Durch die \texttt{concatenate}-Funktion, wird jeder einzelne kodierte Sprach-Output mit einer Repräsentation des Screenshots verknüpft.  
+Der Decoder-Teil generiert aus den zusammengefügten Outputs des Vision- und des Sprach-Modells die Token-Sequenz. Nachdem der Input-Screenshot sowie die dazugehörigen Tokens verarbeitet wurden, muss das Netzwerk nun den Zusammenhang zwischen diesen Daten erlernen. Übergeben werden die Daten folgendermaßen: \texttt{decoder = concatenate([encoded\_image, encoded\_text])}. Durch die \texttt{concatenate}-Funktion, wird jeder einzelne kodierte Sprach-Token des Input-Kontexts mit einer Repräsentation des Screenshots verknüpft.  
 
-Auch dieser Teil des Netzwerkes besteht aus rekurrenten Units. Zum Vergleich, das Decoder-Modell hier hat viermal so viele Einheiten wie das Sprach Modell. Auch hier wurden bessere Ergebnisse bei der Benutzung von GRUs anstelle von LSTMs erzielt.
-
-Nachdem die Input-Daten von den beiden anderen Teilen des Netzes in eine Repräsentation derselben umgewandelt wurden, müssen diese Token für Token wieder in ein One-Hot-Encoding übersetzt werden. Das Decoder-Modell bekommt als Input gleichzeitig den Screenshot sowie im Falle des Trainings einen kodierten Ausschnitt aus der echten Sequenz oder im Falle des Generierens einen kodierten Ausschnitt der bisher generierten Tokens. Aus diesen beiden Daten erstellt es nun solange den nächsten Token bis das Modell zur Annahme kommt, dass der Inhalt abgearbeitet wurde. In diesem Fall wird der \texttt{end}-Token generiert und das Generieren wird eingestellt.
+Auch dieser Teil des Netzwerkes besteht aus rekurrenten Units. Zum Vergleich, das Decoder-Modell hat viermal so viele Einheiten wie das Sprach Modell. Auch hier wurden bessere Ergebnisse bei der Benutzung von GRUs anstelle von LSTMs erzielt. Im Gegensatz zu dem Sprach Modell, gibt dieser Teil des Netzwerkes nicht die gesamte Sequenz des Input-Kontexts zurück, sondern nur den nächsten Token. 
 
 
 \subsection{Mathematische Beschreibung}
@@ -350,14 +368,14 @@ Durch die Verkettung der jeweiligen Netzwerke ist die Gesamtarchitektur nach wie
 
 \subsection{Training}\label{sub:training}
 
-Da es für jeden Screenshot eine zugehörige Token-Sequenz mit variabler Länge gibt, müssen die Trainingsdaten mit einem Sliding-Window-Prinzip abgearbeitet werden. Dafür werden aus der Token-Sequenz $n$ Samples gebildet, wobei $n = len(token\_sequence) - \texttt{CONTEXT\_LENGTH}$. Das Modell bekommt pro Screenshot $n$ Paare aus Screenshot und dazugehörigem Token-Kontext. Wichtig hierbei ist, dem Modell mitzuteilen, wann eine Sequenz beginnt und wieder endet, dafür gibt es einen \texttt{start}-Token sowie einen \texttt{end}-Token. Diese werden als pre- bzw. suffix an die Token-Sequenz angefügt, bevor die $n$ Samples gebaut werden. Zur Veranschaulichung wird ein einfaches Beispiel durchgespielt:
+Da es für jeden Screenshot eine zugehörige Token-Sequenz mit variabler Länge gibt, müssen die Trainingsdaten mit einem Sliding-Window-Prinzip abgearbeitet werden. Dafür werden aus der Token-Sequenz $n$ Samples gebildet, wobei $n = len(token\_sequence) - \texttt{CONTEXT\_LENGTH}$. Das Modell bekommt pro Screenshot $n$ Paare aus Screenshot und dazugehörigem Token-Kontext. Wichtig hierbei ist, dem Modell mitzuteilen, wann eine Sequenz beginnt und wieder endet, dafür gibt es einen \texttt{start}-Token sowie einen \texttt{end}-Token. Diese werden als pre- bzw. suffix an die Token-Sequenz angefügt, bevor die $n$ Samples gebaut werden. Dies ist eine gängige Methode, um ein Netzwerk für die Generierung von unterschiedlich langen Sequenzen zu verwenden \cite{DBLP:journals/corr/Graves13}. Zur Veranschaulichung wird ein einfaches Beispiel durchgespielt:
 
 \begin{enumerate}
 	\item $X = (I, T)$ beschreibt den Datensatz bestehend aus Input-Bild $I$ und dazugehöriger Token-Sequenz $T$.
 	\item Um ein erstes Trainings-Sample zu bilden, wird ein Vektor $S_0$ der Länge $\texttt{CONTEXT\_LENGTH} = 6$ erstellt.
 	\item $S_0$ wird nur mit dem \texttt{start}-Token befüllt. $S_0 = \texttt{[start, none, none, none, none, none]}$
 	\item Für die Erstellung weiterer Trainingssample, wird $T$ mit einem Sliding-Window abgearbeitet. 
-	\item Zunächst wird der erste Token $t_0 = T(0) = \texttt{header}$ aus $T$ an erster Stelle des neuen Samples $S_1$ gesetzt und der \texttt{start}-Token rückt an zweite Stelle: \\
+	\item Zunächst wird der erste Token $t_0 = T(0) = \texttt{header}$ aus $T$ an erster Stelle des neuen Samples $S_1$ gesetzt und der \texttt{start}-Token rückt an die zweite Stelle: \\
 	$S_1 = \texttt{[header, start, none, none, none, none]}$
 	\item Das nächste Sample $S_2$ nimmt nun einen weiteren Token $t_1 = T(1) = \{$ aus $T$ mit auf, und verrückt die beiden schon vorhandenen, um eine Stelle weiter: \\
 	$S_2 = \texttt{[\{, header, start, none, none, none]}$
@@ -368,12 +386,12 @@ Da es für jeden Screenshot eine zugehörige Token-Sequenz mit variabler Länge 
 
 
 
-Die Aufgabe des Netzwerkes ist es nun, aus dem Input $x_n$ nächsten Token $y_{n+1}$ zu klassifizieren. So kann während des Trainings mit Backpropagation ein klassischer Multi-Class-Loss optimiert werden.
+Die Aufgabe des Netzwerkes ist es nun, aus dem Input $x_n$, den nächsten Token $y_{n+1}$ zu klassifizieren. So kann während des Trainings mit Backpropagation ein klassischer Multi-Class-Loss optimiert werden.
 \begin{equation}
 L(I, X) =  -\sum_{t=1}^T x_{t+1} log(y_t)
 \end{equation}
 
-Hierbei ist $x_{t+1}$ der erwartete Token und $y_t$ der berechnete Token. Das Modell ist in einer Gesamtheit ableitbar, dies bedeutet, der CNN-Teil kann zusammen mit den beiden LSTMs optimiert werden. Wie im Original Paper wurde mit RMSProp-Algorithmus trainiert mit einer Learning Rate von $0,0001$. Zur Erhöhung der numerischen Stabilität wurden die Output Gradienten in das Intervall $[-1,1]$ getrimmt. Es wird eine Dropout-Regulation genutzt als  Maßnahme gegen Overfitting. Im CNN nach den Max-Pooling Ebenen mit 25\% und nach den Fully-Connected Ebenen mit 30\%.
+Hierbei ist $x_{t+1}$ der erwartete Token und $y_t$ der berechnete Token. Das Modell ist in einer Gesamtheit ableitbar, dies bedeutet, der CNN-Teil kann zusammen mit den beiden RNNs optimiert werden. Wie im Original Paper wurde mit RMSProp-Algorithmus trainiert mit einer Learning Rate von $0,0001$. Zur Erhöhung der numerischen Stabilität wurden die Output Gradienten in das Intervall $[-1,1]$ getrimmt. Es wird eine Dropout-Regulation genutzt als  Maßnahme gegen Overfitting. Im CNN nach den Max-Pooling Ebenen mit 25\% und nach den Fully-Connected Ebenen mit 30\%.
 
 
 \subsection{Sampling}\label{sub:sampling}
@@ -393,7 +411,7 @@ Nachdem der \texttt{end}-Token erstellt wurde, kann probiert werden, aus der Tok
 
 Da im Zuge dieser Arbeit eine Erweiterung der DSL des Original Papers implementiert wurde, ist es erforderlich, neue Trainingsdaten zu synthetisieren. Ein Beispiel der neu synthetisierten Daten ist in der Abbildung~\ref{fig:beispiel_daten} zu sehen. Für die Arbeit wurden insgesamt 4 verschiedene Datensets synthetisiert, mit jeweils ca. 3000 bis 4000 Bildern. 
 
-Das DataCreationTool ist ein Programm, welches nach vorgegebenen Regeln einen Token-Baum erzeugt und diesen anschließend abspeichert. Jeder Token-Baum hat einen body-Token als Wurzel und der gesamte Inhalt liegt als dessen Kinder vor. Dafür wurde eine Helferklasse geschrieben, die ein Element des Token Baums abbildet. Diese kann zum einen Parameter wie den Token-Namen, den Inhalt und der Kinder speichern, zum anderen enthält sie Funktionen zum Konvertieren des Baumes zu einer String-Repräsentation sowie zum Rendering nach HTML/CSS. 
+Das \texttt{DataCreationTool} ist eine Sammlung von Python-Skripten, die nach vorgegebenen Regeln einen Token-Baum erzeugen. Jeder Token-Baum hat einen \texttt{body}-Token als Wurzel und der gesamte Inhalt liegt als dessen Kinder vor. Dafür wurde eine Helferklasse geschrieben, die ein Element des Token Baums abbildet. Diese kann zum einen Parameter wie den Token-Namen, den Inhalt und der Kinder speichern, zum anderen enthält sie Funktionen zum Konvertieren des Baumes zu einer String-Repräsentation sowie zum Rendering nach HTML/CSS. 
 
 \begin{figure}[h]
 \centering
@@ -517,7 +535,6 @@ Bei der Speicherung wird wie im Fall des Renderings eine rekursive Funktion auf 
 Zu jedem dieser Token, existiert ein Mapping nach HTML/CSS. In einer eigenen Datei \texttt{dsl-mapping.json} ist dies abgebildet:
 
 \begin{verbatim}
-  {
     "opening-tag": "{",
     "closing-tag": "}",
     "body": "<!DOCTYPE html>\n <head>\n <meta charset=\"utf-8\">\n ...
@@ -538,31 +555,44 @@ Zu jedem dieser Token, existiert ein Mapping nach HTML/CSS. In einer eigenen Dat
     "logo-right": "<a class=\"logo-right\">RFP</a>\n",
     "sidebar": "<div class=\"wrapper\">\n    <div id=\"sidebar\">\...
     "sidebar-element": "<li><a href=\"#\">[]</a><li>"  
-  }
-  
 \end{verbatim}
 
 Um somit aus einem Token-Baum HTML/CSS Markup zu erzeugen, startet der Wurzelknoten eine rekursive Rendering-Funktion. Diese nutzt dem zu den Knoten gehörigen Code und traversiert den gesamten Baum. Jeder Mapping String eines Tokens enthält einen Platzhalter, hier \texttt{\{\}}, mit dem signalisiert wird, wo der Code des Kinderknoten hingehört. Ähnlich gibt es ebenso einen Platzhalter für Text-Content, nämlich die Zeichen: \texttt{[]}. 
 Für den Text-Content werden im Zuge der Arbeit nur zufällige Zeichenfolgen genommen, damit das neuronale Netzwerk lernt nicht auf den Text zu achten. 
 
-Weitere Punkte im Zusammenhang mit der Erstellung der Trainingsdaten:
+Weitere Punkte im Zusammenhang mit der Erstellung der Trainingsdaten sind:
 
 \begin{description}
 	\item[Screenshot Erstellung] Nachdem der HTML/CSS String als Datei abgespeichert wurde, kann mit dem Tool \texttt{imgkit} ein \texttt{.png} oder \texttt{.jpg} erzeugt werden.
 	\item[Teilen der Trainingsdaten] Die Gesamten Trainingsdaten werden in einem Trainingsset mit einem Anteil von 70\%, einem Testset mit 20\% und einem Validierungsset mit 10\% der Bilder abgespeichert.
 \end{description}
 
+\subsection{Erweiterung der Sprache}
 
+Der große Unterschied zu dem Original Paper besteht darin, dass es in dem hier erstellten Datenset, zwei unterschiedliche Website-Typen gibt. Zum einen, die Website mit \texttt{header}-Element, zum anderen die Website mit der \texttt{sidebar}. Das Ziel der Netzwerke ist nun, nicht nur die eine Website zu lernen, sondern die unterschiedlichen Typen zu erfassen und den Content richtig einzufügen. Diese beiden Typen sind in Abbildung~\ref{fig:vergleich_daten} zu sehen.
+
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{beispiel_daten_2}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{beispiel_daten_3}
+  \end{minipage}
+\captionof{figure}{Beispiel der beiden Websiten Typen}
+  \label{fig:vergleich_daten}
+\end{figure}
 
 
 \newpage
 \section{Validierung der Ergebnisse}
 
-Um die Qualität der Ergebnisse zu vergleichen, wurde eine Metrik erstellt, welche anhand der Wichtigkeit der jeweiligen Elemente einen Score erstellt. Auf Token-Ebene einfach nach Fehlern zu suchen und jeden falschen Token gleich zu gewichten, würde zu nicht aussage-kräftigen Scores führen. Zum Beispiel ist ein Menü-Item zu viel oder zu wenig sehr viel weniger schlimm als eine falsche Kategorisierung des Headers der Website. Um eine ständig gleich bleibende Bewertung der trainierten Netzwerke zu schaffen, ist ein Jupyter Notebook \texttt{dataCreationTool/testScoring.ipynb} implementiert worden. Dieses analysiert die generierten Token-Sequenzen der getesteten Netzwerke. Dazu werden pro Datensatz mehrere Tests gemacht. Der erste Test überprüft ob der Header korrekt ist. Dieser ist einer der am stärksten gewichteten Tests. Danach wird festgestellt, ob die Anzahl der Menü-Item korrekt ist. Anschließend wird der Rest des Contents geprüft und zwar die Anzahl an Rows, der richtige Row-Type pro Row und die Anzahl der korrekten sowie falschen Buttons. Pro Datensatz wird so ein \texttt{error\_object} erstellt. 
+Um die Qualität der Ergebnisse zu vergleichen, wurde eine Metrik erstellt, welche anhand der Wichtigkeit der jeweiligen Elemente einen Score bildet. Auf Token-Ebene einfach nach Fehlern zu suchen und jeden falschen Token gleich zu gewichten, würde zu nicht aussage-kräftigen Scores führen. Zum Beispiel ist ein Menü-Item zu viel oder zu wenig sehr viel weniger schlimm als eine falsche Kategorisierung des Headers der Website. Um eine ständig gleich bleibende Bewertung der trainierten Netzwerke zu schaffen, ist ein Jupyter Notebook \texttt{dataCreationTool/testScoring.ipynb} implementiert worden. Dieses analysiert die generierten Token-Sequenzen der getesteten Netzwerke. Dazu werden pro Datensatz mehrere Tests gemacht. Der erste Test überprüft ob der Header korrekt ist. Dieser ist einer der am stärksten gewichteten Tests. Danach wird festgestellt, ob die Anzahl der Menü-Item korrekt ist. Anschließend wird der Rest des Contents geprüft und zwar die Anzahl an Rows, der richtige Row-Type pro Row und die Anzahl der korrekten sowie falschen Buttons. Pro Datensatz wird so ein \texttt{error\_object} erstellt. 
 Hier ein Beispiel:
 
 \begin{verbatim}
-{
  'countCorrectButtons': 1,
  'countCorrectRowType': 0,
  'countWrongButtons': 5,
@@ -576,7 +606,6 @@ Hier ein Beispiel:
  'trueFileName': 'true.gui',
  'trueHeaderType': 'sidebar',
  'true_token_count': 55
-}
 \end{verbatim}
 
 
@@ -597,26 +626,20 @@ score = cWB + dBC + dMB + 5 * cWRT + 5 * dRC + iHC * 10
 \end{description}
 
 Nachdem für jedes Testbild so ein Score berechnet wurde, kann ausgehend von diesem die Performance des Modells genauer bestimmt werden. Um die Verteilung der Scores pro Modell besser verstehen zu können, wird die Verteilung der Fehler anhand mehrerer Lageparameter beschrieben. Dazugehören verschiedene Durchschnitte und Quintile:
-
   \begin{verbatim}
-analysed_scores {
     'median': 6, 
     'mean': 7.47172859450727, 
     'g_mean': 6.192757554950546, 
     'h_mean': 5.272351955758953, 
-    'quintiles': {
+    'quintiles':
         'p20': 4,
         'p40': 5, 
         'p60': 7, 
         'p80': 9 
-	},
     'most_common_error_count': 5, 
     'count_most_common_error_count': 110
     'count_no_erros': 1, 
-}
  \end{verbatim}
-
-
 Ein weiteres wichtiges Werkzeug hierbei ist ein Histogramm über die Verteilung der Fehlerscores. Bei Vergleich von zwei Histogrammen, Abbildung~\ref{fig:bsp_plot_good} und Abbildung~\ref{fig:bsp_plot_bad}, erkennt man, dass bei Abbildung~\ref{fig:bsp_plot_good} die Anzahl an niedrigen Scores sehr viel höher ist, als bei Abbildung~\ref{fig:bsp_plot_bad}.
 
 Außerdem findet ein Vergleich der Fehler-Typ-Verteilungen aller Predictions gegenüber den 20\% schlechtesten Predictions statt.
@@ -660,7 +683,7 @@ Außerdem findet ein Vergleich der Fehler-Typ-Verteilungen aller Predictions geg
 \section{Experimente}\label{sec:experimente}
 
 In diesem Abschnitt wird beschrieben, welche Trainingsversuche durchgeführt wurden um ein bestmögliches Ergebnis zu erhalten. Die Beschreibungen für jeden Trainingsversuch sind jeweils in fünf Abschnitte unterteilt. Dazu gehört eine Einführung, das Datenset, eine Auflistung der veränderten Parameter, die Ergebnisse und ein Fazit.
-
+Die finale Zusammenfassung und Auswertung ist im Kapitel~\ref{sec:zusammenfassung} zu finden.
 \subsection*{Architektur}\label{sub:architektur}
 Bevor die Beschreibung der jeweiligen Experimente beginnt, hier eine Auflistung der Standard Parameter der Modelle. 
 
@@ -2003,7 +2026,11 @@ Im Vergleich zum Versuch Zwölf, macht dieses Modell sehr viel weniger Fehler be
 
 Der Fehler Score ist etwas geringer als im Versuch 12, aber im Grunde ist die Performance der beiden Modelle ziemlich ähnlich. Die geringe Vergrößerung des Decoder-Teils, hat so nicht zu einer signifikanten Verbesserung beigetragen. Da das Netzwerk bei einer stärkeren Vergrößerung zum Overfitting neigt (vergleiche mit Versuch 11, Abschnitt~\ref{sec:elf}, ist diese Konfiguration des Netzwerkes die wohl Effektivste.
 
-\section{Zusammenfassung der Versuchsergebnisse}
+\newpage
+\section{Zusammenfassung der Versuchsergebnisse}\label{sec:zusammenfassung}
+
+Trotz der vielen Fehlschläge, gelang es eine Architektur zu finden, welche die Ansprüche der DSL und der Komplexität der Screenshots abbilden konnte. Viele der Versuche sind nicht konvergiert oder hatten die Tendenz die Trainingsdaten auswendig zu lernen. Schließlich wurde eine Lösung gefunden, die viele Probleme gelöst hat:
+Das Ersetzen der LSTMs zu GRUs zeigte einen erstaunlichen Performance-Schub. Außerdem konnte mit einer Erhöhung der Kontext Länge die Architektur aus Versuch 7 und 12 noch mal verbessert werden, um schließlich die Konfiguration des 14. Versuches zu finden. 
 
 In Tabelle~\ref{tab:comparison} sind die drei Modelle mit der besten Performance aufgeführt. Eine kleine Vergrößerung der GRU-Architektur in Kombination mit der leicht erhöhten Kontext Länge im Versuch 14 hat das beste Ergebnis erzielt. Dieses Modell hat immer noch ca. 800.000 Parameter weniger als die Originale LSTM Architektur, performt aber um ein vielfaches besser auf den hier verwendeten Daten.
 
@@ -2018,19 +2045,15 @@ In Tabelle~\ref{tab:comparison} sind die drei Modelle mit der besten Performance
 \captionof{table}{Für jede der Metriken gilt: Je kleiner, desto besser}
 \label{tab:comparison}
 \end{table}
-
-Viele der Versuche sind nicht gut konvergiert oder hatten die Tendenz die Trainingsdaten auswendig zu lernen. Trotz der vielen Fehlschläge, gelang es eine Architektur zu finden, welche die Ansprüche der DSL und der Komplexität der Screenshots abbilden konnte. 
-Das Ersetzen der LSTMs zu GRUs zeigte einen erstaunlichen Performance-Schub, genauso mit einer Erhöhung der Kontext Länge, konnte so die Architektur aus Versuch Sieben noch mal verbessert werden, um schließlich bei der Konfiguration aus Versuch Zwölf anzukommen. 
-
 In vielen Bereichen der Sequenz Modellierung performen LSTMs und GRUs auf einer Ebene ohne einen signifikanten Gewinner auf einer der Seiten. Hier, im Bereich der Sprach-Modellierung in Verbindung mit der Analyse eines Screenshots gibt es aber einen klaren Gewinner: Die \textbf{Gated Recurrent Unit}.
 
-Verschiedene Publikationen \cite{paperGRUComparison}, \cite{lstmSearchSpace}, \cite{colahsBlogLSTM} deuteten stets auf eine ungefähre Ausgewogenheit der Scores der beiden RNN Varianten, aber auch darauf, dass, je nach spezieller Domäne eines Problems, eine Variante besser als die andere sein kann.
+Verschiedene Publikationen \cite{paperGRUComparison}, \cite{lstmSearchSpace}, \cite{colahsBlogLSTM} deuteten stets auf eine ungefähre Ausgewogenheit der Fähigkeiten der beiden RNN Varianten, aber auch darauf, dass, je nach spezieller Domäne eines Problems, eine Variante besser als die andere sein kann.
 
-Die Annahme, die im Rahmen dieser Arbeit getroffen wird, ist, dass die innere Struktur der GRU, siehe Abbildung~\ref{fig:gru}, besonders gut die Eltern/Kind Beziehungen der verwendeten DSL abbilden kann. Durch die, in GRUs verwendete, Kopplung der \texttt{forget}- und \texttt{add}-Gates kann diese Beziehung vielleicht besser abgebildet werden als in dem Cell-State des LSTMs. Vielleicht haben Fehler während des Löschens von Informationen aus dem Cell-State oder während dem Hinzufügen von Informationen zu demselben, bei LSTMs das Halten der Input-Historie zu kompliziert gemacht und verfälscht. Denn wenn der Zustand der Zellen nicht gut genug verwaltet wird, können die Langzeit-Beziehungen innerhalb der Daten nicht richtig modelliert werden, insbesondere die Eltern/Kind Beziehungen des DSL. Dies sieht man besonders bei Versuch zehn, wo auch eine besonders große LSTM-Architektur ein nur dürftiges Ergebnis produziert. In Abbildung~\ref{fig:bin13_row_type} erkennt man das wirklich schlechte Modellieren der Rows in diesem Ansatz. In Versuch Sieben und Zwölf auf der anderen Seite, sind diese Rows stets korrekt modelliert, woraus geschlossen werden könnte, dass diese GRUs besser in der Lage sind, Eltern/Kind Beziehungen zu modellieren. 
+Die Annahme, die im Rahmen dieser Arbeit getroffen wird, ist, dass die innere Struktur der GRU, siehe Abbildung~\ref{fig:gru}, besonders gut die Eltern/Kind Beziehungen der verwendeten DSL abbilden kann. Durch die, in GRUs verwendete, Kopplung der \texttt{forget}- und \texttt{add}-Gates kann diese Beziehung vielleicht besser abgebildet werden als in dem Cell-State des LSTMs. Vielleicht haben Fehler während des Löschens von Informationen aus dem Cell-State oder während dem Hinzufügen von Informationen zu demselben, bei LSTMs das Halten der Input-Historie zu kompliziert gemacht und verfälscht. Denn wenn der Zustand der Zellen nicht gut genug verwaltet wird, können die Langzeit-Beziehungen innerhalb der Daten nicht richtig modelliert werden, insbesondere die Eltern/Kind Beziehungen der DSL. Dies sieht man besonders bei Versuch zehn, wo auch eine besonders große LSTM-Architektur ein nur dürftiges Ergebnis produziert. In Abbildung~\ref{fig:bin13_row_type} erkennt man das wirklich schlechte Modellieren der Rows in diesem Ansatz. In Versuch Sieben und Zwölf auf der anderen Seite, sind diese Rows stets korrekt modelliert, woraus geschlossen werden könnte, dass diese GRUs besser in der Lage sind, Eltern/Kind Beziehungen zu modellieren. 
 
-So konnte auf der Suche nach den richtigen Parametern ein Modell gefunden werden, welches den Vorteil der GRUs nutzt und dadurch in der Lage war zu lernen, richtigen Code aus den Input-Bildern zu erstellen. Bei über 80\% der getesteten Bilder waren die einzigen Fehler die das Netzwerk gemacht hat, eine falsche Button-Farbe, größere und wichtigerere Elemente konnten stets korrekt vorhergesagt werden. 
+So konnte auf der Suche nach den richtigen Parametern ein Modell gefunden werden, welches den Vorteil der GRUs nutzt und dadurch in der Lage war zu lernen, richtigen Code aus den Input-Bildern zu erstellen. Bei über 80\% der getesteten Bilder waren die einzigen Fehler, die das Netzwerk gemacht hat, eine falsche Button-Farbe, größere und wichtigerere Elemente konnten stets korrekt vorhergesagt werden. 
 
-Dies führt zu einem Ende der Zusammenfassung der getätigten Experimente. Es wird gerne die Architektur des 14. Versuches präsentiert, um einen Teil zu der Automatisierung der Frontend-Entwicklung bei zu tragen.
+Dies führt zu einem Ende der Zusammenfassung der getätigten Experimente. Es wird die Architektur des 14. Versuches präsentiert, um einen Teil zu der Automatisierung der Frontend-Entwicklung bei zu tragen.
 
 Zusätzlich zu den Experimenten im Kapitel~\ref{sec:experimente} wurden im Anhang zwei weitere Arten von Versuchen durchgeführt. Der erste Versuch, siehe Abschnitt~\ref{sub:exception}, evaluiert, ob eine anderes Vision-Modell besser abschneidet als die im Original Paper benutzte Architektur. Hier konnte jedoch keine Verbesserung festgestellt werden. 
 Der zweite Versuch, siehe Abschnitt~\ref{sub:skizze}, testet ob die verwendeten Architekturen auch lernen können, mit einer Skizze einer Website den dazugehörigen Code zu generieren. Dort werden einige Ansätze und Versuche beschrieben, die in einer ausgebauten Form bestimmt ebenso gute Ergebnisse erzielen könnten wie die Code-Generierung aus den Screenshots. Leider ist noch sehr viel Arbeit nötig um an diesen Punkt zu gelangen.
@@ -2038,17 +2061,18 @@ Der zweite Versuch, siehe Abschnitt~\ref{sub:skizze}, testet ob die verwendeten 
 \newpage
 \section{Fazit}
 
-Das Ziel dieser Arbeit ist, folgender Frage auf den Grund zu gehen: Ist es möglich die auch komplexere Websiten mit pix2code Modell zu abzubilden?  
+Das Ziel dieser Arbeit war, folgender Frage auf den Grund zu gehen: Ist es möglich auch komplexere Websites mit dem pix2code Modell abzubilden?  
 
 Nein, das ist es nicht. Um komplexere Websites abzubilden, wird ein erweitertes Sprach-Vokabular benötigt und die Original Architektur scheiterte daran, diese zu verstehen.
-Die zugrunde liegende Original Architektur musste angepasst werden, damit die neuronalen Netzwerke zu einer akzeptablen Lösung konvergieren konnten. Dies wurde durch das Verwenden einer anderen Art von rekurrenten Netzwerken erreicht. Das Ersetzen der LSTMs zu GRUs hatte die Folge, dass das Modell den Zusammenhang zwischen DSL und Input-Bilder viel genauer abbilden konnte. So ist ein Beitrag dieser Arbeit die verbesserte Architektur, aber auch eine Evaluation, welche Art von rekurrenten Netzwerken besser ist, um eine HTML/CSS Markup beschreibende DSL zu modellieren. So kann ein neue, auf dem Original aufbauende, Architektur veröffentlicht werden, um Code aus Screenshots zu erstellen und die Empfehlung ausgesprochen werden, GRUs an stelle von LSTMs für diesen Task mit dem hier genutzten Datenset zu verwenden.
+Deswegen wurde die Original Architektur verbessert, damit die neuronalen Netzwerke zu einer akzeptablen Lösung konvergieren konnten. Dies wurde durch das Verwenden einer anderen Art von rekurrenten Netzwerken erreicht. Das Ersetzen der LSTMs zu GRUs hatte die Folge, dass das Modell den Zusammenhang zwischen DSL und Input-Bilder viel genauer abbilden konnte. So ist ein Beitrag dieser Arbeit, die verbesserte Architektur, aber auch eine Evaluation, welche Art von rekurrenten Netzwerken besser ist, um eine HTML/CSS Markup beschreibende DSL zu modellieren. So kann ein neue, auf dem Original aufbauende, Architektur veröffentlicht werden, um Code aus Screenshots zu erstellen und die Empfehlung ausgesprochen werden, GRUs an Stelle von LSTMs für diesen Task mit dem hier genutzten Datenset zu verwenden.
 
-Ein weiterer Beitrag ist ein synthetisiertes Datenset, aus Website-Screenshots und dazugehörigen Token-Token-Sequenzen. Mit diesem Datenset können viele weitere Experimente durchgeführt werde, um herauszufinden wie das Modellieren von Websites aus Screenshots noch besser funktionieren kann. Dieses Datenset enthält zwei verschiedene Ausführungen, nämlich die Screenshots die für das Training der Experimente genutzt wurde, aber auch ein zweites Set, welches Websites besteht, die so aussehen als ob diese skizziert sind. Damit können neuronale Netzwerke trainiert werden, um Websites aus Skizzen zu erstellen.
+Ein weiterer Beitrag ist ein synthetisiertes Datenset, aus Website-Screenshots und dazugehörigen Token-Sequenzen. Mit diesem Datenset können viele weitere Experimente durchgeführt werden, um herauszufinden wie das Modellieren von Websites aus Screenshots noch besser funktionieren kann. Dieses Datenset enthält zwei verschiedene Ausführungen, nämlich die Screenshots die für das Training der Experimente genutzt wurden, aber auch ein zweites Set, welches Websites aus besteht, die so aussehen als ob diese skizziert sind. Damit können neuronale Netzwerke trainiert werden, um Websites aus Skizzen zu erstellen.
 
-Schlussendlich ist diese Arbeit einer von vielen Bausteinen die benötigt werden, um in naher Zukunft die Erstellung von Websites zu weiter zu automatisieren. 
+Die Ergebnisse dieser Arbeit sind keinesfalls ausreichend, um die Frontend-Entwicklung von einem Tag auf den nächsten vollständig zu automatisieren. Sie ist viel mehr einer von vielen Schritten, die auf dem Weg dorthin gemacht werden müssen. 
 
-Naheliegend wäre der Schritt, die Erstellung des HTML-Markup sowie des CSS-Stylings voneinander zu trennen. So könnten beide Teile unabhängig von einander optimiert werden und es kann jeweils eine höher spezialisierte Lösung gefunden werden.
+Einer der nächsten Ansätze wäre es, auf den Zwischenschritt der Token-Sprache zu verzichten und ein System zu erstellen, was eine Trennung von Content und Style ermöglicht. So könnte ein erstes Netzwerk rohen HTML-Code erstellen, ein zweites CSS-Styles einfügen, um den Content richtig zu positionieren und zu stylen. Außerdem können die beiden Netzwerk-Teile unabhängig von einander optimiert werden, um so zu einer jeweils höher spezialisierten Lösung zu gelangen.
 
+Ebenfalls wäre es möglich und praktikabel, für das Training des Vision-Teils des Netzwerkes eine Autoencoder-Architektur mit einzubauen. Dadurch könnte wahrscheinlich eine bessere Repräsentation des Input-Bildes gefunden werden.
 
 
 \newpage
